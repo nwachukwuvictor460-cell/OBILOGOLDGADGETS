@@ -1,0 +1,3052 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OBILOGOLD Gadgets — Technology That Fits Your Life</title>
+<meta name="description" content="Discover, understand and compare the gadgets that are right for you. Genuine phones, laptops, audio and smart gadgets with AI-powered guidance.">
+<meta name="theme-color" content="#0A0A0A">
+
+<!-- ===== FAVICON ===== -->
+<link rel="icon" type="image/svg+xml" href="images/obilogold-favicon.svg">
+<link rel="apple-touch-icon" href="images/obilogold-favicon.svg">
+
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('obilogold-theme');
+    var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    var theme = saved || (prefersLight ? 'light' : 'dark');
+    document.documentElement.setAttribute('data-theme', theme);
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root,
+[data-theme="dark"] {
+  --gold: #C9A227;
+  --gold-light: #E5C76B;
+  --gold-bright: #F4DA7A;
+  --gold-dark: #9C7A1A;
+  --gold-muted: #6B5412;
+  --brand-blue: #2E6BE6;
+  --brand-blue-dark: #1A4FB8;
+
+  --black: #0A0A0A;
+  --charcoal: #1A1A1A;
+  --slate: #2A2A2A;
+  --gray-600: #6B6B6B;
+  --gray-400: #A0A0A0;
+  --gray-200: #E5E5E5;
+  --gray-100: #F5F5F5;
+  --white: #FFFFFF;
+
+  --navy: #0B1F3A;
+  --success: #0F9D58;
+  --warning: #F4B400;
+  --error: #D93025;
+  --info: #1A73E8;
+
+  --bg-primary: #0A0A0A;
+  --bg-secondary: #141414;
+  --bg-elevated: #1E1E1E;
+  --bg-hover: #252525;
+  --border-default: #2A2A2A;
+  --border-subtle: #1C1C1C;
+
+  --text-primary: #FFFFFF;
+  --text-secondary: #A0A0A0;
+  --text-muted: #6B6B6B;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.5);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.5);
+  --shadow-lg: 0 16px 40px rgba(0,0,0,0.6);
+  --shadow-gold: 0 0 32px rgba(201,162,39,0.18);
+
+  --hero-glow: radial-gradient(ellipse at 70% 40%, rgba(201,162,39,0.14), transparent 55%),
+               radial-gradient(ellipse at 20% 80%, rgba(11,31,58,0.5), transparent 55%);
+}
+
+[data-theme="light"] {
+  --gold: #A8871A;
+  --gold-light: #C9A227;
+  --gold-bright: #E5C76B;
+  --gold-dark: #8A6E14;
+  --gold-muted: #6B5412;
+  --brand-blue: #1A4FB8;
+  --brand-blue-dark: #0F3A8A;
+
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F7F7F7;
+  --bg-elevated: #EFEFEF;
+  --bg-hover: #EAEAEA;
+  --border-default: #E2E2E2;
+  --border-subtle: #EFEFEF;
+
+  --text-primary: #0A0A0A;
+  --text-secondary: #555555;
+  --text-muted: #888888;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+  --shadow-lg: 0 16px 40px rgba(0,0,0,0.12);
+
+  --hero-glow: radial-gradient(ellipse at 70% 40%, rgba(201,162,39,0.10), transparent 55%),
+               radial-gradient(ellipse at 20% 80%, rgba(11,31,58,0.06), transparent 55%);
+}
+
+:root {
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
+  --space-5: 24px; --space-6: 32px; --space-7: 48px; --space-8: 64px; --space-9: 96px;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Sora', 'Inter', sans-serif;
+
+  --text-xs: 12px; --text-sm: 14px; --text-base: 16px; --text-lg: 18px;
+  --text-xl: 22px; --text-2xl: 28px; --text-3xl: 36px; --text-4xl: 48px; --text-5xl: 64px;
+
+  --radius-sm: 6px; --radius-md: 10px; --radius-lg: 14px; --radius-xl: 20px; --radius-full: 9999px;
+
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+
+  --container-max: 1280px;
+}
+
+/* ============================================================
+   RESET
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition-base), color var(--transition-base);
+  overflow-x: hidden;
+}
+img, svg, video { display: block; max-width: 100%; height: auto; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { background: none; border: none; cursor: pointer; }
+a { color: var(--gold); text-decoration: none; transition: color var(--transition-fast); }
+a:hover { color: var(--gold-light); }
+ul, ol { list-style: none; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.5rem, 3.5vw, 2.25rem); }
+h3 { font-size: var(--text-2xl); }
+h4 { font-size: var(--text-xl); }
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+}
+
+/* ============================================================
+   LOGO — OBILOGOLD SVG lockup
+   ============================================================ */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-primary);
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.logo-img {
+  display: block;
+  width: auto;
+  height: 60px;
+  max-width: 300px;
+  object-fit: contain;
+  flex-shrink: 0;
+  transition: transform var(--transition-base), filter var(--transition-base);
+  filter: drop-shadow(0 2px 8px rgba(201,162,39,0.35));
+}
+.logo:hover .logo-img {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 4px 16px rgba(201,162,39,0.65));
+}
+.logo-img.img-broken { display: none; }
+
+/* Fallback text — only shows if SVG fails */
+.logo-text {
+  display: none;
+  flex-direction: column;
+  line-height: 1;
+  gap: 3px;
+}
+.logo-img.img-broken ~ .logo-text { display: flex; }
+
+.logo-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 21px;
+  letter-spacing: 0.005em;
+  background: linear-gradient(180deg, #F4DA7A 0%, #E5C76B 30%, #C9A227 60%, #9C7A1A 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #C9A227;
+}
+.logo-sub {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.48em;
+  text-transform: uppercase;
+  color: var(--brand-blue);
+  padding-left: 1px;
+}
+.logo-tagline {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #C9A227;
+  padding-left: 1px;
+}
+.logo-tagline .hands {
+  color: #E5C76B;
+  font-size: 10px;
+  line-height: 1;
+}
+
+/* Responsive scaling for the SVG logo */
+@media (max-width: 1180px) { .logo-img { height: 54px; max-width: 260px; } }
+@media (max-width: 900px)  { .logo-img { height: 48px; max-width: 230px; } }
+@media (max-width: 700px)  { .logo-img { height: 46px; max-width: 210px; } }
+@media (max-width: 480px)  {
+  .logo-img { height: 40px; max-width: 180px; }
+  .logo-name { font-size: 15px; }
+  .logo-sub { font-size: 7px; letter-spacing: 0.35em; }
+}
+
+/* ============================================================
+   UTILITY BAR
+   ============================================================ */
+.utility-bar {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  position: relative;
+}
+.utility-bar::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #2E6BE6, #1A4FB8);
+  pointer-events: none;
+}
+.utility-bar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  height: 40px;
+  flex-wrap: nowrap;
+}
+.utility-left, .utility-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  white-space: nowrap;
+}
+.utility-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+.utility-item:hover { color: var(--gold); }
+.utility-item svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+.utility-divider { width: 1px; height: 16px; background: var(--border-default); }
+
+@media (max-width: 900px) {
+  .utility-left .utility-item:not(.utility-primary) { display: none; }
+  .utility-right .utility-item:not(.utility-primary) { display: none; }
+}
+
+/* ============================================================
+   THEME TOGGLE
+   ============================================================ */
+.theme-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 60px;
+  height: 30px;
+  padding: 3px;
+  border-radius: var(--radius-full);
+  background: var(--bg-elevated);
+  border: 1px solid var(--gold);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 0 0 2px rgba(201,162,39,0.15), inset 0 1px 2px rgba(0,0,0,0.4);
+  margin-left: var(--space-2);
+  flex-shrink: 0;
+}
+.theme-toggle:hover {
+  box-shadow: 0 0 0 3px rgba(201,162,39,0.35), inset 0 1px 2px rgba(0,0,0,0.4);
+}
+.theme-toggle::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  transition: transform 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
+  z-index: 2;
+}
+[data-theme="light"] .theme-toggle::before { transform: translateX(30px); }
+.theme-toggle svg {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  z-index: 1;
+  transition: opacity var(--transition-fast), color var(--transition-fast);
+}
+.theme-toggle .icon-moon { right: 8px; color: var(--gold); opacity: 1; }
+.theme-toggle .icon-sun  { left: 8px;  color: var(--gold); opacity: 0; }
+[data-theme="light"] .theme-toggle .icon-moon { opacity: 0; }
+[data-theme="light"] .theme-toggle .icon-sun  { opacity: 1; }
+
+.floating-theme-toggle {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: var(--black);
+  display: grid;
+  place-items: center;
+  z-index: 999;
+  cursor: pointer;
+  border: 2px solid var(--black);
+  box-shadow:
+    0 8px 24px rgba(201,162,39,0.5),
+    0 0 0 3px rgba(201,162,39,0.25);
+  transition: all var(--transition-base);
+}
+.floating-theme-toggle:hover {
+  transform: translateY(-3px) scale(1.08);
+  box-shadow:
+    0 12px 32px rgba(201,162,39,0.7),
+    0 0 0 4px rgba(201,162,39,0.4);
+}
+.floating-theme-toggle svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2.2;
+  position: absolute;
+  transition: opacity var(--transition-fast), transform var(--transition-base);
+}
+.floating-theme-toggle .icon-sun  { opacity: 0; transform: rotate(-90deg); }
+.floating-theme-toggle .icon-moon { opacity: 1; transform: rotate(0deg); }
+[data-theme="light"] .floating-theme-toggle .icon-sun  { opacity: 1; transform: rotate(0deg); }
+[data-theme="light"] .floating-theme-toggle .icon-moon { opacity: 0; transform: rotate(90deg); }
+
+@media (max-width: 600px) {
+  .floating-theme-toggle { width: 46px; height: 46px; bottom: 16px; right: 16px; }
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.site-header {
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-subtle);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: background-color var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+}
+.site-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #C9A227 20%, #F4DA7A 50%, #C9A227 80%, transparent 100%);
+  background-size: 200% 100%;
+  animation: goldSweep 6s linear infinite;
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 3;
+}
+@keyframes goldSweep {
+  0%   { background-position: 0% 0; }
+  100% { background-position: 200% 0; }
+}
+.site-header.scrolled { box-shadow: var(--shadow-md); }
+
+.header-main {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-4) 0;
+}
+
+.search-bar {
+  position: relative;
+  max-width: 640px;
+  width: 100%;
+  margin: 0 auto;
+}
+.search-input {
+  width: 100%;
+  height: 48px;
+  padding: 0 56px 0 20px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+}
+.search-input::placeholder { color: var(--text-muted); }
+.search-input:hover { border-color: var(--gray-600); }
+.search-input:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: var(--bg-elevated);
+  box-shadow: 0 0 0 3px rgba(201,162,39,0.15);
+}
+.search-btn {
+  position: absolute;
+  right: 6px; top: 50%;
+  transform: translateY(-50%);
+  width: 38px; height: 38px;
+  border-radius: var(--radius-full);
+  background: var(--gold);
+  color: var(--black);
+  display: grid; place-items: center;
+  transition: background var(--transition-fast);
+}
+.search-btn:hover { background: var(--gold-light); }
+.search-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2.2; }
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.header-icon-btn {
+  position: relative;
+  width: 44px; height: 44px;
+  border-radius: var(--radius-full);
+  display: grid; place-items: center;
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+}
+.header-icon-btn:hover { background: var(--bg-hover); color: var(--gold); }
+.header-icon-btn svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+.icon-badge {
+  position: absolute;
+  top: 4px; right: 4px;
+  min-width: 18px; height: 18px;
+  padding: 0 4px;
+  background: var(--gold);
+  color: var(--black);
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  display: grid; place-items: center;
+}
+
+.ai-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  color: var(--black);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 12px rgba(201,162,39,0.2);
+  white-space: nowrap;
+  animation: aiPulse 3s ease-in-out infinite;
+}
+@keyframes aiPulse {
+  0%, 100% { box-shadow: 0 4px 12px rgba(201,162,39,0.2); }
+  50%      { box-shadow: 0 4px 20px rgba(201,162,39,0.55); }
+}
+.ai-pill:hover { color: var(--black); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(201,162,39,0.6); animation: none; }
+.ai-pill svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+/* ============================================================
+   NAV ROW + MEGA MENU
+   ============================================================ */
+.nav-row {
+  border-top: 1px solid var(--border-subtle);
+  position: relative;
+}
+.nav-row .container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  height: 52px;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex: 1;
+  height: 100%;
+}
+
+.nav-item {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 6px 0;
+  transition: color var(--transition-fast);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.nav-link:hover, .nav-link.active { color: var(--text-primary); }
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: -18px;
+  height: 2px;
+  background: var(--gold);
+}
+.nav-link .caret {
+  width: 10px; height: 10px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2.4;
+  transition: transform var(--transition-fast);
+}
+.nav-item:hover .nav-link .caret,
+.nav-item.open .nav-link .caret {
+  transform: rotate(180deg);
+}
+.nav-item:hover > .nav-link,
+.nav-item.open > .nav-link {
+  color: var(--text-primary);
+}
+.nav-link.battle {
+  color: var(--gold);
+  font-weight: 600;
+}
+.nav-link.battle svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.2; }
+
+.mega-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  min-width: 560px;
+  max-width: min(920px, calc(100vw - 40px));
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  border-top: 2px solid var(--gold);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-6);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-6) var(--space-7);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 200ms ease, transform 200ms ease, visibility 200ms;
+  z-index: 90;
+  box-sizing: border-box;
+}
+.nav-item.open > .mega-menu,
+.nav-item:hover > .mega-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.mega-menu.shift-left {
+  left: auto;
+  right: 0;
+  transform: translateX(0) translateY(-8px);
+}
+.nav-item.open > .mega-menu.shift-left,
+.nav-item:hover > .mega-menu.shift-left {
+  transform: translateX(0) translateY(0);
+}
+
+.mega-menu.shift-right {
+  left: 0;
+  transform: translateX(0) translateY(-8px);
+}
+.nav-item.open > .mega-menu.shift-right,
+.nav-item:hover > .mega-menu.shift-right {
+  transform: translateX(0) translateY(0);
+}
+
+.mega-menu.menu-sm {
+  min-width: 260px;
+  max-width: 320px;
+  grid-template-columns: 1fr;
+  padding: var(--space-3);
+}
+.mega-menu.menu-sm .menu-col { padding: 0; min-width: auto; }
+.mega-menu.menu-sm .menu-col a {
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  white-space: normal;
+}
+.mega-menu.menu-sm .menu-col a:hover {
+  background: var(--bg-elevated);
+  color: var(--gold);
+  padding-left: 14px;
+}
+
+.menu-col { display: flex; flex-direction: column; gap: var(--space-2); min-width: 160px; }
+.menu-col-title {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: var(--space-2);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+.menu-col a {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  transition: color var(--transition-fast), padding var(--transition-fast);
+  padding: 2px 0;
+  display: block;
+  white-space: nowrap;
+}
+.menu-col a:hover {
+  color: var(--gold);
+  padding-left: 6px;
+}
+
+.menu-footer-link {
+  grid-column: 1 / -1;
+  margin-top: var(--space-2);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--text-sm);
+  color: var(--gold);
+  font-weight: 600;
+}
+.menu-footer-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.2; transition: transform var(--transition-fast); }
+.menu-footer-link:hover svg { transform: translateX(4px); }
+
+.mode-toggle {
+  display: inline-flex;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  padding: 3px;
+  font-size: var(--text-xs);
+  font-weight: 600;
+}
+.mode-toggle button {
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+}
+.mode-toggle button.active { background: var(--gold); color: var(--black); }
+.mode-toggle button:not(.active):hover { color: var(--text-primary); }
+
+.hamburger {
+  display: none;
+  width: 40px; height: 40px;
+  border-radius: var(--radius-md);
+  place-items: center;
+  color: var(--text-primary);
+}
+.hamburger svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+@media (max-width: 1024px) {
+  .header-main { grid-template-columns: auto 1fr auto; gap: var(--space-3); }
+  .ai-pill span { display: none; }
+  .ai-pill { padding: 10px 12px; }
+  .nav-links { display: none; }
+  .mode-toggle { display: none; }
+  .hamburger { display: grid; }
+}
+@media (max-width: 700px) {
+  .search-bar { display: none; }
+}
+
+/* ============================================================
+   MOBILE MENU
+   ============================================================ */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-primary);
+  z-index: 200;
+  transform: translateX(100%);
+  transition: transform var(--transition-base);
+  overflow-y: auto;
+  padding: var(--space-5);
+}
+.mobile-menu.open { transform: translateX(0); }
+.mobile-menu-head {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: var(--space-6);
+}
+.mobile-menu-close {
+  width: 40px; height: 40px;
+  border-radius: var(--radius-full);
+  display: grid; place-items: center;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+}
+.mobile-menu-close svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+.mobile-menu-links { display: flex; flex-direction: column; gap: var(--space-2); }
+
+.mobile-nav-item {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.mobile-nav-item > a,
+.mobile-nav-item > button.mobile-nav-toggle {
+  width: 100%;
+  padding: var(--space-4);
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: var(--text-base);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  background: transparent;
+  transition: background var(--transition-fast);
+}
+.mobile-nav-item > a:hover,
+.mobile-nav-item > button.mobile-nav-toggle:hover {
+  background: var(--bg-elevated);
+  color: var(--gold);
+}
+.mobile-nav-item > a svg,
+.mobile-nav-item > button.mobile-nav-toggle svg {
+  width: 18px; height: 18px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  transition: transform var(--transition-fast);
+}
+.mobile-nav-item.open > button.mobile-nav-toggle svg.caret { transform: rotate(180deg); }
+
+.mobile-sub {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 300ms ease;
+}
+.mobile-nav-item.open .mobile-sub { max-height: 1400px; }
+.mobile-sub-inner {
+  padding: 4px var(--space-4) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-top: 1px solid var(--border-subtle);
+}
+.mobile-sub-group-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding: var(--space-3) 0 6px;
+}
+.mobile-sub a {
+  display: block;
+  padding: 8px 0;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+.mobile-sub a:hover { color: var(--gold); }
+
+.mobile-appearance {
+  margin-top: var(--space-5);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mobile-appearance-label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  position: relative;
+  padding: var(--space-9) 0;
+  overflow: hidden;
+  background: var(--bg-primary);
+  min-height: 620px;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--hero-glow);
+  pointer-events: none;
+}
+.hero-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-7);
+  align-items: center;
+  min-height: 540px;
+}
+.hero-slide {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-7);
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 600ms ease;
+  pointer-events: none;
+}
+.hero-slide.active { opacity: 1; visibility: visible; pointer-events: auto; }
+.hero-content { display: flex; flex-direction: column; gap: var(--space-4); max-width: 560px; }
+.hero-eyebrow {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.hero-title {
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+.hero-title .accent { color: var(--gold); }
+.hero-sub { font-size: var(--text-lg); color: var(--text-secondary); max-width: 520px; }
+.hero-ctas { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-2); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 14px 26px;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-radius: var(--radius-full);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  text-decoration: none;
+}
+.btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
+.btn-primary { background: var(--gold); color: var(--black); border-color: var(--gold); }
+.btn-primary:hover { background: var(--gold-light); border-color: var(--gold-light); color: var(--black); }
+.btn-secondary { background: transparent; color: var(--text-primary); border-color: var(--border-default); }
+.btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+.hero-badges { display: flex; gap: var(--space-5); margin-top: var(--space-4); flex-wrap: wrap; }
+.hero-badge { display: flex; align-items: center; gap: 8px; font-size: var(--text-sm); color: var(--text-secondary); }
+.hero-badge svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; stroke-width: 2; }
+
+.hero-visual { position: relative; height: 100%; min-height: 420px; display: grid; place-items: center; }
+.hero-visual-inner {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-elevated) 100%);
+  border: 1px solid var(--border-default);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow-lg);
+}
+.hero-visual-inner::before {
+  content: '';
+  position: absolute;
+  inset: -40%;
+  background: conic-gradient(from 180deg, transparent, rgba(201,162,39,0.25), transparent 40%);
+  animation: rotate 12s linear infinite;
+}
+@keyframes rotate { to { transform: rotate(360deg); } }
+.hero-visual-content {
+  position: relative;
+  z-index: 2;
+  width: 80%;
+  display: grid;
+  place-items: center;
+}
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+}
+
+/* -------- BATTLE HERO (hero slide 2) -------- */
+.battle-hero {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--space-4);
+  align-items: center;
+  width: 100%;
+  padding: var(--space-5);
+  position: relative;
+  z-index: 2;
+}
+.battle-product {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0;
+  overflow: hidden;
+}
+.battle-product .bp-image {
+  width: 100%;
+  height: 100px;
+  max-width: 100px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.battle-product .bp-name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  width: 100%;
+}
+.battle-product .bp-brand {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+}
+.battle-vs {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--text-2xl);
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.deal-hero {
+  width: 100%;
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  align-items: center;
+  text-align: center;
+}
+.deal-tag { font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+.deal-value {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--text-5xl);
+  color: var(--text-primary);
+  line-height: 1;
+}
+.deal-desc { font-size: var(--text-sm); color: var(--text-secondary); max-width: 260px; }
+
+.hero-dots {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+.hero-dot {
+  width: 28px; height: 3px;
+  border-radius: var(--radius-full);
+  background: var(--border-default);
+  transition: all var(--transition-fast);
+}
+.hero-dot.active { background: var(--gold); width: 44px; }
+
+@media (max-width: 900px) {
+  .hero { min-height: auto; padding: var(--space-7) 0; }
+  .hero-slide { grid-template-columns: 1fr; gap: var(--space-6); }
+  .hero-visual { min-height: 320px; order: -1; }
+  .hero-visual-inner { max-width: 320px; }
+  .battle-hero { grid-template-columns: 1fr; }
+  .battle-product .bp-image { height: 80px; max-width: 80px; }
+}
+
+/* ============================================================
+   SECTION HEADER
+   ============================================================ */
+.section { padding: var(--space-8) 0; }
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+}
+.section-head-text { display: flex; flex-direction: column; gap: 6px; }
+.section-eyebrow {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.section-title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; letter-spacing: -0.02em; }
+.section-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--gold);
+  white-space: nowrap;
+}
+.section-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.2; transition: transform var(--transition-fast); }
+.section-link:hover svg { transform: translateX(3px); }
+
+/* ============================================================
+   CATEGORIES
+   ============================================================ */
+.categories-scroll {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: var(--space-3);
+}
+@media (max-width: 1100px) { .categories-scroll { grid-template-columns: repeat(6, 1fr); } }
+@media (max-width: 800px)  { .categories-scroll { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 480px)  { .categories-scroll { grid-template-columns: repeat(3, 1fr); } }
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-2);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+.category-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  background: var(--bg-elevated);
+}
+.category-icon { width: 52px; height: 52px; display: grid; place-items: center; color: var(--gold); }
+.category-icon svg { width: 32px; height: 32px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+.category-name { font-size: var(--text-xs); font-weight: 600; color: var(--text-primary); text-align: center; }
+
+/* ============================================================
+   SPLIT
+   ============================================================ */
+.split-section {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: var(--space-6);
+  align-items: stretch;
+}
+@media (max-width: 1000px) { .split-section { grid-template-columns: 1fr; } }
+
+.featured-story {
+  position: relative;
+  border-radius: var(--radius-lg);
+  padding: var(--space-7);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--navy) 0%, #050d1a 100%);
+  border: 1px solid var(--border-default);
+  min-height: 480px;
+  color: white;
+}
+.featured-story::before {
+  content: '';
+  position: absolute;
+  top: -50%; right: -50%;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle, rgba(201,162,39,0.35), transparent 60%);
+}
+.featured-story > * { position: relative; z-index: 2; }
+.featured-story .story-eyebrow {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+.featured-story h3 { font-size: var(--text-3xl); color: white; line-height: 1.1; }
+.featured-story p { color: rgba(255,255,255,0.75); font-size: var(--text-sm); }
+
+.launches-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+@media (max-width: 1200px) { .launches-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 800px)  { .launches-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px)  { .launches-grid { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   PRODUCT CARD
+   ============================================================ */
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-base);
+  text-decoration: none;
+  color: inherit;
+}
+.product-card:hover { border-color: var(--border-default); transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+.product-media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: var(--bg-elevated);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+.product-media img.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 10%;
+  transition: transform var(--transition-slow);
+}
+.product-card:hover .product-media img.product-img { transform: scale(1.06); }
+
+.product-media .product-fallback {
+  width: 60%;
+  height: 60%;
+  color: var(--gold);
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.5;
+  display: none;
+}
+.product-media.img-failed img.product-img { display: none; }
+.product-media.img-failed .product-fallback { display: block; }
+
+.product-badges { position: absolute; top: 10px; left: 10px; display: flex; gap: 6px; flex-wrap: wrap; z-index: 3; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 9px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+}
+.badge-gold { background: var(--gold); color: var(--black); }
+.badge-dark { background: rgba(10,10,10,0.75); color: white; backdrop-filter: blur(6px); }
+
+.wish-btn {
+  position: absolute;
+  top: 10px; right: 10px;
+  width: 34px; height: 34px;
+  background: rgba(10,10,10,0.6);
+  backdrop-filter: blur(6px);
+  border-radius: var(--radius-full);
+  display: grid; place-items: center;
+  color: white;
+  transition: all var(--transition-fast);
+  z-index: 3;
+}
+.wish-btn:hover { background: var(--gold); color: var(--black); }
+.wish-btn.active { background: var(--gold); color: var(--black); }
+.wish-btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
+.wish-btn.active svg { fill: currentColor; }
+
+.product-body { padding: var(--space-4); display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.product-brand {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.product-name {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.6em;
+}
+.product-meta { display: flex; align-items: center; gap: 6px; font-size: var(--text-xs); color: var(--text-secondary); }
+.product-rating { display: flex; align-items: center; gap: 4px; color: var(--gold); }
+.product-rating svg { width: 12px; height: 12px; fill: currentColor; stroke: none; }
+.product-rating span { color: var(--text-muted); }
+.product-price { display: flex; align-items: baseline; gap: 8px; margin-top: auto; padding-top: var(--space-3); flex-wrap: wrap; }
+.product-price .current {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.product-price .current .currency { color: var(--gold); font-size: var(--text-sm); }
+.product-price .previous { font-size: var(--text-xs); color: var(--text-muted); text-decoration: line-through; }
+
+.ask-ai-btn {
+  position: absolute;
+  bottom: 10px; right: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 10px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: rgba(10,10,10,0.75);
+  color: var(--gold);
+  backdrop-filter: blur(6px);
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(201,162,39,0.4);
+  transition: all var(--transition-fast);
+  z-index: 3;
+  opacity: 0;
+}
+.product-card:hover .ask-ai-btn { opacity: 1; }
+.ask-ai-btn:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
+.ask-ai-btn svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 2.4; }
+
+/* Loading skeleton */
+.skeleton-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  min-height: 380px;
+}
+.skeleton-media {
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(90deg, var(--bg-elevated) 0%, var(--bg-hover) 50%, var(--bg-elevated) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+.skeleton-body { padding: var(--space-4); display: flex; flex-direction: column; gap: 10px; }
+.skeleton-line {
+  height: 12px;
+  background: linear-gradient(90deg, var(--bg-elevated) 0%, var(--bg-hover) 50%, var(--bg-elevated) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 4px;
+}
+.skeleton-line.w-40 { width: 40%; }
+.skeleton-line.w-80 { width: 80%; }
+.skeleton-line.w-60 { width: 60%; }
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Empty/error state */
+.grid-empty {
+  grid-column: 1 / -1;
+  padding: var(--space-7) var(--space-5);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  background: var(--bg-secondary);
+  border: 1px dashed var(--border-default);
+  border-radius: var(--radius-lg);
+}
+
+/* ============================================================
+   TRUST CARDS
+   ============================================================ */
+.trust-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-4); }
+@media (max-width: 1000px) { .trust-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 600px)  { .trust-grid { grid-template-columns: repeat(2, 1fr); } }
+
+.trust-card {
+  padding: var(--space-5);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  transition: all var(--transition-fast);
+}
+.trust-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+.trust-icon {
+  width: 40px; height: 40px;
+  display: grid; place-items: center;
+  border-radius: var(--radius-md);
+  background: rgba(201,162,39,0.1);
+  color: var(--gold);
+}
+.trust-icon svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+.trust-title { font-size: var(--text-sm); font-weight: 700; color: var(--text-primary); }
+.trust-desc { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; }
+
+/* ============================================================
+   GADGET BATTLE TEASER
+   ============================================================ */
+.battle-section { position: relative; padding: var(--space-8) 0; overflow: hidden; }
+.battle-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(201,162,39,0.08), transparent 70%);
+  pointer-events: none;
+}
+.battle-wrap {
+  position: relative;
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-elevated) 100%);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xl);
+  padding: var(--space-7);
+  overflow: hidden;
+}
+.battle-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--gold), transparent 40%, transparent 60%, var(--gold));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.6;
+}
+.battle-header { text-align: center; margin-bottom: var(--space-6); }
+.battle-arena {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--space-5);
+  align-items: center;
+  margin-bottom: var(--space-6);
+}
+.battle-fighter {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: center;
+  text-align: center;
+  transition: all var(--transition-base);
+  overflow: hidden;
+  min-width: 0;
+}
+.battle-fighter:hover { border-color: var(--gold); transform: translateY(-3px); }
+
+.battle-fighter .fighter-img {
+  width: 100%;
+  height: 160px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.battle-fighter .fighter-img img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.battle-fighter .fighter-img .fighter-svg-fallback {
+  width: 140px;
+  height: 200px;
+  max-width: 100%;
+  max-height: 100%;
+}
+.battle-fighter .fighter-img.img-failed img { display: none; }
+.battle-fighter .fighter-img:not(.img-failed) .fighter-svg-fallback { display: none; }
+
+.battle-fighter .fighter-brand {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--text-muted);
+}
+.battle-fighter .fighter-name {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+.battle-fighter .fighter-price { font-size: var(--text-sm); color: var(--gold); font-weight: 600; }
+.battle-center { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); }
+.battle-vs-big {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 48px;
+  color: var(--gold);
+  line-height: 1;
+  text-shadow: 0 0 24px rgba(201,162,39,0.5);
+}
+.battle-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+.battle-cta { display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap; }
+
+@media (max-width: 800px) {
+  .battle-arena { grid-template-columns: 1fr; }
+  .battle-fighter .fighter-img { height: 120px; }
+  .battle-fighter .fighter-img .fighter-svg-fallback { width: 100px; height: 150px; }
+}
+
+/* ============================================================
+   BEST SELLERS
+   ============================================================ */
+.bestsellers-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-4); }
+@media (max-width: 1200px) { .bestsellers-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 900px)  { .bestsellers-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px)  { .bestsellers-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 400px)  { .bestsellers-grid { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   OBILO AI BANNER
+   ============================================================ */
+.ai-banner-section { padding: var(--space-8) 0; }
+.ai-banner {
+  position: relative;
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  overflow: hidden;
+  background: linear-gradient(135deg, #0a1830 0%, #050d1a 60%, #0a0a0a 100%);
+  border: 1px solid var(--border-default);
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--space-7);
+  align-items: center;
+  color: white;
+}
+.ai-banner::before {
+  content: '';
+  position: absolute;
+  top: -30%; right: -10%;
+  width: 60%; height: 160%;
+  background: radial-gradient(circle, rgba(201,162,39,0.25), transparent 60%);
+  pointer-events: none;
+}
+.ai-banner-content { position: relative; z-index: 2; display: flex; flex-direction: column; gap: var(--space-4); }
+.ai-banner-content h2 { font-size: clamp(1.75rem, 3.5vw, 2.75rem); color: white; line-height: 1.1; }
+.ai-banner-content h2 .accent { color: var(--gold); }
+.ai-banner-content p { color: rgba(255,255,255,0.7); font-size: var(--text-base); max-width: 520px; }
+.ai-banner-cta { display: flex; gap: var(--space-3); margin-top: var(--space-2); flex-wrap: wrap; }
+.btn-white { background: white; color: var(--black); border-color: white; }
+.btn-white:hover { background: var(--gold); border-color: var(--gold); color: var(--black); }
+.btn-outline-white { background: transparent; color: white; border-color: rgba(255,255,255,0.3); }
+.btn-outline-white:hover { border-color: var(--gold); color: var(--gold); }
+
+.ai-banner-features { position: relative; z-index: 2; display: flex; flex-direction: column; gap: var(--space-3); }
+.ai-feature {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(8px);
+  color: rgba(255,255,255,0.9);
+  font-size: var(--text-sm);
+  transition: all var(--transition-fast);
+}
+.ai-feature:hover { background: rgba(201,162,39,0.08); border-color: rgba(201,162,39,0.3); }
+.ai-feature svg { width: 18px; height: 18px; stroke: var(--gold); fill: none; stroke-width: 2; flex-shrink: 0; }
+
+@media (max-width: 900px) {
+  .ai-banner { grid-template-columns: 1fr; padding: var(--space-6); }
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-subtle);
+  margin-top: var(--space-8);
+  transition: background-color var(--transition-base);
+}
+.footer-newsletter {
+  padding: var(--space-7) 0;
+  border-bottom: 1px solid var(--border-subtle);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  align-items: center;
+}
+@media (max-width: 800px) { .footer-newsletter { grid-template-columns: 1fr; } }
+.footer-newsletter h3 { font-size: var(--text-xl); margin-bottom: 4px; }
+.footer-newsletter p { font-size: var(--text-sm); color: var(--text-muted); }
+.newsletter-form {
+  display: flex;
+  gap: var(--space-2);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  padding: 6px;
+  transition: border-color var(--transition-fast);
+}
+.newsletter-form:focus-within { border-color: var(--gold); }
+.newsletter-form input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0 var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+}
+.newsletter-form input::placeholder { color: var(--text-muted); }
+.newsletter-form .btn { padding: 10px 22px; }
+
+.footer-main {
+  padding: var(--space-8) 0 var(--space-6);
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: var(--space-7);
+}
+@media (max-width: 900px) { .footer-main { grid-template-columns: 1fr 1fr; gap: var(--space-6); } }
+@media (max-width: 500px) { .footer-main { grid-template-columns: 1fr; } }
+
+.footer-brand { display: flex; flex-direction: column; gap: var(--space-4); }
+.footer-brand .logo { margin-bottom: var(--space-2); }
+.footer-brand p { font-size: var(--text-sm); color: var(--text-muted); max-width: 340px; }
+
+.social-row { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+.social-btn {
+  width: 38px; height: 38px;
+  border-radius: var(--radius-full);
+  display: grid; place-items: center;
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+.social-btn:hover { background: var(--gold); color: var(--black); }
+.social-btn svg { width: 16px; height: 16px; }
+
+.footer-col h4 {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+  letter-spacing: 0.02em;
+}
+.footer-col ul { display: flex; flex-direction: column; gap: var(--space-2); }
+.footer-col a { font-size: var(--text-sm); color: var(--text-muted); transition: color var(--transition-fast); }
+.footer-col a:hover { color: var(--gold); }
+
+.footer-location {
+  margin-top: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background: linear-gradient(135deg, rgba(201,162,39,0.08), rgba(46,107,230,0.06));
+  border: 1px solid rgba(201,162,39,0.25);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+.footer-location::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--gold), var(--brand-blue));
+}
+.footer-location:hover {
+  border-color: var(--gold);
+  background: linear-gradient(135deg, rgba(201,162,39,0.14), rgba(46,107,230,0.10));
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(201,162,39,0.15);
+}
+.footer-location svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 2;
+  flex-shrink: 0;
+  margin-top: 2px;
+  filter: drop-shadow(0 0 6px rgba(201,162,39,0.5));
+}
+.footer-location-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1.4;
+}
+.footer-location-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  filter: drop-shadow(0 0 4px rgba(201,162,39,0.35));
+}
+.footer-location-address {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.01em;
+}
+
+.footer-bottom {
+  padding: var(--space-5) 0;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+.footer-bottom-links { display: flex; gap: var(--space-5); flex-wrap: wrap; }
+.footer-bottom-links a { color: var(--text-muted); }
+.footer-bottom-links a:hover { color: var(--gold); }
+
+.hidden { display: none !important; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ============================================================
+     UTILITY BAR
+     ============================================================ -->
+<div class="utility-bar">
+  <div class="container">
+    <div class="utility-left">
+      <span class="utility-item utility-primary">
+        <svg viewBox="0 0 24 24"><path d="M5 18h14M5 18V8l7-5 7 5v10M9 18v-6h6v6"/></svg>
+        Fast Delivery
+      </span>
+      <span class="utility-divider"></span>
+      <span class="utility-item">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+        100% Genuine Gadgets
+      </span>
+      <span class="utility-divider"></span>
+      <span class="utility-item">
+        <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        Secure Payments
+      </span>
+    </div>
+    <div class="utility-right">
+      <a href="#" class="utility-item utility-primary">My Orders</a>
+      <span class="utility-divider"></span>
+      <a href="#" class="utility-item">Wishlist</a>
+      <span class="utility-divider"></span>
+      <a href="#" class="utility-item">Trade-In</a>
+      <span class="utility-divider"></span>
+      <a href="#" class="utility-item">Help &amp; Support</a>
+      <span class="utility-divider"></span>
+      <button class="theme-toggle" id="themeToggle" aria-label="Switch between light and dark mode" title="Light / Dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <div class="header-main">
+
+      <a href="index.html" class="logo" aria-label="OBILOGOLD Gadgets — Home">
+        <img class="logo-img"
+             src="images/obilogold-logo.svg"
+             alt="OBILOGOLD Gadgets — Quality or Nothing"
+             width="660" height="160"
+             onerror="this.classList.add('img-broken')">
+        <div class="logo-text">
+          <span class="logo-name">OBILOGOLD</span>
+          <span class="logo-sub">Gadgets</span>
+          <span class="logo-tagline"><span class="hands">✊</span>Quality or Nothing</span>
+        </div>
+      </a>
+
+      <form class="search-bar" id="searchForm" role="search">
+        <input type="search" class="search-input" id="searchInput" placeholder="Search for phones, laptops, accessories..." aria-label="Search products">
+        <button type="submit" class="search-btn" aria-label="Search">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+      </form>
+
+      <div class="header-actions">
+        <a href="ai/obilo-ai.html" class="ai-pill">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2 4 4 1-3 3 1 4-4-2-4 2 1-4-3-3 4-1z"/><circle cx="12" cy="17" r="2"/></svg>
+          <span>Ask OBILO AI</span>
+        </a>
+        <a href="account/wishlist.html" class="header-icon-btn" aria-label="Wishlist">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 10-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          <span class="icon-badge" id="wishCount" style="display:none;">0</span>
+        </a>
+        <a href="cart.html" class="header-icon-btn" aria-label="Cart">
+          <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+          <span class="icon-badge" id="cartCount">0</span>
+        </a>
+        <a href="account/login.html" class="header-icon-btn" aria-label="Account">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-row">
+    <div class="container">
+      <nav class="nav-links" aria-label="Main">
+
+        <a href="index.html" class="nav-link active">Home</a>
+
+        <div class="nav-item">
+          <span class="nav-link">
+            Shop
+            <svg class="caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+          <div class="mega-menu menu-sm" role="menu">
+            <div class="menu-col">
+              <a href="shop.html">All Products</a>
+              <a href="shop.html?sort=newest">New Arrivals</a>
+              <a href="shop.html?sort=popular">Best Sellers</a>
+              <a href="deals.html">Deals &amp; Offers</a>
+              <a href="gadget-hub.html">Gadget Hub</a>
+              <a href="trade-in.html">Trade-In Program</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <span class="nav-link">
+            Phones
+            <svg class="caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+          <div class="mega-menu" role="menu">
+            <div class="menu-col">
+              <div class="menu-col-title">By Brand</div>
+              <a href="shop.html?cat=phones&brand=apple">Apple iPhone</a>
+              <a href="shop.html?cat=phones&brand=samsung">Samsung Galaxy</a>
+              <a href="shop.html?cat=phones&brand=google">Google Pixel</a>
+              <a href="shop.html?cat=phones&brand=xiaomi">Xiaomi</a>
+              <a href="shop.html?cat=phones&brand=tecno">Tecno</a>
+              <a href="shop.html?cat=phones&brand=infinix">Infinix</a>
+              <a href="shop.html?cat=phones&brand=oppo">Oppo</a>
+              <a href="shop.html?cat=phones&brand=vivo">Vivo</a>
+              <a href="shop.html?cat=phones&brand=oneplus">OnePlus</a>
+            </div>
+            <div class="menu-col">
+              <div class="menu-col-title">By Price</div>
+              <a href="shop.html?cat=phones&price=0-200000">Under ₦200,000</a>
+              <a href="shop.html?cat=phones&price=200000-500000">₦200K – ₦500K</a>
+              <a href="shop.html?cat=phones&price=500000-1000000">₦500K – ₦1M</a>
+              <a href="shop.html?cat=phones&price=1000000-99999999">Above ₦1M</a>
+              <div class="menu-col-title" style="margin-top: var(--space-4);">By Feature</div>
+              <a href="shop.html?cat=phones&tag=5g">5G Phones</a>
+              <a href="shop.html?cat=phones&tag=gaming">Gaming Phones</a>
+              <a href="shop.html?cat=phones&tag=camera">Camera Phones</a>
+              <a href="shop.html?cat=phones&tag=battery">Big Battery</a>
+            </div>
+            <a href="shop.html?cat=phones" class="menu-footer-link">
+              View all phones
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <span class="nav-link">
+            Laptops
+            <svg class="caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+          <div class="mega-menu" role="menu">
+            <div class="menu-col">
+              <div class="menu-col-title">By Brand</div>
+              <a href="shop.html?cat=laptops&brand=apple">Apple MacBook</a>
+              <a href="shop.html?cat=laptops&brand=samsung">Samsung Galaxy Book</a>
+              <a href="shop.html?cat=laptops&brand=dell">Dell</a>
+              <a href="shop.html?cat=laptops&brand=hp">HP</a>
+              <a href="shop.html?cat=laptops&brand=lenovo">Lenovo</a>
+              <a href="shop.html?cat=laptops&brand=asus">ASUS</a>
+              <a href="shop.html?cat=laptops&brand=acer">Acer</a>
+              <a href="shop.html?cat=laptops&brand=msi">MSI</a>
+              <a href="shop.html?cat=laptops&brand=tecno">Tecno</a>
+              <a href="shop.html?cat=laptops&brand=infinix">Infinix</a>
+            </div>
+            <div class="menu-col">
+              <div class="menu-col-title">By Use</div>
+              <a href="shop.html?cat=laptops&tag=productivity">Productivity</a>
+              <a href="shop.html?cat=laptops&tag=gaming">Gaming</a>
+              <a href="shop.html?cat=laptops&tag=student">Student</a>
+              <a href="shop.html?cat=laptops&tag=creator">Creator / Design</a>
+              <a href="shop.html?cat=laptops&tag=business">Business</a>
+              <a href="shop.html?cat=laptops&tag=ultrabook">Ultrabook</a>
+            </div>
+            <div class="menu-col">
+              <div class="menu-col-title">By Price</div>
+              <a href="shop.html?cat=laptops&price=0-250000">Under ₦250,000</a>
+              <a href="shop.html?cat=laptops&price=250000-500000">₦250K – ₦500K</a>
+              <a href="shop.html?cat=laptops&price=500000-900000">₦500K – ₦900K</a>
+              <a href="shop.html?cat=laptops&price=900000-1500000">₦900K – ₦1.5M</a>
+              <a href="shop.html?cat=laptops&price=1500000-2500000">₦1.5M – ₦2.5M</a>
+              <a href="shop.html?cat=laptops&price=2500000-99999999">Above ₦2.5M</a>
+            </div>
+            <a href="shop.html?cat=laptops" class="menu-footer-link">
+              View all laptops
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <span class="nav-link">
+            Accessories
+            <svg class="caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+          <div class="mega-menu" role="menu">
+            <div class="menu-col">
+              <div class="menu-col-title">Phone Accessories</div>
+              <a href="shop.html?cat=accessories&type=chargers">Chargers &amp; Adapters</a>
+              <a href="shop.html?cat=accessories&type=cases">Cases &amp; Covers</a>
+              <a href="shop.html?cat=accessories&type=protectors">Screen Protectors</a>
+              <a href="shop.html?cat=accessories&type=cables">Cables</a>
+              <a href="shop.html?cat=accessories&type=powerbanks">Power Banks</a>
+            </div>
+            <div class="menu-col">
+              <div class="menu-col-title">More Accessories</div>
+              <a href="shop.html?cat=accessories&type=stands">Stands &amp; Holders</a>
+              <a href="shop.html?cat=accessories&type=car">Car Accessories</a>
+              <a href="shop.html?cat=accessories&type=memory">Memory &amp; Storage</a>
+              <a href="shop.html?cat=accessories&type=keyboards">Keyboards &amp; Mice</a>
+              <a href="shop.html?cat=accessories&type=webcams">Webcams</a>
+            </div>
+            <a href="shop.html?cat=accessories" class="menu-footer-link">
+              View all accessories
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <span class="nav-link">
+            Audio
+            <svg class="caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+          <div class="mega-menu" role="menu">
+            <div class="menu-col">
+              <div class="menu-col-title">Audio Types</div>
+              <a href="shop.html?cat=audio&type=earbuds">Earbuds</a>
+              <a href="shop.html?cat=audio&type=headphones">Headphones</a>
+              <a href="shop.html?cat=audio&type=speakers">Speakers</a>
+              <a href="shop.html?cat=audio&type=soundbars">Soundbars</a>
+              <a href="shop.html?cat=audio&type=microphones">Microphones</a>
+            </div>
+            <div class="menu-col">
+              <div class="menu-col-title">By Brand</div>
+              <a href="shop.html?cat=audio&brand=apple">Apple</a>
+              <a href="shop.html?cat=audio&brand=samsung">Samsung</a>
+              <a href="shop.html?cat=audio&brand=sony">Sony</a>
+              <a href="shop.html?cat=audio&brand=jbl">JBL</a>
+              <a href="shop.html?cat=audio&brand=bose">Bose</a>
+            </div>
+            <a href="shop.html?cat=audio" class="menu-footer-link">
+              View all audio
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <span class="nav-link">
+            Smart Gadgets
+            <svg class="caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+          <div class="mega-menu" role="menu">
+            <div class="menu-col">
+              <div class="menu-col-title">Smart Types</div>
+              <a href="shop.html?cat=smart&type=watches">Smartwatches</a>
+              <a href="shop.html?cat=smart&type=glasses">Smart Glasses</a>
+              <a href="shop.html?cat=smart&type=fitness">Fitness Trackers</a>
+              <a href="shop.html?cat=smart&type=rings">Smart Rings</a>
+            </div>
+            <div class="menu-col">
+              <div class="menu-col-title">Smart Home</div>
+              <a href="shop.html?cat=smart-home&type=lights">Smart Lights</a>
+              <a href="shop.html?cat=smart-home&type=cameras">Smart Cameras</a>
+              <a href="shop.html?cat=smart-home&type=plugs">Smart Plugs</a>
+              <a href="shop.html?cat=smart-home&type=speakers">Smart Speakers</a>
+            </div>
+            <a href="shop.html?cat=smart" class="menu-footer-link">
+              View all smart gadgets
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <a href="deals.html" class="nav-link">Deals</a>
+        <a href="brands.html" class="nav-link">Brands</a>
+        <a href="gadget-battle.html" class="nav-link battle">
+          <svg viewBox="0 0 24 24"><path d="M14.5 17.5L3 6V3h3l11.5 11.5M13 19l6-6M16 16l4 4M19 21l2-2"/><path d="M9.5 6.5L21 18v3h-3L6.5 9.5M5 13l-2 2M8 16l-4 4M3 19l2 2"/></svg>
+          Gadget Battle
+        </a>
+      </nav>
+
+      <div class="mode-toggle" id="modeToggle" title="Switch between simple and technical explanations">
+        <button data-mode="simple" class="active">Simple</button>
+        <button data-mode="tech">Tech</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     MOBILE MENU
+     ============================================================ -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-head">
+    <a href="index.html" class="logo" aria-label="OBILOGOLD Gadgets — Home">
+      <img class="logo-img"
+           src="images/obilogold-logo.svg"
+           alt="OBILOGOLD Gadgets — Quality or Nothing"
+           width="660" height="160"
+           onerror="this.classList.add('img-broken')">
+      <div class="logo-text">
+        <span class="logo-name">OBILOGOLD</span>
+        <span class="logo-sub">Gadgets</span>
+      </div>
+    </a>
+    <button class="mobile-menu-close" id="mobileClose" aria-label="Close menu">
+      <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <nav class="mobile-menu-links">
+    <div class="mobile-nav-item"><a href="index.html">Home</a></div>
+
+    <div class="mobile-nav-item">
+      <button class="mobile-nav-toggle" type="button">Shop <svg class="caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="mobile-sub"><div class="mobile-sub-inner">
+        <a href="shop.html">All Products</a>
+        <a href="shop.html?sort=newest">New Arrivals</a>
+        <a href="shop.html?sort=popular">Best Sellers</a>
+        <a href="deals.html">Deals &amp; Offers</a>
+        <a href="gadget-hub.html">Gadget Hub</a>
+        <a href="trade-in.html">Trade-In Program</a>
+      </div></div>
+    </div>
+
+    <div class="mobile-nav-item">
+      <button class="mobile-nav-toggle" type="button">Phones <svg class="caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="mobile-sub"><div class="mobile-sub-inner">
+        <div class="mobile-sub-group-title">By Brand</div>
+        <a href="shop.html?cat=phones&brand=apple">Apple iPhone</a>
+        <a href="shop.html?cat=phones&brand=samsung">Samsung Galaxy</a>
+        <a href="shop.html?cat=phones&brand=google">Google Pixel</a>
+        <a href="shop.html?cat=phones&brand=xiaomi">Xiaomi</a>
+        <a href="shop.html?cat=phones&brand=tecno">Tecno</a>
+        <a href="shop.html?cat=phones&brand=infinix">Infinix</a>
+        <a href="shop.html?cat=phones&brand=oppo">Oppo</a>
+        <a href="shop.html?cat=phones&brand=vivo">Vivo</a>
+        <a href="shop.html?cat=phones&brand=oneplus">OnePlus</a>
+        <div class="mobile-sub-group-title">By Price</div>
+        <a href="shop.html?cat=phones&price=0-200000">Under ₦200,000</a>
+        <a href="shop.html?cat=phones&price=200000-500000">₦200K – ₦500K</a>
+        <a href="shop.html?cat=phones&price=500000-1000000">₦500K – ₦1M</a>
+        <a href="shop.html?cat=phones&price=1000000-99999999">Above ₦1M</a>
+        <div class="mobile-sub-group-title">By Feature</div>
+        <a href="shop.html?cat=phones&tag=5g">5G Phones</a>
+        <a href="shop.html?cat=phones&tag=gaming">Gaming Phones</a>
+        <a href="shop.html?cat=phones&tag=camera">Camera Phones</a>
+        <a href="shop.html?cat=phones&tag=battery">Big Battery</a>
+      </div></div>
+    </div>
+
+    <div class="mobile-nav-item">
+      <button class="mobile-nav-toggle" type="button">Laptops <svg class="caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="mobile-sub"><div class="mobile-sub-inner">
+        <div class="mobile-sub-group-title">By Brand</div>
+        <a href="shop.html?cat=laptops&brand=apple">Apple MacBook</a>
+        <a href="shop.html?cat=laptops&brand=samsung">Samsung Galaxy Book</a>
+        <a href="shop.html?cat=laptops&brand=dell">Dell</a>
+        <a href="shop.html?cat=laptops&brand=hp">HP</a>
+        <a href="shop.html?cat=laptops&brand=lenovo">Lenovo</a>
+        <a href="shop.html?cat=laptops&brand=asus">ASUS</a>
+        <a href="shop.html?cat=laptops&brand=acer">Acer</a>
+        <a href="shop.html?cat=laptops&brand=msi">MSI</a>
+        <a href="shop.html?cat=laptops&brand=tecno">Tecno</a>
+        <a href="shop.html?cat=laptops&brand=infinix">Infinix</a>
+        <div class="mobile-sub-group-title">By Use</div>
+        <a href="shop.html?cat=laptops&tag=productivity">Productivity</a>
+        <a href="shop.html?cat=laptops&tag=gaming">Gaming</a>
+        <a href="shop.html?cat=laptops&tag=student">Student</a>
+        <a href="shop.html?cat=laptops&tag=creator">Creator / Design</a>
+        <a href="shop.html?cat=laptops&tag=business">Business</a>
+        <a href="shop.html?cat=laptops&tag=ultrabook">Ultrabook</a>
+        <div class="mobile-sub-group-title">By Price</div>
+        <a href="shop.html?cat=laptops&price=0-250000">Under ₦250,000</a>
+        <a href="shop.html?cat=laptops&price=250000-500000">₦250K – ₦500K</a>
+        <a href="shop.html?cat=laptops&price=500000-900000">₦500K – ₦900K</a>
+        <a href="shop.html?cat=laptops&price=900000-1500000">₦900K – ₦1.5M</a>
+        <a href="shop.html?cat=laptops&price=1500000-2500000">₦1.5M – ₦2.5M</a>
+        <a href="shop.html?cat=laptops&price=2500000-99999999">Above ₦2.5M</a>
+      </div></div>
+    </div>
+
+    <div class="mobile-nav-item">
+      <button class="mobile-nav-toggle" type="button">Accessories <svg class="caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="mobile-sub"><div class="mobile-sub-inner">
+        <a href="shop.html?cat=accessories&type=chargers">Chargers &amp; Adapters</a>
+        <a href="shop.html?cat=accessories&type=cases">Cases &amp; Covers</a>
+        <a href="shop.html?cat=accessories&type=protectors">Screen Protectors</a>
+        <a href="shop.html?cat=accessories&type=cables">Cables</a>
+        <a href="shop.html?cat=accessories&type=powerbanks">Power Banks</a>
+        <a href="shop.html?cat=accessories&type=stands">Stands &amp; Holders</a>
+        <a href="shop.html?cat=accessories&type=car">Car Accessories</a>
+        <a href="shop.html?cat=accessories&type=memory">Memory &amp; Storage</a>
+        <a href="shop.html?cat=accessories&type=keyboards">Keyboards &amp; Mice</a>
+      </div></div>
+    </div>
+
+    <div class="mobile-nav-item">
+      <button class="mobile-nav-toggle" type="button">Audio <svg class="caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="mobile-sub"><div class="mobile-sub-inner">
+        <a href="shop.html?cat=audio&type=earbuds">Earbuds</a>
+        <a href="shop.html?cat=audio&type=headphones">Headphones</a>
+        <a href="shop.html?cat=audio&type=speakers">Speakers</a>
+        <a href="shop.html?cat=audio&type=soundbars">Soundbars</a>
+        <a href="shop.html?cat=audio&type=microphones">Microphones</a>
+        <div class="mobile-sub-group-title">By Brand</div>
+        <a href="shop.html?cat=audio&brand=apple">Apple</a>
+        <a href="shop.html?cat=audio&brand=samsung">Samsung</a>
+        <a href="shop.html?cat=audio&brand=sony">Sony</a>
+        <a href="shop.html?cat=audio&brand=jbl">JBL</a>
+        <a href="shop.html?cat=audio&brand=bose">Bose</a>
+      </div></div>
+    </div>
+
+    <div class="mobile-nav-item">
+      <button class="mobile-nav-toggle" type="button">Smart Gadgets <svg class="caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="mobile-sub"><div class="mobile-sub-inner">
+        <div class="mobile-sub-group-title">Smart Types</div>
+        <a href="shop.html?cat=smart&type=watches">Smartwatches</a>
+        <a href="shop.html?cat=smart&type=glasses">Smart Glasses</a>
+        <a href="shop.html?cat=smart&type=fitness">Fitness Trackers</a>
+        <a href="shop.html?cat=smart&type=rings">Smart Rings</a>
+        <div class="mobile-sub-group-title">Smart Home</div>
+        <a href="shop.html?cat=smart-home&type=lights">Smart Lights</a>
+        <a href="shop.html?cat=smart-home&type=cameras">Smart Cameras</a>
+        <a href="shop.html?cat=smart-home&type=plugs">Smart Plugs</a>
+        <a href="shop.html?cat=smart-home&type=speakers">Smart Speakers</a>
+      </div></div>
+    </div>
+
+    <div class="mobile-nav-item"><a href="deals.html">Deals</a></div>
+    <div class="mobile-nav-item"><a href="brands.html">Brands</a></div>
+    <div class="mobile-nav-item"><a href="gadget-battle.html" style="color: var(--gold);">Gadget Battle</a></div>
+    <div class="mobile-nav-item"><a href="ai/obilo-ai.html" style="color: var(--gold);">Ask OBILO AI</a></div>
+  </nav>
+
+  <div class="mobile-appearance">
+    <span class="mobile-appearance-label">Appearance</span>
+    <button class="theme-toggle" id="themeToggleMobile" aria-label="Toggle theme">
+      <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-track" id="heroTrack">
+
+      <div class="hero-slide active" data-slide="0">
+        <div class="hero-content">
+          <p class="hero-eyebrow">Premium Gadgets · Smarter Choices</p>
+          <h1 class="hero-title">Technology That <span class="accent">Fits Your Life.</span></h1>
+          <p class="hero-sub">Discover, understand and compare the gadgets that are right for you. Every product genuine, verified, and backed by real support.</p>
+          <div class="hero-ctas">
+            <a href="shop.html" class="btn btn-primary">Shop Gadgets <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="ai/obilo-ai.html" class="btn btn-secondary">
+              <svg viewBox="0 0 24 24"><path d="M12 2l2 4 4 1-3 3 1 4-4-2-4 2 1-4-3-3 4-1z"/></svg>
+              Ask OBILO AI
+            </a>
+          </div>
+          <div class="hero-badges">
+            <span class="hero-badge"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Latest Devices</span>
+            <span class="hero-badge"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Best Prices</span>
+            <span class="hero-badge"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Expert Support</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-visual-inner">
+            <div class="hero-visual-content" id="heroVisualContent">
+              <svg viewBox="0 0 400 400" style="width:100%;height:100%">
+                <defs>
+                  <linearGradient id="heroGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#C9A227"/>
+                    <stop offset="100%" stop-color="#9C7A1A"/>
+                  </linearGradient>
+                </defs>
+                <rect x="130" y="60" width="140" height="260" rx="20" fill="url(#heroGrad)" opacity="0.9"/>
+                <rect x="138" y="70" width="124" height="240" rx="14" fill="#0A0A0A"/>
+                <circle cx="200" cy="290" r="8" fill="#2A2A2A"/>
+                <rect x="155" y="90" width="90" height="180" rx="4" fill="#1A1A1A"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-slide" data-slide="1">
+        <div class="hero-content">
+          <p class="hero-eyebrow">This Week's Battle</p>
+          <h1 class="hero-title">iPhone 15 Pro Max <span class="accent">vs</span> Galaxy S24 Ultra</h1>
+          <p class="hero-sub">Which flagship should you actually buy? Get OBILO AI's verdict, side-by-side specs, and the honest truth about each one.</p>
+          <div class="hero-ctas">
+            <a href="gadget-battle.html" class="btn btn-primary">See the Verdict <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="compare.html" class="btn btn-secondary">Compare Yourself</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-visual-inner">
+            <div class="battle-hero">
+              <div class="battle-product">
+                <img class="bp-image" id="battleProductA"
+                     src="images/iphone-15-pro-max.jpg"
+                     alt="iPhone 15 Pro Max" width="200" height="200" loading="lazy"
+                     onerror="this.style.display='none'">
+                <span class="bp-brand">Apple</span>
+                <span class="bp-name">iPhone 15 Pro Max</span>
+              </div>
+              <div class="battle-vs">VS</div>
+              <div class="battle-product">
+                <img class="bp-image" id="battleProductB"
+                     src="images/galaxy-s24-ultra.jpg"
+                     alt="Samsung Galaxy S24 Ultra" width="200" height="200" loading="lazy"
+                     onerror="this.style.display='none'">
+                <span class="bp-brand">Samsung</span>
+                <span class="bp-name">Galaxy S24 Ultra</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-slide" data-slide="2">
+        <div class="hero-content">
+          <p class="hero-eyebrow">OBILO Deals · Limited Time</p>
+          <h1 class="hero-title">Save Up To <span class="accent">25% Off</span> This Week</h1>
+          <p class="hero-sub">Flash deals across phones, laptops, audio, and accessories. Real discounts, real stock, no fake urgency.</p>
+          <div class="hero-ctas">
+            <a href="deals.html" class="btn btn-primary">Shop Deals <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-visual-inner">
+            <div class="deal-hero">
+              <span class="deal-tag">Flash Sale</span>
+              <span class="deal-value">-25%</span>
+              <p class="deal-desc">On selected gadgets. Ends Sunday 11:59 PM.</p>
+              <a href="deals.html" class="btn btn-primary">Shop Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="hero-dots" id="heroDots" role="tablist" aria-label="Hero slides">
+      <button class="hero-dot active" data-slide="0" aria-label="Slide 1"></button>
+      <button class="hero-dot" data-slide="1" aria-label="Slide 2"></button>
+      <button class="hero-dot" data-slide="2" aria-label="Slide 3"></button>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-head-text">
+        <span class="section-eyebrow">Browse by Category</span>
+        <h2 class="section-title">Featured Categories</h2>
+      </div>
+      <a href="shop.html" class="section-link">View All Categories <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="categories-scroll">
+      <a href="shop.html?cat=phones" class="category-card"><div class="category-icon"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><circle cx="12" cy="18" r="0.8" fill="currentColor"/></svg></div><span class="category-name">Phones</span></a>
+      <a href="shop.html?cat=laptops" class="category-card"><div class="category-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M2 20h20"/></svg></div><span class="category-name">Laptops</span></a>
+      <a href="shop.html?cat=tablets" class="category-card"><div class="category-icon"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="0.8" fill="currentColor"/></svg></div><span class="category-name">Tablets</span></a>
+      <a href="shop.html?cat=audio" class="category-card"><div class="category-icon"><svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0118 0v6"/><rect x="1" y="14" width="5" height="8" rx="1.5"/><rect x="18" y="14" width="5" height="8" rx="1.5"/></svg></div><span class="category-name">Audio</span></a>
+      <a href="shop.html?cat=smart" class="category-card"><div class="category-icon"><svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><span class="category-name">Smartwatches</span></a>
+      <a href="shop.html?cat=smart" class="category-card"><div class="category-icon"><svg viewBox="0 0 24 24"><circle cx="6" cy="15" r="3"/><circle cx="18" cy="15" r="3"/><path d="M9 15h6M6 12V8a2 2 0 012-2h1M18 12V8a2 2 0 00-2-2h-1"/></svg></div><span class="category-name">Smart Glasses</span></a>
+      <a href="shop.html?cat=gaming" class="category-card"><div class="category-icon"><svg viewBox="0 0 24 24"><path d="M6 12h12M12 6v12"/><circle cx="12" cy="12" r="9"/></svg></div><span class="category-name">Gaming</span></a>
+      <a href="shop.html?cat=accessories" class="category-card"><div class="category-icon"><svg viewBox="0 0 24 24"><path d="M9 3v6a3 3 0 006 0V3M12 12v6a3 3 0 003 3h3"/></svg></div><span class="category-name">Accessories</span></a>
+      <a href="shop.html?cat=power" class="category-card"><div class="category-icon"><svg viewBox="0 0 24 24"><rect x="4" y="7" width="14" height="10" rx="2"/><path d="M22 11v2"/><path d="M8 7V6a2 2 0 012-2h2a2 2 0 012 2v1"/></svg></div><span class="category-name">Power</span></a>
+      <a href="shop.html?cat=smart-home" class="category-card"><div class="category-icon"><svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9v9a1 1 0 01-1 1h-5v-7h-6v7H4a1 1 0 01-1-1z"/></svg></div><span class="category-name">Smart Home</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- SPLIT -->
+<section class="section" style="padding-top: 0;">
+  <div class="container">
+    <div class="split-section">
+      <a href="gadget-hub.html" class="featured-story">
+        <span class="story-eyebrow">Featured Story</span>
+        <h3>The Future Is Here</h3>
+        <p>Explore the latest innovations, from next-gen smartphones to powerful laptops built for real work.</p>
+        <span class="btn btn-primary" style="align-self: flex-start; margin-top: 8px;">Explore Now <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <div>
+        <div class="section-head" style="margin-bottom: var(--space-5);">
+          <div class="section-head-text">
+            <span class="section-eyebrow">Just Arrived</span>
+            <h2 class="section-title">New Launches</h2>
+          </div>
+          <a href="shop.html?sort=newest" class="section-link">View All <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+
+        <div class="launches-grid" id="newLaunchesGrid" aria-live="polite">
+          <!-- Rendered by JS from data/products.json -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY SHOP -->
+<section class="section" style="padding-top: 0;">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-head-text">
+        <span class="section-eyebrow">Trusted by Thousands</span>
+        <h2 class="section-title">Why Shop With OBILOGOLD GADGETS?</h2>
+      </div>
+      <a href="about.html" class="section-link">Learn More <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg></div>
+        <div class="trust-title">Genuine Products</div>
+        <div class="trust-desc">100% authentic gadgets from trusted brands, verified before they reach you.</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+        <div class="trust-title">Secure Payments</div>
+        <div class="trust-desc">Pay safely with card, bank transfer, or USSD via Paystack. Your data is protected.</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M5 18h14M5 18V8l7-5 7 5v10M9 18v-6h6v6"/></svg></div>
+        <div class="trust-title">Fast Delivery</div>
+        <div class="trust-desc">Nationwide delivery with real-time tracking. Lagos same-day where available.</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 109-9"/><path d="M3 4v5h5"/></svg></div>
+        <div class="trust-title">Easy Returns</div>
+        <div class="trust-desc">Hassle-free 7-day returns if something isn't right. Clear, honest policy.</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0118 0v6"/><rect x="1" y="14" width="5" height="8" rx="1.5"/><rect x="18" y="14" width="5" height="8" rx="1.5"/></svg></div>
+        <div class="trust-title">Expert Support</div>
+        <div class="trust-desc">Real humans and OBILO AI, ready 24/7 to help before and after your purchase.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     GADGET BATTLE
+     ============================================================ -->
+<section class="battle-section">
+  <div class="container">
+    <div class="battle-wrap">
+      <div class="battle-header">
+        <span class="section-eyebrow">Gadget Battle · This Week</span>
+        <h2 class="section-title" style="margin-top: 6px;">Two Flagships. One Winner.</h2>
+        <p style="color: var(--text-secondary); font-size: var(--text-sm); margin-top: 8px; max-width: 520px; margin-left: auto; margin-right: auto;">
+          Real specs, real prices, honest verdict from OBILO AI. No sponsored picks, no fake hype.
+        </p>
+      </div>
+
+      <div class="battle-arena">
+        <a href="product.html?id=iphone-15-pro-max" class="battle-fighter">
+          <div class="fighter-img" id="battleFighterA">
+            <img src="images/iphone-15-pro-max.jpg"
+                 alt="iPhone 15 Pro Max"
+                 width="300" height="300" loading="lazy"
+                 onerror="this.parentElement.classList.add('img-failed')">
+            <svg class="fighter-svg-fallback" viewBox="0 0 200 300" aria-hidden="true">
+              <defs>
+                <linearGradient id="iphoneTitan" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#4A4A4A"/>
+                  <stop offset="50%" stop-color="#2A2A2A"/>
+                  <stop offset="100%" stop-color="#1A1A1A"/>
+                </linearGradient>
+                <linearGradient id="iphoneScreen" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#0A1830"/>
+                  <stop offset="100%" stop-color="#050D1A"/>
+                </linearGradient>
+                <linearGradient id="iphoneGlow" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#C9A227" stop-opacity="0.6"/>
+                  <stop offset="100%" stop-color="#C9A227" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <rect x="30" y="10" width="140" height="280" rx="28" fill="url(#iphoneTitan)" stroke="#C9A227" stroke-width="1.5"/>
+              <rect x="38" y="18" width="124" height="264" rx="22" fill="url(#iphoneScreen)"/>
+              <rect x="82" y="28" width="36" height="12" rx="6" fill="#0A0A0A"/>
+              <rect x="38" y="18" width="124" height="264" rx="22" fill="url(#iphoneGlow)" opacity="0.4"/>
+              <rect x="48" y="28" width="34" height="34" rx="9" fill="#1A1A1A" stroke="#C9A227" stroke-width="0.8" opacity="0.6"/>
+              <circle cx="65" cy="45" r="6" fill="#0A0A0A" stroke="#4A4A4A" stroke-width="1"/>
+              <circle cx="65" cy="45" r="3" fill="#2E6BE6" opacity="0.5"/>
+              <rect x="80" y="272" width="40" height="3" rx="1.5" fill="#4A4A4A"/>
+              <path d="M40 40 Q60 120 45 250" stroke="#C9A227" stroke-width="1" fill="none" opacity="0.35" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="fighter-brand">Apple</span>
+          <span class="fighter-name">iPhone 15 Pro Max</span>
+          <span class="fighter-price">₦1,750,000</span>
+        </a>
+
+        <div class="battle-center">
+          <span class="battle-label">Battle 001</span>
+          <span class="battle-vs-big">VS</span>
+          <span class="battle-label">7 Days Left</span>
+        </div>
+
+        <a href="product.html?id=galaxy-s24-ultra" class="battle-fighter">
+          <div class="fighter-img" id="battleFighterB">
+            <img src="images/galaxy-s24-ultra.jpg"
+                 alt="Samsung Galaxy S24 Ultra"
+                 width="300" height="300" loading="lazy"
+                 onerror="this.parentElement.classList.add('img-failed')">
+            <svg class="fighter-svg-fallback" viewBox="0 0 200 300" aria-hidden="true">
+              <defs>
+                <linearGradient id="galaxyBody" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#3A3A3A"/>
+                  <stop offset="50%" stop-color="#1E1E1E"/>
+                  <stop offset="100%" stop-color="#0A0A0A"/>
+                </linearGradient>
+                <linearGradient id="galaxyScreen" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#0A1830"/>
+                  <stop offset="100%" stop-color="#050D1A"/>
+                </linearGradient>
+              </defs>
+              <rect x="32" y="10" width="136" height="280" rx="14" fill="url(#galaxyBody)" stroke="#2E6BE6" stroke-width="1.2"/>
+              <rect x="38" y="16" width="124" height="268" rx="9" fill="url(#galaxyScreen)"/>
+              <circle cx="100" cy="30" r="4" fill="#0A0A0A"/>
+              <circle cx="100" cy="30" r="2" fill="#2E6BE6" opacity="0.4"/>
+              <rect x="158" y="240" width="4" height="44" rx="2" fill="#4A4A4A" stroke="#C9A227" stroke-width="0.6" opacity="0.7"/>
+              <circle cx="58" cy="38" r="8" fill="#1A1A1A" stroke="#4A4A4A" stroke-width="1"/>
+              <circle cx="58" cy="38" r="4" fill="#0A0A0A"/>
+              <circle cx="58" cy="58" r="8" fill="#1A1A1A" stroke="#4A4A4A" stroke-width="1"/>
+              <circle cx="58" cy="58" r="4" fill="#0A0A0A"/>
+              <circle cx="78" cy="38" r="6" fill="#1A1A1A" stroke="#4A4A4A" stroke-width="1"/>
+              <rect x="80" y="272" width="40" height="3" rx="1.5" fill="#4A4A4A"/>
+              <path d="M44 40 Q64 120 48 250" stroke="#2E6BE6" stroke-width="1" fill="none" opacity="0.3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="fighter-brand">Samsung</span>
+          <span class="fighter-name">Galaxy S24 Ultra</span>
+          <span class="fighter-price">₦1,650,000</span>
+        </a>
+      </div>
+
+      <div class="battle-cta">
+        <a href="gadget-battle.html" class="btn btn-primary">See OBILO AI's Verdict <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="compare.html" class="btn btn-secondary">Full Comparison</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEST SELLERS -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-head-text">
+        <span class="section-eyebrow">Loved by Customers</span>
+        <h2 class="section-title">Best Sellers</h2>
+      </div>
+      <a href="shop.html?sort=popular" class="section-link">View All Best Sellers <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="bestsellers-grid" id="bestSellersGrid" aria-live="polite">
+      <!-- Rendered by JS from data/products.json -->
+    </div>
+  </div>
+</section>
+
+<!-- AI BANNER -->
+<section class="ai-banner-section">
+  <div class="container">
+    <div class="ai-banner">
+      <div class="ai-banner-content">
+        <span class="section-eyebrow" style="color: var(--gold);">Meet Your Personal Gadget Expert</span>
+        <h2>Don't Know What To Buy? <span class="accent">Ask OBILO AI.</span></h2>
+        <p>Get personalized recommendations, understand product specs in plain language, compare devices side by side, and find the best deals — all in one conversation.</p>
+        <div class="ai-banner-cta">
+          <a href="ai/obilo-ai.html" class="btn btn-white">Start Chat <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="gadget-match.html" class="btn btn-outline-white">Find My Gadget</a>
+        </div>
+      </div>
+      <div class="ai-banner-features">
+        <div class="ai-feature"><svg viewBox="0 0 24 24"><path d="M12 2l2 4 4 1-3 3 1 4-4-2-4 2 1-4-3-3 4-1z"/><circle cx="12" cy="17" r="2"/></svg> Get personalized recommendations</div>
+        <div class="ai-feature"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg> Understand product specs</div>
+        <div class="ai-feature"><svg viewBox="0 0 24 24"><path d="M9 3v6a3 3 0 006 0V3M12 12v6a3 3 0 003 3h3"/></svg> Compare devices instantly</div>
+        <div class="ai-feature"><svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg> Find the best deals</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+
+    <div class="footer-newsletter">
+      <div>
+        <h3>Stay Ahead of the Future</h3>
+        <p>Get the latest deals, new arrivals, and tech insights.</p>
+      </div>
+      <form class="newsletter-form" onsubmit="event.preventDefault(); this.reset(); alert('Subscribed. Thank you.');">
+        <input type="email" placeholder="Enter your email address" required aria-label="Email">
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" aria-label="OBILOGOLD Gadgets — Home">
+          <img class="logo-img"
+               src="images/obilogold-logo.svg"
+               alt="OBILOGOLD Gadgets — Quality or Nothing"
+               width="660" height="160"
+               onerror="this.classList.add('img-broken')">
+          <div class="logo-text">
+            <span class="logo-name">OBILOGOLD</span>
+            <span class="logo-sub">Gadgets</span>
+            <span class="logo-tagline"><span class="hands">✊</span>Quality or Nothing</span>
+          </div>
+        </a>
+        <p>Technology That Fits Your Life. Discover, understand and compare the gadgets that are right for you.</p>
+
+        <div class="social-row">
+          <a href="#" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></a>
+          <a href="#" class="social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://www.tiktok.com/@obilogoldobilogol?_r=1&_t=ZS-99nApsKKdvB" class="social-btn" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 2v3a5 5 0 004 4h-3M9 12v6a3 3 0 11-3-3"/><path d="M17 5v8a5 5 0 11-5-5"/></svg></a>
+          <a href="#" class="social-btn" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg></a>
+          <a href="#" class="social-btn" aria-label="X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
+          <a href="https://wa.me/message/XUZF5HG3Y" class="social-btn" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12a9 9 0 11-4.5-7.8L21 3l-1.3 4.4A9 9 0 0121 12z"/><path d="M8.5 9.5c0 4 3 7 7 7l1.5-2-2-1-1 1c-1.5 0-3.5-2-3.5-3.5l1-1-1-2z" fill="currentColor" stroke="none"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="shop.html">All Products</a></li>
+          <li><a href="shop.html?cat=phones">Phones</a></li>
+          <li><a href="shop.html?cat=laptops">Laptops</a></li>
+          <li><a href="shop.html?cat=accessories">Accessories</a></li>
+          <li><a href="shop.html?cat=audio">Audio</a></li>
+          <li><a href="shop.html?cat=smart">Smart Gadgets</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Customer Support</h4>
+        <ul>
+          <li><a href="support.html">Help Center</a></li>
+          <li><a href="account/orders.html">Track Order</a></li>
+          <li><a href="returns.html">Returns &amp; Refunds</a></li>
+          <li><a href="warranty.html">Warranty</a></li>
+          <li><a href="mailto:obilogold@gmail.com">obilogold@gmail.com</a></li>
+          <li><a href="tel:+2349094062471">0909 406 2471</a></li>
+        </ul>
+
+        <div class="footer-location">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <div class="footer-location-text">
+            <span class="footer-location-label">Visit Us</span>
+            <span class="footer-location-address">28 St Micheals, Aba, Abia State</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="gadget-hub.html">Gadget Hub</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="delivery.html">Delivery Info</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 OBILOGOLD GADGETS. All rights reserved. ✊ Quality or Nothing.</span>
+      <div class="footer-bottom-links">
+        <a href="privacy.html">Secure</a>
+        <a href="about.html">Trusted</a>
+        <a href="contact.html">Always Here</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating theme toggle -->
+<button class="floating-theme-toggle" id="floatingThemeToggle" aria-label="Toggle theme" title="Light / Dark mode">
+  <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+  <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+</button>
+
+<script>
+/* ============================================================
+   THEME TOGGLE
+   ============================================================ */
+(function () {
+  const barToggle    = document.getElementById('themeToggle');
+  const mobileToggle = document.getElementById('themeToggleMobile');
+  const floating     = document.getElementById('floatingThemeToggle');
+
+  function flip() {
+    const current = document.documentElement.getAttribute('data-theme') || 'dark';
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('obilogold-theme', next); } catch (e) {}
+  }
+
+  if (barToggle)    barToggle.addEventListener('click', flip);
+  if (mobileToggle) mobileToggle.addEventListener('click', flip);
+  if (floating)     floating.addEventListener('click', flip);
+})();
+
+/* ============================================================
+   SIMPLE / TECH MODE TOGGLE
+   ============================================================ */
+(function () {
+  const wrap = document.getElementById('modeToggle');
+  if (!wrap) return;
+  const buttons = wrap.querySelectorAll('button');
+  let saved = 'simple';
+  try { saved = localStorage.getItem('obilogold-mode') || 'simple'; } catch (e) {}
+  buttons.forEach(b => {
+    if (b.dataset.mode === saved) b.classList.add('active');
+    else b.classList.remove('active');
+  });
+  buttons.forEach(b => {
+    b.addEventListener('click', function () {
+      buttons.forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      try { localStorage.setItem('obilogold-mode', b.dataset.mode); } catch (e) {}
+    });
+  });
+})();
+
+/* ============================================================
+   DESKTOP NAV
+   ============================================================ */
+(function () {
+  const items = document.querySelectorAll('.nav-item');
+  items.forEach(item => {
+    const trigger = item.querySelector('.nav-link');
+    if (!trigger) return;
+    trigger.addEventListener('click', function (e) {
+      if (window.matchMedia('(hover: none)').matches) {
+        e.preventDefault();
+        const wasOpen = item.classList.contains('open');
+        items.forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.nav-item')) {
+      items.forEach(i => i.classList.remove('open'));
+    }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') items.forEach(i => i.classList.remove('open'));
+  });
+})();
+
+/* ============================================================
+   MEGA MENU AUTO-POSITION
+   ============================================================ */
+(function () {
+  const items = document.querySelectorAll('.nav-item');
+  const EDGE_PADDING = 16;
+
+  function positionPanel(item) {
+    const panel = item.querySelector('.mega-menu');
+    if (!panel) return;
+    panel.classList.remove('shift-left', 'shift-right');
+    const panelWidth = panel.offsetWidth;
+    const itemRect = item.getBoundingClientRect();
+    const viewportWidth = document.documentElement.clientWidth;
+    const itemCenter = itemRect.left + itemRect.width / 2;
+    const panelLeft = itemCenter - panelWidth / 2;
+    const panelRight = panelLeft + panelWidth;
+    if (panelLeft < EDGE_PADDING) {
+      panel.classList.add('shift-right');
+    } else if (panelRight > viewportWidth - EDGE_PADDING) {
+      panel.classList.add('shift-left');
+    }
+  }
+
+  items.forEach(item => {
+    item.addEventListener('mouseenter', () => positionPanel(item));
+    item.addEventListener('focusin',    () => positionPanel(item));
+  });
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      document.querySelectorAll('.nav-item.open').forEach(positionPanel);
+    }, 150);
+  });
+})();
+
+/* ============================================================
+   MOBILE MENU
+   ============================================================ */
+(function () {
+  const open = document.getElementById('hamburger');
+  const close = document.getElementById('mobileClose');
+  const menu = document.getElementById('mobileMenu');
+  if (!open || !menu) return;
+
+  open.addEventListener('click', () => menu.classList.add('open'));
+  close.addEventListener('click', () => menu.classList.remove('open'));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') menu.classList.remove('open');
+  });
+
+  const toggles = document.querySelectorAll('.mobile-nav-toggle');
+  toggles.forEach(btn => {
+    btn.addEventListener('click', function () {
+      const item = btn.closest('.mobile-nav-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.mobile-nav-item.open').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+})();
+
+/* ============================================================
+   STICKY HEADER
+   ============================================================ */
+(function () {
+  const header = document.getElementById('siteHeader');
+  if (!header) return;
+  const onScroll = () => {
+    if (window.scrollY > 8) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+/* ============================================================
+   HERO CAROUSEL
+   ============================================================ */
+(function () {
+  const track = document.getElementById('heroTrack');
+  const dots = document.querySelectorAll('#heroDots .hero-dot');
+  const hero = document.getElementById('hero');
+  if (!track || !dots.length) return;
+  const slides = track.querySelectorAll('.hero-slide');
+  let current = 0;
+  let timer = null;
+  const DELAY = 6000;
+  function go(index) {
+    current = (index + slides.length) % slides.length;
+    slides.forEach((s, i) => s.classList.toggle('active', i === current));
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+  function next() { go(current + 1); }
+  function start() { stop(); timer = setInterval(next, DELAY); }
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+  dots.forEach((d, i) => d.addEventListener('click', () => { go(i); start(); }));
+  if (hero) {
+    hero.addEventListener('mouseenter', stop);
+    hero.addEventListener('mouseleave', start);
+    hero.addEventListener('touchstart', stop, { passive: true });
+    hero.addEventListener('touchend', start, { passive: true });
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') { next(); start(); }
+    if (e.key === 'ArrowLeft')  { go(current - 1); start(); }
+  });
+  start();
+})();
+
+/* ============================================================
+   SEARCH FORM
+   ============================================================ */
+(function () {
+  const form = document.getElementById('searchForm');
+  const input = document.getElementById('searchInput');
+  if (!form || !input) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const q = input.value.trim();
+    if (!q) return;
+    window.location.href = 'shop.html?q=' + encodeURIComponent(q);
+  });
+})();
+
+/* ============================================================
+   WISHLIST
+   ============================================================ */
+function toggleWish(btn) {
+  btn.classList.toggle('active');
+  try {
+    const list = JSON.parse(localStorage.getItem('obilogold-wishlist') || '[]');
+    const id = btn.closest('.product-card')?.dataset.productId
+             || btn.closest('.product-card')?.querySelector('.product-name')?.textContent?.trim()
+             || 'item';
+    if (btn.classList.contains('active')) {
+      if (!list.includes(id)) list.push(id);
+    } else {
+      const idx = list.indexOf(id);
+      if (idx > -1) list.splice(idx, 1);
+    }
+    localStorage.setItem('obilogold-wishlist', JSON.stringify(list));
+    updateWishBadge();
+  } catch (e) {}
+}
+
+function updateWishBadge() {
+  const badge = document.getElementById('wishCount');
+  if (!badge) return;
+  try {
+    const list = JSON.parse(localStorage.getItem('obilogold-wishlist') || '[]');
+    if (list.length > 0) {
+      badge.textContent = String(list.length);
+      badge.style.display = '';
+    } else {
+      badge.style.display = 'none';
+    }
+  } catch (e) { badge.style.display = 'none'; }
+}
+
+function applyWishStates() {
+  try {
+    const list = JSON.parse(localStorage.getItem('obilogold-wishlist') || '[]');
+    document.querySelectorAll('.product-card').forEach(card => {
+      const id = card.dataset.productId;
+      if (id && list.includes(id)) {
+        const btn = card.querySelector('.wish-btn');
+        if (btn) btn.classList.add('active');
+      }
+    });
+  } catch (e) {}
+}
+
+/* ============================================================
+   CART BADGE
+   ============================================================ */
+function updateCartBadge() {
+  const badge = document.getElementById('cartCount');
+  if (!badge) return;
+  try {
+    const cart = JSON.parse(localStorage.getItem('obilogold-cart') || '[]');
+    const total = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
+    if (total > 0) {
+      badge.textContent = String(total);
+      badge.style.display = '';
+    } else {
+      badge.style.display = 'none';
+    }
+  } catch (e) { badge.style.display = 'none'; }
+}
+
+/* ============================================================
+   ASK OBILO AI
+   ============================================================ */
+function openAI(productName) {
+  window.location.href = 'ai/obilo-ai.html?product=' + encodeURIComponent(productName || '');
+}
+
+/* ============================================================
+   PRODUCT RENDERING FROM data/products.json
+   ============================================================ */
+function formatPrice(n) {
+  return Number(n).toLocaleString('en-NG');
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  })[c]);
+}
+
+function buildProductCard(product) {
+  const a = document.createElement('a');
+  a.href = 'product.html?id=' + encodeURIComponent(product.id);
+  a.className = 'product-card';
+  a.dataset.productId = product.id;
+
+  const discountPct = product.previousPrice
+    ? Math.round(((product.previousPrice - product.price) / product.previousPrice) * 100)
+    : 0;
+
+  const name = escapeHtml(product.name);
+  const brand = escapeHtml(product.brand);
+  const alt = escapeHtml(product.alt || product.name);
+  const image = escapeHtml(product.image || '');
+
+  a.innerHTML =
+    '<div class="product-media">' +
+      '<div class="product-badges">' +
+        (product.badge ? '<span class="badge badge-gold">' + escapeHtml(product.badge) + '</span>' : '') +
+        (discountPct > 0 ? '<span class="badge badge-dark">-' + discountPct + '%</span>' : '') +
+      '</div>' +
+      '<button class="wish-btn" aria-label="Add to wishlist" onclick="event.preventDefault(); event.stopPropagation(); toggleWish(this);">' +
+        '<svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 10-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>' +
+      '</button>' +
+      '<button class="ask-ai-btn" onclick="event.preventDefault(); event.stopPropagation(); openAI(\'' + name.replace(/'/g, "\\'") + '\');">' +
+        '<svg viewBox="0 0 24 24"><path d="M12 2l2 4 4 1-3 3 1 4-4-2-4 2 1-4-3-3 4-1z"/></svg> Ask AI' +
+      '</button>' +
+      '<img class="product-img" src="' + image + '" alt="' + alt + '" width="600" height="600" loading="lazy" onerror="this.parentElement.classList.add(\'img-failed\')">' +
+      '<svg class="product-fallback" viewBox="0 0 100 100"><rect x="30" y="10" width="40" height="80" rx="6"/><circle cx="50" cy="80" r="2"/></svg>' +
+    '</div>' +
+    '<div class="product-body">' +
+      '<span class="product-brand">' + brand + '</span>' +
+      '<h3 class="product-name">' + name + '</h3>' +
+      '<div class="product-meta">' +
+        '<span class="product-rating">' +
+          '<svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>' +
+          product.rating + ' <span>(' + product.reviews + ')</span>' +
+        '</span>' +
+      '</div>' +
+      '<div class="product-price">' +
+        '<span class="current"><span class="currency">₦</span>' + formatPrice(product.price) + '</span>' +
+        (product.previousPrice ? '<span class="previous">₦' + formatPrice(product.previousPrice) + '</span>' : '') +
+      '</div>' +
+    '</div>';
+  return a;
+}
+
+function renderProducts(gridEl, products) {
+  if (!gridEl) return;
+  gridEl.innerHTML = '';
+  if (!Array.isArray(products) || products.length === 0) {
+    gridEl.innerHTML = '<div class="grid-empty">No products to show right now.</div>';
+    return;
+  }
+  products.forEach(p => gridEl.appendChild(buildProductCard(p)));
+}
+
+function showSkeletons(gridEl, count) {
+  if (!gridEl) return;
+  gridEl.innerHTML = '';
+  for (let i = 0; i < count; i++) {
+    const sk = document.createElement('div');
+    sk.className = 'skeleton-card';
+    sk.innerHTML =
+      '<div class="skeleton-media"></div>' +
+      '<div class="skeleton-body">' +
+        '<div class="skeleton-line w-40"></div>' +
+        '<div class="skeleton-line w-80"></div>' +
+        '<div class="skeleton-line w-60"></div>' +
+      '</div>';
+    gridEl.appendChild(sk);
+  }
+}
+
+function setHeroImage(url) {
+  const container = document.getElementById('heroVisualContent');
+  if (!container || !url) return;
+  container.innerHTML =
+    '<img class="hero-image" src="' + escapeHtml(url) + '" alt="OBILOGOLD premium gadgets display" width="1000" height="1000" loading="eager" ' +
+    'onerror="this.style.display=\'none\'; this.parentElement.innerHTML=\'<svg viewBox=&quot;0 0 400 400&quot; style=&quot;width:100%;height:100%&quot;><rect x=&quot;130&quot; y=&quot;60&quot; width=&quot;140&quot; height=&quot;260&quot; rx=&quot;20&quot; fill=&quot;%23C9A227&quot; opacity=&quot;0.9&quot;/><rect x=&quot;138&quot; y=&quot;70&quot; width=&quot;124&quot; height=&quot;240&quot; rx=&quot;14&quot; fill=&quot;%230A0A0A&quot;/></svg>\';">';
+}
+
+/* ============================================================
+   Load products.json
+   ============================================================ */
+(async function loadProducts() {
+  const launchesGrid = document.getElementById('newLaunchesGrid');
+  const bestGrid = document.getElementById('bestSellersGrid');
+
+  showSkeletons(launchesGrid, 4);
+  showSkeletons(bestGrid, 5);
+
+  try {
+    const res = await fetch('data/products.json', { cache: 'no-cache' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+
+    if (data.hero && data.hero.mainImage) setHeroImage(data.hero.mainImage);
+
+    const bpA = document.getElementById('battleProductA');
+    const bpB = document.getElementById('battleProductB');
+    if (bpA && data.hero && data.hero.battleA) bpA.src = data.hero.battleA;
+    if (bpB && data.hero && data.hero.battleB) bpB.src = data.hero.battleB;
+
+    const fighterA = document.querySelector('#battleFighterA img');
+    const fighterB = document.querySelector('#battleFighterB img');
+    if (fighterA && data.hero && data.hero.battleA) fighterA.src = data.hero.battleA;
+    if (fighterB && data.hero && data.hero.battleB) fighterB.src = data.hero.battleB;
+
+    renderProducts(launchesGrid, data.newLaunches);
+    renderProducts(bestGrid, data.bestSellers);
+
+    applyWishStates();
+
+  } catch (err) {
+    console.error('Product load failed:', err);
+    if (launchesGrid) launchesGrid.innerHTML =
+      '<div class="grid-empty">Products temporarily unavailable. If you are opening this file directly (file://), please serve it through a web server to load products.</div>';
+    if (bestGrid) bestGrid.innerHTML = '';
+  }
+})();
+
+/* Init badges on load */
+updateCartBadge();
+updateWishBadge();
+</script>
+
+</body>
+</html>

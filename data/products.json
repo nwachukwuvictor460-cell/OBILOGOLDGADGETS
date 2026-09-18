@@ -1,0 +1,119 @@
+{
+  "hero": {
+    "mainImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1000&q=80",
+    "battleA": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&q=80",
+    "battleB": "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&q=80"
+  },
+  "newLaunches": [
+    {
+      "id": "iphone-16-pro-max",
+      "name": "iPhone 16 Pro Max 256GB",
+      "brand": "Apple",
+      "price": 1299000,
+      "previousPrice": 1499000,
+      "rating": 4.9,
+      "reviews": 120,
+      "badge": "New",
+      "image": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=600&q=80",
+      "alt": "iPhone 16 Pro Max 256GB"
+    },
+    {
+      "id": "macbook-air-m3",
+      "name": "MacBook Air M3 13\" 512GB",
+      "brand": "Apple",
+      "price": 1099000,
+      "previousPrice": 1299000,
+      "rating": 4.8,
+      "reviews": 89,
+      "badge": "New",
+      "image": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=600&q=80",
+      "alt": "MacBook Air M3 13-inch 512GB"
+    },
+    {
+      "id": "galaxy-buds-3-pro",
+      "name": "Galaxy Buds 3 Pro Wireless",
+      "brand": "Samsung",
+      "price": 299000,
+      "previousPrice": 349000,
+      "rating": 4.6,
+      "reviews": 76,
+      "badge": "New",
+      "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&q=80",
+      "alt": "Samsung Galaxy Buds 3 Pro wireless earbuds"
+    },
+    {
+      "id": "galaxy-watch-7",
+      "name": "Galaxy Watch 7 44mm",
+      "brand": "Samsung",
+      "price": 399000,
+      "previousPrice": 499000,
+      "rating": 4.5,
+      "reviews": 64,
+      "badge": "New",
+      "image": "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600&q=80",
+      "alt": "Samsung Galaxy Watch 7 44mm"
+    }
+  ],
+  "bestSellers": [
+    {
+      "id": "iphone-15-pro",
+      "name": "iPhone 15 Pro 256GB",
+      "brand": "Apple",
+      "price": 1099000,
+      "previousPrice": 1299000,
+      "rating": 4.9,
+      "reviews": 245,
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600&q=80",
+      "alt": "iPhone 15 Pro 256GB"
+    },
+    {
+      "id": "dell-xps-13",
+      "name": "Dell XPS 13 Laptop i7 512GB",
+      "brand": "Dell",
+      "price": 899000,
+      "previousPrice": 1099000,
+      "rating": 4.7,
+      "reviews": 189,
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&q=80",
+      "alt": "Dell XPS 13 laptop i7 512GB"
+    },
+    {
+      "id": "airpods-pro-2",
+      "name": "AirPods Pro 2nd Gen",
+      "brand": "Apple",
+      "price": 249000,
+      "previousPrice": 299000,
+      "rating": 4.6,
+      "reviews": 312,
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=600&q=80",
+      "alt": "Apple AirPods Pro 2nd Generation"
+    },
+    {
+      "id": "playstation-5-slim",
+      "name": "PlayStation 5 Slim Digital",
+      "brand": "Sony",
+      "price": 749000,
+      "previousPrice": 899000,
+      "rating": 4.9,
+      "reviews": 423,
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=600&q=80",
+      "alt": "Sony PlayStation 5 Slim Digital"
+    },
+    {
+      "id": "oneplus-12",
+      "name": "OnePlus 12 512GB",
+      "brand": "OnePlus",
+      "price": 949000,
+      "previousPrice": 1099000,
+      "rating": 4.7,
+      "reviews": 156,
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80",
+      "alt": "OnePlus 12 512GB"
+    }
+  ]
+}

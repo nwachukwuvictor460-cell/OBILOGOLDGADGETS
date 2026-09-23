@@ -1,0 +1,2260 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product — OBILO GOLD GADGETS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+<script>
+(function() {
+    try {
+        var saved = localStorage.getItem('obilo_theme');
+        if (saved === 'light' || saved === 'dark') {
+            document.documentElement.setAttribute('data-theme', saved);
+        }
+    } catch(e) {}
+})();
+</script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --gold: #C9A227;
+    --gold-light: #E2C766;
+    --gold-dark: #9C7A1A;
+    --gold-gradient: linear-gradient(135deg, #E2C766 0%, #C9A227 45%, #9C7A1A 100%);
+    --gold-soft: rgba(201, 162, 39, 0.12);
+    --gold-hairline: rgba(201, 162, 39, 0.28);
+    --blue-light: #4A7BC8;
+    --dark: #0A0A0C;
+    --dark-2: #121215;
+    --dark-3: #1C1C21;
+    --text: #F2F2F0;
+    --text-muted: #8E8E96;
+    --text-soft: #B8B8BE;
+    --border: #23232A;
+    --border-soft: #1A1A20;
+    --whatsapp: #25D366;
+    --star: #E2C766;
+    --danger: #E5484D;
+    --success: #30A46C;
+    --warning: #F5A623;
+    --uk-blue: #3B82F6;
+    --uk-blue-soft: rgba(59, 130, 246, 0.12);
+    --uk-blue-hairline: rgba(59, 130, 246, 0.35);
+    --us-purple: #A855F7;
+    --us-purple-soft: rgba(168, 85, 247, 0.12);
+    --us-purple-hairline: rgba(168, 85, 247, 0.35);
+    --shadow-elegant: 0 24px 60px rgba(0, 0, 0, 0.55);
+    --shadow-medium: 0 12px 30px rgba(0, 0, 0, 0.35);
+    --shadow-soft: 0 4px 14px rgba(0, 0, 0, 0.2);
+    --header-bg: rgba(10, 10, 12, 0.88);
+    --footer-bg: #060608;
+    --radius: 14px;
+    --radius-lg: 22px;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html[data-theme="light"] {
+    --dark: #FAFAF8;
+    --dark-2: #FFFFFF;
+    --dark-3: #F2F2EE;
+    --text: #0F0F12;
+    --text-muted: #6A6A72;
+    --text-soft: #4A4A52;
+    --border: #E4E4DD;
+    --border-soft: #EDEDE6;
+    --header-bg: rgba(250, 250, 248, 0.92);
+    --footer-bg: #F2F2EE;
+    --gold-soft: rgba(201, 162, 39, 0.1);
+    --shadow-elegant: 0 24px 60px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 12px 30px rgba(0, 0, 0, 0.06);
+    --shadow-soft: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--dark);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background 0.4s ease, color 0.4s ease;
+    -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+.wa-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
+    fill: currentColor;
+}
+
+.container { max-width: 1300px; margin: 0 auto; padding: 0 28px; }
+
+/* LOGO */
+.logo { display: flex; flex-direction: column; line-height: 1; user-select: none; padding: 4px 0; }
+.logo-main {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 27px;
+    letter-spacing: 3.5px;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 0.5px rgba(0, 0, 0, 0.7)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45)) drop-shadow(0 0 18px rgba(201, 162, 39, 0.35));
+}
+html[data-theme="light"] .logo-main {
+    background: linear-gradient(135deg, #B8901F 0%, #8E6E14 50%, #6E550E 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.9)) drop-shadow(0 1px 1px rgba(0, 0, 0, 0.6));
+}
+.logo-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 8.5px;
+    color: var(--blue-light);
+    margin-top: 4px;
+    margin-left: 3px;
+}
+html[data-theme="light"] .logo-sub { color: #1E5AA8; }
+.logo-tag {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-top: 3px;
+    margin-left: 3px;
+}
+html[data-theme="light"] .logo-tag { color: #8E6E14; }
+
+/* HEADER */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--header-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid var(--border-soft);
+}
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 28px;
+    max-width: 1300px;
+    margin: 0 auto;
+    gap: 24px;
+}
+.search-bar { flex: 1; max-width: 520px; position: relative; }
+.search-bar input {
+    width: 100%;
+    padding: 12px 50px 12px 20px;
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    color: var(--text);
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+}
+.search-bar input:focus { border-color: var(--gold); }
+.search-bar button {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--gold-gradient);
+    color: #1a1a1a;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header-actions { display: flex; align-items: center; gap: 4px; }
+.icon-btn {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: var(--text-soft);
+    transition: background 0.2s, color 0.2s;
+}
+.icon-btn:hover { background: var(--dark-3); color: var(--gold); }
+.badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background: var(--gold-gradient);
+    color: #1a1a1a;
+    font-size: 10px;
+    font-weight: 700;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+}
+.theme-toggle {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-soft);
+    overflow: hidden;
+}
+.theme-toggle:hover { background: var(--dark-3); color: var(--gold); }
+.theme-toggle .theme-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.6s var(--ease), opacity 0.35s;
+    font-size: 17px;
+}
+.theme-toggle .theme-icon.sun { opacity: 0; transform: translate(-50%, -50%) rotate(-90deg); }
+.theme-toggle .theme-icon.moon { opacity: 1; }
+html[data-theme="light"] .theme-toggle .theme-icon.sun { opacity: 1; transform: translate(-50%, -50%) rotate(0deg); }
+html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform: translate(-50%, -50%) rotate(90deg); }
+
+.whatsapp-btn-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--whatsapp);
+    color: #fff;
+    padding: 11px 20px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* NAV */
+.nav {
+    display: flex;
+    gap: 2px;
+    padding: 0 28px 14px;
+    max-width: 1300px;
+    margin: 0 auto;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.nav::-webkit-scrollbar { display: none; }
+.nav-item > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    border-radius: 100px;
+    white-space: nowrap;
+}
+.nav-item > a:hover, .nav-item > a.active { color: var(--gold); background: var(--gold-soft); }
+
+/* PRODUCT PAGE */
+.product-wrap {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 30px 28px 60px;
+}
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 26px;
+    flex-wrap: wrap;
+}
+.breadcrumb a:hover { color: var(--gold); }
+.breadcrumb-sep { opacity: 0.5; }
+.breadcrumb-current { color: var(--gold); font-weight: 600; }
+
+.product-layout {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 56px;
+    margin-bottom: 70px;
+    align-items: start;
+}
+
+/* GALLERY */
+.gallery { position: sticky; top: 160px; display: flex; flex-direction: column; gap: 16px; }
+.gallery-main {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    background: var(--dark-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+.gallery-main img { width: 100%; height: 100%; object-fit: cover; }
+
+.gallery-tags {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 2;
+    align-items: flex-start;
+}
+.sponsored-tag {
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 4px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: 1px solid var(--gold-hairline);
+}
+.product-badge {
+    font-size: 10px;
+    font-weight: 800;
+    padding: 6px 12px;
+    border-radius: 4px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    backdrop-filter: blur(6px);
+    border: 1px solid transparent;
+}
+.product-badge.new { background: rgba(48, 164, 108, 0.16); color: var(--success); border-color: rgba(48, 164, 108, 0.4); }
+.product-badge.hot { background: rgba(245, 166, 35, 0.16); color: var(--warning); border-color: rgba(245, 166, 35, 0.4); }
+.product-badge.limited { background: rgba(201, 162, 39, 0.16); color: var(--gold); border-color: var(--gold-hairline); }
+.product-badge.sold-out { background: rgba(229, 72, 77, 0.15); color: var(--danger); border-color: rgba(229, 72, 77, 0.45); }
+
+/* CONDITION BADGE — Gallery overlay */
+.condition-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 7px 13px;
+    border-radius: 4px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    backdrop-filter: blur(6px);
+    border: 1px solid transparent;
+    background: rgba(0, 0, 0, 0.75);
+}
+.condition-badge.brand-new {
+    color: var(--success);
+    border-color: rgba(48, 164, 108, 0.4);
+}
+.condition-badge.uk-used {
+    color: var(--uk-blue);
+    border-color: var(--uk-blue-hairline);
+}
+.condition-badge.us-used {
+    color: var(--us-purple);
+    border-color: var(--us-purple-hairline);
+}
+.condition-badge .cb-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 8px currentColor;
+}
+
+/* INFO COLUMN */
+.product-info-col { display: flex; flex-direction: column; gap: 22px; }
+.product-brand-line { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.product-brand-tag {
+    display: inline-flex;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 7px 14px;
+    background: var(--gold-soft);
+    border: 1px solid var(--gold-hairline);
+    border-radius: 100px;
+}
+
+/* Condition + stock pill row */
+.product-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.stock-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 6px 13px;
+    border-radius: 100px;
+    background: var(--dark-3);
+    white-space: nowrap;
+}
+.stock-indicator.in-store { color: var(--success); background: rgba(48, 164, 108, 0.12); }
+.stock-indicator.pre-order { color: var(--warning); background: rgba(245, 166, 35, 0.12); }
+.stock-indicator.special-order { color: var(--gold); background: rgba(201, 162, 39, 0.14); }
+.stock-indicator .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; box-shadow: 0 0 8px currentColor; }
+
+.condition-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 6px 13px;
+    border-radius: 100px;
+    white-space: nowrap;
+}
+.condition-pill.brand-new {
+    color: var(--success);
+    background: rgba(48, 164, 108, 0.12);
+}
+.condition-pill.uk-used {
+    color: var(--uk-blue);
+    background: var(--uk-blue-soft);
+}
+.condition-pill.us-used {
+    color: var(--us-purple);
+    background: var(--us-purple-soft);
+}
+.condition-pill .cp-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 8px currentColor;
+}
+
+.product-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3.4vw, 42px);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+}
+.product-subtitle { font-size: 14px; color: var(--text-muted); line-height: 1.6; font-weight: 300; max-width: 540px; }
+
+.price-block {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-wrap: wrap;
+    padding: 22px 0 6px;
+    border-top: 1px solid var(--border-soft);
+    border-bottom: 1px solid var(--border-soft);
+}
+.price-current {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3vw, 38px);
+    font-weight: 700;
+    color: var(--gold);
+}
+.price-old {
+    font-size: 16px;
+    color: var(--text-muted);
+    text-decoration: line-through;
+}
+.price-save {
+    display: inline-flex;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 5px 12px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    background: rgba(48, 164, 108, 0.12);
+    color: var(--success);
+    border: 1px solid rgba(48, 164, 108, 0.35);
+}
+
+.availability-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 18px;
+    background: var(--dark-2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 10px;
+    font-size: 13px;
+    color: var(--text-soft);
+    line-height: 1.55;
+}
+.availability-note.in-store { border-left-color: var(--success); }
+.availability-note.pre-order { border-left-color: var(--warning); }
+.availability-note.special-order { border-left-color: var(--gold); }
+.availability-note strong { display: block; color: var(--text); font-weight: 600; margin-bottom: 3px; font-size: 13px; }
+.availability-note-icon { font-size: 18px; line-height: 1; margin-top: 1px; flex-shrink: 0; }
+
+/* AI BUTTON */
+.ai-ask-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 18px 26px;
+    border-radius: 14px;
+    background: var(--gold-gradient);
+    color: #1a1a1a;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: transform 0.22s var(--ease), box-shadow 0.3s;
+    border: none;
+    box-shadow: 0 10px 26px rgba(201, 162, 39, 0.4);
+    animation: ai-glow 2.8s ease-in-out infinite;
+    text-decoration: none;
+}
+@keyframes ai-glow {
+    0%, 100% { box-shadow: 0 10px 26px rgba(201, 162, 39, 0.4), 0 0 0 0 rgba(201, 162, 39, 0.5); }
+    50% { box-shadow: 0 14px 34px rgba(201, 162, 39, 0.55), 0 0 0 14px rgba(201, 162, 39, 0); }
+}
+.ai-ask-btn:hover { transform: translateY(-2px) scale(1.01); }
+.ai-ask-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #0A0A0C;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+.ai-ask-text { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.15; gap: 2px; }
+.ai-ask-text strong { font-size: 14px; font-weight: 800; }
+.ai-ask-text small { font-size: 10px; font-weight: 600; opacity: 0.75; }
+.ai-ask-arrow { font-size: 16px; font-weight: 800; margin-left: auto; }
+
+.product-actions-row { display: flex; flex-direction: column; gap: 12px; }
+.action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 17px 26px;
+    border-radius: 14px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: transform 0.22s var(--ease), box-shadow 0.3s;
+    cursor: pointer;
+    font-family: inherit;
+    text-align: center;
+    text-decoration: none;
+}
+.action-btn:hover { transform: translateY(-2px); }
+.action-btn-wa {
+    background: var(--whatsapp);
+    color: #fff;
+    box-shadow: 0 10px 26px rgba(37, 211, 102, 0.32);
+}
+.action-btn-wa .wa-icon { width: 22px; height: 22px; }
+.action-btn-notify {
+    background: var(--dark-2);
+    color: var(--text);
+    border: 1.5px solid var(--border);
+}
+.action-btn-fav {
+    background: transparent;
+    color: var(--text-soft);
+    border: 1.5px solid var(--border);
+}
+.action-btn-fav:hover { border-color: var(--danger); color: var(--danger); }
+.action-btn-fav.active { border-color: var(--danger); color: var(--danger); background: rgba(229, 72, 77, 0.08); }
+.action-btn-fav .heart { font-size: 18px; line-height: 1; }
+
+/* SWAP CTA */
+.swap-cta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 22px;
+    background: var(--dark-2);
+    border: 1.5px dashed var(--gold-hairline);
+    border-radius: 14px;
+    text-decoration: none;
+    transition: all 0.25s var(--ease);
+    position: relative;
+    overflow: hidden;
+}
+.swap-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 90% 50%, rgba(201, 162, 39, 0.08), transparent 60%);
+    pointer-events: none;
+}
+.swap-cta:hover {
+    border-color: var(--gold);
+    background: var(--dark-3);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(201, 162, 39, 0.15);
+}
+.swap-cta-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--gold-gradient);
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+    box-shadow: 0 8px 20px rgba(201, 162, 39, 0.35);
+    position: relative;
+    z-index: 1;
+}
+.swap-cta-text { flex: 1; position: relative; z-index: 1; }
+.swap-cta-text h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 3px;
+    letter-spacing: -0.2px;
+}
+.swap-cta-text p {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    font-weight: 300;
+}
+.swap-cta-arrow {
+    font-size: 18px;
+    color: var(--gold);
+    font-weight: 700;
+    flex-shrink: 0;
+    transition: transform 0.25s var(--ease);
+    position: relative;
+    z-index: 1;
+}
+.swap-cta:hover .swap-cta-arrow { transform: translateX(4px); }
+
+.highlights-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 16px 0;
+    border-top: 1px solid var(--border-soft);
+}
+.highlight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-align: center;
+    padding: 12px 8px;
+    background: var(--dark-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+.highlight-icon { font-size: 18px; color: var(--gold); line-height: 1; }
+.highlight-label { font-size: 11px; font-weight: 600; color: var(--text-soft); }
+
+.share-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+.share-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--dark-2);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-soft);
+    font-size: 14px;
+    cursor: pointer;
+}
+.share-btn:hover { background: var(--gold-gradient); color: #1a1a1a; }
+
+/* TABS */
+.tabs-section { margin-top: 12px; border-top: 1px solid var(--border-soft); }
+.tabs-head {
+    display: flex;
+    gap: 4px;
+    padding: 22px 0 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    border-bottom: 1px solid var(--border-soft);
+}
+.tabs-head::-webkit-scrollbar { display: none; }
+.tab-btn {
+    padding: 12px 22px;
+    border-bottom: 2px solid transparent;
+    background: none;
+    color: var(--text-muted);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: inherit;
+}
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+.tab-panel { display: none; padding: 30px 0 10px; }
+.tab-panel.active { display: block; }
+
+.specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--dark-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+.specs-table tr { border-bottom: 1px solid var(--border-soft); }
+.specs-table tr:last-child { border-bottom: none; }
+.specs-table td { padding: 15px 22px; font-size: 14px; vertical-align: top; }
+.specs-table td:first-child {
+    width: 34%;
+    background: var(--dark-3);
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* CONDITION REPORT — used products */
+.condition-report {
+    background: var(--dark-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+.condition-report-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 22px;
+    border-bottom: 1px solid var(--border-soft);
+    background: var(--dark-3);
+}
+.condition-report-head .cond-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 10px currentColor;
+}
+.condition-report-head.uk-used { color: var(--uk-blue); }
+.condition-report-head.us-used { color: var(--us-purple); }
+.condition-report-head .cond-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.2px;
+}
+.condition-report-head .cond-origin {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-left: auto;
+}
+.condition-report-body {
+    padding: 4px 0;
+}
+.condition-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 20px;
+    padding: 14px 22px;
+    border-bottom: 1px solid var(--border-soft);
+    font-size: 14px;
+}
+.condition-row:last-child { border-bottom: none; }
+.condition-row .cond-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+.condition-row .cond-value {
+    color: var(--text);
+    font-weight: 500;
+}
+.condition-row .cond-value.grade-a-plus {
+    color: var(--success);
+    font-weight: 700;
+}
+.condition-row .cond-value.grade-a {
+    color: var(--success);
+    font-weight: 600;
+}
+.condition-row .cond-value.grade-b {
+    color: var(--warning);
+    font-weight: 600;
+}
+
+.condition-explainer {
+    margin-top: 24px;
+    padding: 20px 22px;
+    background: var(--uk-blue-soft);
+    border: 1px solid var(--uk-blue-hairline);
+    border-left: 3px solid var(--uk-blue);
+    border-radius: 10px;
+}
+.condition-explainer.us-variant {
+    background: var(--us-purple-soft);
+    border-color: var(--us-purple-hairline);
+    border-left-color: var(--us-purple);
+}
+.condition-explainer h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+}
+.condition-explainer p {
+    font-size: 13px;
+    color: var(--text-soft);
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+.description-text { font-size: 15px; line-height: 1.85; color: var(--text-soft); font-weight: 300; max-width: 780px; }
+.description-text p + p { margin-top: 16px; }
+.description-text strong { color: var(--text); font-weight: 600; }
+
+.box-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.box-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    background: var(--dark-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    font-size: 13px;
+    color: var(--text-soft);
+}
+.box-item-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--gold-soft);
+    border: 1px solid var(--gold-hairline);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 13px;
+    flex-shrink: 0;
+}
+
+.delivery-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.delivery-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 20px;
+    background: var(--dark-2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+}
+.delivery-item-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--gold-soft);
+    border: 1px solid var(--gold-hairline);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 18px;
+    flex-shrink: 0;
+}
+.delivery-item-text h5 { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.delivery-item-text p { font-size: 13px; color: var(--text-muted); line-height: 1.55; font-weight: 300; }
+
+/* SECTIONS BELOW */
+.section-below { margin-top: 70px; padding-top: 50px; border-top: 1px solid var(--border-soft); }
+.section-below-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 26px;
+    flex-wrap: wrap;
+}
+.section-below-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 2.6vw, 30px);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.15;
+}
+.section-below-title .gold {
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-style: italic;
+}
+.section-below-link {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding-bottom: 3px;
+    white-space: nowrap;
+}
+.eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+
+.product-card {
+    position: relative;
+    background: var(--dark-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform 0.32s var(--ease), border-color 0.3s, box-shadow 0.32s;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+.product-card:hover { transform: translateY(-5px); border-color: var(--gold-hairline); box-shadow: var(--shadow-elegant); }
+.product-card.sold-out { opacity: 0.82; }
+.product-card-image { position: relative; aspect-ratio: 1 / 1; overflow: hidden; background: var(--dark-3); }
+.product-card-image img { width: 100%; height: 100%; object-fit: cover; }
+.product-card-tags {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 2;
+    align-items: flex-start;
+}
+.product-card-tags .sponsored-tag, .product-card-tags .product-badge { font-size: 9px; padding: 4px 9px; }
+.product-card-tags .condition-badge { font-size: 9px; padding: 4px 9px; }
+.product-card-tags .condition-badge .cb-dot { width: 5px; height: 5px; }
+.product-card-info { padding: 16px; display: flex; flex-direction: column; gap: 9px; flex: 1; }
+.product-card-brand {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.product-card-info .stock-indicator { font-size: 8px; padding: 3px 8px; letter-spacing: 0.5px; gap: 4px; }
+.product-card-info .stock-indicator .dot { width: 4px; height: 4px; }
+.product-card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 40px;
+    line-height: 1.35;
+}
+.product-card-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gold);
+}
+.product-card-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.product-card-price-old {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-decoration: line-through;
+}
+.product-card-actions { display: flex; gap: 6px; margin-top: auto; padding-top: 6px; }
+.btn-card-wa {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 12px;
+    background: var(--whatsapp);
+    color: #fff;
+    border-radius: 9px;
+    font-size: 11px;
+    font-weight: 700;
+    text-decoration: none;
+}
+.btn-card-wa .wa-icon { width: 14px; height: 14px; }
+.btn-card-notify {
+    flex: 1;
+    padding: 10px 12px;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-soft);
+    border-radius: 9px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* NOT FOUND */
+.not-found { text-align: center; padding: 100px 20px; }
+.not-found-icon { font-size: 60px; color: var(--gold); opacity: 0.5; margin-bottom: 20px; }
+.not-found h2 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; margin-bottom: 12px; }
+.not-found p { font-size: 14px; color: var(--text-muted); margin-bottom: 30px; max-width: 420px; margin-left: auto; margin-right: auto; }
+
+/* FOOTER */
+.footer {
+    background: var(--footer-bg);
+    border-top: 1px solid var(--border-soft);
+    padding: 80px 0 36px;
+    margin-top: 40px;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.8fr 1.2fr 1.2fr 1.4fr;
+    gap: 50px;
+    margin-bottom: 50px;
+}
+.footer-brand p { color: var(--text-muted); font-size: 13px; max-width: 340px; margin: 20px 0 24px; line-height: 1.7; font-weight: 300; }
+.footer-socials { display: flex; gap: 10px; }
+.social-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--dark-2);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 15px;
+}
+.social-btn svg { width: 17px; height: 17px; fill: currentColor; }
+.social-btn:hover { background: var(--gold-gradient); color: #1a1a1a; }
+.footer-col h5 {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 20px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.footer-col a { font-size: 13px; color: var(--text-muted); font-weight: 300; }
+.footer-col a:hover { color: var(--gold); }
+.contact-line {
+    font-size: 13px;
+    color: var(--text-muted);
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 9px;
+    line-height: 1.55;
+    font-weight: 300;
+}
+.footer-bottom {
+    padding-top: 30px;
+    border-top: 1px solid var(--border-soft);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 11px;
+    color: var(--text-muted);
+}
+.footer-bottom .gold { color: var(--gold); font-weight: 600; }
+
+/* FLOATING */
+.wa-float {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: var(--whatsapp);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 14px 32px rgba(37, 211, 102, 0.42);
+    z-index: 99;
+    animation: wa-pulse 2.6s infinite;
+}
+.wa-float .wa-icon { width: 28px; height: 28px; }
+@keyframes wa-pulse {
+    0% { box-shadow: 0 14px 32px rgba(37, 211, 102, 0.42), 0 0 0 0 rgba(37, 211, 102, 0.5); }
+    70% { box-shadow: 0 14px 32px rgba(37, 211, 102, 0.42), 0 0 0 18px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 14px 32px rgba(37, 211, 102, 0.42), 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+.back-to-top {
+    position: fixed;
+    bottom: 100px;
+    right: 28px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--dark-2);
+    border: 1px solid var(--border);
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    z-index: 98;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s var(--ease);
+    cursor: pointer;
+}
+.back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+
+.toast {
+    position: fixed;
+    bottom: 110px;
+    left: 50%;
+    transform: translateX(-50%) translateY(130px);
+    background: var(--dark-2);
+    border: 1px solid var(--gold-hairline);
+    color: var(--text);
+    padding: 14px 26px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    box-shadow: var(--shadow-elegant);
+    z-index: 300;
+    opacity: 0;
+    transition: transform 0.35s var(--ease), opacity 0.35s;
+    pointer-events: none;
+    max-width: calc(100vw - 40px);
+    text-align: center;
+}
+.toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+/* MOBILE */
+@media (max-width: 1024px) {
+    .product-layout { grid-template-columns: 1fr; gap: 36px; }
+    .gallery { position: relative; top: auto; }
+}
+@media (max-width: 900px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .search-bar { display: none; }
+}
+@media (max-width: 640px) {
+    .header-top { padding: 14px 18px; }
+    .logo-main { font-size: 22px; letter-spacing: 2px; }
+    .logo-sub { font-size: 9px; letter-spacing: 6px; }
+    .whatsapp-btn-header span.txt { display: none; }
+    .whatsapp-btn-header { padding: 11px; width: 42px; height: 42px; justify-content: center; }
+    .nav { padding: 0 18px 12px; }
+    .product-wrap { padding: 20px 18px 50px; }
+    .product-layout { gap: 30px; margin-bottom: 40px; }
+    .product-title { font-size: 24px; }
+    .price-current { font-size: 26px; }
+    .action-btn { padding: 15px 20px; font-size: 13px; }
+    .ai-ask-btn { padding: 15px 18px; font-size: 13px; }
+    .swap-cta { padding: 16px 18px; gap: 12px; }
+    .swap-cta-icon { width: 42px; height: 42px; font-size: 18px; }
+    .swap-cta-text h4 { font-size: 14px; }
+    .swap-cta-text p { font-size: 11px; }
+    .highlights-row { grid-template-columns: 1fr; gap: 8px; }
+    .highlight { flex-direction: row; padding: 12px 16px; gap: 12px; text-align: left; }
+    .tabs-head { gap: 0; }
+    .tab-btn { padding: 12px 14px; font-size: 12px; }
+    .specs-table td { padding: 12px 16px; font-size: 13px; }
+    .specs-table td:first-child { font-size: 11px; padding: 12px 14px; }
+    .condition-row { grid-template-columns: 130px 1fr; padding: 12px 16px; gap: 12px; font-size: 13px; }
+    .condition-row .cond-label { font-size: 11px; }
+    .condition-report-head { padding: 14px 16px; }
+    .condition-report-head .cond-title { font-size: 15px; }
+    .condition-explainer { padding: 16px 18px; }
+    .box-list { grid-template-columns: 1fr; }
+    .delivery-list { grid-template-columns: 1fr; }
+    .section-below { margin-top: 50px; padding-top: 36px; }
+    .products-grid { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 12px; }
+    .product-card-info { padding: 12px; gap: 8px; }
+    .product-card-name { font-size: 13px; min-height: 36px; }
+    .product-card-price { font-size: 16px; }
+    .btn-card-wa span:not(.wa-icon), .btn-card-notify span { display: none; }
+    .footer-grid { grid-template-columns: 1fr; gap: 34px; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+    .wa-float { width: 52px; height: 52px; bottom: 20px; right: 20px; }
+    .back-to-top { bottom: 86px; right: 20px; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+    <div class="header-top">
+        <a href="index.html" class="logo">
+            <span class="logo-main">OBILO GOLD</span>
+            <span class="logo-sub">GADGETS</span>
+            <span class="logo-tag">Quality or Nothing</span>
+        </a>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search phones, laptops, tablets, brands...">
+            <button onclick="handleSearch()" aria-label="Search">⌕</button>
+        </div>
+        <div class="header-actions">
+            <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                <span class="theme-icon moon">☾</span>
+                <span class="theme-icon sun">☀</span>
+            </button>
+            <button class="icon-btn" onclick="location.href='favourites.html'" aria-label="Favourites">
+                ♡<span class="badge" id="favBadge" style="display:none">0</span>
+            </button>
+            <a href="https://wa.me/message/XUZF5HG3Y" target="_blank" rel="noopener" class="whatsapp-btn-header">
+                <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                <span class="txt">WhatsApp</span>
+            </a>
+        </div>
+    </div>
+    <nav class="nav">
+        <div class="nav-item"><a href="index.html">Home</a></div>
+        <div class="nav-item"><a href="shop.html">Shop</a></div>
+        <div class="nav-item"><a href="shop.html?deals=1">Deals</a></div>
+        <div class="nav-item"><a href="support.html">Support</a></div>
+    </nav>
+</header>
+
+<div class="product-wrap" id="productWrap"></div>
+
+<section class="product-wrap" id="recentlyWrap" style="display:none; padding-top:0;">
+    <div class="section-below">
+        <div class="section-below-head">
+            <div>
+                <div class="eyebrow" style="margin-bottom:10px;">Pick Up Where You Left</div>
+                <h2 class="section-below-title">Recently <span class="gold">Viewed</span></h2>
+            </div>
+        </div>
+        <div class="products-grid" id="recentlyGrid"></div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo">
+                    <span class="logo-main">OBILO GOLD</span>
+                    <span class="logo-sub">GADGETS</span>
+                    <span class="logo-tag">Quality or Nothing</span>
+                </div>
+                <p>Your trusted destination for premium gadgets in Nigeria. Genuine products, honest prices, real conversations.</p>
+                <div class="footer-socials">
+                    <a href="https://facebook.com/obilogold" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="https://instagram.com/obilogold" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                    </a>
+                    <a href="https://wa.me/message/XUZF5HG3Y" target="_blank" rel="noopener" class="social-btn" aria-label="WhatsApp">
+                        <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h5>Categories</h5>
+                <ul>
+                    <li><a href="shop.html?cat=phones">Phones</a></li>
+                    <li><a href="shop.html?cat=laptops">Laptops</a></li>
+                    <li><a href="shop.html?cat=tablets">Tablets</a></li>
+                    <li><a href="shop.html?cat=audio">Audio</a></li>
+                    <li><a href="shop.html?cat=wearables">Watches</a></li>
+                    <li><a href="shop.html?cat=chargers">Chargers</a></li>
+                    <li><a href="shop.html?cat=accessories">Accessories</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Brands</h5>
+                <ul>
+                    <li><a href="shop.html?cat=phones&brand=Apple">Apple Phones</a></li>
+                    <li><a href="shop.html?cat=phones&brand=Samsung">Samsung Phones</a></li>
+                    <li><a href="shop.html?cat=phones&brand=Google Pixel">Google Pixel Phones</a></li>
+                    <li><a href="shop.html?cat=phones&brand=Redmi">Redmi Phones</a></li>
+                    <li><a href="shop.html?cat=phones&brand=Tecno">Tecno Phones</a></li>
+                    <li><a href="shop.html?cat=phones&brand=Infinix">Infinix Phones</a></li>
+                    <li><a href="shop.html?cat=phones&brand=Oppo">Oppo Phones</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Contact</h5>
+                <ul>
+                    <li>
+                        <a href="https://wa.me/2349094062471" target="_blank" rel="noopener" class="contact-line">
+                            <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="color:var(--whatsapp)"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                            0909 406 2471
+                        </a>
+                    </li>
+                    <li><a href="mailto:obilogold@gmail.com" class="contact-line">✉ obilogold@gmail.com</a></li>
+                    <li>
+                        <span class="contact-line" style="cursor:default;">
+                            ✦ No 38 St Michaels GSM Center,<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;Aba, Abia State
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© <span id="year"></span> <span class="gold">OBILO GOLD GADGETS</span> · All rights reserved</span>
+            <span>Quality or Nothing ✦</span>
+        </div>
+    </div>
+</footer>
+
+<a href="https://wa.me/message/XUZF5HG3Y" target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
+    <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+<div class="toast" id="toast">Added</div>
+
+<script>
+/* CONFIG */
+var WHATSAPP_BASE = 'https://wa.me/message/XUZF5HG3Y';
+var WA_SVG = '<svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>';
+
+var CATEGORIES = [
+    { id: 'phones',        name: 'Phones',         icon: '◐' },
+    { id: 'laptops',       name: 'Laptops',        icon: '⌘' },
+    { id: 'tablets',       name: 'Tablets',        icon: '▢' },
+    { id: 'audio',         name: 'Audio',          icon: '◉' },
+    { id: 'wearables',     name: 'Watches',        icon: '◯' },
+    { id: 'smart-glasses', name: 'Smart Glasses',  icon: '◈' },
+    { id: 'mp3',           name: 'MP3 Players',    icon: '♫' },
+    { id: 'chargers',      name: 'Chargers',       icon: '⚡' },
+    { id: 'cables',        name: 'Cords & Cables', icon: '⌁' },
+    { id: 'cases',         name: 'Phone Cases',    icon: '⬚' },
+    { id: 'guards',        name: 'Screen Guards',  icon: '◫' },
+    { id: 'accessories',   name: 'Accessories',    icon: '✦' }
+];
+
+/* PRODUCTS — with condition field (brand-new, uk-used, us-used) */
+var PRODUCTS = [
+    /* ===== BRAND NEW — PHONES ===== */
+    { id: 1, name: 'iPhone 15 Pro Max', price: 1650000, image: 'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=900&q=80', category: 'phones', brand: 'Apple', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'The most powerful iPhone ever. Titanium design, A17 Pro chip, and the best camera system on any smartphone.',
+      specs: { 'Display': '6.7 inch Super Retina XDR OLED, 120Hz ProMotion', 'Processor': 'A17 Pro chip', 'Camera': '48MP Main + 12MP Ultra Wide + 12MP 5x Telephoto', 'Battery': '4441 mAh, up to 29h video playback', 'Storage': '256GB / 512GB / 1TB', 'OS': 'iOS 17', 'Build': 'Titanium frame, Ceramic Shield front', 'Connectivity': '5G, Wi-Fi 6E, USB-C', 'Water Resistance': 'IP68' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['iPhone 15 Pro Max', 'USB-C Charge Cable (1m)', 'Documentation', 'SIM ejector tool'] },
+    { id: 2, name: 'iPhone 15 Pro', price: 1450000, image: 'https://images.unsplash.com/photo-1591337676887-a217a6970a8a?w=900&q=80', category: 'phones', brand: 'Apple', sponsored: false, badge: 'new', inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'Pro power in a compact titanium body. Same A17 Pro chip and 48MP camera as the Pro Max.',
+      specs: { 'Display': '6.1 inch Super Retina XDR OLED, 120Hz', 'Processor': 'A17 Pro chip', 'Camera': '48MP Main + 12MP Ultra Wide + 12MP 3x Telephoto', 'Battery': '3274 mAh', 'Storage': '128GB / 256GB / 512GB / 1TB', 'OS': 'iOS 17', 'Build': 'Titanium frame' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['iPhone 15 Pro', 'USB-C Charge Cable (1m)', 'Documentation'] },
+    { id: 200, name: 'iPhone 15', price: 1150000, image: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=900&q=80', category: 'phones', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'The iPhone 15 brings Dynamic Island and a 48MP camera to the standard lineup.',
+      specs: { 'Display': '6.1 inch Super Retina XDR OLED', 'Processor': 'A16 Bionic', 'Camera': '48MP Main + 12MP Ultra Wide', 'Battery': '3349 mAh', 'Storage': '128GB / 256GB / 512GB', 'OS': 'iOS 17' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['iPhone 15', 'USB-C Charge Cable', 'Documentation'] },
+    { id: 3, name: 'Samsung Galaxy S25 Ultra', price: 1850000, image: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=900&q=80', category: 'phones', brand: 'Samsung', sponsored: true, featured: true, badge: 'new', inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'The ultimate Galaxy. 200MP camera, built-in S Pen, and Galaxy AI at your fingertips.',
+      specs: { 'Display': '6.9 inch Dynamic AMOLED 2X, 120Hz QHD+', 'Processor': 'Snapdragon 8 Gen 4 for Galaxy', 'Camera': '200MP Main + 50MP UW + 50MP 5x + 10MP 3x', 'Battery': '5000 mAh, 45W fast charging', 'Storage': '256GB / 512GB / 1TB', 'RAM': '12GB / 16GB', 'OS': 'Android 15, One UI 7', 'Special': 'Built-in S Pen' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Galaxy S25 Ultra', 'USB-C Cable', 'S Pen', 'Documentation'] },
+    { id: 210, name: 'Samsung Galaxy S24 Ultra', price: 1650000, image: 'https://images.unsplash.com/photo-1707060565848-8f1b0ff1e1c4?w=900&q=80', category: 'phones', brand: 'Samsung', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'The S24 Ultra with Galaxy AI, 200MP camera, and legendary S Pen productivity.',
+      specs: { 'Display': '6.8 inch Dynamic AMOLED 2X, 120Hz', 'Processor': 'Snapdragon 8 Gen 3 for Galaxy', 'Camera': '200MP + 12MP UW + 50MP 5x + 10MP 3x', 'Battery': '5000 mAh, 45W', 'Storage': '256GB / 512GB / 1TB', 'RAM': '12GB' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Galaxy S24 Ultra', 'USB-C Cable', 'S Pen', 'Documentation'] },
+    { id: 4, name: 'Samsung Galaxy A55', price: 480000, image: 'https://images.unsplash.com/photo-1610792516307-ea5acd9c3b00?w=900&q=80', category: 'phones', brand: 'Samsung', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'The midrange king. Great screen, great battery, great value.',
+      specs: { 'Display': '6.6 inch Super AMOLED, 120Hz', 'Processor': 'Exynos 1480', 'Camera': '50MP Main + 12MP UW + 5MP Macro', 'Battery': '5000 mAh, 25W', 'Storage': '128GB / 256GB', 'RAM': '8GB' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Galaxy A55', 'USB-C Cable', 'Documentation'] },
+    { id: 5, name: 'Google Pixel 9 Pro', price: 1450000, image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=900&q=80', category: 'phones', brand: 'Google Pixel', sponsored: false, featured: true, badge: 'new', inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'Pure Android. The smartest camera. Gemini AI built-in.',
+      specs: { 'Display': '6.3 inch LTPO OLED, 120Hz', 'Processor': 'Google Tensor G4', 'Camera': '50MP Main + 48MP UW + 48MP 5x', 'Battery': '4700 mAh, 27W', 'Storage': '128GB / 256GB / 512GB', 'RAM': '16GB', 'Special': 'Gemini AI' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Pixel 9 Pro', 'USB-C Cable', 'Documentation'] },
+    { id: 6, name: 'Google Pixel 8a', price: 720000, image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=900&q=80', category: 'phones', brand: 'Google Pixel', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'Flagship Pixel AI at a midrange price. The best value phone on the market.',
+      specs: { 'Display': '6.1 inch OLED, 120Hz', 'Processor': 'Google Tensor G3', 'Camera': '64MP Main + 13MP UW', 'Battery': '4492 mAh', 'Storage': '128GB / 256GB', 'RAM': '8GB' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Pixel 8a', 'USB-C Cable', 'Documentation'] },
+    { id: 7, name: 'Xiaomi 14 Ultra', price: 1350000, image: 'https://images.unsplash.com/photo-1618478594486-c65b899c4936?w=900&q=80', category: 'phones', brand: 'Xiaomi', sponsored: false, featured: true, badge: 'limited', inStock: true, stockType: 'special-order', condition: 'brand-new',
+      subtitle: 'Leica quad-camera system. The photographer flagship.',
+      specs: { 'Display': '6.73 inch LTPO AMOLED, 120Hz', 'Processor': 'Snapdragon 8 Gen 3', 'Camera': '50MP Main (Leica) + 50MP UW + 50MP 3.2x + 50MP 5x', 'Battery': '5300 mAh, 90W', 'Storage': '256GB - 1TB', 'RAM': '12GB / 16GB' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Xiaomi 14 Ultra', '90W Charger', 'USB-C Cable', 'Protective Case', 'Documentation'] },
+    { id: 8, name: 'Redmi Note 13 Pro', price: 285000, image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=900&q=80', category: 'phones', brand: 'Redmi', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'The best-selling midrange phone in Nigeria. 200MP camera, AMOLED screen, big battery.',
+      specs: { 'Display': '6.67 inch AMOLED, 120Hz', 'Processor': 'Snapdragon 7s Gen 2', 'Camera': '200MP + 8MP UW + 2MP Macro', 'Battery': '5100 mAh, 67W', 'Storage': '128GB - 512GB', 'RAM': '8GB / 12GB' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Redmi Note 13 Pro', '67W Charger', 'USB-C Cable', 'Protective Case', 'Documentation'] },
+    { id: 9, name: 'Redmi 13C', price: 145000, image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=900&q=80', category: 'phones', brand: 'Redmi', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'Best budget phone under 150K. Big screen, big battery, 50MP camera.',
+      specs: { 'Display': '6.74 inch IPS LCD, 90Hz', 'Processor': 'MediaTek Helio G85', 'Camera': '50MP + 2MP + 2MP', 'Battery': '5000 mAh, 18W', 'Storage': '128GB / 256GB', 'RAM': '4GB / 6GB / 8GB' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Redmi 13C', '18W Charger', 'USB-C Cable', 'Documentation'] },
+    { id: 10, name: 'Tecno Camon 30 Pro', price: 385000, image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=900&q=80', category: 'phones', brand: 'Tecno', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'Sony sensors, flagship design, unbeatable value. Made for content creators.',
+      specs: { 'Display': '6.78 inch AMOLED, 120Hz', 'Processor': 'MediaTek Dimensity 8200 Ultimate', 'Camera': '50MP Sony + 50MP UW + 50MP 2x', 'Battery': '5000 mAh, 70W', 'Storage': '256GB / 512GB', 'RAM': '8GB / 12GB' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Tecno Camon 30 Pro', '70W Charger', 'USB-C Cable', 'Protective Case', 'Documentation'] },
+    { id: 11, name: 'Tecno Spark 20', price: 145000, image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=900&q=80', category: 'phones', brand: 'Tecno', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'Big screen, big battery, 50MP camera. Everything you need at a budget price.',
+      specs: { 'Display': '6.6 inch IPS LCD, 90Hz', 'Processor': 'MediaTek Helio G85', 'Camera': '50MP + 2MP Depth', 'Battery': '5000 mAh, 18W', 'Storage': '128GB / 256GB', 'RAM': '4GB / 8GB' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Tecno Spark 20', '18W Charger', 'USB-C Cable', 'Protective Case', 'Documentation'] },
+    { id: 12, name: 'Infinix Note 40 Pro', price: 320000, image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=900&q=80', category: 'phones', brand: 'Infinix', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'All-round midrange king. AMOLED, 108MP camera, fast charging, big battery.',
+      specs: { 'Display': '6.78 inch AMOLED, 120Hz', 'Processor': 'MediaTek Helio G99 Ultimate', 'Camera': '108MP + 2MP + 2MP', 'Battery': '5000 mAh, 45W', 'Storage': '256GB', 'RAM': '8GB / 12GB' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Infinix Note 40 Pro', '45W Charger', 'USB-C Cable', 'Protective Case', 'Documentation'] },
+    { id: 13, name: 'Infinix Hot 40', price: 128000, image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=900&q=80', category: 'phones', brand: 'Infinix', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'Best-selling budget Infinix. Great screen, 50MP camera, reliable performance.',
+      specs: { 'Display': '6.78 inch IPS LCD, 90Hz', 'Processor': 'MediaTek Helio G88', 'Camera': '50MP + AI Lens', 'Battery': '5000 mAh, 33W', 'Storage': '128GB / 256GB', 'RAM': '8GB' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Infinix Hot 40', '33W Charger', 'USB-C Cable', 'Protective Case', 'Documentation'] },
+    { id: 14, name: 'itel A70', price: 78000, image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=900&q=80', category: 'phones', brand: 'itel', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'The most affordable smartphone worth buying. Reliable and battery-friendly.',
+      specs: { 'Display': '6.6 inch IPS LCD, 90Hz', 'Processor': 'Unisoc T606', 'Camera': '13MP + AI Lens', 'Battery': '5000 mAh', 'Storage': '128GB', 'RAM': '4GB' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['itel A70', 'Charger', 'USB-C Cable', 'Documentation'] },
+    { id: 16, name: 'Oppo Reno 12 Pro', price: 620000, image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=900&q=80', category: 'phones', brand: 'Oppo', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'AI-powered portrait camera system. Beautiful curved design.',
+      specs: { 'Display': '6.7 inch Curved AMOLED, 120Hz', 'Processor': 'MediaTek Dimensity 9200+', 'Camera': '50MP + 50MP 2x + 8MP UW', 'Battery': '5000 mAh, 80W', 'Storage': '256GB / 512GB', 'RAM': '12GB' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Oppo Reno 12 Pro', '80W Charger', 'USB-C Cable', 'Protective Case', 'Documentation'] },
+    { id: 17, name: 'Vivo V30 Pro', price: 580000, image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=900&q=80', category: 'phones', brand: 'Vivo', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'Zeiss portrait camera system. Best phone for photos of people.',
+      specs: { 'Display': '6.78 inch Curved AMOLED, 120Hz', 'Processor': 'MediaTek Dimensity 8200', 'Camera': '50MP (Zeiss) + 50MP 2x + 50MP UW', 'Battery': '5000 mAh, 80W', 'Storage': '256GB / 512GB', 'RAM': '8GB / 12GB' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Vivo V30 Pro', '80W Charger', 'USB-C Cable', 'Protective Case', 'Documentation'] },
+    { id: 18, name: 'Realme 12 Pro+', price: 420000, image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=900&q=80', category: 'phones', brand: 'Realme', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'Periscope telephoto camera at a midrange price. Luxury design.',
+      specs: { 'Display': '6.7 inch Curved AMOLED, 120Hz', 'Processor': 'Snapdragon 7s Gen 2', 'Camera': '50MP + 64MP Periscope 3x + 8MP UW', 'Battery': '5000 mAh, 67W', 'Storage': '256GB / 512GB', 'RAM': '8GB / 12GB' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Realme 12 Pro+', '67W Charger', 'USB-C Cable', 'Protective Case', 'Documentation'] },
+    { id: 20, name: 'Honor X9b', price: 380000, image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=900&q=80', category: 'phones', brand: 'Honor', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'Ultra-tough curved AMOLED screen. Drop resistant and beautiful.',
+      specs: { 'Display': '6.78 inch Curved AMOLED, 120Hz', 'Processor': 'Snapdragon 6 Gen 1', 'Camera': '108MP + 5MP UW + 2MP Depth', 'Battery': '5800 mAh, 35W', 'Storage': '256GB', 'RAM': '8GB / 12GB' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Honor X9b', '35W Charger', 'USB-C Cable', 'Protective Case', 'Documentation'] },
+    { id: 22, name: 'Nothing Phone (2a)', price: 480000, image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=900&q=80', category: 'phones', brand: 'Nothing', sponsored: false, badge: 'new', inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'Unique Glyph interface. Clean Nothing OS. Stands out from the crowd.',
+      specs: { 'Display': '6.7 inch AMOLED, 120Hz', 'Processor': 'MediaTek Dimensity 7200 Pro', 'Camera': '50MP + 50MP UW', 'Battery': '5000 mAh, 45W', 'Storage': '128GB / 256GB', 'RAM': '8GB / 12GB' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Nothing Phone (2a)', 'USB-C Cable', 'Documentation'] },
+
+    /* ===== UK USED — PHONES ===== */
+    { id: 1001, name: 'iPhone 14 Pro Max — UK Used', price: 980000, oldPrice: 1280000, image: 'https://images.unsplash.com/photo-1678652197831-2d180705cd2c?w=900&q=80', category: 'phones', brand: 'Apple', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'uk-used',
+      conditionReport: { grade: 'A+', battery: '89%', cosmetic: 'Minor hairlines on frame, screen flawless', functionality: '100% tested — all features working', network: 'Unlocked (works with all Nigerian SIMs)' },
+      subtitle: 'Grade A+ UK Used iPhone 14 Pro Max. Used in London, tested and graded in Aba. 20-40% less than new.',
+      specs: { 'Display': '6.7 inch Super Retina XDR OLED, 120Hz', 'Processor': 'A16 Bionic', 'Camera': '48MP Main + 12MP UW + 12MP Telephoto', 'Battery': '4323 mAh, 89% health', 'Storage': '128GB / 256GB', 'OS': 'iOS 16 (upgradable)', 'Origin': 'United Kingdom' },
+      highlights: [{ icon: '🔵', label: 'Grade A+ Verified' }, { icon: '🔋', label: '89% Battery' }, { icon: '🛡️', label: '6 Month Warranty' }],
+      inBox: ['iPhone 14 Pro Max (UK Used)', 'USB-C to Lightning Cable', 'OBILO Condition Report'] },
+    { id: 1002, name: 'Samsung Galaxy S23 Ultra — UK Used', price: 780000, oldPrice: 1180000, image: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=900&q=80', category: 'phones', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'uk-used',
+      conditionReport: { grade: 'A', battery: '91%', cosmetic: 'Very light wear, no scratches', functionality: '100% tested', network: 'Unlocked (works with all Nigerian SIMs)' },
+      subtitle: 'Grade A UK Used Galaxy S23 Ultra. S Pen included, fully tested, 6-month warranty.',
+      specs: { 'Display': '6.8 inch Dynamic AMOLED 2X, 120Hz', 'Processor': 'Snapdragon 8 Gen 2 for Galaxy', 'Camera': '200MP + 12MP UW + 10MP 3x + 10MP 10x', 'Battery': '5000 mAh, 91% health', 'Storage': '256GB / 512GB', 'Origin': 'United Kingdom' },
+      highlights: [{ icon: '🔵', label: 'Grade A Verified' }, { icon: '🔋', label: '91% Battery' }, { icon: '🛡️', label: '6 Month Warranty' }],
+      inBox: ['Galaxy S23 Ultra (UK Used)', 'S Pen', 'USB-C Cable', 'OBILO Condition Report'] },
+    { id: 1003, name: 'Google Pixel 7 Pro — UK Used', price: 520000, oldPrice: 780000, image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=900&q=80', category: 'phones', brand: 'Google Pixel', sponsored: false, inStock: true, stockType: 'in-store', condition: 'uk-used',
+      conditionReport: { grade: 'A', battery: '88%', cosmetic: 'Excellent, minor edge wear', functionality: '100% tested', network: 'Unlocked' },
+      subtitle: 'Grade A UK Used Pixel 7 Pro. Best camera on any UK-used phone. Tested and warrantied.',
+      specs: { 'Display': '6.7 inch LTPO OLED, 120Hz', 'Processor': 'Google Tensor G2', 'Camera': '50MP + 12MP UW + 48MP 5x', 'Battery': '5000 mAh, 88% health', 'Storage': '128GB / 256GB', 'Origin': 'United Kingdom' },
+      highlights: [{ icon: '🔵', label: 'Grade A Verified' }, { icon: '🔋', label: '88% Battery' }, { icon: '🛡️', label: '6 Month Warranty' }],
+      inBox: ['Pixel 7 Pro (UK Used)', 'USB-C Cable', 'OBILO Condition Report'] },
+    { id: 1004, name: 'iPhone 13 — UK Used', price: 480000, oldPrice: 780000, image: 'https://images.unsplash.com/photo-1632661674596-df8be070a5c5?w=900&q=80', category: 'phones', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store', condition: 'uk-used',
+      conditionReport: { grade: 'A+', battery: '86%', cosmetic: 'Near mint condition', functionality: '100% tested', network: 'Unlocked' },
+      subtitle: 'Grade A+ UK Used iPhone 13. Reliable, tested, and half the price of new.',
+      specs: { 'Display': '6.1 inch Super Retina XDR OLED', 'Processor': 'A15 Bionic', 'Camera': '12MP Main + 12MP UW', 'Battery': '3240 mAh, 86% health', 'Storage': '128GB / 256GB', 'Origin': 'United Kingdom' },
+      highlights: [{ icon: '🔵', label: 'Grade A+ Verified' }, { icon: '🔋', label: '86% Battery' }, { icon: '🛡️', label: '6 Month Warranty' }],
+      inBox: ['iPhone 13 (UK Used)', 'USB-C to Lightning Cable', 'OBILO Condition Report'] },
+    { id: 1005, name: 'Samsung Galaxy S22 Ultra — UK Used', price: 480000, oldPrice: 720000, image: 'https://images.unsplash.com/photo-1610792516307-ea5acd9c3b00?w=900&q=80', category: 'phones', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'uk-used',
+      conditionReport: { grade: 'B+', battery: '85%', cosmetic: 'Light scratches on frame, screen clean', functionality: '100% tested', network: 'Unlocked' },
+      subtitle: 'Grade B+ UK Used Galaxy S22 Ultra. S Pen included. Amazing value.',
+      specs: { 'Display': '6.8 inch Dynamic AMOLED 2X, 120Hz', 'Processor': 'Snapdragon 8 Gen 1', 'Camera': '108MP + 12MP UW + 10MP 3x + 10MP 10x', 'Battery': '5000 mAh, 85% health', 'Storage': '128GB / 256GB', 'Origin': 'United Kingdom' },
+      highlights: [{ icon: '🔵', label: 'Grade B+ Verified' }, { icon: '🔋', label: '85% Battery' }, { icon: '🛡️', label: '6 Month Warranty' }],
+      inBox: ['Galaxy S22 Ultra (UK Used)', 'S Pen', 'USB-C Cable', 'OBILO Condition Report'] },
+
+    /* ===== US USED — PHONES ===== */
+    { id: 1101, name: 'iPhone 14 — US Used', price: 720000, oldPrice: 980000, image: 'https://images.unsplash.com/photo-1591337676887-a217a6970a8a?w=900&q=80', category: 'phones', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store', condition: 'us-used',
+      conditionReport: { grade: 'A+', battery: '88%', cosmetic: 'Excellent condition', functionality: '100% tested', network: 'Unlocked (works with all Nigerian SIMs)' },
+      subtitle: 'Grade A+ US Used iPhone 14. Used in the USA, tested in Aba. Nearly new at a fraction of the price.',
+      specs: { 'Display': '6.1 inch Super Retina XDR OLED', 'Processor': 'A15 Bionic', 'Camera': '12MP Main + 12MP UW', 'Battery': '3279 mAh, 88% health', 'Storage': '128GB / 256GB', 'Origin': 'United States' },
+      highlights: [{ icon: '🟣', label: 'Grade A+ Verified' }, { icon: '🔋', label: '88% Battery' }, { icon: '🛡️', label: '6 Month Warranty' }],
+      inBox: ['iPhone 14 (US Used)', 'USB-C to Lightning Cable', 'OBILO Condition Report'] },
+    { id: 1102, name: 'Samsung Galaxy S23 — US Used', price: 580000, oldPrice: 850000, image: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=900&q=80', category: 'phones', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'us-used',
+      conditionReport: { grade: 'A', battery: '89%', cosmetic: 'Minor hairlines, screen flawless', functionality: '100% tested', network: 'Unlocked' },
+      subtitle: 'Grade A US Used Galaxy S23. Compact flagship, tested, ready to go.',
+      specs: { 'Display': '6.1 inch Dynamic AMOLED 2X, 120Hz', 'Processor': 'Snapdragon 8 Gen 2 for Galaxy', 'Camera': '50MP + 12MP UW + 10MP 3x', 'Battery': '3900 mAh, 89% health', 'Storage': '128GB / 256GB', 'Origin': 'United States' },
+      highlights: [{ icon: '🟣', label: 'Grade A Verified' }, { icon: '🔋', label: '89% Battery' }, { icon: '🛡️', label: '6 Month Warranty' }],
+      inBox: ['Galaxy S23 (US Used)', 'USB-C Cable', 'OBILO Condition Report'] },
+    { id: 1103, name: 'Google Pixel 7 — US Used', price: 380000, oldPrice: 580000, image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=900&q=80', category: 'phones', brand: 'Google Pixel', sponsored: false, inStock: true, stockType: 'in-store', condition: 'us-used',
+      conditionReport: { grade: 'A', battery: '87%', cosmetic: 'Good condition, light wear', functionality: '100% tested', network: 'Unlocked' },
+      subtitle: 'Grade A US Used Pixel 7. Outstanding camera at an unbeatable price.',
+      specs: { 'Display': '6.3 inch OLED, 90Hz', 'Processor': 'Google Tensor G2', 'Camera': '50MP + 12MP UW', 'Battery': '4355 mAh, 87% health', 'Storage': '128GB / 256GB', 'Origin': 'United States' },
+      highlights: [{ icon: '🟣', label: 'Grade A Verified' }, { icon: '🔋', label: '87% Battery' }, { icon: '🛡️', label: '6 Month Warranty' }],
+      inBox: ['Pixel 7 (US Used)', 'USB-C Cable', 'OBILO Condition Report'] },
+
+    /* ===== LAPTOPS ===== */
+    { id: 30, name: 'MacBook Pro 14 inch M3', price: 2450000, image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=900&q=80', category: 'laptops', brand: 'Apple', sponsored: false, featured: true, badge: 'new', inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'M3 chip brings serious performance. Liquid Retina XDR display, all-day battery.',
+      specs: { 'Display': '14.2 inch Liquid Retina XDR, 120Hz', 'Processor': 'Apple M3 chip (8-core CPU, 10-core GPU)', 'RAM': '8GB / 16GB / 24GB', 'Storage': '512GB / 1TB / 2TB SSD', 'Battery': 'Up to 22 hours', 'OS': 'macOS Sonoma' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['MacBook Pro 14 inch', '96W USB-C Adapter', 'USB-C to MagSafe 3 Cable', 'Documentation'] },
+    { id: 31, name: 'MacBook Air M2', price: 1850000, image: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=900&q=80', category: 'laptops', brand: 'Apple', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'The perfect everyday laptop. Silent, thin, and lasts all day.',
+      specs: { 'Display': '13.6 inch Liquid Retina', 'Processor': 'Apple M2 chip', 'RAM': '8GB / 16GB / 24GB', 'Storage': '256GB - 2TB SSD', 'Battery': 'Up to 18 hours', 'OS': 'macOS Sonoma' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['MacBook Air', '30W USB-C Adapter', 'USB-C to MagSafe 3 Cable', 'Documentation'] },
+    { id: 33, name: 'HP Pavilion 15', price: 720000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=900&q=80', category: 'laptops', brand: 'HP', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'Best-value laptop for work and study. Great screen, solid performance.',
+      specs: { 'Display': '15.6 inch FHD IPS', 'Processor': 'Intel Core i5-1335U', 'RAM': '8GB / 16GB DDR4', 'Storage': '256GB - 1TB SSD', 'Graphics': 'Intel Iris Xe', 'OS': 'Windows 11 Home' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['HP Pavilion 15', '65W Adapter', 'Documentation'] },
+    { id: 1201, name: 'MacBook Air M1 — UK Used', price: 920000, oldPrice: 1450000, image: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=900&q=80', category: 'laptops', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store', condition: 'uk-used',
+      conditionReport: { grade: 'A', battery: '84% cycles', cosmetic: 'Excellent, minor scuffs on bottom', functionality: '100% tested', network: 'Unlocked' },
+      subtitle: 'Grade A UK Used MacBook Air M1. Silent, powerful, thin — at nearly half the price.',
+      specs: { 'Display': '13.3 inch Retina', 'Processor': 'Apple M1 chip', 'RAM': '8GB Unified', 'Storage': '256GB SSD', 'Battery': '84% cycle count', 'Origin': 'United Kingdom' },
+      highlights: [{ icon: '🔵', label: 'Grade A Verified' }, { icon: '🔋', label: '84% Cycles' }, { icon: '🛡️', label: '6 Month Warranty' }],
+      inBox: ['MacBook Air M1 (UK Used)', '30W USB-C Adapter', 'OBILO Condition Report'] },
+
+    /* ===== TABLETS ===== */
+    { id: 40, name: 'iPad Air 5th Gen', price: 780000, image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=900&q=80', category: 'tablets', brand: 'Apple', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'M1 power in a thin, colorful tablet. Perfect balance of portability and performance.',
+      specs: { 'Display': '10.9 inch Liquid Retina', 'Processor': 'Apple M1 chip', 'RAM': '8GB', 'Storage': '64GB / 256GB', 'Battery': 'Up to 10 hours', 'Special': 'Apple Pencil 2 support' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['iPad Air', 'USB-C Cable', '20W Adapter', 'Documentation'] },
+    { id: 41, name: 'Samsung Galaxy Tab S9', price: 850000, image: 'https://images.unsplash.com/photo-1561154464-82e9adf32764?w=900&q=80', category: 'tablets', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'Premium Android tablet. S Pen included, stunning AMOLED display.',
+      specs: { 'Display': '11 inch Dynamic AMOLED 2X, 120Hz', 'Processor': 'Snapdragon 8 Gen 2 for Galaxy', 'RAM': '8GB / 12GB', 'Storage': '128GB / 256GB', 'Battery': '8400 mAh, 45W', 'Special': 'S Pen included' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Galaxy Tab S9', 'S Pen', 'USB-C Cable', 'Documentation'] },
+    { id: 42, name: 'Xiaomi Pad 6', price: 380000, image: 'https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?w=900&q=80', category: 'tablets', brand: 'Xiaomi', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'Excellent value Android tablet. 144Hz screen, metal body.',
+      specs: { 'Display': '11 inch IPS LCD, 144Hz', 'Processor': 'Snapdragon 870', 'RAM': '6GB / 8GB', 'Storage': '128GB / 256GB', 'Battery': '8840 mAh, 33W' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Xiaomi Pad 6', '33W Charger', 'USB-C Cable', 'Documentation'] },
+
+    /* ===== AUDIO ===== */
+    { id: 50, name: 'AirPods Pro 2nd Gen', price: 320000, image: 'https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=900&q=80', category: 'audio', brand: 'Apple', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'Best-in-class noise cancellation. USB-C charging. Adaptive Audio.',
+      specs: { 'Type': 'True Wireless In-Ear', 'Chip': 'Apple H2', 'Noise Cancellation': 'Active ANC', 'Battery': '6h + 30h', 'Charging': 'USB-C, MagSafe', 'Water Resistance': 'IP54' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['AirPods Pro', 'Charging Case (USB-C)', 'Ear tips', 'USB-C Cable', 'Documentation'] },
+    { id: 52, name: 'Sony WH-1000XM5', price: 420000, image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=900&q=80', category: 'audio', brand: 'Sony', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'The best noise-cancelling headphones money can buy.',
+      specs: { 'Type': 'Over-Ear Wireless', 'Noise Cancellation': 'Industry-leading ANC', 'Battery': '30 hours', 'Special': 'LDAC, Multipoint' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Sony WH-1000XM5', 'Carrying Case', 'USB-C Cable', '3.5mm Cable', 'Documentation'] },
+    { id: 53, name: 'JBL Flip 6 Speaker', price: 95000, image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=900&q=80', category: 'audio', brand: 'JBL', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'Portable party speaker. Bold JBL Pro Sound, IP67 waterproof.',
+      specs: { 'Type': 'Portable Bluetooth Speaker', 'Output': '30W', 'Battery': '12 hours', 'Water Resistance': 'IP67', 'Special': 'PartyBoost' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['JBL Flip 6', 'USB-C Cable', 'Documentation'] },
+    { id: 54, name: 'Oraimo FreePods 4', price: 28000, image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=900&q=80', category: 'audio', brand: 'Oraimo', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'Best value earbuds in Nigeria. ANC, great battery, unbeatable price.',
+      specs: { 'Type': 'True Wireless In-Ear', 'Noise Cancellation': 'ENC', 'Battery': '8h + 32h', 'Water Resistance': 'IPX5' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Oraimo FreePods 4', 'Charging Case', 'USB-C Cable', 'Ear Tips', 'Documentation'] },
+
+    /* ===== WEARABLES ===== */
+    { id: 60, name: 'Apple Watch Series 9', price: 480000, image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=900&q=80', category: 'wearables', brand: 'Apple', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'The best Apple Watch. New S9 chip, double tap, brighter display.',
+      specs: { 'Sizes': '41mm / 45mm', 'Display': 'Always-On Retina, 2000 nits', 'Chip': 'Apple S9 SiP', 'Battery': '18 hours', 'Special': 'Double Tap gesture' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Apple Watch Series 9', 'Band', 'Charging Cable', 'Documentation'] },
+    { id: 64, name: 'Huawei Watch GT 4', price: 280000, image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=900&q=80', category: 'wearables', brand: 'Huawei', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'Premium smartwatch with 2-week battery and pro health tracking.',
+      specs: { 'Sizes': '41mm / 46mm', 'Display': 'AMOLED, Always-On', 'Battery': 'Up to 14 days', 'Water Resistance': '5ATM', 'Special': 'Bluetooth calling' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Huawei Watch GT 4', 'Magnetic Cable', 'Documentation'] },
+
+    /* ===== SMART GLASSES ===== */
+    { id: 70, name: 'Ray-Ban Meta Smart Glasses', price: 620000, image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=900&q=80', category: 'smart-glasses', brand: 'Meta', sponsored: false, featured: true, badge: 'new', inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'Capture photos and video hands-free. Built-in speakers, Meta AI.',
+      specs: { 'Type': 'Smart Glasses', 'Camera': '12MP Ultra Wide + 1080p video', 'Battery': 'Up to 4 hours', 'Connectivity': 'Bluetooth 5.3, Wi-Fi', 'Special': 'Meta AI' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Ray-Ban Meta Smart Glasses', 'Charging Case', 'USB-C Cable', 'Documentation'] },
+
+    /* ===== MP3 ===== */
+    { id: 100, name: 'Sony NW-E394 Walkman', price: 85000, image: 'https://images.unsplash.com/photo-1592434134753-a70baf7979d5?w=900&q=80', category: 'mp3', brand: 'Sony', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'Compact digital music player. Great sound, long battery.',
+      specs: { 'Storage': '8GB', 'Battery': 'Up to 35 hours', 'Audio Formats': 'MP3, WMA, AAC, FLAC, WAV', 'Connectivity': 'Bluetooth, USB' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '1 Year Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Sony Walkman', 'USB Cable', 'Documentation'] },
+
+    /* ===== CHARGERS ===== */
+    { id: 110, name: 'Anker 65W GaN Charger', price: 42000, image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=900&q=80', category: 'chargers', brand: 'Anker', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'Compact GaN charger. Charges phone, tablet, and laptop from one plug.',
+      specs: { 'Power': '65W', 'Ports': '2x USB-C, 1x USB-A', 'Technology': 'GaN II', 'Safety': 'ActiveShield 2.0' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '18 Month Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Anker 65W GaN Charger', 'Documentation'] },
+
+    /* ===== CABLES ===== */
+    { id: 120, name: 'Anker USB-C to Lightning', price: 15000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=900&q=80', category: 'cables', brand: 'Anker', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'MFi certified. Fast charging for iPhone.',
+      specs: { 'Type': 'USB-C to Lightning', 'Length': '1m / 2m', 'Certification': 'Apple MFi', 'Power': 'Up to 30W' },
+      highlights: [{ icon: '✦', label: 'MFi Certified' }, { icon: '◈', label: '18 Month Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Anker USB-C to Lightning Cable', 'Documentation'] },
+
+    /* ===== CASES ===== */
+    { id: 130, name: 'iPhone 15 Pro Max Silicone Case', price: 8500, image: 'https://images.unsplash.com/photo-1601593346740-925612772716?w=900&q=80', category: 'cases', brand: 'Apple', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'Genuine Apple silicone case. Silky feel, perfect fit.',
+      specs: { 'Compatibility': 'iPhone 15 Pro Max', 'Material': 'Silicone', 'MagSafe': 'Yes' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '6 Month Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['iPhone 15 Pro Max Silicone Case', 'Documentation'] },
+
+    /* ===== GUARDS ===== */
+    { id: 150, name: 'iPhone 15 Pro Max Tempered Glass', price: 4500, image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=900&q=80', category: 'guards', brand: 'Apple', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: '9H hardness tempered glass. Full-screen protection.',
+      specs: { 'Compatibility': 'iPhone 15 Pro Max', 'Hardness': '9H', 'Type': 'Tempered Glass' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '30 Day Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Tempered Glass', 'Wet Wipe', 'Dry Wipe', 'Dust Sticker'] },
+
+    /* ===== ACCESSORIES ===== */
+    { id: 80, name: 'Anker Power Bank 20K', price: 45000, image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=900&q=80', category: 'accessories', brand: 'Anker', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new',
+      subtitle: 'High-capacity power bank. Charges a phone 4-5 times.',
+      specs: { 'Capacity': '20,000 mAh', 'Output': 'Up to 65W', 'Ports': '2x USB-C, 1x USB-A', 'Special': 'Can charge laptops' },
+      highlights: [{ icon: '✦', label: '100% Genuine' }, { icon: '◈', label: '18 Month Warranty' }, { icon: '➤', label: 'Fast Delivery' }],
+      inBox: ['Anker Power Bank 20K', 'USB-C Cable', 'Travel Pouch', 'Documentation'] }
+];
+
+/* HELPERS */
+function formatPrice(n) { return '\u20A6' + n.toLocaleString('en-NG'); }
+
+function getStockInfo(stockType) {
+    if (stockType === 'in-store') return { cls: 'in-store', label: 'Available in Store', icon: '✓', title: 'Available in Our Store Right Now', note: 'You can walk in today and see this product in person before you buy.' };
+    if (stockType === 'pre-order') return { cls: 'pre-order', label: 'Pre-Order', icon: '◷', title: 'Pre-Order — Arriving Soon', note: 'This product has not arrived in our store yet. Reserve yours now on WhatsApp.' };
+    if (stockType === 'special-order') return { cls: 'special-order', label: 'Special Order', icon: '✦', title: 'Special Order — We Will Source It For You', note: 'We can source this for you from our trusted suppliers. Chat with us for pricing.' };
+    return { cls: 'in-store', label: 'Available', icon: '✓', title: 'Available', note: 'Contact us on WhatsApp for availability.' };
+}
+
+function getConditionInfo(condition) {
+    if (condition === 'uk-used') return { cls: 'uk-used', label: 'UK Used · Clean', short: 'UK Used', dot: '🔵' };
+    if (condition === 'us-used') return { cls: 'us-used', label: 'US Used · Clean', short: 'US Used', dot: '🟣' };
+    return { cls: 'brand-new', label: 'Brand New', short: 'Brand New', dot: '🟢' };
+}
+
+function getProductIdFromURL() {
+    try {
+        var params = new URLSearchParams(location.search);
+        var id = parseInt(params.get('id'), 10);
+        return isNaN(id) ? null : id;
+    } catch(e) { return null; }
+}
+
+function buildProductWhatsAppLink(product) {
+    var priceStr = product.price != null ? formatPrice(product.price) : 'Price on request';
+    var stockStr = getStockInfo(product.stockType).label;
+    var condInfo = getConditionInfo(product.condition);
+    var msg = 'Hello OBILO GOLD GADGETS, I am interested in this product:\n\n*' + product.name + '*\nBrand: ' + product.brand + '\nCondition: ' + condInfo.label + '\nPrice: ' + priceStr + '\nStatus: ' + stockStr + '\n\nI would like to know more / place an order.';
+    return WHATSAPP_BASE + '?text=' + encodeURIComponent(msg);
+}
+
+function buildAIWhatsAppLink(product) {
+    var priceStr = product.price != null ? formatPrice(product.price) : 'Price on request';
+    var msg = 'Hello OBILO AI, please tell me more about the *' + product.name + '* (' + product.brand + ') priced at ' + priceStr + '.\n\nI would like help deciding if this is right for me.';
+    return WHATSAPP_BASE + '?text=' + encodeURIComponent(msg);
+}
+
+function buildSwapWhatsAppLink(product) {
+    var priceStr = product.price != null ? formatPrice(product.price) : 'Price on request';
+    var msg = 'Hello OBILO GOLD GADGETS, I want to SWAP my current phone for the *' + product.name + '* (' + priceStr + ').\n\nHere are the details of my current phone:\n\n*Brand:* \n*Model:* \n*Storage:* \n*Condition:* (Brand New / UK Used / Used)\n*Any faults:* \n\nPlease tell me the trade-in value and how we proceed.';
+    return WHATSAPP_BASE + '?text=' + encodeURIComponent(msg);
+}
+
+function buildSimpleWhatsAppLink(name, price) {
+    var priceStr = price != null ? formatPrice(price) : 'Price on request';
+    var msg = 'Hello OBILO GOLD GADGETS, I am interested in:\n\n*' + name + '*\nPrice: ' + priceStr + '\n\nIs it available?';
+    return WHATSAPP_BASE + '?text=' + encodeURIComponent(msg);
+}
+
+function buildTagsHTML(product) {
+    var tags = [];
+    if (product.sponsored) tags.push('<span class="sponsored-tag">Sponsored</span>');
+    if (product.badge === 'new') tags.push('<span class="product-badge new">New</span>');
+    if (product.badge === 'hot') tags.push('<span class="product-badge hot">Hot</span>');
+    if (product.badge === 'limited') tags.push('<span class="product-badge limited">Limited</span>');
+    if (product.inStock === false) tags.push('<span class="product-badge sold-out">Sold Out</span>');
+    return tags.join('');
+}
+
+function buildConditionBadgeHTML(product) {
+    var c = getConditionInfo(product.condition);
+    if (c.cls === 'brand-new') {
+        return '<span class="condition-badge brand-new"><span class="cb-dot"></span>Brand New</span>';
+    }
+    return '<span class="condition-badge ' + c.cls + '"><span class="cb-dot"></span>' + c.label + '</span>';
+}
+
+function buildConditionPillHTML(product) {
+    var c = getConditionInfo(product.condition);
+    return '<span class="condition-pill ' + c.cls + '"><span class="cp-dot"></span>' + c.label + '</span>';
+}
+
+function buildCardTagsHTML(product) {
+    var tags = [];
+    if (product.sponsored) tags.push('<span class="sponsored-tag">Sponsored</span>');
+    if (product.badge === 'new') tags.push('<span class="product-badge new">New</span>');
+    if (product.badge === 'hot') tags.push('<span class="product-badge hot">Hot</span>');
+    if (product.badge === 'limited') tags.push('<span class="product-badge limited">Limited</span>');
+    if (product.inStock === false) tags.push('<span class="product-badge sold-out">Sold Out</span>');
+    if (product.condition === 'uk-used') tags.push('<span class="condition-badge uk-used"><span class="cb-dot"></span>UK Used</span>');
+    if (product.condition === 'us-used') tags.push('<span class="condition-badge us-used"><span class="cb-dot"></span>US Used</span>');
+    if (!tags.length) return '';
+    return '<div class="product-card-tags">' + tags.join('') + '</div>';
+}
+
+function buildCardStockHTML(stockType) {
+    if (stockType === 'in-store') return '<span class="stock-indicator in-store"><span class="dot"></span>Available</span>';
+    if (stockType === 'pre-order') return '<span class="stock-indicator pre-order"><span class="dot"></span>Pre-Order</span>';
+    if (stockType === 'special-order') return '<span class="stock-indicator special-order"><span class="dot"></span>Special Order</span>';
+    return '';
+}
+
+function productCardHTML(p) {
+    var isSoldOut = p.inStock === false;
+    var tagsHTML = buildCardTagsHTML(p);
+    var stockHTML = buildCardStockHTML(p.stockType);
+    var priceHTML = p.price != null ? '<div class="product-card-price">' + formatPrice(p.price) + '</div>' : '<div class="product-card-price">Ask on WhatsApp</div>';
+    var oldPriceHTML = (p.oldPrice && p.oldPrice > p.price) ? '<span class="product-card-price-old">' + formatPrice(p.oldPrice) + '</span>' : '';
+    var actionHTML = isSoldOut
+        ? '<button class="btn-card-notify" onclick="event.stopPropagation();handleNotify(' + p.id + ')">🔔 Notify</button>'
+        : '<a href="' + buildSimpleWhatsAppLink(p.name, p.price) + '" target="_blank" rel="noopener" class="btn-card-wa" onclick="event.stopPropagation()">' + WA_SVG + '<span>WhatsApp</span></a>';
+    return '<div class="product-card' + (isSoldOut ? ' sold-out' : '') + '" onclick="location.href=\'product.html?id=' + p.id + '\'">' +
+        '<div class="product-card-image">' + tagsHTML + '<img src="' + p.image + '" alt="' + p.name + '" loading="lazy"></div>' +
+        '<div class="product-card-info">' +
+            '<div class="product-card-brand"><span>' + p.brand + '</span>' + stockHTML + '</div>' +
+            '<div class="product-card-name">' + p.name + '</div>' +
+            '<div class="product-card-price-row">' + priceHTML + oldPriceHTML + '</div>' +
+            '<div class="product-card-actions">' + actionHTML + '</div>' +
+        '</div>' +
+    '</div>';
+}
+
+function handleNotify(id) {
+    var p = null;
+    for (var i = 0; i < PRODUCTS.length; i++) { if (PRODUCTS[i].id === id) { p = PRODUCTS[i]; break; } }
+    if (!p) return;
+    var msg = 'Hello OBILO GOLD GADGETS, please notify me when *' + p.name + '* is back in stock.';
+    window.open(WHATSAPP_BASE + '?text=' + encodeURIComponent(msg), '_blank');
+}
+
+function getFavourites() { try { return JSON.parse(localStorage.getItem('obilo_favs') || '[]'); } catch(e) { return []; } }
+function saveFavourites(favs) { try { localStorage.setItem('obilo_favs', JSON.stringify(favs)); } catch(e) {} updateFavBadge(); }
+
+function updateFavBadge() {
+    var favs = getFavourites();
+    var badge = document.getElementById('favBadge');
+    if (badge) {
+        if (favs.length > 0) { badge.textContent = favs.length; badge.style.display = 'flex'; }
+        else { badge.style.display = 'none'; }
+    }
+}
+
+function showToast(msg) {
+    var t = document.getElementById('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(window._toastTimer);
+    window._toastTimer = setTimeout(function() { t.classList.remove('show'); }, 2500);
+}
+
+function recordRecentlyViewed(product) {
+    try {
+        var recent = JSON.parse(localStorage.getItem('obilo_recent') || '[]');
+        recent = recent.filter(function(r) { return r.id !== product.id; });
+        recent.unshift({ id: product.id, name: product.name, price: product.price, image: product.image, brand: product.brand });
+        recent = recent.slice(0, 8);
+        localStorage.setItem('obilo_recent', JSON.stringify(recent));
+    } catch(e) {}
+}
+
+function renderRecentlyViewedSection(currentId) {
+    var section = document.getElementById('recentlyWrap');
+    var grid = document.getElementById('recentlyGrid');
+    if (!section || !grid) return;
+    var recent = [];
+    try { recent = JSON.parse(localStorage.getItem('obilo_recent') || '[]'); } catch(e) {}
+    recent = recent.filter(function(r) { return r.id !== currentId; });
+    if (recent.length < 2) { section.style.display = 'none'; return; }
+    section.style.display = 'block';
+    var html = '';
+    recent.forEach(function(r) {
+        var full = null;
+        for (var i = 0; i < PRODUCTS.length; i++) { if (PRODUCTS[i].id === r.id) { full = PRODUCTS[i]; break; } }
+        if (full) html += productCardHTML(full);
+    });
+    grid.innerHTML = html;
+}
+
+/* CONDITION REPORT TAB */
+function buildConditionReportHTML(product) {
+    if (product.condition !== 'uk-used' && product.condition !== 'us-used') return '';
+    var report = product.conditionReport || {};
+    var c = getConditionInfo(product.condition);
+    var originText = product.condition === 'uk-used' ? 'Used in London · Tested in Aba' : 'Used in the USA · Tested in Aba';
+    var gradeClass = 'grade-a-plus';
+    if (report.grade === 'A') gradeClass = 'grade-a';
+    else if (report.grade === 'B+' || report.grade === 'B') gradeClass = 'grade-b';
+
+    var html = '<div class="condition-report">';
+    html += '<div class="condition-report-head ' + c.cls + '">';
+    html += '<span class="cond-dot"></span>';
+    html += '<span class="cond-title">Condition Report</span>';
+    html += '<span class="cond-origin">' + originText + '</span>';
+    html += '</div>';
+    html += '<div class="condition-report-body">';
+    html += '<div class="condition-row"><div class="cond-label">Condition</div><div class="cond-value">' + c.label + '</div></div>';
+    if (report.grade) html += '<div class="condition-row"><div class="cond-label">Grade</div><div class="cond-value ' + gradeClass + '">' + report.grade + ' — ' + (report.grade === 'A+' ? 'Excellent' : report.grade === 'A' ? 'Very Good' : 'Good') + '</div></div>';
+    if (report.battery) html += '<div class="condition-row"><div class="cond-label">Battery Health</div><div class="cond-value">' + report.battery + '</div></div>';
+    if (report.cosmetic) html += '<div class="condition-row"><div class="cond-label">Cosmetic</div><div class="cond-value">' + report.cosmetic + '</div></div>';
+    if (report.functionality) html += '<div class="condition-row"><div class="cond-label">Functionality</div><div class="cond-value">' + report.functionality + '</div></div>';
+    if (report.network) html += '<div class="condition-row"><div class="cond-label">Network</div><div class="cond-value">' + report.network + '</div></div>';
+    html += '<div class="condition-row"><div class="cond-label">Warranty</div><div class="cond-value">6 months from OBILO GOLD</div></div>';
+    html += '</div>';
+    html += '</div>';
+
+    var explainerCls = product.condition === 'us-used' ? 'condition-explainer us-variant' : 'condition-explainer';
+    var originName = product.condition === 'uk-used' ? 'UK' : 'US';
+    var originFull = product.condition === 'uk-used' ? 'the United Kingdom' : 'the United States';
+
+    html += '<div class="' + explainerCls + '">';
+    html += '<h4>What "' + originName + ' Used" means</h4>';
+    html += '<p>These are genuine pre-owned devices originally sold in ' + originFull + '. Every unit is inspected, tested, cleaned and graded by our team in Aba before going on sale. You get premium quality at 20-40% less than new — with the same OBILO GOLD trust and 6-month warranty.</p>';
+    html += '</div>';
+
+    return html;
+}
+
+/* RENDER PRODUCT PAGE */
+function renderProductPage() {
+    var wrap = document.getElementById('productWrap');
+    if (!wrap) return;
+
+    var id = getProductIdFromURL();
+    var product = null;
+    for (var i = 0; i < PRODUCTS.length; i++) { if (PRODUCTS[i].id === id) { product = PRODUCTS[i]; break; } }
+
+    if (!product) {
+        wrap.innerHTML = '<div class="not-found">' +
+            '<div class="not-found-icon">◈</div>' +
+            '<h2>Product Not Found</h2>' +
+            '<p>This product may have been moved or is no longer available. Browse our full collection or chat with us on WhatsApp.</p>' +
+            '<a href="shop.html" class="action-btn action-btn-wa" style="display:inline-flex;background: var(--gold-gradient); color: #1a1a1a;">Browse All Gadgets →</a>' +
+        '</div>';
+        document.title = 'Product Not Found — OBILO GOLD GADGETS';
+        return;
+    }
+
+    document.title = product.name + ' — OBILO GOLD GADGETS';
+
+    var category = null;
+    for (var j = 0; j < CATEGORIES.length; j++) { if (CATEGORIES[j].id === product.category) { category = CATEGORIES[j]; break; } }
+
+    var isSoldOut = product.inStock === false;
+    var stockInfo = getStockInfo(product.stockType);
+    var condInfo = getConditionInfo(product.condition);
+    var isUsed = product.condition === 'uk-used' || product.condition === 'us-used';
+
+    var completeSetup = PRODUCTS.filter(function(p) { return p.brand === product.brand && p.id !== product.id && p.condition === product.condition; }).slice(0, 6);
+    if (completeSetup.length < 3) {
+        completeSetup = PRODUCTS.filter(function(p) { return p.brand === product.brand && p.id !== product.id; }).slice(0, 6);
+    }
+    var similar = PRODUCTS.filter(function(p) { return p.category === product.category && p.brand !== product.brand && p.id !== product.id && p.condition === product.condition; }).slice(0, 8);
+    if (similar.length < 3) {
+        similar = PRODUCTS.filter(function(p) { return p.category === product.category && p.brand !== product.brand && p.id !== product.id; }).slice(0, 8);
+    }
+
+    var tagsHTML = buildTagsHTML(product);
+    var condBadgeHTML = buildConditionBadgeHTML(product);
+    var condPillHTML = buildConditionPillHTML(product);
+
+    var priceHTML = product.price != null
+        ? '<div class="price-current">' + formatPrice(product.price) + '</div>'
+        : '<div class="price-current" style="font-style:italic;">Ask on WhatsApp</div>';
+    var oldPriceHTML = (product.oldPrice && product.oldPrice > product.price)
+        ? '<span class="price-old">' + formatPrice(product.oldPrice) + '</span>' +
+          '<span class="price-save">Save ' + formatPrice(product.oldPrice - product.price) + '</span>'
+        : '';
+
+    var waHref = buildProductWhatsAppLink(product);
+    var aiHref = buildAIWhatsAppLink(product);
+    var swapHref = buildSwapWhatsAppLink(product);
+
+    var actionHTML = isSoldOut
+        ? '<button class="action-btn action-btn-notify" onclick="handleNotify(' + product.id + ')">🔔 Notify Me When Available</button>'
+        : '<a href="' + waHref + '" target="_blank" rel="noopener" class="action-btn action-btn-wa">' + WA_SVG + ' Chat on WhatsApp About This</a>';
+
+    var specsHTML = '';
+    if (product.specs) {
+        var keys = Object.keys(product.specs);
+        for (var k = 0; k < keys.length; k++) {
+            specsHTML += '<tr><td>' + keys[k] + '</td><td>' + product.specs[keys[k]] + '</td></tr>';
+        }
+    } else {
+        specsHTML = '<tr><td colspan="2" style="text-align:center; color:var(--text-muted);">Detailed specs coming soon. Ask on WhatsApp.</td></tr>';
+    }
+
+    var inBox = product.inBox || ['Product', 'Documentation'];
+    var boxHTML = '';
+    for (var b = 0; b < inBox.length; b++) {
+        boxHTML += '<div class="box-item"><div class="box-item-icon">✓</div><span>' + inBox[b] + '</span></div>';
+    }
+
+    var highlights = product.highlights || [
+        { icon: '✦', label: '100% Genuine' },
+        { icon: '◈', label: '1 Year Warranty' },
+        { icon: '➤', label: 'Fast Delivery' }
+    ];
+    var highlightsHTML = '';
+    for (var h = 0; h < highlights.length; h++) {
+        highlightsHTML += '<div class="highlight"><span class="highlight-icon">' + highlights[h].icon + '</span><span class="highlight-label">' + highlights[h].label + '</span></div>';
+    }
+
+    var isFav = getFavourites().some(function(f) { return f.id === product.id; });
+
+    /* Tabs — condition tab only if used */
+    var tabsHTML = '<button class="tab-btn active" onclick="switchTab(\'specs\')">Specifications</button>' +
+                   '<button class="tab-btn" onclick="switchTab(\'description\')">Description</button>' +
+                   (isUsed ? '<button class="tab-btn" onclick="switchTab(\'condition\')">Condition Report</button>' : '') +
+                   '<button class="tab-btn" onclick="switchTab(\'box\')">What is in the Box</button>' +
+                   '<button class="tab-btn" onclick="switchTab(\'delivery\')">Delivery & Warranty</button>';
+
+    var conditionPanelHTML = isUsed
+        ? '<div class="tab-panel" data-tab="condition">' + buildConditionReportHTML(product) + '</div>'
+        : '';
+
+    var completeSetupHTML = '';
+    if (completeSetup.length) {
+        var cardsHTML = '';
+        for (var c = 0; c < completeSetup.length; c++) { cardsHTML += productCardHTML(completeSetup[c]); }
+        completeSetupHTML = '<div class="section-below">' +
+            '<div class="section-below-head">' +
+                '<div>' +
+                    '<div class="eyebrow" style="margin-bottom:10px;">More From ' + product.brand + '</div>' +
+                    '<h2 class="section-below-title">Complete Your <span class="gold">' + product.brand + ' Setup</span></h2>' +
+                '</div>' +
+                '<a href="shop.html?brand=' + encodeURIComponent(product.brand) + '" class="section-below-link">View All ' + product.brand + ' →</a>' +
+            '</div>' +
+            '<div class="products-grid">' + cardsHTML + '</div>' +
+        '</div>';
+    }
+
+    var similarHTML = '';
+    if (similar.length) {
+        var simCards = '';
+        for (var s = 0; s < similar.length; s++) { simCards += productCardHTML(similar[s]); }
+        similarHTML = '<div class="section-below">' +
+            '<div class="section-below-head">' +
+                '<div>' +
+                    '<div class="eyebrow" style="margin-bottom:10px;">You Might Also Like</div>' +
+                    '<h2 class="section-below-title">Similar <span class="gold">' + (category ? category.name : 'Products') + '</span></h2>' +
+                '</div>' +
+                '<a href="shop.html?cat=' + (category ? category.id : '') + '" class="section-below-link">Browse All →</a>' +
+            '</div>' +
+            '<div class="products-grid">' + simCards + '</div>' +
+        '</div>';
+    }
+
+    wrap.innerHTML =
+        '<div class="breadcrumb">' +
+            '<a href="index.html">Home</a>' +
+            '<span class="breadcrumb-sep">/</span>' +
+            '<a href="shop.html">Shop</a>' +
+            (category ? '<span class="breadcrumb-sep">/</span><a href="shop.html?cat=' + category.id + '">' + category.name + '</a>' : '') +
+            '<span class="breadcrumb-sep">/</span>' +
+            '<a href="shop.html?brand=' + encodeURIComponent(product.brand) + '">' + product.brand + '</a>' +
+            '<span class="breadcrumb-sep">/</span>' +
+            '<span class="breadcrumb-current">' + product.name + '</span>' +
+        '</div>' +
+
+        '<div class="product-layout">' +
+            '<div class="gallery">' +
+                '<div class="gallery-main">' +
+                    '<div class="gallery-tags">' +
+                        condBadgeHTML +
+                        tagsHTML +
+                    '</div>' +
+                    '<img src="' + product.image + '" alt="' + product.name + '">' +
+                '</div>' +
+            '</div>' +
+
+            '<div class="product-info-col">' +
+                '<div class="product-brand-line">' +
+                    '<a href="shop.html?brand=' + encodeURIComponent(product.brand) + '" class="product-brand-tag">' + product.brand + '</a>' +
+                '</div>' +
+
+                '<div class="product-meta-row">' +
+                    condPillHTML +
+                    '<span class="stock-indicator ' + stockInfo.cls + '"><span class="dot"></span>' + stockInfo.label + '</span>' +
+                '</div>' +
+
+                '<h1 class="product-title">' + product.name + '</h1>' +
+                '<p class="product-subtitle">' + (product.subtitle || 'Genuine ' + product.brand + ' product.') + '</p>' +
+
+                '<div class="price-block">' + priceHTML + oldPriceHTML + '</div>' +
+
+                '<div class="availability-note ' + stockInfo.cls + '">' +
+                    '<span class="availability-note-icon">' + stockInfo.icon + '</span>' +
+                    '<div><strong>' + stockInfo.title + '</strong>' + stockInfo.note + '</div>' +
+                '</div>' +
+
+                '<div class="product-actions-row">' +
+                    '<a href="' + aiHref + '" target="_blank" rel="noopener" class="ai-ask-btn">' +
+                        '<span class="ai-ask-avatar">AI</span>' +
+                        '<span class="ai-ask-text">' +
+                            '<strong>Ask OBILO AI About This</strong>' +
+                            '<small>Instant help on WhatsApp</small>' +
+                        '</span>' +
+                        '<span class="ai-ask-arrow">→</span>' +
+                    '</a>' +
+                    actionHTML +
+                    '<button class="action-btn action-btn-fav ' + (isFav ? 'active' : '') + '" id="mainFavBtn" onclick="handleMainFav(event)">' +
+                        '<span class="heart">' + (isFav ? '♥' : '♡') + '</span>' +
+                        '<span id="mainFavLabel">' + (isFav ? 'Saved to Favourites' : 'Add to Favourite') + '</span>' +
+                    '</button>' +
+
+                    /* SWAP CTA */
+                    '<a href="' + swapHref + '" target="_blank" rel="noopener" class="swap-cta">' +
+                        '<span class="swap-cta-icon">🔄</span>' +
+                        '<span class="swap-cta-text">' +
+                            '<h4>Swap Your Old Phone</h4>' +
+                            '<p>Trade in your current device and save on this one. We accept any brand — WhatsApp us for an instant quote.</p>' +
+                        '</span>' +
+                        '<span class="swap-cta-arrow">→</span>' +
+                    '</a>' +
+                '</div>' +
+
+                '<div class="highlights-row">' + highlightsHTML + '</div>' +
+
+                '<div class="share-row">' +
+                    '<span>Share:</span>' +
+                    '<button class="share-btn" onclick="shareProduct(\'whatsapp\')" aria-label="Share">' + WA_SVG + '</button>' +
+                    '<button class="share-btn" onclick="shareProduct(\'copy\')" aria-label="Copy">🔗</button>' +
+                '</div>' +
+
+                '<div class="tabs-section">' +
+                    '<div class="tabs-head">' + tabsHTML + '</div>' +
+                    '<div class="tab-panel active" data-tab="specs"><table class="specs-table">' + specsHTML + '</table></div>' +
+                    '<div class="tab-panel" data-tab="description">' +
+                        '<div class="description-text">' +
+                            '<p>The <strong>' + product.name + '</strong> is one of the standout products at OBILO GOLD GADGETS. ' + (product.subtitle || '') + '</p>' +
+                            '<p>Every unit we sell is <strong>100% genuine</strong> and thoroughly tested before it reaches you. We do not sell refurbished products — every UK or US used device is inspected, graded, and tested by our team in Aba.</p>' +
+                            '<p>Have a question about this gadget? Tap the <strong>Ask OBILO AI</strong> button above to chat with us instantly on WhatsApp.</p>' +
+                        '</div>' +
+                    '</div>' +
+                    conditionPanelHTML +
+                    '<div class="tab-panel" data-tab="box"><div class="box-list">' + boxHTML + '</div></div>' +
+                    '<div class="tab-panel" data-tab="delivery">' +
+                        '<div class="delivery-list">' +
+                            '<div class="delivery-item"><div class="delivery-item-icon">➤</div><div class="delivery-item-text"><h5>Fast Nationwide Delivery</h5><p>We deliver to every state in Nigeria — and internationally. 1-3 days for major cities, 3-5 days for remote areas.</p></div></div>' +
+                            '<div class="delivery-item"><div class="delivery-item-icon">◈</div><div class="delivery-item-text"><h5>Warranty Included</h5><p>Brand new items come with 1-year warranty. UK and US used devices come with 6-month OBILO GOLD warranty.</p></div></div>' +
+                            '<div class="delivery-item"><div class="delivery-item-icon">✦</div><div class="delivery-item-text"><h5>100% Genuine Guarantee</h5><p>If you receive a product that is not genuine, we will refund you 100% and cover return shipping.</p></div></div>' +
+                            '<div class="delivery-item"><div class="delivery-item-icon">◉</div><div class="delivery-item-text"><h5>Visit Our Store</h5><p>No 38 St Michaels GSM Center, Aba, Abia State. Mon-Sat 8am-7pm, Sun 12pm-6pm.</p></div></div>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>' +
+            '</div>' +
+        '</div>' +
+
+        completeSetupHTML +
+        similarHTML +
+
+        '<div class="section-below" style="text-align:center;">' +
+            '<div style="padding: 40px 20px; background: var(--dark-2); border: 1px solid var(--border); border-radius: var(--radius-lg); max-width: 640px; margin: 0 auto;">' +
+                '<div style="font-size: 44px; margin-bottom: 12px;">✨</div>' +
+                '<h2 class="section-below-title" style="margin-bottom: 10px;">Explore Our <span class="gold">Full Range</span></h2>' +
+                '<p style="font-size: 14px; color: var(--text-muted); margin-bottom: 22px; font-weight: 300;">Brand new and UK/US used gadgets across 30+ brands. Everything from budget-friendly essentials to flagship showcases.</p>' +
+                '<a href="shop.html" class="action-btn action-btn-wa" style="display: inline-flex; text-decoration: none; background: var(--gold-gradient); color: #1a1a1a;">Browse Full Catalog →</a>' +
+            '</div>' +
+        '</div>';
+
+    recordRecentlyViewed(product);
+    renderRecentlyViewedSection(product.id);
+}
+
+function handleMainFav(event) {
+    event.stopPropagation();
+    var id = getProductIdFromURL();
+    var product = null;
+    for (var i = 0; i < PRODUCTS.length; i++) { if (PRODUCTS[i].id === id) { product = PRODUCTS[i]; break; } }
+    if (!product) return;
+
+    var favs = getFavourites();
+    var idx = -1;
+    for (var j = 0; j < favs.length; j++) { if (favs[j].id === id) { idx = j; break; } }
+    var isFav = idx > -1;
+    if (isFav) { favs.splice(idx, 1); showToast('Removed from favourites'); }
+    else { favs.push(product); showToast('♥ Added to favourites'); }
+    saveFavourites(favs);
+
+    var btn = document.getElementById('mainFavBtn');
+    var label = document.getElementById('mainFavLabel');
+    if (btn) {
+        var heart = btn.querySelector('.heart');
+        btn.classList.toggle('active', !isFav);
+        if (heart) heart.textContent = !isFav ? '♥' : '♡';
+    }
+    if (label) label.textContent = !isFav ? 'Saved to Favourites' : 'Add to Favourite';
+}
+
+function switchTab(tabId) {
+    var buttons = document.querySelectorAll('.tab-btn');
+    for (var i = 0; i < buttons.length; i++) {
+        var onclick = buttons[i].getAttribute('onclick') || '';
+        buttons[i].classList.toggle('active', onclick.indexOf("'" + tabId + "'") > -1);
+    }
+    var panels = document.querySelectorAll('.tab-panel');
+    for (var j = 0; j < panels.length; j++) {
+        panels[j].classList.toggle('active', panels[j].getAttribute('data-tab') === tabId);
+    }
+}
+
+function shareProduct(type) {
+    var url = location.href;
+    if (type === 'whatsapp') {
+        var msg = 'Check out this gadget at OBILO GOLD: ' + url;
+        window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
+    } else if (type === 'copy') {
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(url).then(function() { showToast('✓ Link copied'); });
+        } else {
+            var ta = document.createElement('textarea');
+            ta.value = url;
+            document.body.appendChild(ta);
+            ta.select();
+            try { document.execCommand('copy'); showToast('✓ Link copied'); } catch(e) {}
+            document.body.removeChild(ta);
+        }
+    }
+}
+
+function handleSearch() {
+    var el = document.getElementById('searchInput');
+    if (!el) return;
+    var q = el.value.trim();
+    if (q) location.href = 'shop.html?q=' + encodeURIComponent(q);
+}
+
+function toggleTheme() {
+    var html = document.documentElement;
+    var current = html.getAttribute('data-theme') || 'dark';
+    var next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    try { localStorage.setItem('obilo_theme', next); } catch(e) {}
+}
+
+/* BOOT */
+try {
+    var yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+    renderProductPage();
+    updateFavBadge();
+
+    var searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') handleSearch();
+        });
+    }
+
+    window.addEventListener('scroll', function() {
+        var btn = document.getElementById('backToTop');
+        if (!btn) return;
+        if (window.scrollY > 600) btn.classList.add('show');
+        else btn.classList.remove('show');
+    });
+} catch(err) {
+    console.error('OBILO product page error:', err);
+    var wrap2 = document.getElementById('productWrap');
+    if (wrap2) {
+        wrap2.innerHTML = '<div style="padding:60px 20px;text-align:center;">' +
+            '<h2 style="font-family:Playfair Display,serif;font-size:24px;margin-bottom:12px;">Something went wrong</h2>' +
+            '<p style="color:#8E8E96;margin-bottom:20px;">Please refresh the page or contact us on WhatsApp.</p>' +
+            '<a href="https://wa.me/message/XUZF5HG3Y" target="_blank" class="action-btn action-btn-wa" style="display:inline-flex;">Chat with us</a>' +
+        '</div>';
+    }
+}
+</script>
+
+</body>
+</html>

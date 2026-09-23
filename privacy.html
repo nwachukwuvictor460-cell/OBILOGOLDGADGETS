@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy — OBILO GOLD GADGETS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+<script>
+(function() {
+    try {
+        const saved = localStorage.getItem('obilo_theme');
+        if (saved === 'light' || saved === 'dark') {
+            document.documentElement.setAttribute('data-theme', saved);
+        }
+    } catch(e) {}
+})();
+</script>
+<style>
+/* ==== SAME CORE STYLES ==== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+    --gold: #C9A227; --gold-light: #E2C766; --gold-dark: #9C7A1A;
+    --gold-gradient: linear-gradient(135deg, #E2C766 0%, #C9A227 45%, #9C7A1A 100%);
+    --gold-soft: rgba(201, 162, 39, 0.12); --gold-hairline: rgba(201, 162, 39, 0.28);
+    --blue: #1B3A6B; --blue-light: #4A7BC8;
+    --dark: #0A0A0C; --dark-2: #121215; --dark-3: #1C1C21; --dark-4: #26262D;
+    --text: #F2F2F0; --text-muted: #8E8E96; --text-soft: #B8B8BE;
+    --border: #23232A; --border-soft: #1A1A20;
+    --whatsapp: #25D366; --star: #E2C766;
+    --shadow-elegant: 0 24px 60px rgba(0, 0, 0, 0.55);
+    --shadow-medium: 0 12px 30px rgba(0, 0, 0, 0.35);
+    --shadow-soft: 0 4px 14px rgba(0, 0, 0, 0.2);
+    --header-bg: rgba(10, 10, 12, 0.88); --footer-bg: #060608;
+    --radius: 14px; --radius-lg: 22px;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+html[data-theme="light"] {
+    --dark: #FAFAF8; --dark-2: #FFFFFF; --dark-3: #F2F2EE; --dark-4: #E8E8E2;
+    --text: #0F0F12; --text-muted: #6A6A72; --text-soft: #4A4A52;
+    --border: #E4E4DD; --border-soft: #EDEDE6;
+    --shadow-elegant: 0 24px 60px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 12px 30px rgba(0, 0, 0, 0.06);
+    --shadow-soft: 0 4px 14px rgba(0, 0, 0, 0.04);
+    --header-bg: rgba(250, 250, 248, 0.92); --footer-bg: #F2F2EE;
+    --gold-soft: rgba(201, 162, 39, 0.1);
+}
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--dark); color: var(--text); line-height: 1.6;
+    overflow-x: hidden; transition: background 0.4s ease, color 0.4s ease;
+    -webkit-font-smoothing: antialiased;
+}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+.wa-icon { width: 20px; height: 20px; flex-shrink: 0; display: inline-block; vertical-align: middle; fill: currentColor; }
+.container { max-width: 1300px; margin: 0 auto; padding: 0 28px; }
+.eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); }
+
+.logo { display: flex; flex-direction: column; line-height: 1; user-select: none; padding: 4px 0; }
+.logo-main { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 27px; letter-spacing: 3.5px; background: var(--gold-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 1px rgba(0,0,0,0.85)) drop-shadow(0 0 0.5px rgba(0,0,0,0.7)) drop-shadow(0 1px 2px rgba(0,0,0,0.45)) drop-shadow(0 0 18px rgba(201,162,39,0.35)); }
+html[data-theme="light"] .logo-main { background: linear-gradient(135deg, #B8901F 0%, #8E6E14 50%, #6E550E 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.logo-sub { font-size: 10px; font-weight: 700; letter-spacing: 8.5px; color: var(--blue-light); margin-top: 4px; margin-left: 3px; }
+html[data-theme="light"] .logo-sub { color: #1E5AA8; }
+.logo-tag { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 12px; font-weight: 700; color: var(--gold); margin-top: 3px; margin-left: 3px; }
+html[data-theme="light"] .logo-tag { color: #8E6E14; }
+
+.header { position: sticky; top: 0; z-index: 100; background: var(--header-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid var(--border-soft); }
+.header-top { display: flex; align-items: center; justify-content: space-between; padding: 20px 28px; max-width: 1300px; margin: 0 auto; gap: 24px; }
+.search-bar { flex: 1; max-width: 520px; position: relative; }
+.search-bar input { width: 100%; padding: 12px 50px 12px 20px; background: var(--dark-3); border: 1px solid var(--border); border-radius: 100px; color: var(--text); font-size: 14px; font-family: inherit; outline: none; transition: border-color 0.25s, box-shadow 0.25s; }
+.search-bar input:focus { border-color: var(--gold); box-shadow: 0 0 0 4px var(--gold-soft); }
+.search-bar button { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); width: 38px; height: 38px; border-radius: 50%; background: var(--gold-gradient); color: #1a1a1a; font-size: 15px; display: flex; align-items: center; justify-content: center; }
+.header-actions { display: flex; align-items: center; gap: 4px; }
+.icon-btn { position: relative; width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; color: var(--text-soft); transition: background 0.2s, color 0.2s; }
+.icon-btn:hover { background: var(--dark-3); color: var(--gold); }
+.theme-toggle { position: relative; width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-soft); overflow: hidden; }
+.theme-toggle:hover { background: var(--dark-3); color: var(--gold); }
+.theme-toggle .theme-icon { display: block; transition: transform 0.6s var(--ease), opacity 0.35s; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 17px; line-height: 1; }
+.theme-toggle .theme-icon.sun { opacity: 0; transform: translate(-50%, -50%) rotate(-90deg); }
+.theme-toggle .theme-icon.moon { opacity: 1; transform: translate(-50%, -50%) rotate(0deg); }
+html[data-theme="light"] .theme-toggle .theme-icon.sun { opacity: 1; transform: translate(-50%, -50%) rotate(0deg); }
+html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform: translate(-50%, -50%) rotate(90deg); }
+.register-icon-btn { position: relative; width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 19px; color: var(--text-soft); transition: background 0.2s, color 0.2s; }
+.register-icon-btn:hover { background: var(--dark-3); color: var(--gold); }
+.register-icon-btn .register-tooltip { position: absolute; bottom: -32px; left: 50%; transform: translateX(-50%) translateY(-6px); background: var(--dark-2); border: 1px solid var(--gold-hairline); color: var(--gold); font-size: 10px; font-weight: 600; padding: 5px 10px; border-radius: 6px; white-space: nowrap; opacity: 0; visibility: hidden; transition: opacity 0.22s var(--ease), transform 0.22s var(--ease), visibility 0.22s; pointer-events: none; z-index: 20; }
+.register-icon-btn:hover .register-tooltip { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.whatsapp-btn-header { display: flex; align-items: center; gap: 8px; background: var(--whatsapp); color: #fff; padding: 11px 20px; border-radius: 100px; font-size: 13px; font-weight: 600; transition: transform 0.25s var(--ease), box-shadow 0.3s; }
+.whatsapp-btn-header:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(37,211,102,0.32); }
+
+.top-info-bar { background: var(--dark-2); border-bottom: 1px solid var(--border-soft); padding: 8px 28px; overflow-x: auto; scrollbar-width: none; }
+.top-info-bar::-webkit-scrollbar { display: none; }
+.top-info-inner { max-width: 1300px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap; row-gap: 6px; }
+.top-info-item { display: inline-flex; align-items: center; gap: 7px; font-size: 11px; font-weight: 500; color: var(--text-muted); white-space: nowrap; transition: color 0.2s; padding: 3px 4px; border-radius: 6px; }
+.top-info-item:hover { color: var(--gold); }
+.top-info-item .top-info-icon { font-size: 13px; color: var(--gold); width: 16px; text-align: center; }
+.top-info-item.active { color: var(--gold); }
+.top-info-divider { width: 1px; height: 14px; background: var(--border); }
+
+.nav-wrapper { position: relative; max-width: 1300px; margin: 0 auto; padding: 0 28px; }
+.nav-bar { display: flex; align-items: center; justify-content: space-between; padding: 0 0 14px; gap: 16px; flex-wrap: wrap; }
+.nav-left { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.nav-shop-link { display: inline-flex; align-items: center; gap: 5px; padding: 7px 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); border-radius: 100px; transition: color 0.2s, background 0.2s; }
+.nav-shop-link:hover, .nav-shop-link.active { color: var(--gold); background: var(--gold-soft); }
+
+.page-hero { position: relative; padding: 70px 28px 60px; overflow: hidden; border-bottom: 1px solid var(--border-soft); }
+.page-hero::before { content: ''; position: absolute; top: -200px; left: -200px; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(201,162,39,0.14), transparent 65%); pointer-events: none; }
+.page-hero::after { content: ''; position: absolute; bottom: -300px; right: -200px; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(27,58,107,0.16), transparent 65%); pointer-events: none; }
+.page-hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 2; text-align: center; }
+.page-hero .page-badge { display: inline-flex; align-items: center; gap: 8px; padding: 7px 16px; border: 1px solid var(--gold-hairline); border-radius: 100px; font-size: 10px; font-weight: 600; color: var(--gold); letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 24px; background: var(--gold-soft); }
+.page-hero h1 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(34px, 5vw, 54px); line-height: 1.08; letter-spacing: -0.5px; margin-bottom: 18px; }
+.page-hero h1 .gold { background: var(--gold-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-style: italic; }
+.page-hero p { font-size: clamp(15px, 1.4vw, 17px); color: var(--text-soft); max-width: 620px; margin: 0 auto; line-height: 1.7; font-weight: 300; }
+
+.content-section { padding: 70px 0; }
+.content-section.alt { background: var(--dark-2); border-top: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft); }
+.content-inner { max-width: 900px; margin: 0 auto; }
+.section-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(24px, 3vw, 34px); line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 12px; }
+.section-title .gold { background: var(--gold-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-style: italic; }
+.section-intro { color: var(--text-muted); font-size: 15px; line-height: 1.7; font-weight: 300; margin-bottom: 40px; max-width: 720px; }
+
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; margin-bottom: 20px; }
+.feature-card { padding: 30px 26px; background: var(--dark-2); border: 1px solid var(--border); border-radius: var(--radius); transition: border-color 0.3s, transform 0.3s var(--ease); }
+.feature-card:hover { border-color: var(--gold-hairline); transform: translateY(-4px); }
+.feature-icon { width: 54px; height: 54px; border-radius: 50%; background: var(--gold-soft); border: 1px solid var(--gold-hairline); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 18px; color: var(--gold); }
+.feature-card h3 { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; margin-bottom: 10px; color: var(--text); }
+.feature-card p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+
+.info-list { display: flex; flex-direction: column; gap: 14px; }
+.info-item { padding: 22px 26px; background: var(--dark-2); border: 1px solid var(--border); border-radius: var(--radius); transition: border-color 0.3s; }
+.info-item:hover { border-color: var(--gold-hairline); }
+.info-item h4 { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+.info-item h4 .info-num { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: var(--gold-gradient); color: #1a1a1a; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 800; flex-shrink: 0; }
+.info-item p { font-size: 13px; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
+
+.highlight-box { padding: 30px 32px; background: var(--dark-2); border: 1px solid var(--gold-hairline); border-radius: var(--radius-lg); margin: 30px 0; background-image: radial-gradient(circle at 15% 50%, rgba(201,162,39,0.10), transparent 55%); }
+.highlight-box h3 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+.highlight-box h3 .gold { background: var(--gold-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-style: italic; }
+.highlight-box p { font-size: 14px; color: var(--text-soft); line-height: 1.75; font-weight: 300; }
+
+/* PRIVACY POLICY LIST */
+.policy-list { display: flex; flex-direction: column; gap: 16px; }
+.policy-item { padding: 24px 28px; background: var(--dark-2); border: 1px solid var(--border); border-radius: var(--radius); transition: border-color 0.3s; }
+.policy-item:hover { border-color: var(--gold-hairline); }
+.policy-item h4 { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+.policy-item h4 .policy-icon { color: var(--gold); font-size: 18px; flex-shrink: 0; }
+.policy-item p { font-size: 13px; color: var(--text-muted); line-height: 1.75; font-weight: 300; }
+.policy-item ul { margin: 10px 0 0 20px; padding: 0; }
+.policy-item ul li { font-size: 13px; color: var(--text-muted); line-height: 1.7; font-weight: 300; margin-bottom: 6px; }
+
+.cta-strip { max-width: 900px; margin: 0 auto; padding: 40px 36px; background: var(--dark-2); border: 1px solid var(--border); border-radius: var(--radius-lg); text-align: center; position: relative; overflow: hidden; }
+.cta-strip::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 80% 50%, rgba(37,211,102,0.14), transparent 55%), radial-gradient(circle at 20% 50%, rgba(201,162,39,0.12), transparent 55%); pointer-events: none; }
+.cta-strip h3 { font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 30px); font-weight: 700; letter-spacing: -0.4px; line-height: 1.2; margin-bottom: 12px; position: relative; color: var(--text); }
+.cta-strip h3 .gold { background: var(--gold-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-style: italic; }
+.cta-strip p { color: var(--text-muted); max-width: 520px; margin: 0 auto 24px; font-size: 15px; font-weight: 300; position: relative; }
+.cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; }
+
+.btn { display: inline-flex; align-items: center; gap: 9px; padding: 14px 26px; border-radius: 100px; font-size: 13px; font-weight: 600; transition: transform 0.25s var(--ease), box-shadow 0.3s; }
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--gold-gradient); color: #1a1a1a; box-shadow: 0 10px 26px rgba(201,162,39,0.28); }
+.btn-primary:hover { box-shadow: 0 14px 34px rgba(201,162,39,0.45); }
+.btn-whatsapp { background: var(--whatsapp); color: #fff; box-shadow: 0 10px 26px rgba(37,211,102,0.22); }
+.btn-whatsapp:hover { box-shadow: 0 14px 34px rgba(37,211,102,0.4); }
+
+.footer { background: var(--footer-bg); border-top: 1px solid var(--border-soft); padding: 80px 0 36px; margin-top: 80px; }
+.footer-grid { display: grid; grid-template-columns: 1.8fr 1.2fr 1.2fr 1.4fr; gap: 50px; margin-bottom: 50px; }
+.footer-brand .logo { margin-bottom: 20px; }
+.footer-brand p { color: var(--text-muted); font-size: 13px; max-width: 340px; margin-bottom: 24px; line-height: 1.7; font-weight: 300; }
+.footer-socials { display: flex; gap: 10px; }
+.social-btn { width: 42px; height: 42px; border-radius: 50%; background: var(--dark-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 15px; transition: all 0.25s var(--ease); }
+.social-btn:hover { background: var(--gold-gradient); color: #1a1a1a; border-color: var(--gold); transform: translateY(-3px); }
+.social-btn svg { width: 17px; height: 17px; fill: currentColor; }
+.social-btn.facebook:hover { background: #1877F2; border-color: #1877F2; color: #fff; }
+.social-btn.instagram:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #fff; }
+.social-btn.tiktok:hover { background: #FE2C55; border-color: #FE2C55; color: #fff; }
+.social-btn.wa-social:hover { background: var(--whatsapp); border-color: var(--whatsapp); color: #fff; }
+.footer-col h5 { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; color: var(--gold); margin-bottom: 20px; letter-spacing: 1.5px; text-transform: uppercase; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.footer-col a { font-size: 13px; color: var(--text-muted); transition: color 0.2s; font-weight: 300; }
+.footer-col a:hover { color: var(--gold); }
+.contact-line { font-size: 13px; color: var(--text-muted); display: inline-flex; align-items: flex-start; gap: 9px; line-height: 1.55; font-weight: 300; }
+a.contact-line:hover { color: var(--gold); }
+.footer-bottom { padding-top: 30px; border-top: 1px solid var(--border-soft); display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; font-size: 11px; color: var(--text-muted); }
+.footer-bottom .gold { color: var(--gold); font-weight: 600; }
+
+.wa-float { position: fixed; bottom: 28px; right: 28px; width: 58px; height: 58px; border-radius: 50%; background: var(--whatsapp); color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 14px 32px rgba(37,211,102,0.42); z-index: 99; animation: wa-pulse 2.6s infinite; }
+.wa-float .wa-icon { width: 28px; height: 28px; }
+@keyframes wa-pulse { 0% { box-shadow: 0 14px 32px rgba(37,211,102,0.42), 0 0 0 0 rgba(37,211,102,0.5); } 70% { box-shadow: 0 14px 32px rgba(37,211,102,0.42), 0 0 0 18px rgba(37,211,102,0); } 100% { box-shadow: 0 14px 32px rgba(37,211,102,0.42), 0 0 0 0 rgba(37,211,102,0); } }
+.back-to-top { position: fixed; bottom: 100px; right: 28px; width: 46px; height: 46px; border-radius: 50%; background: var(--dark-2); border: 1px solid var(--border); color: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 18px; z-index: 98; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s var(--ease); cursor: pointer; }
+.back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+.back-to-top:hover { background: var(--gold-gradient); color: #1a1a1a; border-color: var(--gold); }
+
+@media (max-width: 900px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .search-bar { display: flex; flex: 1; max-width: none; }
+    .header-top { flex-wrap: wrap; gap: 12px; }
+}
+@media (max-width: 640px) {
+    .header-top { padding: 14px 18px; flex-wrap: wrap; }
+    .logo-main { font-size: 22px; letter-spacing: 2px; }
+    .logo-sub { font-size: 9px; letter-spacing: 6px; }
+    .logo-tag { font-size: 10px; }
+    .whatsapp-btn-header span.txt { display: none; }
+    .whatsapp-btn-header { padding: 11px; width: 42px; height: 42px; justify-content: center; }
+    .search-bar { order: 3; width: 100%; max-width: 100%; flex: 0 0 100%; margin-top: 4px; }
+    .search-bar input { padding: 11px 48px 11px 18px; font-size: 13px; }
+    .search-bar button { width: 34px; height: 34px; font-size: 14px; right: 5px; }
+    .top-info-bar { padding: 6px 18px; }
+    .top-info-inner { gap: 14px; justify-content: flex-start; }
+    .top-info-item { font-size: 10px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 34px; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+    .wa-float { width: 52px; height: 52px; bottom: 20px; right: 20px; }
+    .wa-float .wa-icon { width: 24px; height: 24px; }
+    .back-to-top { bottom: 86px; right: 20px; }
+    .cta-strip { padding: 30px 22px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="top-info-bar">
+        <div class="top-info-inner">
+            <a href="warranty.html" class="top-info-item"><span class="top-info-icon">◈</span><span>1-Year Warranty</span></a>
+            <span class="top-info-divider"></span>
+            <a href="delivery.html" class="top-info-item"><span class="top-info-icon">➤</span><span>Nationwide Delivery</span></a>
+            <span class="top-info-divider"></span>
+            <a href="privacy.html" class="top-info-item active"><span class="top-info-icon">✦</span><span>100% Privacy Protected</span></a>
+        </div>
+    </div>
+
+    <div class="header-top">
+        <a href="index.html" class="logo">
+            <span class="logo-main">OBILO GOLD</span>
+            <span class="logo-sub">GADGETS</span>
+            <span class="logo-tag">Quality or Nothing</span>
+        </a>
+
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search phones, laptops, tablets, brands...">
+            <button onclick="handleSearch()" aria-label="Search">⌕</button>
+        </div>
+
+        <div class="header-actions">
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                <span class="theme-icon moon">☾</span>
+                <span class="theme-icon sun">☀</span>
+            </button>
+            <button class="icon-btn" onclick="location.href='favourites.html'" aria-label="Favourites">♡</button>
+            <button class="register-icon-btn" onclick="location.href='register.html'" aria-label="Register">
+                <span>✎</span>
+                <span class="register-tooltip">Register / Sign In</span>
+            </button>
+            <a href="https://wa.me/message/XUZF5HG3Y" target="_blank" rel="noopener" class="whatsapp-btn-header">
+                <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                <span class="txt">WhatsApp</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="nav-wrapper">
+        <div class="nav-bar">
+            <div class="nav-left">
+                <a href="index.html" class="nav-shop-link">Home</a>
+                <a href="shop.html" class="nav-shop-link">Shop</a>
+                <a href="warranty.html" class="nav-shop-link">Warranty</a>
+                <a href="delivery.html" class="nav-shop-link">Delivery</a>
+                <a href="privacy.html" class="nav-shop-link active">Privacy</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+    <div class="page-hero-inner">
+        <div class="page-badge">✦ Your Data, Your Trust</div>
+        <h1>100% <span class="gold">Privacy</span><br>Protected. Always.</h1>
+        <p>We take your privacy seriously. Your personal information, chat history, and purchase details are never shared, sold, or exposed to third parties. Ever.</p>
+    </div>
+</section>
+
+<!-- WHAT WE COLLECT -->
+<section class="content-section">
+    <div class="container">
+        <div class="content-inner">
+            <div class="eyebrow" style="margin-bottom:12px;">What We Collect</div>
+            <h2 class="section-title">Only What <span class="gold">We Need</span></h2>
+            <p class="section-intro">We collect the minimum information required to serve you well — nothing more, nothing less.</p>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">✎</div>
+                    <h3>Contact Details</h3>
+                    <p>Your name and phone number, so we can reach you about your order and delivery.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">◉</div>
+                    <h3>Delivery Address</h3>
+                    <p>Your location so we can get your gadget to you safely and on time.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⌘</div>
+                    <h3>Order History</h3>
+                    <p>A record of your purchases so we can help with warranty claims and future support.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">◐</div>
+                    <h3>Chat Messages</h3>
+                    <p>Your WhatsApp conversations with us, kept strictly for order support and reference.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HOW WE PROTECT YOU -->
+<section class="content-section alt">
+    <div class="container">
+        <div class="content-inner">
+            <div class="eyebrow" style="margin-bottom:12px;">Our Commitment</div>
+            <h2 class="section-title">How We <span class="gold">Protect You</span></h2>
+            <p class="section-intro">Your trust is the foundation of our business. Here's exactly how we keep your information safe.</p>
+
+            <div class="policy-list">
+                <div class="policy-item">
+                    <h4><span class="policy-icon">✦</span> We Never Sell Your Data</h4>
+                    <p>Your personal information is never sold, rented, or shared with advertisers, marketers, or any third party for profit. Period.</p>
+                </div>
+                <div class="policy-item">
+                    <h4><span class="policy-icon">◈</span> Secure Storage</h4>
+                    <p>All customer data is stored securely with access limited to trusted OBILO GOLD staff only. We use encrypted systems where applicable.</p>
+                </div>
+                <div class="policy-item">
+                    <h4><span class="policy-icon">⌘</span> No Spam, Ever</h4>
+                    <p>We only message you about your orders, warranty, or — if you opt in — new arrivals and exclusive deals. You can opt out at any time.</p>
+                </div>
+                <div class="policy-item">
+                    <h4><span class="policy-icon">◉</span> No Hidden Tracking</h4>
+                    <p>We don't run invasive tracking scripts. Your browsing behaviour stays with you, not with us.</p>
+                </div>
+                <div class="policy-item">
+                    <h4><span class="policy-icon">➤</span> Data Deletion On Request</h4>
+                    <p>Want your data removed? Just ask. We'll delete your order history, contact details, and chat logs from our systems within 7 days.</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h3>Your Rights, <span class="gold">Respected</span></h3>
+                <p>You have the right to know what data we hold about you, request a copy, ask for corrections, or request full deletion at any time. Just message us on WhatsApp — we respond to every privacy request within 48 hours.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DETAILED POLICY -->
+<section class="content-section">
+    <div class="container">
+        <div class="content-inner">
+            <div class="eyebrow" style="margin-bottom:12px;">Full Policy</div>
+            <h2 class="section-title">The <span class="gold">Details</span></h2>
+            <p class="section-intro">Everything you need to know about how we handle your information at OBILO GOLD GADGETS.</p>
+
+            <div class="info-list">
+                <div class="info-item">
+                    <h4><span class="info-num">1</span> Information We Collect</h4>
+                    <p>When you message us, place an order, or subscribe to our broadcast, we may collect: your name, WhatsApp number, email (if provided), delivery address, and order preferences. We do not collect payment card details — all payments are processed securely via bank transfer, POS, or cash.</p>
+                </div>
+                <div class="info-item">
+                    <h4><span class="info-num">2</span> How We Use Your Information</h4>
+                    <p>Your details are used exclusively to: process and deliver your order, provide warranty support, respond to your inquiries, and (if you opt in) send you updates about new arrivals and deals. We never use your data for any other purpose.</p>
+                </div>
+                <div class="info-item">
+                    <h4><span class="info-num">3</span> Third-Party Sharing</h4>
+                    <p>We only share the minimum required information with our trusted courier partners (name, phone number, and delivery address) so they can deliver your package. No other third party has access to your data.</p>
+                </div>
+                <div class="info-item">
+                    <h4><span class="info-num">4</span> Data Retention</h4>
+                    <p>We keep your order history for up to 24 months for warranty and support purposes. After that, it's automatically deleted. Chat logs are retained for 12 months unless you request earlier deletion.</p>
+                </div>
+                <div class="info-item">
+                    <h4><span class="info-num">5</span> Your Consent</h4>
+                    <p>By using our website or contacting us, you consent to this privacy policy. You can withdraw consent at any time by messaging us on WhatsApp and asking to be removed from our records.</p>
+                </div>
+                <div class="info-item">
+                    <h4><span class="info-num">6</span> Updates to This Policy</h4>
+                    <p>If we update this policy, we'll post the new version on this page with the updated date. Significant changes will also be announced on our WhatsApp broadcast list.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="content-section">
+    <div class="container">
+        <div class="cta-strip">
+            <h3>Questions About Your <span class="gold">Privacy?</span></h3>
+            <p>We're transparent about everything. Reach out — we'll answer honestly.</p>
+            <div class="cta-actions">
+                <a href="https://wa.me/2349094062471?text=Hello%20OBILO%20GOLD%2C%20I%20have%20a%20privacy%20question." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                    <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    Chat with Us
+                </a>
+                <a href="support.html" class="btn btn-primary">Visit Support →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo">
+                    <span class="logo-main">OBILO GOLD</span>
+                    <span class="logo-sub">GADGETS</span>
+                    <span class="logo-tag">Quality or Nothing</span>
+                </div>
+                <p>Your trusted destination for premium gadgets in Nigeria. Genuine products, honest prices, real conversations.</p>
+                <div class="footer-socials">
+                    <a href="https://facebook.com/obilogold" target="_blank" rel="noopener" class="social-btn facebook" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                    <a href="https://instagram.com/obilogold" target="_blank" rel="noopener" class="social-btn instagram" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+                    <a href="https://www.tiktok.com/@obilogoldobilogol" target="_blank" rel="noopener" class="social-btn tiktok" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/></svg></a>
+                    <a href="https://wa.me/message/XUZF5HG3Y" target="_blank" rel="noopener" class="social-btn wa-social" aria-label="WhatsApp"><svg class="wa-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h5>Shop</h5>
+                <ul>
+                    <li><a href="shop.html?cat=phones">Phones</a></li>
+                    <li><a href="shop.html?cat=laptops">Laptops</a></li>
+                    <li><a href="shop.html?cat=tablets">Tablets</a></li>
+                    <li><a href="shop.html?cat=audio">Audio</a></li>
+                    <li><a href="shop.html?cat=wearables">Watches</a></li>
+                    <li><a href="shop.html?cat=accessories">Accessories</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Support</h5>
+                <ul>
+                    <li><a href="warranty.html">Warranty</a></li>
+                    <li><a href="delivery.html">Delivery</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="support.html">Help Center</a></li>
+                    <li><a href="favourites.html">My Favourites</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Contact</h5>
+                <ul>
+                    <li><a href="https://wa.me/2349094062471" target="_blank" rel="noopener" class="contact-line">0909 406 2471</a></li>
+                    <li><a href="mailto:obilogold@gmail.com" class="contact-line">✉ obilogold@gmail.com</a></li>
+                    <li><span class="contact-line" style="cursor:default;">✦ No 38 St Michaels GSM Center,<br>&nbsp;&nbsp;&nbsp;&nbsp;Aba, Abia State</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© <span id="year"></span> <span class="gold">OBILO GOLD GADGETS</span> · All rights reserved</span>
+            <span>Quality or Nothing ✦</span>
+        </div>
+    </div>
+</footer>
+
+<a href="https://wa.me/message/XUZF5HG3Y" target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
+    <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+<script>
+function toggleTheme() {
+    const html = document.documentElement;
+    const current = html.getAttribute('data-theme') || 'dark';
+    const next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    try { localStorage.setItem('obilo_theme', next); } catch(e) {}
+}
+function handleSearch() {
+    const q = document.getElementById('searchInput').value.trim();
+    if (q) location.href = `shop.html?q=${encodeURIComponent(q)}`;
+}
+window.addEventListener('scroll', () => {
+    const btn = document.getElementById('backToTop');
+    if (window.scrollY > 400) btn.classList.add('show');
+    else btn.classList.remove('show');
+});
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('year').textContent = new Date().getFullYear();
+});
+</script>
+</body>
+</html>

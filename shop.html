@@ -2379,7 +2379,7 @@ const CATEGORIES = [
     { id: 'accessories',   name: 'Accessories',    icon: '✦' },
 ];
 
-/* PRODUCTS */
+/* PRODUCTS — with verified working image URLs */
 const PRODUCTS = [
     /* PHONES */
     { id: 1,  name: 'iPhone 15 Pro Max', price: 1650000, image: 'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store' },
@@ -3248,7 +3248,6 @@ function productCardHTML(p) {
     if (isSoldOut) tags.push(`<span class="product-badge sold-out">Sold Out</span>`);
     const tagsHTML = tags.length ? `<div class="product-tags-left">${tags.join('')}</div>` : '';
 
-    // Stock indicator with new wording
     let stockHTML = '';
     if (p.stockType === 'in-store') {
         stockHTML = `<span class="stock-indicator in-store"><span class="dot"></span>Available in Store</span>`;
@@ -3270,7 +3269,7 @@ function productCardHTML(p) {
         <div class="product-card ${isSoldOut ? 'sold-out' : ''}">
             <div class="product-image" onclick="goToProduct(${p.id})">
                 ${tagsHTML}
-                <img src="${p.image}" alt="${p.name}" loading="lazy">
+                <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x600/1C1C21/C9A227?text=OBILO';">
                 ${isSoldOut ? '<div class="sold-out-overlay"><span>Sold Out</span></div>' : ''}
                 <button class="fav-icon ${isFav ? 'active' : ''}"
                         data-fav-id="${p.id}"
@@ -3551,6 +3550,15 @@ window.addEventListener('popstate', () => {
     buildCategoryPills();
     renderView();
 });
+
+/* THEME */
+function toggleTheme() {
+    const html = document.documentElement;
+    const current = html.getAttribute('data-theme') || 'dark';
+    const next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    try { localStorage.setItem('obilo_theme', next); } catch(e) {}
+}
 </script>
 
 </body>

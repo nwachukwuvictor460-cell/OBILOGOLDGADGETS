@@ -272,6 +272,31 @@ html[data-theme="light"] .logo-tag {
 
 .icon-btn:hover { background: var(--dark-3); color: var(--gold); }
 
+.signin-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 42px;
+    padding: 0 20px;
+    border-radius: 100px;
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    color: var(--text-soft);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.22s var(--ease);
+    white-space: nowrap;
+}
+
+.signin-btn:hover {
+    border-color: var(--gold-hairline);
+    color: var(--gold);
+    background: var(--gold-soft);
+}
+
 .badge {
     position: absolute;
     top: 4px;
@@ -335,67 +360,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 }
 
 .whatsapp-btn-header:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(37, 211, 102, 0.32); }
-
-/* REGISTER ICON BUTTON */
-.register-icon-btn {
-    position: relative;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 19px;
-    color: var(--text-soft);
-    transition: background 0.2s, color 0.2s;
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    font-family: inherit;
-}
-
-.register-icon-btn:hover { background: var(--dark-3); color: var(--gold); }
-
-.register-icon-btn .register-tooltip {
-    position: absolute;
-    bottom: -32px;
-    left: 50%;
-    transform: translateX(-50%) translateY(-6px);
-    background: var(--dark-2);
-    border: 1px solid var(--gold-hairline);
-    color: var(--gold);
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    padding: 5px 10px;
-    border-radius: 6px;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.22s var(--ease), transform 0.22s var(--ease), visibility 0.22s;
-    pointer-events: none;
-    box-shadow: var(--shadow-soft);
-    z-index: 20;
-}
-
-.register-icon-btn .register-tooltip::before {
-    content: '';
-    position: absolute;
-    top: -4px;
-    left: 50%;
-    transform: translateX(-50%) rotate(45deg);
-    width: 8px;
-    height: 8px;
-    background: var(--dark-2);
-    border-left: 1px solid var(--gold-hairline);
-    border-top: 1px solid var(--gold-hairline);
-}
-
-.register-icon-btn:hover .register-tooltip {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-}
 
 /* LOGIN PANEL */
 .account-wrap { position: relative; }
@@ -963,60 +927,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 
 .progress-fill { height: 100%; background: var(--gold-gradient); width: 0%; transition: width 0.1s linear; }
 
-/* BRAND STRIP */
-.brand-strip {
-    border-top: 1px solid var(--border-soft);
-    border-bottom: 1px solid var(--border-soft);
-    background: var(--dark-2);
-    padding: 26px 28px;
-    overflow: hidden;
-    transition: background 0.4s ease;
-}
-
-.brand-strip-inner {
-    max-width: 1300px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.brand-strip-label {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    color: var(--gold);
-    white-space: nowrap;
-    flex-shrink: 0;
-}
-
-.brand-strip-list {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    flex: 1;
-    justify-content: flex-end;
-    row-gap: 14px;
-}
-
-.brand-name {
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    opacity: 0.6;
-    transition: color 0.3s, opacity 0.3s;
-    cursor: default;
-}
-
-.brand-name:hover { color: var(--gold); opacity: 1; }
-
 /* CATEGORY STRIP */
 .category-strip {
     border-bottom: 1px solid var(--border-soft);
@@ -1207,7 +1117,7 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 .news-card-meta .read-more { color: var(--gold); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; font-size: 10px; }
 .news-card:hover .read-more { color: var(--gold-light); }
 
-/* CATEGORIES GRID */
+/* CATEGORIES GRID (kept in CSS for other pages, not used on index) */
 .categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 18px; }
 
 .category-card {
@@ -1371,7 +1281,7 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 .btn-wa-full:active { transform: scale(0.98); }
 .btn-wa-full .wa-icon { width: 16px; height: 16px; }
 
-/* SPONSORED BANNER */
+/* SPONSORED BANNER (kept in CSS for other pages, not used on index) */
 .sponsored-banner {
     position: relative;
     padding: 56px 48px;
@@ -2417,9 +2327,7 @@ a.contact-line:hover { color: var(--gold); }
 
 .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
-/* ============================================
-   TOP INFO BAR — WARRANTY / PRIVACY / DELIVERY
-   ============================================ */
+/* TOP INFO BAR */
 .top-info-bar {
     background: var(--dark-2);
     border-bottom: 1px solid var(--border-soft);
@@ -2457,9 +2365,7 @@ a.contact-line:hover { color: var(--gold); }
     border-radius: 6px;
 }
 
-.top-info-item:hover {
-    color: var(--gold);
-}
+.top-info-item:hover { color: var(--gold); }
 
 .top-info-item .top-info-icon {
     font-size: 13px;
@@ -2479,7 +2385,7 @@ a.contact-line:hover { color: var(--gold); }
     flex-shrink: 0;
 }
 
-/* NAVIGATION — FLEX DROPDOWN (DESKTOP & MOBILE) */
+/* NAVIGATION */
 .nav-wrapper {
     position: relative;
     max-width: 1300px;
@@ -2565,15 +2471,9 @@ a.contact-line:hover { color: var(--gold); }
     transform-origin: center;
 }
 
-.hamburger-btn.active .hamburger-icon span:nth-child(1) {
-    transform: translateY(6px) rotate(45deg);
-}
-.hamburger-btn.active .hamburger-icon span:nth-child(2) {
-    opacity: 0;
-}
-.hamburger-btn.active .hamburger-icon span:nth-child(3) {
-    transform: translateY(-6px) rotate(-45deg);
-}
+.hamburger-btn.active .hamburger-icon span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.hamburger-btn.active .hamburger-icon span:nth-child(2) { opacity: 0; }
+.hamburger-btn.active .hamburger-icon span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
 .hamburger-label {
     font-size: 13px;
@@ -2581,7 +2481,7 @@ a.contact-line:hover { color: var(--gold); }
     letter-spacing: 0.3px;
 }
 
-/* MEGA DROPDOWN — FLEX LAYOUT (DESKTOP & MOBILE) */
+/* MEGA DROPDOWN */
 .mega-dropdown {
     position: absolute;
     top: calc(100% + 8px);
@@ -2703,9 +2603,7 @@ a.contact-line:hover { color: var(--gold); }
     cursor: pointer;
 }
 
-.mega-featured-item:hover {
-    background: var(--dark-3);
-}
+.mega-featured-item:hover { background: var(--dark-3); }
 
 .mega-featured-img {
     width: 48px;
@@ -2741,9 +2639,7 @@ a.contact-line:hover { color: var(--gold); }
     color: var(--gold);
 }
 
-/* ============================================
-   RESPONSIVE
-   ============================================ */
+/* RESPONSIVE */
 @media (max-width: 900px) {
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
     .search-bar { display: flex; flex: 1; max-width: none; }
@@ -2757,31 +2653,17 @@ a.contact-line:hover { color: var(--gold); }
     .hero p { margin-left: auto; margin-right: auto; }
     .hero-slider { margin: 0 auto; max-width: 480px; }
 
-    .brand-strip-list { justify-content: flex-start; }
-
     .store-visit { grid-template-columns: 1fr; }
     .store-info { padding: 40px 34px; }
     .store-map { min-height: 360px; }
 
     .broadcast { grid-template-columns: 1fr; padding: 46px 34px; }
 
-    .mega-inner {
-        flex-wrap: wrap;
-    }
-    .mega-col {
-        flex: 1 1 150px;
-    }
-    .mega-featured {
-        flex: 1 1 100%;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-    .mega-featured-title {
-        width: 100%;
-    }
-    .mega-featured-item {
-        flex: 0 0 calc(50% - 8px);
-    }
+    .mega-inner { flex-wrap: wrap; }
+    .mega-col { flex: 1 1 150px; }
+    .mega-featured { flex: 1 1 100%; flex-direction: row; flex-wrap: wrap; }
+    .mega-featured-title { width: 100%; }
+    .mega-featured-item { flex: 0 0 calc(50% - 8px); }
 }
 
 @media (max-width: 640px) {
@@ -2792,59 +2674,24 @@ a.contact-line:hover { color: var(--gold); }
     .whatsapp-btn-header span.txt { display: none; }
     .whatsapp-btn-header { padding: 11px; width: 42px; height: 42px; justify-content: center; }
 
-    .search-bar {
-        order: 3;
-        width: 100%;
-        max-width: 100%;
-        flex: 0 0 100%;
-        margin-top: 4px;
-    }
-    .search-bar input {
-        padding: 11px 48px 11px 18px;
-        font-size: 13px;
-    }
-    .search-bar button {
-        width: 34px;
-        height: 34px;
-        font-size: 14px;
-        right: 5px;
-    }
+    .signin-btn { height: 42px; padding: 0 14px; font-size: 12px; }
+
+    .search-bar { order: 3; width: 100%; max-width: 100%; flex: 0 0 100%; margin-top: 4px; }
+    .search-bar input { padding: 11px 48px 11px 18px; font-size: 13px; }
+    .search-bar button { width: 34px; height: 34px; font-size: 14px; right: 5px; }
 
     .login-panel { position: fixed; top: 78px; left: 8px; right: 8px; width: auto; }
 
-    .top-info-bar {
-        padding: 6px 18px;
-    }
-    .top-info-inner {
-        gap: 14px;
-        justify-content: flex-start;
-    }
-    .top-info-item {
-        font-size: 10px;
-        padding: 2px 2px;
-    }
-    .top-info-item .top-info-icon {
-        font-size: 11px;
-        width: 13px;
-    }
-    .top-info-divider {
-        height: 12px;
-    }
+    .top-info-bar { padding: 6px 18px; }
+    .top-info-inner { gap: 14px; justify-content: flex-start; }
+    .top-info-item { font-size: 10px; padding: 2px 2px; }
+    .top-info-item .top-info-icon { font-size: 11px; width: 13px; }
+    .top-info-divider { height: 12px; }
 
-    .nav-wrapper {
-        padding: 0 18px;
-    }
-    .nav-bar {
-        padding: 0 0 12px;
-        flex-wrap: wrap;
-    }
-    .hamburger-btn {
-        padding: 7px 14px;
-        font-size: 12px;
-    }
-    .hamburger-label {
-        font-size: 12px;
-    }
+    .nav-wrapper { padding: 0 18px; }
+    .nav-bar { padding: 0 0 12px; flex-wrap: wrap; }
+    .hamburger-btn { padding: 7px 14px; font-size: 12px; }
+    .hamburger-label { font-size: 12px; }
 
     .mega-dropdown {
         position: absolute;
@@ -2858,21 +2705,10 @@ a.contact-line:hover { color: var(--gold); }
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
     }
-    .mega-inner {
-        flex-direction: column;
-        gap: 20px;
-    }
-    .mega-col {
-        flex: 1 1 auto;
-        min-width: 0;
-    }
-    .mega-featured {
-        flex: 1 1 auto;
-        flex-direction: column;
-    }
-    .mega-featured-item {
-        flex: 1 1 100%;
-    }
+    .mega-inner { flex-direction: column; gap: 20px; }
+    .mega-col { flex: 1 1 auto; min-width: 0; }
+    .mega-featured { flex: 1 1 auto; flex-direction: column; }
+    .mega-featured-item { flex: 1 1 100%; }
 
     .hero-slider { aspect-ratio: auto; min-height: 470px; }
     .slide { padding: 28px 24px 60px; }
@@ -2882,11 +2718,6 @@ a.contact-line:hover { color: var(--gold); }
     .battle-device-price { font-size: 12px; }
     .deal-hero-img { width: 72%; }
     .slider-controls { padding: 0 24px; bottom: 18px; }
-
-    .brand-strip { padding: 20px; }
-    .brand-strip-inner { gap: 20px; }
-    .brand-strip-list { gap: 20px; }
-    .brand-name { font-size: 11px; letter-spacing: 1.2px; }
 
     .category-strip { padding: 16px 18px; }
     .category-strip-inner { gap: 10px; }
@@ -2938,7 +2769,6 @@ a.contact-line:hover { color: var(--gold); }
 
 <!-- HEADER -->
 <header class="header">
-    <!-- TOP INFO BAR — WARRANTY / PRIVACY / DELIVERY -->
     <div class="top-info-bar">
         <div class="top-info-inner">
             <a href="warranty.html" class="top-info-item">
@@ -2949,11 +2779,6 @@ a.contact-line:hover { color: var(--gold); }
             <a href="delivery.html" class="top-info-item">
                 <span class="top-info-icon">➤</span>
                 <span>Nationwide Delivery</span>
-            </a>
-            <span class="top-info-divider"></span>
-            <a href="privacy.html" class="top-info-item">
-                <span class="top-info-icon">✦</span>
-                <span>100% Privacy Protected</span>
             </a>
         </div>
     </div>
@@ -2981,15 +2806,9 @@ a.contact-line:hover { color: var(--gold); }
                 <span class="badge" id="favBadge" style="display:none">0</span>
             </button>
 
-            <!-- REGISTER ICON BUTTON -->
-            <button class="register-icon-btn" onclick="openRegister()" aria-label="Register or Sign In">
-                <span>✎</span>
-                <span class="register-tooltip">Register / Sign In</span>
-            </button>
-
             <div class="account-wrap" id="accountWrap">
-                <button class="icon-btn" onclick="toggleAccount(event)" aria-label="Account" aria-haspopup="true">
-                    ◯
+                <button class="signin-btn" onclick="toggleAccount(event)" aria-label="Sign In or Register" aria-haspopup="true">
+                    Sign In / Register
                 </button>
 
                 <div class="login-panel" id="loginPanel" role="dialog" aria-label="Account">
@@ -3055,7 +2874,6 @@ a.contact-line:hover { color: var(--gold); }
         </div>
     </div>
 
-    <!-- NAV WRAPPER -->
     <div class="nav-wrapper" id="navWrapper">
         <div class="nav-bar">
             <div class="nav-left">
@@ -3072,7 +2890,6 @@ a.contact-line:hover { color: var(--gold); }
             </div>
         </div>
 
-        <!-- MEGA DROPDOWN -->
         <div class="mega-dropdown" id="megaDropdown">
             <div class="mega-inner">
                 <div class="mega-col">
@@ -3145,7 +2962,7 @@ a.contact-line:hover { color: var(--gold); }
     </div>
 </header>
 
-<!-- HERO -->
+<!-- 1. HERO -->
 <section class="hero">
     <div class="hero-inner">
         <div class="hero-left">
@@ -3177,95 +2994,13 @@ a.contact-line:hover { color: var(--gold); }
     </div>
 </section>
 
-<!-- BRAND STRIP -->
-<section class="brand-strip">
-    <div class="brand-strip-inner">
-        <span class="brand-strip-label">— Houses We Carry —</span>
-        <div class="brand-strip-list">
-            <span class="brand-name">Apple</span>
-            <span class="brand-name">Samsung</span>
-            <span class="brand-name">Google</span>
-            <span class="brand-name">Xiaomi</span>
-            <span class="brand-name">Redmi</span>
-            <span class="brand-name">Tecno</span>
-            <span class="brand-name">Infinix</span>
-            <span class="brand-name">itel</span>
-            <span class="brand-name">Oppo</span>
-            <span class="brand-name">Vivo</span>
-            <span class="brand-name">Realme</span>
-            <span class="brand-name">OnePlus</span>
-            <span class="brand-name">Honor</span>
-            <span class="brand-name">Nokia</span>
-            <span class="brand-name">Nothing</span>
-            <span class="brand-name">Huawei</span>
-            <span class="brand-name">Amazfit</span>
-            <span class="brand-name">Fitbit</span>
-            <span class="brand-name">FiiO</span>
-            <span class="brand-name">Shanling</span>
-            <span class="brand-name">SanDisk</span>
-            <span class="brand-name">HP</span>
-            <span class="brand-name">Lenovo</span>
-            <span class="brand-name">Dell</span>
-            <span class="brand-name">Asus</span>
-            <span class="brand-name">JBL</span>
-            <span class="brand-name">Sony</span>
-            <span class="brand-name">Oraimo</span>
-            <span class="brand-name">Anker</span>
-            <span class="brand-name">Baseus</span>
-            <span class="brand-name">UGREEN</span>
-            <span class="brand-name">Logitech</span>
-        </div>
-    </div>
-</section>
-
-<!-- CATEGORY STRIP -->
+<!-- 2. CATEGORY STRIP -->
 <section class="category-strip">
     <div class="category-strip-inner" id="categoryStrip"></div>
 </section>
 
-<!-- RECENTLY VIEWED -->
-<section class="section recently-viewed" id="recentlyViewedSection" style="padding-bottom:0">
-    <div class="container">
-        <div class="section-head">
-            <div>
-                <div class="eyebrow" style="margin-bottom:10px;">Pick Up Where You Left</div>
-                <h2 class="section-title">Recently <span class="gold">Viewed</span></h2>
-            </div>
-        </div>
-        <div class="recently-scroll" id="recentlyGrid"></div>
-    </div>
-</section>
-
-<!-- TECH NEWS -->
+<!-- 3. FEATURED GADGETS -->
 <section class="section" style="padding-bottom:0">
-    <div class="container">
-        <div class="section-head">
-            <div>
-                <div class="eyebrow" style="margin-bottom:10px;">The Journal</div>
-                <h2 class="section-title">Latest <span class="gold">Tech News</span></h2>
-            </div>
-            <a href="#" class="section-link">All Articles</a>
-        </div>
-        <div class="news-scroll" id="newsGrid"></div>
-    </div>
-</section>
-
-<!-- CATEGORIES -->
-<section class="section">
-    <div class="container">
-        <div class="section-head">
-            <div>
-                <div class="eyebrow" style="margin-bottom:10px;">Browse</div>
-                <h2 class="section-title">By <span class="gold">Category</span></h2>
-            </div>
-            <a href="shop.html" class="section-link">View All</a>
-        </div>
-        <div class="categories" id="categoryGrid"></div>
-    </div>
-</section>
-
-<!-- FEATURED -->
-<section class="section" style="padding-top:0">
     <div class="container">
         <div class="section-head">
             <div>
@@ -3278,23 +3013,22 @@ a.contact-line:hover { color: var(--gold); }
     </div>
 </section>
 
-<!-- SPONSORED BANNER -->
-<section class="section" style="padding-top:0">
+<!-- 4. HOT DEALS -->
+<section class="section" style="padding-bottom:0">
     <div class="container">
-        <div class="sponsored-banner">
-            <span class="sponsored-label">Sponsored</span>
+        <div class="section-head">
             <div>
-                <div class="eyebrow" style="color:var(--gold);margin-bottom:8px;">Spotlight</div>
-                <h3>Google Pixel 9 Pro — Now Available</h3>
-                <p>Pure Android. Best-in-class camera. AI-powered. Limited stock at OBILO GOLD.</p>
+                <div class="eyebrow" style="margin-bottom:10px;">Limited Time</div>
+                <h2 class="section-title">Hot <span class="gold">Deals</span></h2>
             </div>
-            <a href="product.html?id=5" class="btn btn-primary">View Offer →</a>
+            <a href="shop.html?deals=1" class="section-link">See All Deals</a>
         </div>
+        <div class="deals-scroll" id="dealsGrid"></div>
     </div>
 </section>
 
-<!-- WHY OBILO -->
-<section class="section" style="padding-top:0">
+<!-- 5. WHY OBILO -->
+<section class="section">
     <div class="container">
         <div class="section-head">
             <div>
@@ -3327,7 +3061,7 @@ a.contact-line:hover { color: var(--gold); }
     </div>
 </section>
 
-<!-- REVIEWS -->
+<!-- 6. REVIEWS -->
 <section class="section" style="padding-top:0">
     <div class="container">
         <div class="reviews-header">
@@ -3347,7 +3081,7 @@ a.contact-line:hover { color: var(--gold); }
     </div>
 </section>
 
-<!-- STORE VISIT -->
+<!-- 7. STORE VISIT -->
 <section class="section" style="padding-top:0">
     <div class="container">
         <div class="store-visit">
@@ -3416,8 +3150,35 @@ a.contact-line:hover { color: var(--gold); }
     </div>
 </section>
 
-<!-- BROADCAST -->
+<!-- 8. RECENTLY VIEWED (auto-shows after 2+ items viewed) -->
+<section class="section recently-viewed" id="recentlyViewedSection" style="padding-top:0">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <div class="eyebrow" style="margin-bottom:10px;">Pick Up Where You Left</div>
+                <h2 class="section-title">Recently <span class="gold">Viewed</span></h2>
+            </div>
+        </div>
+        <div class="recently-scroll" id="recentlyGrid"></div>
+    </div>
+</section>
+
+<!-- 9. TECH NEWS -->
 <section class="section" style="padding-top:0">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <div class="eyebrow" style="margin-bottom:10px;">The Journal</div>
+                <h2 class="section-title">Latest <span class="gold">Tech News</span></h2>
+            </div>
+            <a href="#" class="section-link">All Articles</a>
+        </div>
+        <div class="news-scroll" id="newsGrid"></div>
+    </div>
+</section>
+
+<!-- 10. BROADCAST SIGNUP -->
+<section class="section" style="padding-top:0;padding-bottom:0">
     <div class="container">
         <div class="broadcast">
             <div class="broadcast-text">
@@ -3437,20 +3198,6 @@ a.contact-line:hover { color: var(--gold); }
                 </button>
             </form>
         </div>
-    </div>
-</section>
-
-<!-- DEALS -->
-<section class="section" style="padding-top:0">
-    <div class="container">
-        <div class="section-head">
-            <div>
-                <div class="eyebrow" style="margin-bottom:10px;">Limited Time</div>
-                <h2 class="section-title">Hot <span class="gold">Deals</span></h2>
-            </div>
-            <a href="shop.html?deals=1" class="section-link">See All Deals</a>
-        </div>
-        <div class="deals-scroll" id="dealsGrid"></div>
     </div>
 </section>
 
@@ -3859,11 +3606,6 @@ function handleSearch() {
     if (q) location.href = `shop.html?q=${encodeURIComponent(q)}`;
 }
 
-/* REGISTER */
-function openRegister() {
-    location.href = 'register.html';
-}
-
 /* AUTH */
 const AUTH_KEY = 'obilo_auth';
 function getAuth() { return JSON.parse(localStorage.getItem(AUTH_KEY) || 'null'); }
@@ -3874,12 +3616,17 @@ function applyAuthUI() {
     const panel = document.getElementById('loginPanel');
     const user = getAuth();
     if (!panel) return;
+    const signinBtn = document.querySelector('.signin-btn');
     if (user) {
         panel.classList.add('is-logged-in');
         document.getElementById('userName').textContent = user.name || 'OBILO Customer';
         document.getElementById('userEmail').textContent = user.email || '';
         document.getElementById('userInitial').textContent = (user.name || 'O').charAt(0).toUpperCase();
-    } else { panel.classList.remove('is-logged-in'); }
+        if (signinBtn) signinBtn.textContent = (user.name || 'Account').split(' ')[0];
+    } else {
+        panel.classList.remove('is-logged-in');
+        if (signinBtn) signinBtn.textContent = 'Sign In / Register';
+    }
 }
 
 function handleLogin(e) {
@@ -3944,7 +3691,6 @@ function toggleMegaMenu() {
     btn.setAttribute('aria-expanded', !isOpen);
 }
 
-/* Close mega menu when clicking outside */
 document.addEventListener('click', (e) => {
     const dropdown = document.getElementById('megaDropdown');
     const btn = document.getElementById('hamburgerBtn');
@@ -3969,18 +3715,9 @@ function renderCategoryStrip() {
     `).join('');
 }
 
-function renderCategories() {
-    const grid = document.getElementById('categoryGrid');
-    grid.innerHTML = CATEGORIES.map(cat => `
-        <div class="category-card" onclick="location.href='shop.html?cat=${cat.id}'">
-            <div class="category-icon">${cat.icon}</div>
-            <div class="category-name">${cat.name}</div>
-        </div>
-    `).join('');
-}
-
 function renderProducts() {
     const grid = document.getElementById('featuredGrid');
+    if (!grid) return;
     const favs = getFavourites();
     const favIds = favs.map(f => f.id);
     const featured = PRODUCTS.filter(p =>
@@ -4021,6 +3758,7 @@ function renderProducts() {
 
 function renderDeals() {
     const grid = document.getElementById('dealsGrid');
+    if (!grid) return;
     grid.innerHTML = DEALS.map(d => `
         <div class="deal-card" onclick="goToProduct(${d.id})">
             <div class="deal-image">
@@ -4040,6 +3778,7 @@ function renderDeals() {
 
 function renderNews() {
     const grid = document.getElementById('newsGrid');
+    if (!grid) return;
     grid.innerHTML = NEWS.map(n => `
         <div class="news-card">
             <div class="news-card-image">
@@ -4060,6 +3799,7 @@ function renderNews() {
 
 function renderReviews() {
     const grid = document.getElementById('reviewsGrid');
+    if (!grid) return;
     grid.innerHTML = REVIEWS.map(r => `
         <div class="review-card">
             <div class="review-quote-mark">"</div>
@@ -4292,7 +4032,6 @@ window.addEventListener('scroll', () => {
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('year').textContent = new Date().getFullYear();
     renderCategoryStrip();
-    renderCategories();
     renderProducts();
     renderDeals();
     renderNews();

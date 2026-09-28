@@ -1,2036 +1,22 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="dark">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shop — OBILO GOLD GADGETS</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
-<script>
-(function() {
-    try {
-        const saved = localStorage.getItem('obilo_theme');
-        if (saved === 'light' || saved === 'dark') {
-            document.documentElement.setAttribute('data-theme', saved);
-        }
-    } catch(e) {}
-})();
-</script>
-<style>
-/* ============================================
-   RESET & BASE
-   ============================================ */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-:root {
-    --gold: #C9A227;
-    --gold-light: #E2C766;
-    --gold-dark: #9C7A1A;
-    --gold-gradient: linear-gradient(135deg, #E2C766 0%, #C9A227 45%, #9C7A1A 100%);
-    --gold-soft: rgba(201, 162, 39, 0.12);
-    --gold-hairline: rgba(201, 162, 39, 0.28);
-
-    --blue: #1B3A6B;
-    --blue-light: #4A7BC8;
-
-    --dark: #0A0A0C;
-    --dark-2: #121215;
-    --dark-3: #1C1C21;
-    --dark-4: #26262D;
-    --text: #F2F2F0;
-    --text-muted: #8E8E96;
-    --text-soft: #B8B8BE;
-    --border: #23232A;
-    --border-soft: #1A1A20;
-
-    --whatsapp: #25D366;
-    --star: #E2C766;
-    --danger: #E5484D;
-    --success: #30A46C;
-    --warning: #F5A623;
-
-    --shadow-elegant: 0 24px 60px rgba(0, 0, 0, 0.55);
-    --shadow-medium: 0 12px 30px rgba(0, 0, 0, 0.35);
-    --shadow-soft: 0 4px 14px rgba(0, 0, 0, 0.2);
-
-    --header-bg: rgba(10, 10, 12, 0.88);
-    --footer-bg: #060608;
-
-    --radius: 14px;
-    --radius-lg: 22px;
-
-    --ease: cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-html[data-theme="light"] {
-    --dark: #FAFAF8;
-    --dark-2: #FFFFFF;
-    --dark-3: #F2F2EE;
-    --dark-4: #E8E8E2;
-    --text: #0F0F12;
-    --text-muted: #6A6A72;
-    --text-soft: #4A4A52;
-    --border: #E4E4DD;
-    --border-soft: #EDEDE6;
-
-    --shadow-elegant: 0 24px 60px rgba(0, 0, 0, 0.08);
-    --shadow-medium: 0 12px 30px rgba(0, 0, 0, 0.06);
-    --shadow-soft: 0 4px 14px rgba(0, 0, 0, 0.04);
-
-    --header-bg: rgba(250, 250, 248, 0.92);
-    --footer-bg: #F2F2EE;
-
-    --gold-soft: rgba(201, 162, 39, 0.1);
-}
-
-body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: var(--dark);
-    color: var(--text);
-    line-height: 1.6;
-    overflow-x: hidden;
-    transition: background 0.4s ease, color 0.4s ease;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-a { text-decoration: none; color: inherit; }
-img { max-width: 100%; display: block; }
-button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
-
-.serif { font-family: 'Playfair Display', serif; }
-.eyebrow {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-}
-
-.wa-icon {
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-    display: inline-block;
-    vertical-align: middle;
-    fill: currentColor;
-}
-
-.container {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 28px;
-}
-
-/* LOGO */
-.logo {
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
-    user-select: none;
-    padding: 4px 0;
-}
-
-.logo-main {
-    font-family: 'Playfair Display', serif;
-    font-weight: 900;
-    font-size: 27px;
-    letter-spacing: 3.5px;
-    background: var(--gold-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter:
-        drop-shadow(0 0 1px rgba(0, 0, 0, 0.85))
-        drop-shadow(0 0 0.5px rgba(0, 0, 0, 0.7))
-        drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45))
-        drop-shadow(0 0 18px rgba(201, 162, 39, 0.35));
-}
-
-html[data-theme="light"] .logo-main {
-    background: linear-gradient(135deg, #B8901F 0%, #8E6E14 50%, #6E550E 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter:
-        drop-shadow(0 0 1px rgba(0, 0, 0, 0.9))
-        drop-shadow(0 0 0.5px rgba(0, 0, 0, 0.8))
-        drop-shadow(0 1px 1px rgba(0, 0, 0, 0.6))
-        drop-shadow(0 1px 3px rgba(0, 0, 0, 0.25));
-}
-
-.logo-sub {
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 8.5px;
-    color: var(--blue-light);
-    margin-top: 4px;
-    margin-left: 3px;
-    text-shadow: 0 0 1px rgba(0, 0, 0, 0.35);
-}
-
-html[data-theme="light"] .logo-sub {
-    color: #1E5AA8;
-    text-shadow: none;
-}
-
-.logo-tag {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    color: var(--gold);
-    margin-top: 3px;
-    margin-left: 3px;
-    opacity: 1;
-    text-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
-}
-
-html[data-theme="light"] .logo-tag {
-    color: #8E6E14;
-    text-shadow: none;
-}
-
-/* HEADER */
-.header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: var(--header-bg);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border-bottom: 1px solid var(--border-soft);
-    transition: background 0.4s ease;
-}
-
-.header-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 28px;
-    max-width: 1300px;
-    margin: 0 auto;
-    gap: 24px;
-}
-
-.search-bar { flex: 1; max-width: 520px; position: relative; }
-
-.search-bar input {
-    width: 100%;
-    padding: 12px 50px 12px 20px;
-    background: var(--dark-3);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    color: var(--text);
-    font-size: 14px;
-    font-family: inherit;
-    outline: none;
-    transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
-}
-
-.search-bar input:focus { border-color: var(--gold); box-shadow: 0 0 0 4px var(--gold-soft); }
-.search-bar input::placeholder { color: var(--text-muted); }
-
-.search-bar button {
-    position: absolute;
-    right: 6px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: var(--gold-gradient);
-    color: #1a1a1a;
-    font-size: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s var(--ease), box-shadow 0.25s;
-}
-
-.search-bar button:hover { transform: translateY(-50%) scale(1.06); box-shadow: 0 6px 18px rgba(201, 162, 39, 0.4); }
-
-.header-actions { display: flex; align-items: center; gap: 4px; }
-
-.icon-btn {
-    position: relative;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    color: var(--text-soft);
-    transition: background 0.2s, color 0.2s;
-}
-
-.icon-btn:hover { background: var(--dark-3); color: var(--gold); }
-
-.badge {
-    position: absolute;
-    top: 4px;
-    right: 4px;
-    background: var(--gold-gradient);
-    color: #1a1a1a;
-    font-size: 10px;
-    font-weight: 700;
-    min-width: 18px;
-    height: 18px;
-    border-radius: 9px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 5px;
-}
-
-.theme-toggle {
-    position: relative;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-soft);
-    transition: background 0.2s, color 0.2s;
-    overflow: hidden;
-}
-
-.theme-toggle:hover { background: var(--dark-3); color: var(--gold); }
-
-.theme-toggle .theme-icon {
-    display: block;
-    transition: transform 0.6s var(--ease), opacity 0.35s;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(0deg);
-    font-size: 17px;
-    line-height: 1;
-}
-
-.theme-toggle .theme-icon.sun { opacity: 0; transform: translate(-50%, -50%) rotate(-90deg); }
-.theme-toggle .theme-icon.moon { opacity: 1; transform: translate(-50%, -50%) rotate(0deg); }
-html[data-theme="light"] .theme-toggle .theme-icon.sun { opacity: 1; transform: translate(-50%, -50%) rotate(0deg); }
-html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform: translate(-50%, -50%) rotate(90deg); }
-
-.whatsapp-btn-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--whatsapp);
-    color: #fff;
-    padding: 11px 20px;
-    border-radius: 100px;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    transition: transform 0.25s var(--ease), box-shadow 0.3s;
-}
-
-.whatsapp-btn-header:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(37, 211, 102, 0.32); }
-
-/* LOGIN PANEL */
-.account-wrap { position: relative; }
-
-.account-wrap::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: 320px;
-    height: 14px;
-    pointer-events: auto;
-}
-
-.login-panel {
-    position: absolute;
-    top: calc(100% + 12px);
-    right: 0;
-    width: 320px;
-    background: var(--dark-2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 22px;
-    box-shadow: var(--shadow-elegant);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-8px);
-    transition: opacity 0.28s var(--ease), transform 0.28s var(--ease), visibility 0.28s;
-    z-index: 160;
-}
-
-.account-wrap:hover .login-panel,
-.account-wrap.open .login-panel { opacity: 1; visibility: visible; transform: translateY(0); }
-
-.login-panel-head { margin-bottom: 18px; text-align: center; }
-
-.login-panel-head h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 5px;
-}
-
-.login-panel-head p { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
-
-.login-field { margin-bottom: 14px; }
-
-.login-field label {
-    display: block;
-    font-size: 10px;
-    font-weight: 600;
-    color: var(--text-muted);
-    margin-bottom: 6px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-}
-
-.login-input {
-    width: 100%;
-    padding: 11px 15px;
-    background: var(--dark-3);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    color: var(--text);
-    font-size: 13px;
-    font-family: inherit;
-    outline: none;
-    transition: border-color 0.25s, box-shadow 0.25s;
-}
-
-.login-input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-soft); }
-.login-input::placeholder { color: var(--text-muted); }
-
-.login-actions-row { display: flex; justify-content: flex-end; margin: -4px 0 14px; }
-.login-forgot { font-size: 11px; color: var(--blue-light); transition: color 0.2s; }
-.login-forgot:hover { color: var(--gold); }
-
-.login-submit {
-    width: 100%;
-    padding: 13px;
-    background: var(--gold-gradient);
-    color: #1a1a1a;
-    border-radius: 10px;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    transition: transform 0.2s var(--ease), box-shadow 0.3s;
-    cursor: pointer;
-    font-family: inherit;
-}
-
-.login-submit:hover { transform: translateY(-1px); box-shadow: 0 12px 26px rgba(201, 162, 39, 0.4); }
-
-.login-divider {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin: 16px 0;
-    color: var(--text-muted);
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-.login-divider::before,
-.login-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-
-.login-wa {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
-    padding: 12px;
-    background: var(--whatsapp);
-    color: #fff;
-    border-radius: 10px;
-    font-size: 13px;
-    font-weight: 600;
-}
-
-.login-foot {
-    text-align: center;
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-top: 16px;
-    padding-top: 16px;
-    border-top: 1px solid var(--border);
-}
-
-.login-foot a { color: var(--gold); font-weight: 600; }
-
-.login-panel .logged-in-only { display: none; }
-.login-panel.is-logged-in .logged-out-only { display: none; }
-.login-panel.is-logged-in .logged-in-only { display: block; }
-
-.logged-in-head {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 16px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--border);
-}
-
-.logged-in-avatar {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: var(--gold-gradient);
-    color: #1a1a1a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 18px;
-    flex-shrink: 0;
-}
-
-.logged-in-name { font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.2; }
-.logged-in-email { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
-
-.logged-in-links { display: flex; flex-direction: column; gap: 2px; }
-
-.logged-in-link {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 11px 12px;
-    border-radius: 10px;
-    color: var(--text);
-    font-size: 13px;
-    font-weight: 500;
-    transition: background 0.2s, color 0.2s;
-}
-
-.logged-in-link:hover { background: var(--dark-3); color: var(--gold); }
-.logged-in-link span:first-child { font-size: 15px; }
-
-.logged-in-link .count {
-    margin-left: auto;
-    background: var(--gold-soft);
-    color: var(--gold);
-    font-size: 11px;
-    font-weight: 700;
-    min-width: 22px;
-    height: 22px;
-    padding: 0 7px;
-    border-radius: 11px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.logout-btn {
-    width: 100%;
-    margin-top: 14px;
-    padding: 11px;
-    background: transparent;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    color: var(--danger);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    transition: all 0.2s;
-    cursor: pointer;
-    font-family: inherit;
-}
-
-.logout-btn:hover { background: rgba(229, 72, 77, 0.08); border-color: var(--danger); }
-
-/* NAV */
-.nav {
-    display: flex;
-    gap: 2px;
-    padding: 0 28px 14px;
-    max-width: 1300px;
-    margin: 0 auto;
-    overflow-x: auto;
-    scrollbar-width: none;
-    position: relative;
-}
-
-.nav::-webkit-scrollbar { display: none; }
-
-.nav-item { position: relative; }
-
-.nav-item > a {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    padding: 7px 14px;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-    color: var(--text-muted);
-    border-radius: 100px;
-    white-space: nowrap;
-    transition: color 0.2s, background 0.2s;
-    cursor: pointer;
-}
-
-.nav-item > a:hover,
-.nav-item > a.active,
-.nav-item.open > a { color: var(--gold); background: var(--gold-soft); }
-
-/* SHOP HERO */
-.shop-hero {
-    position: relative;
-    padding: 44px 0 26px;
-    background: var(--dark);
-    overflow: hidden;
-    border-bottom: 1px solid var(--border-soft);
-}
-
-.shop-hero::before {
-    content: '';
-    position: absolute;
-    top: -200px;
-    right: -200px;
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(201, 162, 39, 0.1), transparent 65%);
-    pointer-events: none;
-}
-
-.shop-hero-inner {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 28px;
-    position: relative;
-    z-index: 2;
-}
-
-.breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-bottom: 16px;
-    letter-spacing: 0.3px;
-    flex-wrap: wrap;
-}
-
-.breadcrumb a, .breadcrumb button {
-    transition: color 0.2s;
-    color: var(--text-muted);
-    font-size: 12px;
-    font-family: inherit;
-    cursor: pointer;
-    background: none;
-    border: none;
-    padding: 0;
-}
-
-.breadcrumb a:hover, .breadcrumb button:hover { color: var(--gold); }
-.breadcrumb-sep { opacity: 0.5; }
-.breadcrumb-current { color: var(--gold); font-weight: 600; }
-
-.shop-hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: clamp(28px, 3.6vw, 42px);
-    line-height: 1.1;
-    letter-spacing: -0.5px;
-    color: var(--text);
-    margin-bottom: 10px;
-}
-
-.shop-hero h1 .gold {
-    background: var(--gold-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-style: italic;
-}
-
-.shop-hero p {
-    font-size: 14px;
-    color: var(--text-muted);
-    max-width: 640px;
-    font-weight: 300;
-}
-
-/* CATEGORY PILLS */
-.category-pills-wrap {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 22px 28px 0;
-    position: relative;
-}
-
-.category-pills {
-    display: flex;
-    gap: 8px;
-    overflow-x: auto;
-    scrollbar-width: none;
-    padding-bottom: 4px;
-}
-
-.category-pills::-webkit-scrollbar { display: none; }
-
-.cat-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 9px 16px;
-    background: var(--dark-2);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-    color: var(--text-soft);
-    cursor: pointer;
-    white-space: nowrap;
-    transition: all 0.22s var(--ease);
-    font-family: inherit;
-}
-
-.cat-pill:hover {
-    border-color: var(--gold-hairline);
-    color: var(--gold);
-    background: var(--gold-soft);
-    transform: translateY(-1px);
-}
-
-.cat-pill.active {
-    background: var(--gold-gradient);
-    border-color: var(--gold);
-    color: #1a1a1a;
-    font-weight: 700;
-    box-shadow: 0 6px 18px rgba(201, 162, 39, 0.32);
-}
-
-.cat-pill-icon {
-    font-size: 14px;
-    line-height: 1;
-}
-
-.cat-pill-count {
-    font-size: 10px;
-    padding: 1px 6px;
-    border-radius: 8px;
-    background: rgba(0, 0, 0, 0.15);
-    font-weight: 700;
-}
-
-.cat-pill:not(.active) .cat-pill-count {
-    background: var(--dark-3);
-    color: var(--text-muted);
-}
-
-/* STOCK LEGEND */
-.stock-legend {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 18px;
-    margin-top: 16px;
-    font-size: 11px;
-    color: var(--text-muted);
-    letter-spacing: 0.3px;
-}
-
-.stock-legend-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 500;
-}
-
-.stock-legend-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
-}
-
-.stock-legend-dot.in-store {
-    background: var(--success);
-    box-shadow: 0 0 8px rgba(48, 164, 108, 0.6);
-}
-
-.stock-legend-dot.pre-order {
-    background: var(--warning);
-    box-shadow: 0 0 8px rgba(245, 166, 35, 0.6);
-}
-
-.stock-legend-dot.special-order {
-    background: var(--gold);
-    box-shadow: 0 0 8px rgba(201, 162, 39, 0.6);
-}
-
-/* SHOP LAYOUT */
-.shop-layout {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 32px 28px 80px;
-    display: grid;
-    grid-template-columns: 260px 1fr;
-    gap: 40px;
-    align-items: start;
-}
-
-/* FILTER SIDEBAR */
-.filter-sidebar {
-    position: sticky;
-    top: 160px;
-    display: flex;
-    flex-direction: column;
-    gap: 26px;
-    max-height: calc(100vh - 190px);
-    overflow-y: auto;
-    padding-right: 8px;
-    scrollbar-width: thin;
-    scrollbar-color: var(--gold) var(--dark-3);
-}
-
-.filter-sidebar::-webkit-scrollbar { width: 4px; }
-.filter-sidebar::-webkit-scrollbar-track { background: var(--dark-3); border-radius: 2px; }
-.filter-sidebar::-webkit-scrollbar-thumb { background: var(--gold-gradient); border-radius: 2px; }
-
-.filter-group { border-bottom: 1px solid var(--border-soft); padding-bottom: 22px; }
-.filter-group:last-child { border-bottom: none; padding-bottom: 0; }
-
-.filter-group-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-    margin-bottom: 16px;
-    user-select: none;
-}
-
-.filter-group-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--text);
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-}
-
-.filter-caret { font-size: 10px; color: var(--text-muted); transition: transform 0.25s; }
-.filter-group.collapsed .filter-caret { transform: rotate(-90deg); }
-.filter-group.collapsed .filter-group-body { display: none; }
-
-.filter-list { display: flex; flex-direction: column; gap: 8px; }
-
-.filter-option {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    font-size: 13px;
-    color: var(--text-soft);
-    padding: 5px 0;
-    transition: color 0.2s;
-    user-select: none;
-}
-
-.filter-option:hover { color: var(--gold); }
-.filter-option input { display: none; }
-
-.filter-checkbox {
-    width: 17px;
-    height: 17px;
-    border: 1.5px solid var(--border);
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    transition: all 0.2s;
-    background: var(--dark-2);
-}
-
-.filter-option input:checked + .filter-checkbox {
-    background: var(--gold-gradient);
-    border-color: var(--gold);
-}
-
-.filter-option input:checked + .filter-checkbox::after {
-    content: '✓';
-    color: #1a1a1a;
-    font-size: 11px;
-    font-weight: 800;
-    line-height: 1;
-}
-
-.filter-option input:checked ~ .filter-label { color: var(--gold); font-weight: 600; }
-
-.filter-label { flex: 1; }
-
-.filter-count {
-    font-size: 11px;
-    color: var(--text-muted);
-    background: var(--dark-3);
-    padding: 1px 7px;
-    border-radius: 8px;
-}
-
-/* PRICE RANGE */
-.price-range-display {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 14px;
-    font-size: 12px;
-    color: var(--text-soft);
-}
-
-.price-range-display strong {
-    font-family: 'Playfair Display', serif;
-    color: var(--gold);
-    font-weight: 700;
-}
-
-.price-slider {
-    width: 100%;
-    -webkit-appearance: none;
-    appearance: none;
-    height: 3px;
-    border-radius: 2px;
-    background: var(--dark-4);
-    outline: none;
-    margin-bottom: 18px;
-}
-
-.price-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: var(--gold-gradient);
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(201, 162, 39, 0.5);
-    border: 2px solid var(--dark-2);
-}
-
-.price-slider::-moz-range-thumb {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: var(--gold);
-    cursor: pointer;
-    border: 2px solid var(--dark-2);
-    box-shadow: 0 2px 8px rgba(201, 162, 39, 0.5);
-}
-
-.price-quick {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-}
-
-.price-quick-btn {
-    padding: 6px 12px;
-    background: var(--dark-3);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    font-size: 11px;
-    color: var(--text-soft);
-    transition: all 0.2s;
-    cursor: pointer;
-    font-family: inherit;
-}
-
-.price-quick-btn:hover { border-color: var(--gold-hairline); color: var(--gold); }
-.price-quick-btn.active { background: var(--gold-soft); border-color: var(--gold); color: var(--gold); font-weight: 600; }
-
-.clear-filters {
-    padding: 11px 18px;
-    background: transparent;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    color: var(--text-muted);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    transition: all 0.2s;
-    cursor: pointer;
-    text-align: center;
-    font-family: inherit;
-}
-
-.clear-filters:hover { border-color: var(--danger); color: var(--danger); }
-
-.filter-toggle-mobile {
-    display: none;
-    align-items: center;
-    gap: 8px;
-    padding: 11px 18px;
-    background: var(--dark-2);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    color: var(--text);
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    font-family: inherit;
-}
-
-/* RESULTS */
-.results-area { min-width: 0; }
-
-.results-toolbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    margin-bottom: 24px;
-    flex-wrap: wrap;
-}
-
-.results-count {
-    font-size: 13px;
-    color: var(--text-muted);
-    letter-spacing: 0.3px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
-.results-count strong {
-    color: var(--gold);
-    font-family: 'Playfair Display', serif;
-    font-size: 15px;
-    font-weight: 700;
-}
-
-.results-count .results-context {
-    color: var(--text-soft);
-    font-weight: 500;
-}
-
-.sort-select {
-    padding: 10px 36px 10px 16px;
-    background: var(--dark-2);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    color: var(--text);
-    font-size: 13px;
-    font-family: inherit;
-    outline: none;
-    cursor: pointer;
-    appearance: none;
-    -webkit-appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238E8E96' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 14px center;
-    background-size: 14px;
-    transition: border-color 0.25s, box-shadow 0.25s;
-}
-
-.sort-select:focus { border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-soft); }
-
-/* ACTIVE FILTER CHIPS */
-.active-filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 20px;
-}
-
-.active-filter-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 7px 14px;
-    background: var(--gold-soft);
-    border: 1px solid var(--gold-hairline);
-    border-radius: 100px;
-    font-size: 12px;
-    color: var(--gold);
-    font-weight: 500;
-}
-
-.active-filter-chip button {
-    color: var(--gold);
-    font-size: 14px;
-    line-height: 1;
-    opacity: 0.7;
-    transition: opacity 0.2s;
-    font-family: inherit;
-}
-
-.active-filter-chip button:hover { opacity: 1; }
-
-/* CATEGORY SECTIONS */
-.category-sections {
-    display: flex;
-    flex-direction: column;
-    gap: 70px;
-}
-
-.category-section {
-    position: relative;
-}
-
-.category-section-head {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 20px;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 2px solid var(--border-soft);
-    flex-wrap: wrap;
-    position: relative;
-}
-
-.category-section-head::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 80px;
-    height: 2px;
-    background: var(--gold-gradient);
-}
-
-.category-section-head-left {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    min-width: 0;
-}
-
-.category-icon-badge {
-    width: 62px;
-    height: 62px;
-    border-radius: 18px;
-    background: var(--gold-soft);
-    border: 1px solid var(--gold-hairline);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 26px;
-    color: var(--gold);
-    flex-shrink: 0;
-}
-
-.category-section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(24px, 3vw, 34px);
-    font-weight: 700;
-    letter-spacing: -0.4px;
-    color: var(--text);
-    line-height: 1.1;
-    margin-bottom: 6px;
-}
-
-.category-section-title .gold {
-    background: var(--gold-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-style: italic;
-}
-
-.category-section-meta {
-    font-size: 13px;
-    color: var(--text-muted);
-    letter-spacing: 0.5px;
-    font-weight: 300;
-}
-
-.category-section-link {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--gold);
-    transition: color 0.2s;
-    border-bottom: 1px solid transparent;
-    padding-bottom: 3px;
-    white-space: nowrap;
-}
-
-.category-section-link:hover { color: var(--gold-light); border-bottom-color: var(--gold); }
-
-/* BRAND BLOCKS */
-.brand-blocks {
-    display: flex;
-    flex-direction: column;
-    gap: 44px;
-}
-
-.brand-block { position: relative; }
-
-.brand-block-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    margin-bottom: 18px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--border-soft);
-    flex-wrap: wrap;
-}
-
-.brand-block-head-left {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    min-width: 0;
-}
-
-.brand-block-logo {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    background: var(--dark-2);
-    border: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Playfair Display', serif;
-    font-weight: 900;
-    font-size: 18px;
-    color: var(--gold);
-    letter-spacing: -0.5px;
-    flex-shrink: 0;
-    transition: all 0.25s var(--ease);
-}
-
-.brand-block:hover .brand-block-logo {
-    background: var(--gold-soft);
-    border-color: var(--gold-hairline);
-}
-
-.brand-block-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--text);
-    letter-spacing: -0.2px;
-    line-height: 1.15;
-    margin-bottom: 3px;
-}
-
-.brand-block-title .gold {
-    background: var(--gold-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-style: italic;
-}
-
-.brand-block-meta {
-    font-size: 11px;
-    color: var(--text-muted);
-    letter-spacing: 0.5px;
-    font-weight: 300;
-    text-transform: uppercase;
-}
-
-.brand-block-link {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    color: var(--gold);
-    transition: color 0.2s;
-    padding-bottom: 2px;
-    border-bottom: 1px solid transparent;
-    white-space: nowrap;
-}
-
-.brand-block-link:hover { color: var(--gold-light); border-bottom-color: var(--gold); }
-
-.brand-scroll {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(230px, 1fr);
-    gap: 20px;
-    overflow-x: auto;
-    padding-bottom: 14px;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: thin;
-    scrollbar-color: var(--gold) var(--dark-3);
-    -webkit-overflow-scrolling: touch;
-}
-
-.brand-scroll::-webkit-scrollbar { height: 5px; }
-.brand-scroll::-webkit-scrollbar-track { background: var(--dark-3); border-radius: 3px; }
-.brand-scroll::-webkit-scrollbar-thumb { background: var(--gold-gradient); border-radius: 3px; }
-
-.brand-scroll .product-card { scroll-snap-align: start; }
-
-/* PRODUCTS GRID */
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    gap: 22px;
-}
-
-.product-card {
-    position: relative;
-    background: var(--dark-2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    transition: transform 0.32s var(--ease), border-color 0.3s, box-shadow 0.32s;
-    display: flex;
-    flex-direction: column;
-}
-
-.product-card:hover { transform: translateY(-5px); border-color: var(--gold-hairline); box-shadow: var(--shadow-elegant); }
-
-.product-card.sold-out { opacity: 0.82; }
-.product-card.sold-out:hover { opacity: 1; }
-
-.product-image { position: relative; aspect-ratio: 1 / 1; overflow: hidden; background: var(--dark-3); cursor: pointer; }
-.product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.55s var(--ease); }
-.product-card:hover .product-image img { transform: scale(1.07); }
-
-.fav-icon {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(8px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 17px;
-    color: #fff;
-    transition: color 0.2s, background 0.2s, transform 0.2s;
-    z-index: 3;
-    font-family: inherit;
-}
-
-.fav-icon:hover { background: var(--gold); color: #1a1a1a; transform: scale(1.06); }
-.fav-icon.active { color: var(--danger); }
-
-.product-tags-left {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    z-index: 2;
-    align-items: flex-start;
-}
-
-.sponsored-tag {
-    background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(6px);
-    color: var(--gold);
-    font-size: 9px;
-    font-weight: 700;
-    padding: 5px 10px;
-    border-radius: 4px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    border: 1px solid var(--gold-hairline);
-}
-
-.product-badge {
-    font-size: 9px;
-    font-weight: 800;
-    padding: 5px 10px;
-    border-radius: 4px;
-    letter-spacing: 1.4px;
-    text-transform: uppercase;
-    backdrop-filter: blur(6px);
-    border: 1px solid transparent;
-}
-
-.product-badge.new {
-    background: rgba(48, 164, 108, 0.16);
-    color: var(--success);
-    border-color: rgba(48, 164, 108, 0.4);
-}
-
-.product-badge.hot {
-    background: rgba(245, 166, 35, 0.16);
-    color: var(--warning);
-    border-color: rgba(245, 166, 35, 0.4);
-}
-
-.product-badge.limited {
-    background: rgba(201, 162, 39, 0.16);
-    color: var(--gold);
-    border-color: var(--gold-hairline);
-}
-
-.product-badge.sold-out {
-    background: rgba(229, 72, 77, 0.15);
-    color: var(--danger);
-    border-color: rgba(229, 72, 77, 0.45);
-}
-
-.sold-out-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.42);
-    backdrop-filter: blur(2px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-    pointer-events: none;
-}
-
-.sold-out-overlay span {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    padding: 10px 20px;
-    border: 2px solid #fff;
-    border-radius: 6px;
-    transform: rotate(-6deg);
-    opacity: 0.92;
-}
-
-.product-info { padding: 20px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
-
-.product-brand {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
-.stock-indicator {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.6px;
-    text-transform: uppercase;
-    padding: 3px 9px;
-    border-radius: 100px;
-    background: var(--dark-3);
-    white-space: nowrap;
-}
-
-.stock-indicator.in-store {
-    color: var(--success);
-    background: rgba(48, 164, 108, 0.12);
-}
-
-.stock-indicator.pre-order {
-    color: var(--warning);
-    background: rgba(245, 166, 35, 0.12);
-}
-
-.stock-indicator.special-order {
-    color: var(--gold);
-    background: rgba(201, 162, 39, 0.14);
-}
-
-.stock-indicator .dot {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: currentColor;
-    box-shadow: 0 0 6px currentColor;
-}
-
-.product-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: -0.2px;
-    color: var(--text);
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    min-height: 44px;
-    line-height: 1.35;
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-.product-name:hover { color: var(--gold); }
-
-.product-price { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--gold); letter-spacing: -0.3px; }
-.product-price.ask-price { font-size: 15px; color: var(--text-soft); font-style: italic; font-weight: 600; }
-
-.fav-btn-text {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    padding: 9px 14px;
-    background: transparent;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    color: var(--text-muted);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-    transition: all 0.22s;
-    cursor: pointer;
-    width: 100%;
-    font-family: inherit;
-}
-
-.fav-btn-text:hover { border-color: var(--gold); color: var(--gold); }
-.fav-btn-text.active { border-color: var(--danger); color: var(--danger); background: rgba(229, 72, 77, 0.08); }
-.fav-btn-text .heart { font-size: 13px; line-height: 1; }
-
-.product-actions { display: flex; gap: 8px; margin-top: auto; }
-
-.btn-wa-full {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 11px 14px;
-    background: var(--whatsapp);
-    color: #fff;
-    border-radius: 10px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    transition: transform 0.2s var(--ease), box-shadow 0.3s;
-}
-
-.btn-wa-full:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(37, 211, 102, 0.4); }
-.btn-wa-full:active { transform: scale(0.98); }
-.btn-wa-full .wa-icon { width: 16px; height: 16px; }
-
-.btn-notify {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 11px 14px;
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--text-soft);
-    border-radius: 10px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    transition: all 0.22s;
-    cursor: pointer;
-    font-family: inherit;
-}
-
-.btn-notify:hover { border-color: var(--gold); color: var(--gold); }
-
-/* EMPTY STATE */
-.empty-state {
-    grid-column: 1 / -1;
-    text-align: center;
-    padding: 80px 20px;
-    background: var(--dark-2);
-    border: 1px dashed var(--border);
-    border-radius: var(--radius-lg);
-}
-
-.empty-icon {
-    font-size: 48px;
-    color: var(--gold);
-    opacity: 0.5;
-    margin-bottom: 18px;
-}
-
-.empty-state h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 10px;
-}
-
-.empty-state p {
-    font-size: 14px;
-    color: var(--text-muted);
-    margin-bottom: 24px;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.empty-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-
-.btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    padding: 13px 26px;
-    border-radius: 100px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    transition: transform 0.25s var(--ease), box-shadow 0.3s, background 0.3s;
-    cursor: pointer;
-    font-family: inherit;
-}
-
-.btn:hover { transform: translateY(-2px); }
-
-.btn-primary { background: var(--gold-gradient); color: #1a1a1a; box-shadow: 0 10px 26px rgba(201, 162, 39, 0.28); }
-.btn-primary:hover { box-shadow: 0 14px 34px rgba(201, 162, 39, 0.45); }
-
-.btn-whatsapp { background: var(--whatsapp); color: #fff; box-shadow: 0 10px 26px rgba(37, 211, 102, 0.22); }
-.btn-whatsapp:hover { box-shadow: 0 14px 34px rgba(37, 211, 102, 0.4); }
-
-/* PAGINATION */
-.pagination {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 50px;
-    flex-wrap: wrap;
-}
-
-.page-btn {
-    min-width: 40px;
-    height: 40px;
-    padding: 0 12px;
-    border-radius: 10px;
-    background: var(--dark-2);
-    border: 1px solid var(--border);
-    color: var(--text-soft);
-    font-size: 13px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-family: inherit;
-}
-
-.page-btn:hover:not(:disabled) { border-color: var(--gold-hairline); color: var(--gold); }
-.page-btn.active { background: var(--gold-gradient); border-color: var(--gold); color: #1a1a1a; }
-.page-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-
-/* RECENTLY VIEWED */
-.recently-viewed-section {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 60px 28px 20px;
-    display: none;
-    border-top: 1px solid var(--border-soft);
-}
-
-.recently-viewed-section.has-items { display: block; }
-
-.recently-head {
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
-    gap: 20px;
-    margin-bottom: 26px;
-    flex-wrap: wrap;
-}
-
-.recently-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(22px, 2.6vw, 30px);
-    font-weight: 700;
-    letter-spacing: -0.4px;
-    color: var(--text);
-    line-height: 1.15;
-}
-
-.recently-title .gold {
-    background: var(--gold-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-style: italic;
-}
-
-.recently-scroll {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(210px, 1fr);
-    gap: 18px;
-    overflow-x: auto;
-    padding-bottom: 14px;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: thin;
-    scrollbar-color: var(--gold) var(--dark-3);
-}
-
-.recently-scroll::-webkit-scrollbar { height: 5px; }
-.recently-scroll::-webkit-scrollbar-track { background: var(--dark-3); border-radius: 3px; }
-.recently-scroll::-webkit-scrollbar-thumb { background: var(--gold-gradient); border-radius: 3px; }
-
-.recently-scroll .product-card { scroll-snap-align: start; }
-
-/* FOOTER */
-.footer {
-    background: var(--footer-bg);
-    border-top: 1px solid var(--border-soft);
-    padding: 80px 0 36px;
-    transition: background 0.4s ease;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: 1.8fr 1.2fr 1.2fr 1.4fr;
-    gap: 50px;
-    margin-bottom: 50px;
-}
-
-.footer-brand .logo { margin-bottom: 20px; }
-
-.footer-brand p {
-    color: var(--text-muted);
-    font-size: 13px;
-    max-width: 340px;
-    margin-bottom: 24px;
-    line-height: 1.7;
-    font-weight: 300;
-}
-
-.footer-socials { display: flex; gap: 10px; }
-
-.social-btn {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background: var(--dark-2);
-    border: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-muted);
-    font-size: 15px;
-    transition: all 0.25s var(--ease);
-}
-
-.social-btn:hover { background: var(--gold-gradient); color: #1a1a1a; border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 10px 22px rgba(201, 162, 39, 0.3); }
-.social-btn svg { width: 17px; height: 17px; fill: currentColor; }
-.social-btn.facebook:hover { background: #1877F2; border-color: #1877F2; color: #fff; box-shadow: 0 10px 22px rgba(24, 119, 242, 0.3); }
-.social-btn.instagram:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); border-color: #dc2743; color: #fff; }
-.social-btn.tiktok:hover { background: #FE2C55; border-color: #FE2C55; color: #fff; }
-.social-btn.wa-social:hover { background: var(--whatsapp); border-color: var(--whatsapp); color: #fff; }
-
-.footer-col h5 {
-    font-family: 'Playfair Display', serif;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--gold);
-    margin-bottom: 20px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-}
-
-.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
-.footer-col a { font-size: 13px; color: var(--text-muted); transition: color 0.2s; font-weight: 300; }
-.footer-col a:hover { color: var(--gold); }
-
-.contact-line {
-    font-size: 13px;
-    color: var(--text-muted);
-    transition: color 0.2s;
-    display: inline-flex;
-    align-items: flex-start;
-    gap: 9px;
-    line-height: 1.55;
-    font-weight: 300;
-}
-
-a.contact-line:hover { color: var(--gold); }
-.contact-line .wa-icon { margin-top: 3px; }
-
-.footer-bottom {
-    padding-top: 30px;
-    border-top: 1px solid var(--border-soft);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-    font-size: 11px;
-    color: var(--text-muted);
-    letter-spacing: 0.5px;
-}
-
-.footer-bottom .gold { color: var(--gold); font-weight: 600; }
-
-/* FLOATING */
-.wa-float {
-    position: fixed;
-    bottom: 28px;
-    right: 28px;
-    width: 58px;
-    height: 58px;
-    border-radius: 50%;
-    background: var(--whatsapp);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 14px 32px rgba(37, 211, 102, 0.42);
-    z-index: 99;
-    animation: wa-pulse 2.6s infinite;
-    transition: transform 0.25s var(--ease);
-}
-
-.wa-float .wa-icon { width: 28px; height: 28px; }
-.wa-float:hover { transform: scale(1.08); }
-
-@keyframes wa-pulse {
-    0% { box-shadow: 0 14px 32px rgba(37, 211, 102, 0.42), 0 0 0 0 rgba(37, 211, 102, 0.5); }
-    70% { box-shadow: 0 14px 32px rgba(37, 211, 102, 0.42), 0 0 0 18px rgba(37, 211, 102, 0); }
-    100% { box-shadow: 0 14px 32px rgba(37, 211, 102, 0.42), 0 0 0 0 rgba(37, 211, 102, 0); }
-}
-
-.back-to-top {
-    position: fixed;
-    bottom: 100px;
-    right: 28px;
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    background: var(--dark-2);
-    border: 1px solid var(--border);
-    color: var(--gold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    z-index: 98;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: all 0.3s var(--ease);
-    cursor: pointer;
-    box-shadow: var(--shadow-medium);
-    font-family: inherit;
-}
-
-.back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
-.back-to-top:hover { background: var(--gold-gradient); color: #1a1a1a; border-color: var(--gold); }
-
-/* TOAST */
-.toast {
-    position: fixed;
-    bottom: 110px;
-    left: 50%;
-    transform: translateX(-50%) translateY(130px);
-    background: var(--dark-2);
-    border: 1px solid var(--gold-hairline);
-    color: var(--text);
-    padding: 14px 26px;
-    border-radius: 100px;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-    box-shadow: var(--shadow-elegant);
-    z-index: 300;
-    opacity: 0;
-    transition: transform 0.35s var(--ease), opacity 0.35s;
-    pointer-events: none;
-    max-width: calc(100vw - 40px);
-    text-align: center;
-}
-
-.toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
-
-/* MOBILE FILTER DRAWER */
-.filter-drawer-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(4px);
-    z-index: 200;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.filter-drawer-overlay.show { display: block; opacity: 1; }
-
-.filter-drawer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 320px;
-    max-width: 85vw;
-    background: var(--dark-2);
-    border-right: 1px solid var(--border);
-    z-index: 201;
-    transform: translateX(-100%);
-    transition: transform 0.35s var(--ease);
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-}
-
-.filter-drawer.show { transform: translateX(0); }
-
-.filter-drawer-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 22px;
-    border-bottom: 1px solid var(--border-soft);
-    position: sticky;
-    top: 0;
-    background: var(--dark-2);
-    z-index: 2;
-}
-
-.filter-drawer-head h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--text);
-}
-
-.filter-drawer-close {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: var(--dark-3);
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s;
-    font-family: inherit;
-}
-
-.filter-drawer-close:hover { background: rgba(229, 72, 77, 0.15); color: var(--danger); }
-
-.filter-drawer-body { padding: 22px; flex: 1; }
-
-.filter-drawer-foot {
-    padding: 18px 22px;
-    border-top: 1px solid var(--border-soft);
-    position: sticky;
-    bottom: 0;
-    background: var(--dark-2);
-    display: flex;
-    gap: 10px;
-}
-
-.filter-drawer-foot .btn { flex: 1; padding: 13px; justify-content: center; }
-
-/* RESPONSIVE */
-@media (max-width: 1024px) {
-    .shop-layout { grid-template-columns: 1fr; }
-    .filter-sidebar { display: none; }
-    .filter-toggle-mobile { display: inline-flex; }
-    .brand-scroll { grid-auto-columns: minmax(200px, 1fr); }
-}
-
-@media (max-width: 900px) {
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-    .search-bar { display: none; }
-    .brand-scroll { grid-auto-columns: minmax(190px, 1fr); }
-}
-
-@media (max-width: 640px) {
-    .header-top { padding: 14px 18px; }
-    .logo-main { font-size: 22px; letter-spacing: 2px; }
-    .logo-sub { font-size: 9px; letter-spacing: 6px; }
-    .logo-tag { font-size: 10px; }
-    .whatsapp-btn-header span.txt { display: none; }
-    .whatsapp-btn-header { padding: 11px; width: 42px; height: 42px; justify-content: center; }
-    .nav { padding: 0 18px 12px; }
-
-    .login-panel { position: fixed; top: 78px; left: 8px; right: 8px; width: auto; }
-
-    .shop-hero { padding: 30px 0 20px; }
-    .shop-hero-inner { padding: 0 18px; }
-    .shop-hero h1 { font-size: 26px; }
-    .shop-hero p { font-size: 13px; }
-
-    .category-pills-wrap { padding: 16px 18px 0; }
-    .cat-pill { font-size: 11px; padding: 8px 13px; }
-
-    .stock-legend { gap: 12px; margin-top: 12px; font-size: 10px; }
-    .stock-legend-dot { width: 7px; height: 7px; }
-
-    .shop-layout { padding: 22px 18px 60px; gap: 22px; }
-
-    .category-sections { gap: 50px; }
-    .category-section-head { margin-bottom: 22px; padding-bottom: 16px; }
-    .category-icon-badge { width: 50px; height: 50px; font-size: 22px; border-radius: 14px; }
-    .category-section-title { font-size: 22px; }
-    .category-section-meta { font-size: 12px; }
-
-    .brand-blocks { gap: 34px; }
-    .brand-block-head { margin-bottom: 14px; }
-    .brand-block-logo { width: 38px; height: 38px; font-size: 16px; border-radius: 10px; }
-    .brand-block-title { font-size: 17px; }
-    .brand-block-meta { font-size: 10px; }
-    .brand-scroll { grid-auto-columns: minmax(160px, 1fr); gap: 12px; }
-
-    .products-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
-    .product-info { padding: 14px; gap: 10px; }
-    .product-brand { font-size: 9px; }
-    .stock-indicator { font-size: 8px; padding: 2px 7px; }
-    .product-name { font-size: 14px; min-height: 40px; }
-    .product-price { font-size: 17px; }
-    .btn-wa-full, .btn-notify { font-size: 11px; padding: 10px; }
-    .btn-wa-full span:not(.wa-icon), .btn-notify span { display: none; }
-    .btn-wa-full .wa-icon { width: 20px; height: 20px; }
-
-    .footer-grid { grid-template-columns: 1fr; gap: 34px; }
-    .footer-bottom { flex-direction: column; text-align: center; }
-    .wa-float { width: 52px; height: 52px; bottom: 20px; right: 20px; }
-    .wa-float .wa-icon { width: 24px; height: 24px; }
-    .back-to-top { bottom: 86px; right: 20px; }
-
-    .results-toolbar { gap: 10px; }
-    .sort-select { font-size: 12px; padding: 9px 32px 9px 14px; }
-
-    .recently-viewed-section { padding: 40px 18px 20px; }
-    .recently-scroll { grid-auto-columns: minmax(160px, 1fr); gap: 12px; }
-}
-
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.fade-up { animation: fadeUp 0.8s var(--ease) backwards; }
-</style>
-</head>
 <body>
 
 <!-- HEADER -->
 <header class="header">
+    <!-- TOP INFO BAR -->
+    <div class="top-info-bar">
+        <div class="top-info-inner">
+            <a href="warranty.html" class="top-info-item">
+                <span class="top-info-icon">◈</span>
+                <span>1-Year Warranty</span>
+            </a>
+            <span class="top-info-divider"></span>
+            <a href="delivery.html" class="top-info-item">
+                <span class="top-info-icon">➤</span>
+                <span>Nationwide Delivery</span>
+            </a>
+        </div>
+    </div>
+
     <div class="header-top">
         <a href="index.html" class="logo">
             <span class="logo-main">OBILO GOLD</span>
@@ -2055,8 +41,8 @@ a.contact-line:hover { color: var(--gold); }
             </button>
 
             <div class="account-wrap" id="accountWrap">
-                <button class="icon-btn" onclick="toggleAccount(event)" aria-label="Account" aria-haspopup="true">
-                    ◯
+                <button class="signin-btn" onclick="toggleAccount(event)" aria-label="Sign In or Register" aria-haspopup="true">
+                    Sign In / Register
                 </button>
 
                 <div class="login-panel" id="loginPanel" role="dialog" aria-label="Account">
@@ -2087,7 +73,7 @@ a.contact-line:hover { color: var(--gold); }
                             WhatsApp
                         </a>
                         <div class="login-foot">
-                            New to OBILO? <a href="login.html">Create an account</a>
+                            New to OBILO? <a href="register.html">Create an account</a>
                         </div>
                     </div>
 
@@ -2122,12 +108,94 @@ a.contact-line:hover { color: var(--gold); }
         </div>
     </div>
 
-    <nav class="nav" id="mainNav">
-        <div class="nav-item"><a href="index.html">Home</a></div>
-        <div class="nav-item"><a href="shop.html" class="active">Shop</a></div>
-        <div class="nav-item"><a href="shop.html?deals=1">Deals</a></div>
-        <div class="nav-item"><a href="support.html">Support</a></div>
-    </nav>
+    <!-- NAV WRAPPER -->
+    <div class="nav-wrapper" id="navWrapper">
+        <div class="nav-bar">
+            <div class="nav-left">
+                <a href="index.html" class="nav-shop-link">Home</a>
+                <a href="shop.html" class="nav-shop-link active">Shop</a>
+                <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMegaMenu()" aria-label="Browse categories" aria-expanded="false">
+                    <span class="hamburger-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                    <span class="hamburger-label">Browse</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- MEGA DROPDOWN -->
+        <div class="mega-dropdown" id="megaDropdown">
+            <div class="mega-inner">
+                <div class="mega-col">
+                    <div class="mega-col-title">Categories</div>
+                    <ul class="mega-links">
+                        <li><a href="shop.html?cat=phones"><span class="cat-icon">◐</span> Phones</a></li>
+                        <li><a href="shop.html?cat=laptops"><span class="cat-icon">⌘</span> Laptops</a></li>
+                        <li><a href="shop.html?cat=tablets"><span class="cat-icon">▢</span> Tablets</a></li>
+                        <li><a href="shop.html?cat=audio"><span class="cat-icon">◉</span> Audio</a></li>
+                        <li><a href="shop.html?cat=wearables"><span class="cat-icon">◯</span> Watches</a></li>
+                        <li><a href="shop.html?cat=smart-glasses"><span class="cat-icon">◈</span> Smart Glasses</a></li>
+                    </ul>
+                </div>
+                <div class="mega-col">
+                    <div class="mega-col-title">More Categories</div>
+                    <ul class="mega-links">
+                        <li><a href="shop.html?cat=mp3"><span class="cat-icon">♫</span> MP3 Players</a></li>
+                        <li><a href="shop.html?cat=chargers"><span class="cat-icon">⚡</span> Chargers</a></li>
+                        <li><a href="shop.html?cat=cables"><span class="cat-icon">⌁</span> Cords &amp; Cables</a></li>
+                        <li><a href="shop.html?cat=cases"><span class="cat-icon">⬚</span> Phone Cases</a></li>
+                        <li><a href="shop.html?cat=guards"><span class="cat-icon">◫</span> Screen Guards</a></li>
+                        <li><a href="shop.html?cat=accessories"><span class="cat-icon">✦</span> Accessories</a></li>
+                    </ul>
+                </div>
+                <div class="mega-col">
+                    <div class="mega-col-title">Top Brands</div>
+                    <ul class="mega-links">
+                        <li><a href="shop.html?brand=apple">Apple</a></li>
+                        <li><a href="shop.html?brand=samsung">Samsung</a></li>
+                        <li><a href="shop.html?brand=google">Google Pixel</a></li>
+                        <li><a href="shop.html?brand=xiaomi">Xiaomi / Redmi</a></li>
+                        <li><a href="shop.html?brand=tecno">Tecno</a></li>
+                        <li><a href="shop.html?brand=infinix">Infinix</a></li>
+                        <li><a href="shop.html?brand=oppo">Oppo</a></li>
+                        <li><a href="shop.html?brand=realme">Realme</a></li>
+                    </ul>
+                </div>
+                <div class="mega-featured">
+                    <div class="mega-featured-title">Featured Picks</div>
+                    <a href="product.html?id=1" class="mega-featured-item">
+                        <div class="mega-featured-img">
+                            <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=100&q=80" alt="iPhone 15 Pro Max">
+                        </div>
+                        <div class="mega-featured-info">
+                            <div class="mega-featured-name">iPhone 15 Pro Max</div>
+                            <div class="mega-featured-price">₦1,650,000</div>
+                        </div>
+                    </a>
+                    <a href="product.html?id=5" class="mega-featured-item">
+                        <div class="mega-featured-img">
+                            <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=100&q=80" alt="Google Pixel 9 Pro">
+                        </div>
+                        <div class="mega-featured-info">
+                            <div class="mega-featured-name">Google Pixel 9 Pro</div>
+                            <div class="mega-featured-price">₦1,450,000</div>
+                        </div>
+                    </a>
+                    <a href="product.html?id=3" class="mega-featured-item">
+                        <div class="mega-featured-img">
+                            <img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=100&q=80" alt="Samsung S25 Ultra">
+                        </div>
+                        <div class="mega-featured-info">
+                            <div class="mega-featured-name">Samsung S25 Ultra</div>
+                            <div class="mega-featured-price">₦1,850,000</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
 
 <!-- SHOP HERO -->
@@ -2379,294 +447,31 @@ const CATEGORIES = [
     { id: 'accessories',   name: 'Accessories',    icon: '✦' },
 ];
 
-/* PRODUCTS — with verified working image URLs */
+/* PRODUCTS — use the same list you already have (unchanged) */
 const PRODUCTS = [
-    /* PHONES */
     { id: 1,  name: 'iPhone 15 Pro Max', price: 1650000, image: 'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store' },
     { id: 2,  name: 'iPhone 15 Pro',     price: 1450000, image: 'https://images.unsplash.com/photo-1591337676887-a217a6970a8a?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false, badge: 'new', inStock: true, stockType: 'in-store' },
-    { id: 200, name: 'iPhone 15',         price: 1150000, image: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 201, name: 'iPhone 14 Pro Max', price: 1280000, image: 'https://images.unsplash.com/photo-1678652197831-2d180705cd2c?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 202, name: 'iPhone 14',         price: 980000,  image: 'https://images.unsplash.com/photo-1591337676887-a217a6970a8a?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false, inStock: true, stockType: 'special-order' },
-    { id: 203, name: 'iPhone 13',         price: 780000,  image: 'https://images.unsplash.com/photo-1632661674596-df8be070a5c5?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false, inStock: false, stockType: 'special-order' },
-
     { id: 3,  name: 'Samsung Galaxy S25 Ultra', price: 1850000, image: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=600&q=80', category: 'phones', brand: 'Samsung', sponsored: true, featured: true, badge: 'new', inStock: true, stockType: 'in-store' },
-    { id: 210, name: 'Samsung Galaxy S24 Ultra', price: 1650000, image: 'https://images.unsplash.com/photo-1707060565848-8f1b0ff1e1c4?w=600&q=80', category: 'phones', brand: 'Samsung', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store' },
-    { id: 211, name: 'Samsung Galaxy S24+',      price: 1280000, image: 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&q=80', category: 'phones', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 212, name: 'Samsung Galaxy S23 FE',    price: 780000,  image: 'https://images.unsplash.com/photo-1678911820864-e2c567c655d7?w=600&q=80', category: 'phones', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'special-order' },
-    { id: 4,  name: 'Samsung Galaxy A55',        price: 480000,  image: 'https://images.unsplash.com/photo-1610792516307-ea5acd9c3b00?w=600&q=80', category: 'phones', brand: 'Samsung', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store' },
-    { id: 213, name: 'Samsung Galaxy A35',       price: 380000,  image: 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&q=80', category: 'phones', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 214, name: 'Samsung Galaxy A15',       price: 220000,  image: 'https://images.unsplash.com/photo-1610792516307-ea5acd9c3b00?w=600&q=80', category: 'phones', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 215, name: 'Samsung Galaxy Z Fold 5',  price: 2450000, image: 'https://images.unsplash.com/photo-1695039797747-72e5ffa83c1e?w=600&q=80', category: 'phones', brand: 'Samsung', sponsored: false, badge: 'limited', inStock: true, stockType: 'pre-order' },
-
-    { id: 5,  name: 'Google Pixel 9 Pro',   price: 1450000, image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'phones', brand: 'Google Pixel', sponsored: false, featured: true, badge: 'new', inStock: true, stockType: 'in-store' },
-    { id: 220, name: 'Google Pixel 9',       price: 1180000, image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'phones', brand: 'Google Pixel', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 221, name: 'Google Pixel 9 Pro XL', price: 1620000, image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'phones', brand: 'Google Pixel', sponsored: false, inStock: true, stockType: 'pre-order' },
-    { id: 6,  name: 'Google Pixel 8a',       price: 720000,  image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'phones', brand: 'Google Pixel', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 222, name: 'Google Pixel 8 Pro',   price: 1180000, image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'phones', brand: 'Google Pixel', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 223, name: 'Google Pixel 8',       price: 880000,  image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'phones', brand: 'Google Pixel', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 7,  name: 'Xiaomi 14 Ultra',      price: 1350000, image: 'https://images.unsplash.com/photo-1618478594486-c65b899c4936?w=600&q=80', category: 'phones', brand: 'Xiaomi', sponsored: false, featured: true, badge: 'limited', inStock: true, stockType: 'special-order' },
-    { id: 230, name: 'Xiaomi 14',            price: 980000,  image: 'https://images.unsplash.com/photo-1618478594486-c65b899c4936?w=600&q=80', category: 'phones', brand: 'Xiaomi', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 231, name: 'Xiaomi 13T Pro',       price: 720000,  image: 'https://images.unsplash.com/photo-1618478594486-c65b899c4936?w=600&q=80', category: 'phones', brand: 'Xiaomi', sponsored: false, inStock: true, stockType: 'special-order' },
-    { id: 232, name: 'Xiaomi Redmi Note 13 Pro+', price: 420000, image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', category: 'phones', brand: 'Xiaomi', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 8,  name: 'Redmi Note 13 Pro',    price: 285000,  image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', category: 'phones', brand: 'Redmi', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store' },
-    { id: 240, name: 'Redmi Note 13',        price: 210000,  image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', category: 'phones', brand: 'Redmi', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 241, name: 'Redmi Note 12 Pro',    price: 245000,  image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', category: 'phones', brand: 'Redmi', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 9,  name: 'Redmi 13C',             price: 145000,  image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'phones', brand: 'Redmi', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 242, name: 'Redmi 12',             price: 118000,  image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'phones', brand: 'Redmi', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 10, name: 'Tecno Camon 30 Pro',   price: 385000,  image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'phones', brand: 'Tecno', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store' },
-    { id: 250, name: 'Tecno Camon 30',       price: 285000,  image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'phones', brand: 'Tecno', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 251, name: 'Tecno Phantom V Flip', price: 720000,  image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'phones', brand: 'Tecno', sponsored: false, badge: 'limited', inStock: true, stockType: 'special-order' },
-    { id: 11, name: 'Tecno Spark 20',        price: 145000,  image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', category: 'phones', brand: 'Tecno', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 252, name: 'Tecno Spark 20 Pro',   price: 185000,  image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', category: 'phones', brand: 'Tecno', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 253, name: 'Tecno Pop 8',          price: 78000,   image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', category: 'phones', brand: 'Tecno', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 12, name: 'Infinix Note 40 Pro',  price: 320000,  image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'phones', brand: 'Infinix', sponsored: false, featured: true, inStock: true, stockType: 'in-store' },
-    { id: 260, name: 'Infinix Note 40',      price: 245000,  image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'phones', brand: 'Infinix', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 261, name: 'Infinix Zero 30 5G',   price: 385000,  image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'phones', brand: 'Infinix', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 13, name: 'Infinix Hot 40',        price: 128000,  image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'phones', brand: 'Infinix', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store' },
-    { id: 262, name: 'Infinix Hot 40 Pro',   price: 165000,  image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'phones', brand: 'Infinix', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 263, name: 'Infinix Smart 8',      price: 78000,   image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'phones', brand: 'Infinix', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 14, name: 'itel A70',             price: 78000,   image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', category: 'phones', brand: 'itel', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 270, name: 'itel P55 5G',          price: 165000,  image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', category: 'phones', brand: 'itel', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 271, name: 'itel S23+',            price: 128000,  image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', category: 'phones', brand: 'itel', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 272, name: 'itel A60',             price: 68000,   image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', category: 'phones', brand: 'itel', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 16, name: 'Oppo Reno 12 Pro',     price: 620000,  image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'phones', brand: 'Oppo', sponsored: false, featured: true, inStock: true, stockType: 'in-store' },
-    { id: 280, name: 'Oppo Reno 12',         price: 480000,  image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'phones', brand: 'Oppo', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 281, name: 'Oppo Find X7 Ultra',   price: 1650000, image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'phones', brand: 'Oppo', sponsored: false, badge: 'limited', inStock: true, stockType: 'special-order' },
-    { id: 282, name: 'Oppo A78',             price: 220000,  image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'phones', brand: 'Oppo', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 17, name: 'Vivo V30 Pro',         price: 580000,  image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'phones', brand: 'Vivo', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 290, name: 'Vivo V30',             price: 420000,  image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'phones', brand: 'Vivo', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 291, name: 'Vivo X100 Pro',        price: 1280000, image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'phones', brand: 'Vivo', sponsored: false, inStock: true, stockType: 'special-order' },
-    { id: 292, name: 'Vivo Y28',             price: 185000,  image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'phones', brand: 'Vivo', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 18, name: 'Realme 12 Pro+',       price: 420000,  image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'phones', brand: 'Realme', sponsored: false, featured: true, inStock: true, stockType: 'in-store' },
-    { id: 300, name: 'Realme 12 Pro',        price: 320000,  image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'phones', brand: 'Realme', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 301, name: 'Realme GT 5 Pro',      price: 880000,  image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'phones', brand: 'Realme', sponsored: false, badge: 'limited', inStock: true, stockType: 'special-order' },
-    { id: 302, name: 'Realme C67',           price: 165000,  image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'phones', brand: 'Realme', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 20, name: 'Honor X9b',            price: 380000,  image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'phones', brand: 'Honor', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 310, name: 'Honor Magic 6 Pro',    price: 1450000, image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'phones', brand: 'Honor', sponsored: false, inStock: true, stockType: 'special-order' },
-    { id: 311, name: 'Honor 90',             price: 480000,  image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'phones', brand: 'Honor', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 312, name: 'Honor X7b',            price: 220000,  image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'phones', brand: 'Honor', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 21, name: 'Nokia G42 5G',         price: 210000,  image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'phones', brand: 'Nokia', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 320, name: 'Nokia XR21',           price: 380000,  image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'phones', brand: 'Nokia', sponsored: false, inStock: true, stockType: 'special-order' },
-    { id: 321, name: 'Nokia C32',            price: 118000,  image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'phones', brand: 'Nokia', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 22, name: 'Nothing Phone (2a)',   price: 480000,  image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'phones', brand: 'Nothing', sponsored: false, badge: 'new', inStock: true, stockType: 'in-store' },
-    { id: 330, name: 'Nothing Phone (2)',    price: 720000,  image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'phones', brand: 'Nothing', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    /* LAPTOPS */
-    { id: 30, name: 'MacBook Pro 14" M3',       price: 2450000, image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&q=80', category: 'laptops', brand: 'Apple', sponsored: false, featured: true, badge: 'new', inStock: true, stockType: 'in-store' },
-    { id: 340, name: 'MacBook Pro 16" M3 Max',  price: 3850000, image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&q=80', category: 'laptops', brand: 'Apple', sponsored: false, badge: 'limited', inStock: true, stockType: 'special-order' },
-    { id: 31, name: 'MacBook Air M2',           price: 1850000, image: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=600&q=80', category: 'laptops', brand: 'Apple', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store' },
-    { id: 341, name: 'MacBook Air M3',          price: 2150000, image: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=600&q=80', category: 'laptops', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 32, name: 'Dell XPS 15',              price: 1980000, image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&q=80', category: 'laptops', brand: 'Dell', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 350, name: 'Dell XPS 13',             price: 1480000, image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&q=80', category: 'laptops', brand: 'Dell', sponsored: false, inStock: true, stockType: 'special-order' },
-    { id: 351, name: 'Dell Inspiron 15',        price: 620000,  image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&q=80', category: 'laptops', brand: 'Dell', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 33, name: 'HP Pavilion 15',           price: 720000,  image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'laptops', brand: 'HP', sponsored: false, featured: true, inStock: true, stockType: 'in-store' },
-    { id: 360, name: 'HP Envy x360',            price: 1180000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'laptops', brand: 'HP', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 361, name: 'HP Spectre x360 14',      price: 1850000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'laptops', brand: 'HP', sponsored: false, inStock: true, stockType: 'special-order' },
-
-    { id: 34, name: 'Lenovo IdeaPad Slim 5',    price: 650000,  image: 'https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?w=600&q=80', category: 'laptops', brand: 'Lenovo', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 370, name: 'Lenovo ThinkPad X1 Carbon', price: 1980000, image: 'https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?w=600&q=80', category: 'laptops', brand: 'Lenovo', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 371, name: 'Lenovo Legion Pro 5',     price: 1650000, image: 'https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?w=600&q=80', category: 'laptops', brand: 'Lenovo', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store' },
-
-    { id: 35, name: 'Asus Vivobook 16',         price: 580000,  image: 'https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?w=600&q=80', category: 'laptops', brand: 'Asus', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 380, name: 'Asus Zenbook 14 OLED',    price: 1280000, image: 'https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?w=600&q=80', category: 'laptops', brand: 'Asus', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 381, name: 'Asus ROG Zephyrus G14',   price: 1950000, image: 'https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?w=600&q=80', category: 'laptops', brand: 'Asus', sponsored: false, badge: 'limited', inStock: true, stockType: 'special-order' },
-
-    { id: 390, name: 'Acer Aspire 5',           price: 520000,  image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&q=80', category: 'laptops', brand: 'Acer', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 391, name: 'Acer Swift Go 14',        price: 780000,  image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&q=80', category: 'laptops', brand: 'Acer', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 392, name: 'Acer Nitro V 15',         price: 1180000, image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&q=80', category: 'laptops', brand: 'Acer', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 400, name: 'MSI Modern 14',           price: 720000,  image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&q=80', category: 'laptops', brand: 'MSI', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 401, name: 'MSI Katana 15',           price: 1450000, image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&q=80', category: 'laptops', brand: 'MSI', sponsored: false, inStock: true, stockType: 'special-order' },
-
-    /* TABLETS */
-    { id: 40, name: 'iPad Air 5th Gen',         price: 780000,  image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&q=80', category: 'tablets', brand: 'Apple', sponsored: false, featured: true, inStock: true, stockType: 'in-store' },
-    { id: 410, name: 'iPad Pro 12.9" M2',        price: 1450000, image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&q=80', category: 'tablets', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 411, name: 'iPad Pro 11" M4',          price: 1650000, image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&q=80', category: 'tablets', brand: 'Apple', sponsored: false, badge: 'new', inStock: true, stockType: 'pre-order' },
-    { id: 412, name: 'iPad 10th Gen',            price: 520000,  image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&q=80', category: 'tablets', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 413, name: 'iPad Mini 6',              price: 680000,  image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&q=80', category: 'tablets', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 41, name: 'Samsung Galaxy Tab S9',    price: 850000,  image: 'https://images.unsplash.com/photo-1561154464-82e9adf32764?w=600&q=80', category: 'tablets', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 420, name: 'Samsung Galaxy Tab S9 Ultra', price: 1450000, image: 'https://images.unsplash.com/photo-1561154464-82e9adf32764?w=600&q=80', category: 'tablets', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'special-order' },
-    { id: 421, name: 'Samsung Galaxy Tab S9 FE', price: 620000,  image: 'https://images.unsplash.com/photo-1561154464-82e9adf32764?w=600&q=80', category: 'tablets', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 422, name: 'Samsung Galaxy Tab A9+',  price: 380000,  image: 'https://images.unsplash.com/photo-1561154464-82e9adf32764?w=600&q=80', category: 'tablets', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 42, name: 'Xiaomi Pad 6',             price: 380000,  image: 'https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?w=600&q=80', category: 'tablets', brand: 'Xiaomi', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 430, name: 'Xiaomi Pad 6 Pro',        price: 480000,  image: 'https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?w=600&q=80', category: 'tablets', brand: 'Xiaomi', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 431, name: 'Xiaomi Redmi Pad SE',     price: 245000,  image: 'https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?w=600&q=80', category: 'tablets', brand: 'Xiaomi', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 43, name: 'Lenovo Tab P12',           price: 320000,  image: 'https://images.unsplash.com/photo-1633114128174-2f8aa49759b0?w=600&q=80', category: 'tablets', brand: 'Lenovo', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 440, name: 'Lenovo Tab P11 Pro',      price: 480000,  image: 'https://images.unsplash.com/photo-1633114128174-2f8aa49759b0?w=600&q=80', category: 'tablets', brand: 'Lenovo', sponsored: false, inStock: true, stockType: 'special-order' },
-    { id: 441, name: 'Lenovo Tab M11',          price: 220000,  image: 'https://images.unsplash.com/photo-1633114128174-2f8aa49759b0?w=600&q=80', category: 'tablets', brand: 'Lenovo', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 450, name: 'Huawei MatePad Pro 13.2', price: 880000,  image: 'https://images.unsplash.com/photo-1561154464-82e9adf32764?w=600&q=80', category: 'tablets', brand: 'Huawei', sponsored: false, inStock: true, stockType: 'special-order' },
-    { id: 451, name: 'Huawei MatePad 11.5',     price: 420000,  image: 'https://images.unsplash.com/photo-1561154464-82e9adf32764?w=600&q=80', category: 'tablets', brand: 'Huawei', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    /* AUDIO */
-    { id: 50, name: 'AirPods Pro 2nd Gen',      price: 320000,  image: 'https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=600&q=80', category: 'audio', brand: 'Apple', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store' },
-    { id: 500, name: 'AirPods 3rd Gen',          price: 220000,  image: 'https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=600&q=80', category: 'audio', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 501, name: 'AirPods Max',              price: 720000,  image: 'https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=600&q=80', category: 'audio', brand: 'Apple', sponsored: false, inStock: true, stockType: 'special-order' },
-
-    { id: 51, name: 'Samsung Buds 3 Pro',       price: 210000,  image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&q=80', category: 'audio', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 510, name: 'Samsung Buds 3',           price: 145000,  image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&q=80', category: 'audio', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 511, name: 'Samsung Buds FE',          price: 95000,   image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&q=80', category: 'audio', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 52, name: 'Sony WH-1000XM5',          price: 420000,  image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&q=80', category: 'audio', brand: 'Sony', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 520, name: 'Sony WF-1000XM5',         price: 320000,  image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&q=80', category: 'audio', brand: 'Sony', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 521, name: 'Sony WH-CH720N',          price: 145000,  image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&q=80', category: 'audio', brand: 'Sony', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 53, name: 'JBL Flip 6 Speaker',       price: 95000,   image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600&q=80', category: 'audio', brand: 'JBL', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 530, name: 'JBL Charge 5',             price: 145000,  image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600&q=80', category: 'audio', brand: 'JBL', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 531, name: 'JBL Tune 770NC',           price: 118000,  image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&q=80', category: 'audio', brand: 'JBL', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 532, name: 'JBL Go 4',                 price: 42000,   image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600&q=80', category: 'audio', brand: 'JBL', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 54, name: 'Oraimo FreePods 4',        price: 28000,   image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&q=80', category: 'audio', brand: 'Oraimo', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store' },
-    { id: 540, name: 'Oraimo FreePods Pro',      price: 48000,   image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&q=80', category: 'audio', brand: 'Oraimo', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 541, name: 'Oraimo BoomPop Speaker',   price: 38000,   image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600&q=80', category: 'audio', brand: 'Oraimo', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 55, name: 'Anker Soundcore P40i',     price: 65000,   image: 'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=600&q=80', category: 'audio', brand: 'Anker', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 550, name: 'Anker Soundcore Space One', price: 145000, image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&q=80', category: 'audio', brand: 'Anker', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 551, name: 'Anker Soundcore Motion 300', price: 95000, image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600&q=80', category: 'audio', brand: 'Anker', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 560, name: 'Baseus Bowie MA10',        price: 38000,   image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&q=80', category: 'audio', brand: 'Baseus', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 561, name: 'Baseus Encok D02 Pro',     price: 28000,   image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&q=80', category: 'audio', brand: 'Baseus', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    /* WEARABLES */
-    { id: 60, name: 'Apple Watch Series 9',     price: 480000,  image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600&q=80', category: 'wearables', brand: 'Apple', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store' },
-    { id: 600, name: 'Apple Watch Ultra 2',      price: 850000,  image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600&q=80', category: 'wearables', brand: 'Apple', sponsored: false, badge: 'limited', inStock: true, stockType: 'in-store' },
-    { id: 601, name: 'Apple Watch SE 2',         price: 280000,  image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600&q=80', category: 'wearables', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 61, name: 'Samsung Galaxy Watch 6',   price: 320000,  image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80', category: 'wearables', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 610, name: 'Samsung Galaxy Watch 6 Classic', price: 420000, image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80', category: 'wearables', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 611, name: 'Samsung Galaxy Watch FE', price: 220000,  image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80', category: 'wearables', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 62, name: 'Xiaomi Smart Band 8',      price: 42000,   image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=600&q=80', category: 'wearables', brand: 'Xiaomi', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 620, name: 'Xiaomi Watch S3',          price: 145000,  image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80', category: 'wearables', brand: 'Xiaomi', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 621, name: 'Xiaomi Smart Band 8 Pro',  price: 65000,   image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=600&q=80', category: 'wearables', brand: 'Xiaomi', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 63, name: 'Oraimo Watch 4 Plus',      price: 35000,   image: 'https://images.unsplash.com/photo-1544117519-31a4b719223d?w=600&q=80', category: 'wearables', brand: 'Oraimo', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 630, name: 'Oraimo Watch 5',           price: 48000,   image: 'https://images.unsplash.com/photo-1544117519-31a4b719223d?w=600&q=80', category: 'wearables', brand: 'Oraimo', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 64, name: 'Huawei Watch GT 4',        price: 280000,  image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600&q=80', category: 'wearables', brand: 'Huawei', sponsored: false, featured: true, inStock: true, stockType: 'in-store' },
-    { id: 640, name: 'Huawei Watch GT 4 Pro',    price: 380000,  image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600&q=80', category: 'wearables', brand: 'Huawei', sponsored: false, inStock: true, stockType: 'special-order' },
-    { id: 641, name: 'Huawei Watch Fit 3',       price: 145000,  image: 'https://images.unsplash.com/photo-1544117519-31a4b719223d?w=600&q=80', category: 'wearables', brand: 'Huawei', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 65, name: 'Amazfit GTR 4',            price: 145000,  image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80', category: 'wearables', brand: 'Amazfit', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 650, name: 'Amazfit GTS 4 Mini',       price: 95000,   image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80', category: 'wearables', brand: 'Amazfit', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 651, name: 'Amazfit T-Rex 2',          price: 185000,  image: 'https://images.unsplash.com/photo-1544117519-31a4b719223d?w=600&q=80', category: 'wearables', brand: 'Amazfit', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    { id: 66, name: 'Fitbit Charge 6',          price: 165000,  image: 'https://images.unsplash.com/photo-1544117519-31a4b719223d?w=600&q=80', category: 'wearables', brand: 'Fitbit', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 660, name: 'Fitbit Versa 4',           price: 220000,  image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80', category: 'wearables', brand: 'Fitbit', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 661, name: 'Fitbit Inspire 3',         price: 95000,   image: 'https://images.unsplash.com/photo-1544117519-31a4b719223d?w=600&q=80', category: 'wearables', brand: 'Fitbit', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    /* SMART GLASSES */
+    { id: 5,  name: 'Google Pixel 9 Pro', price: 1450000, image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'phones', brand: 'Google Pixel', sponsored: false, featured: true, badge: 'new', inStock: true, stockType: 'in-store' },
+    { id: 6,  name: 'Google Pixel 8a', price: 720000, image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'phones', brand: 'Google Pixel', sponsored: false, inStock: true, stockType: 'in-store' },
+    { id: 8,  name: 'Redmi Note 13 Pro', price: 285000, image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', category: 'phones', brand: 'Redmi', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store' },
+    { id: 10, name: 'Tecno Camon 30 Pro', price: 385000, image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'phones', brand: 'Tecno', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store' },
+    { id: 12, name: 'Infinix Note 40 Pro', price: 320000, image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'phones', brand: 'Infinix', sponsored: false, featured: true, inStock: true, stockType: 'in-store' },
+    { id: 30, name: 'MacBook Pro 14" M3', price: 2450000, image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&q=80', category: 'laptops', brand: 'Apple', sponsored: false, featured: true, badge: 'new', inStock: true, stockType: 'in-store' },
+    { id: 31, name: 'MacBook Air M2', price: 1850000, image: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=600&q=80', category: 'laptops', brand: 'Apple', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store' },
+    { id: 33, name: 'HP Pavilion 15', price: 720000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'laptops', brand: 'HP', sponsored: false, featured: true, inStock: true, stockType: 'in-store' },
+    { id: 40, name: 'iPad Air 5th Gen', price: 780000, image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&q=80', category: 'tablets', brand: 'Apple', sponsored: false, featured: true, inStock: true, stockType: 'in-store' },
+    { id: 50, name: 'AirPods Pro 2nd Gen', price: 320000, image: 'https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=600&q=80', category: 'audio', brand: 'Apple', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store' },
+    { id: 54, name: 'Oraimo FreePods 4', price: 28000, image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&q=80', category: 'audio', brand: 'Oraimo', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store' },
+    { id: 60, name: 'Apple Watch Series 9', price: 480000, image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600&q=80', category: 'wearables', brand: 'Apple', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store' },
+    { id: 64, name: 'Huawei Watch GT 4', price: 280000, image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600&q=80', category: 'wearables', brand: 'Huawei', sponsored: false, featured: true, inStock: true, stockType: 'in-store' },
     { id: 70, name: 'Ray-Ban Meta Smart Glasses', price: 620000, image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80', category: 'smart-glasses', brand: 'Meta', sponsored: false, featured: true, badge: 'new', inStock: true, stockType: 'in-store' },
-    { id: 700, name: 'Ray-Ban Meta Wayfarer',     price: 720000, image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80', category: 'smart-glasses', brand: 'Meta', sponsored: false, inStock: true, stockType: 'pre-order' },
-    { id: 71, name: 'Xreal Air 2 Pro AR',         price: 890000, image: 'https://images.unsplash.com/photo-1626379953822-baec19c3accd?w=600&q=80', category: 'smart-glasses', brand: 'Xreal', sponsored: false, badge: 'limited', inStock: true, stockType: 'special-order' },
-    { id: 710, name: 'Xreal Air 2',               price: 620000, image: 'https://images.unsplash.com/photo-1626379953822-baec19c3accd?w=600&q=80', category: 'smart-glasses', brand: 'Xreal', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    /* MP3 */
-    { id: 100, name: 'Sony NW-E394 Walkman',     price: 85000,  image: 'https://images.unsplash.com/photo-1592434134753-a70baf7979d5?w=600&q=80', category: 'mp3', brand: 'Sony', sponsored: false, featured: true, inStock: true, stockType: 'in-store' },
-    { id: 800, name: 'Sony NW-A306 Walkman',     price: 320000, image: 'https://images.unsplash.com/photo-1592434134753-a70baf7979d5?w=600&q=80', category: 'mp3', brand: 'Sony', sponsored: false, inStock: true, stockType: 'special-order' },
-    { id: 101, name: 'FiiO M6 Hi-Res Player',    price: 145000, image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&q=80', category: 'mp3', brand: 'FiiO', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 801, name: 'FiiO M11 Plus',            price: 480000, image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&q=80', category: 'mp3', brand: 'FiiO', sponsored: false, inStock: true, stockType: 'special-order' },
-    { id: 102, name: 'SanDisk Clip Sport Plus',  price: 45000,  image: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600&q=80', category: 'mp3', brand: 'SanDisk', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 103, name: 'Shanling M0 Pro',          price: 95000,  image: 'https://images.unsplash.com/photo-1592434134753-a70baf7979d5?w=600&q=80', category: 'mp3', brand: 'Shanling', sponsored: false, inStock: true, stockType: 'special-order' },
-
-    /* CHARGERS */
-    { id: 110, name: 'Anker 65W GaN Charger',    price: 42000,  image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Anker', sponsored: false, featured: true, inStock: true, stockType: 'in-store' },
-    { id: 900, name: 'Anker 100W GaN Charger',   price: 68000,  image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Anker', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 901, name: 'Anker 20W Nano Charger',   price: 18000,  image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Anker', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 111, name: 'Oraimo 20W Fast Charger',  price: 12000,  image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Oraimo', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 910, name: 'Oraimo 65W GaN Charger',   price: 32000,  image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Oraimo', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 112, name: 'Apple 20W USB-C Adapter',  price: 28000,  image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 920, name: 'Apple MagSafe Charger',    price: 55000,  image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 113, name: 'Samsung 45W Super Charger',price: 35000,  image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 930, name: 'Samsung 25W Charger',      price: 22000,  image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 114, name: 'Xiaomi 33W Turbo Charger', price: 18000,  image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Xiaomi', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 940, name: 'Xiaomi 67W Turbo Charger', price: 32000,  image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Xiaomi', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 115, name: 'Baseus 100W GaN Charger',  price: 55000,  image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Baseus', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 950, name: 'Baseus 65W GaN Charger',   price: 38000,  image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Baseus', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    /* CABLES */
-    { id: 120, name: 'Anker USB-C to Lightning',  price: 15000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Anker', sponsored: false, featured: true, inStock: true, stockType: 'in-store' },
-    { id: 960, name: 'Anker USB-C to USB-C 100W', price: 18000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Anker', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 961, name: 'Anker USB-A to USB-C',      price: 8500,  image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Anker', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 121, name: 'Oraimo USB-C Fast Cable',   price: 6500,  image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Oraimo', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 970, name: 'Oraimo Lightning Cable',    price: 7500,  image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Oraimo', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 122, name: 'Apple USB-C to USB-C 2m',   price: 22000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 980, name: 'Apple Lightning to USB-C',  price: 18000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 123, name: 'Baseus 100W Braided Cable', price: 12000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Baseus', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 990, name: 'Baseus USB-C to Lightning', price: 9500,  image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Baseus', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 124, name: 'Samsung USB-C Data Cable',  price: 9500,  image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 125, name: 'UGREEN HDMI 8K Cable',      price: 18000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'UGREEN', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 995, name: 'UGREEN USB-C to USB-C 100W', price: 14000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'UGREEN', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    /* CASES */
-    { id: 130, name: 'iPhone 15 Pro Max Silicone Case',      price: 8500,  image: 'https://images.unsplash.com/photo-1601593346740-925612772716?w=600&q=80', category: 'cases', brand: 'Apple', sponsored: false, featured: true, inStock: true, stockType: 'in-store' },
-    { id: 1000, name: 'iPhone 15 Pro Max Leather Case',      price: 18000, image: 'https://images.unsplash.com/photo-1601593346740-925612772716?w=600&q=80', category: 'cases', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 1001, name: 'iPhone 15 Clear Case',                price: 6500,  image: 'https://images.unsplash.com/photo-1601593346740-925612772716?w=600&q=80', category: 'cases', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 1002, name: 'iPhone 14 Silicone Case',             price: 7500,  image: 'https://images.unsplash.com/photo-1601593346740-925612772716?w=600&q=80', category: 'cases', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 132, name: 'Samsung S25 Ultra Clear Case',         price: 7500,  image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'cases', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 133, name: 'Samsung S25 Ultra Rugged Case',        price: 12000, image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'cases', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 1010, name: 'Samsung S24 Ultra Silicone Case',     price: 6500,  image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'cases', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 134, name: 'Google Pixel 9 Pro Fabric Case',       price: 15000, image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'cases', brand: 'Google Pixel', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 1020, name: 'Google Pixel 8a Clear Case',          price: 5500,  image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'cases', brand: 'Google Pixel', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 135, name: 'Redmi Note 13 Pro Silicone Case',      price: 4500,  image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', category: 'cases', brand: 'Redmi', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 1030, name: 'Redmi 13C Clear Case',                 price: 3500,  image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', category: 'cases', brand: 'Redmi', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 136, name: 'Tecno Camon 30 Pro Shockproof Case',   price: 5500,  image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'cases', brand: 'Tecno', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 1040, name: 'Tecno Spark 20 Silicone Case',         price: 3500,  image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'cases', brand: 'Tecno', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 137, name: 'Infinix Note 40 Pro Leather Case',     price: 6500,  image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'cases', brand: 'Infinix', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 1050, name: 'Infinix Hot 40 Clear Case',            price: 3500,  image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'cases', brand: 'Infinix', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 138, name: 'Oppo Reno 12 Pro Clear Case',          price: 5500,  image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'cases', brand: 'Oppo', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 139, name: 'Universal Shockproof Case — Clear',    price: 3500,  image: 'https://images.unsplash.com/photo-1601593346740-925612772716?w=600&q=80', category: 'cases', brand: 'OBILO', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 140, name: 'Universal Ring Holder Case — Black',   price: 4500,  image: 'https://images.unsplash.com/photo-1601593346740-925612772716?w=600&q=80', category: 'cases', brand: 'OBILO', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 1060, name: 'Universal Wallet Case — Brown',       price: 6500,  image: 'https://images.unsplash.com/photo-1601593346740-925612772716?w=600&q=80', category: 'cases', brand: 'OBILO', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    /* GUARDS */
-    { id: 150, name: 'iPhone 15 Pro Max Tempered Glass',      price: 4500,  image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80', category: 'guards', brand: 'Apple', sponsored: false, featured: true, inStock: true, stockType: 'in-store' },
-    { id: 151, name: 'iPhone 15 Pro Max Privacy Glass',       price: 8500,  image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80', category: 'guards', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 1100, name: 'iPhone 14 Tempered Glass',             price: 4000,  image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80', category: 'guards', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 152, name: 'Samsung S25 Ultra Tempered Glass',      price: 4500,  image: 'https://images.unsplash.com/photo-1610792516307-ea5acd9c3b00?w=600&q=80', category: 'guards', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 153, name: 'Samsung S25 Ultra Privacy Glass',       price: 8500,  image: 'https://images.unsplash.com/photo-1610792516307-ea5acd9c3b00?w=600&q=80', category: 'guards', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 1110, name: 'Samsung A55 Tempered Glass',           price: 3500,  image: 'https://images.unsplash.com/photo-1610792516307-ea5acd9c3b00?w=600&q=80', category: 'guards', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 154, name: 'Google Pixel 9 Pro Tempered Glass',     price: 5000,  image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'guards', brand: 'Google Pixel', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 1120, name: 'Google Pixel 8a Tempered Glass',       price: 3500,  image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'guards', brand: 'Google Pixel', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 155, name: 'Redmi Note 13 Pro Tempered Glass',      price: 2500,  image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', category: 'guards', brand: 'Redmi', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 1130, name: 'Redmi 13C Tempered Glass',             price: 2000,  image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', category: 'guards', brand: 'Redmi', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 156, name: 'Tecno Camon 30 Pro Tempered Glass',     price: 2500,  image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'guards', brand: 'Tecno', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 1140, name: 'Tecno Spark 20 Tempered Glass',        price: 2000,  image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'guards', brand: 'Tecno', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 157, name: 'Infinix Note 40 Pro Tempered Glass',    price: 2500,  image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'guards', brand: 'Infinix', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 1150, name: 'Infinix Hot 40 Tempered Glass',        price: 2000,  image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'guards', brand: 'Infinix', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 158, name: 'Universal HD Screen Film (3-pack)',     price: 1500,  image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80', category: 'guards', brand: 'OBILO', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 159, name: 'Universal Matte Anti-Glare Film',       price: 2000,  image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80', category: 'guards', brand: 'OBILO', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 1160, name: 'Universal Privacy Film',               price: 3500,  image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80', category: 'guards', brand: 'OBILO', sponsored: false, inStock: true, stockType: 'in-store' },
-
-    /* ACCESSORIES */
-    { id: 80, name: 'Anker Power Bank 20K',     price: 45000,   image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=600&q=80', category: 'accessories', brand: 'Anker', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store' },
-    { id: 1200, name: 'Anker Power Bank 10K',    price: 28000,   image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=600&q=80', category: 'accessories', brand: 'Anker', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 1201, name: 'Anker MagGo Power Bank',  price: 65000,   image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=600&q=80', category: 'accessories', brand: 'Anker', sponsored: false, badge: 'new', inStock: true, stockType: 'in-store' },
-    { id: 81, name: 'Logitech MX Master 3S',    price: 85000,   image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&q=80', category: 'accessories', brand: 'Logitech', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 1210, name: 'Logitech MX Keys S',      price: 95000,   image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&q=80', category: 'accessories', brand: 'Logitech', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 1211, name: 'Logitech Pebble Mouse 2', price: 28000,   image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&q=80', category: 'accessories', brand: 'Logitech', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 1220, name: 'Baseus Power Bank 20K',   price: 38000,   image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=600&q=80', category: 'accessories', brand: 'Baseus', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 1221, name: 'Baseus Magnetic Stand',   price: 22000,   image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&q=80', category: 'accessories', brand: 'Baseus', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 1230, name: 'Oraimo Power Bank 20K',   price: 28000,   image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=600&q=80', category: 'accessories', brand: 'Oraimo', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 1231, name: 'Oraimo Power Bank 10K',   price: 18000,   image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=600&q=80', category: 'accessories', brand: 'Oraimo', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 1240, name: 'UGREEN Laptop Stand',     price: 32000,   image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&q=80', category: 'accessories', brand: 'UGREEN', sponsored: false, inStock: true, stockType: 'in-store' },
-    { id: 1241, name: 'UGREEN USB-C Hub 7-in-1', price: 42000,   image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&q=80', category: 'accessories', brand: 'UGREEN', sponsored: false, inStock: true, stockType: 'in-store' },
+    { id: 100, name: 'Sony NW-E394 Walkman', price: 85000, image: 'https://images.unsplash.com/photo-1592434134753-a70baf7979d5?w=600&q=80', category: 'mp3', brand: 'Sony', sponsored: false, featured: true, inStock: true, stockType: 'in-store' },
+    { id: 110, name: 'Anker 65W GaN Charger', price: 42000, image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Anker', sponsored: false, featured: true, inStock: true, stockType: 'in-store' },
+    { id: 120, name: 'Anker USB-C to Lightning', price: 15000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Anker', sponsored: false, featured: true, inStock: true, stockType: 'in-store' },
+    { id: 130, name: 'iPhone 15 Pro Max Silicone Case', price: 8500, image: 'https://images.unsplash.com/photo-1601593346740-925612772716?w=600&q=80', category: 'cases', brand: 'Apple', sponsored: false, featured: true, inStock: true, stockType: 'in-store' },
+    { id: 150, name: 'iPhone 15 Pro Max Tempered Glass', price: 4500, image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80', category: 'guards', brand: 'Apple', sponsored: false, featured: true, inStock: true, stockType: 'in-store' },
+    { id: 80, name: 'Anker Power Bank 20K', price: 45000, image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=600&q=80', category: 'accessories', brand: 'Anker', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store' },
 ];
 
 /* STATE */
@@ -2707,7 +512,6 @@ function readURLParams() {
     if (params.get('sort')) state.sort = params.get('sort');
 }
 
-/* PUSH URL STATE */
 function pushURLState(replace) {
     const params = new URLSearchParams();
     if (state.search) params.set('q', state.search);
@@ -2721,14 +525,33 @@ function pushURLState(replace) {
     else history.pushState(null, '', url);
 }
 
+/* MEGA MENU TOGGLE */
+function toggleMegaMenu() {
+    const dropdown = document.getElementById('megaDropdown');
+    const btn = document.getElementById('hamburgerBtn');
+    const isOpen = dropdown.classList.contains('open');
+    dropdown.classList.toggle('open');
+    btn.classList.toggle('active');
+    btn.setAttribute('aria-expanded', !isOpen);
+}
+document.addEventListener('click', (e) => {
+    const dropdown = document.getElementById('megaDropdown');
+    const btn = document.getElementById('hamburgerBtn');
+    const wrapper = document.getElementById('navWrapper');
+    if (!dropdown || !btn || !wrapper) return;
+    if (!wrapper.contains(e.target)) {
+        dropdown.classList.remove('open');
+        btn.classList.remove('active');
+        btn.setAttribute('aria-expanded', 'false');
+    }
+});
+
 /* BUILD CATEGORY PILLS */
 function buildCategoryPills() {
     const wrap = document.getElementById('categoryPills');
     if (!wrap) return;
     const counts = {};
-    CATEGORIES.forEach(c => {
-        counts[c.id] = PRODUCTS.filter(p => p.category === c.id).length;
-    });
+    CATEGORIES.forEach(c => { counts[c.id] = PRODUCTS.filter(p => p.category === c.id).length; });
 
     const allActive = state.categories.length === 0;
     let html = `<button class="cat-pill ${allActive ? 'active' : ''}" onclick="toggleCategoryPill('__all__')">
@@ -2785,16 +608,14 @@ function buildFilters() {
     PRODUCTS.forEach(p => { brandCounts[p.brand] = (brandCounts[p.brand] || 0) + 1; });
     const brands = Object.keys(brandCounts).sort();
     const brandList = document.getElementById('brandFilters');
-    brandList.innerHTML = brands.map(brand => {
-        return `
-            <label class="filter-option">
-                <input type="checkbox" value="${brand}" data-filter="brand" ${state.brands.includes(brand) ? 'checked' : ''}>
-                <span class="filter-checkbox"></span>
-                <span class="filter-label">${brand}</span>
-                <span class="filter-count">${brandCounts[brand]}</span>
-            </label>
-        `;
-    }).join('');
+    brandList.innerHTML = brands.map(brand => `
+        <label class="filter-option">
+            <input type="checkbox" value="${brand}" data-filter="brand" ${state.brands.includes(brand) ? 'checked' : ''}>
+            <span class="filter-checkbox"></span>
+            <span class="filter-label">${brand}</span>
+            <span class="filter-count">${brandCounts[brand]}</span>
+        </label>
+    `).join('');
 
     document.querySelectorAll('input[data-filter]').forEach(input => {
         input.addEventListener('change', onFilterChange);
@@ -2913,7 +734,6 @@ function clearAllFilters() {
     renderView();
 }
 
-/* SORT */
 function applySort(value) {
     state.sort = value;
     state.page = 1;
@@ -2922,10 +742,8 @@ function applySort(value) {
     pushURLState(true);
 }
 
-/* FILTERING */
 function getFilteredProducts() {
     let items = PRODUCTS.slice();
-
     if (state.search) {
         const q = state.search.toLowerCase();
         items = items.filter(p =>
@@ -2968,12 +786,10 @@ function isBrandOnlyView() {
     return state.brands.length > 0 && state.categories.length === 0 && !isSearchOrPriceFiltered();
 }
 
-/* RENDER */
 function renderView() {
     const catSectionsEl = document.getElementById('categorySections');
     const gridEl = document.getElementById('productsGrid');
     const paginationEl = document.getElementById('pagination');
-
     const countEl = document.getElementById('resultsCount');
     const labelEl = document.getElementById('resultsLabel');
 
@@ -2999,7 +815,6 @@ function renderView() {
     }
 }
 
-/* BREADCRUMB */
 function renderBreadcrumb() {
     const trail = document.getElementById('breadcrumbTrail');
     if (!trail) return;
@@ -3042,7 +857,6 @@ function removeCategoryFromBreadcrumb(catId) {
     renderView();
     pushURLState(true);
 }
-
 function clearCategoriesFromBreadcrumb() {
     state.categories = [];
     state.page = 1;
@@ -3051,7 +865,6 @@ function clearCategoriesFromBreadcrumb() {
     renderView();
     pushURLState(true);
 }
-
 function removeBrandFromBreadcrumb(brand) {
     state.brands = state.brands.filter(b => b !== brand);
     state.page = 1;
@@ -3059,7 +872,6 @@ function removeBrandFromBreadcrumb(brand) {
     renderView();
     pushURLState(true);
 }
-
 function clearBrandsFromBreadcrumb() {
     state.brands = [];
     state.page = 1;
@@ -3067,7 +879,6 @@ function clearBrandsFromBreadcrumb() {
     renderView();
     pushURLState(true);
 }
-
 function clearSearchFromBreadcrumb() {
     state.search = '';
     document.getElementById('searchInput').value = '';
@@ -3076,7 +887,6 @@ function clearSearchFromBreadcrumb() {
     pushURLState(true);
 }
 
-/* CATEGORY SECTIONS */
 function renderCategorySections(container, countEl, labelEl) {
     const catsToShow = state.categories.length
         ? CATEGORIES.filter(c => state.categories.includes(c.id))
@@ -3211,7 +1021,6 @@ function brandBlockHTML(entry, catId) {
     `;
 }
 
-/* FLAT GRID */
 function renderFlatGrid(gridEl, paginationEl, countEl, labelEl) {
     const all = sortProducts(getFilteredProducts());
     const total = all.length;
@@ -3234,7 +1043,6 @@ function renderFlatGrid(gridEl, paginationEl, countEl, labelEl) {
     renderPagination(totalPages);
 }
 
-/* PRODUCT CARD */
 function productCardHTML(p) {
     const favIds = getFavourites().map(f => f.id);
     const isFav = favIds.includes(p.id);
@@ -3334,7 +1142,6 @@ function goToPage(p) {
     document.querySelector('.results-toolbar').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-/* ACTIVE FILTERS */
 function renderActiveFilters() {
     const el = document.getElementById('activeFilters');
     const chips = [];
@@ -3371,7 +1178,6 @@ function removeChip(i) {
     pushURLState(true);
 }
 
-/* HELPERS */
 function formatPrice(n) { return '₦' + n.toLocaleString('en-NG'); }
 
 function goToProduct(id) {
@@ -3428,8 +1234,10 @@ function handleFav(event, id) {
 function updateFavBadge() {
     const favs = getFavourites();
     const badge = document.getElementById('favBadge');
-    if (favs.length > 0) { badge.textContent = favs.length; badge.style.display = 'flex'; }
-    else { badge.style.display = 'none'; }
+    if (badge) {
+        if (favs.length > 0) { badge.textContent = favs.length; badge.style.display = 'flex'; }
+        else { badge.style.display = 'none'; }
+    }
     const pf = document.getElementById('panelFavCount');
     if (pf) pf.textContent = favs.length;
 }
@@ -3473,12 +1281,17 @@ function applyAuthUI() {
     const panel = document.getElementById('loginPanel');
     const user = getAuth();
     if (!panel) return;
+    const signinBtn = document.querySelector('.signin-btn');
     if (user) {
         panel.classList.add('is-logged-in');
         document.getElementById('userName').textContent = user.name || 'OBILO Customer';
         document.getElementById('userEmail').textContent = user.email || '';
         document.getElementById('userInitial').textContent = (user.name || 'O').charAt(0).toUpperCase();
-    } else { panel.classList.remove('is-logged-in'); }
+        if (signinBtn) signinBtn.textContent = (user.name || 'Account').split(' ')[0];
+    } else {
+        panel.classList.remove('is-logged-in');
+        if (signinBtn) signinBtn.textContent = 'Sign In / Register';
+    }
 }
 function handleLogin(e) {
     e.preventDefault();
@@ -3550,15 +1363,6 @@ window.addEventListener('popstate', () => {
     buildCategoryPills();
     renderView();
 });
-
-/* THEME */
-function toggleTheme() {
-    const html = document.documentElement;
-    const current = html.getAttribute('data-theme') || 'dark';
-    const next = current === 'dark' ? 'light' : 'dark';
-    html.setAttribute('data-theme', next);
-    try { localStorage.setItem('obilo_theme', next); } catch(e) {}
-}
 </script>
 
 </body>

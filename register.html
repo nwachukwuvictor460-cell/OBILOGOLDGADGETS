@@ -316,24 +316,296 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 
 .whatsapp-btn-header:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(37, 211, 102, 0.32); }
 
-/* NAV */
-.nav {
-    display: flex;
-    gap: 2px;
-    padding: 0 28px 14px;
-    max-width: 1300px;
-    margin: 0 auto;
-    overflow-x: auto;
-    scrollbar-width: none;
+/* SIGN IN / REGISTER BUTTON */
+.signin-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 42px;
+    padding: 0 20px;
+    border-radius: 100px;
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    color: var(--text-soft);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.22s var(--ease);
+    white-space: nowrap;
 }
 
-.nav::-webkit-scrollbar { display: none; }
+.signin-btn:hover {
+    border-color: var(--gold-hairline);
+    color: var(--gold);
+    background: var(--gold-soft);
+}
 
-.nav-item > a {
+/* LOGIN PANEL */
+.account-wrap { position: relative; }
+.account-wrap::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 320px;
+    height: 14px;
+    pointer-events: auto;
+}
+.login-panel {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    width: 320px;
+    background: var(--dark-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px;
+    box-shadow: var(--shadow-elegant);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.28s var(--ease), transform 0.28s var(--ease), visibility 0.28s;
+    z-index: 160;
+}
+.account-wrap:hover .login-panel,
+.account-wrap.open .login-panel { opacity: 1; visibility: visible; transform: translateY(0); }
+.login-panel-head { margin-bottom: 18px; text-align: center; }
+.login-panel-head h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 5px;
+}
+.login-panel-head p { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+.login-field { margin-bottom: 14px; }
+.login-field label {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+.login-input {
+    width: 100%;
+    padding: 11px 15px;
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.25s, box-shadow 0.25s;
+}
+.login-input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-soft); }
+.login-input::placeholder { color: var(--text-muted); }
+.login-actions-row { display: flex; justify-content: flex-end; margin: -4px 0 14px; }
+.login-forgot { font-size: 11px; color: var(--blue-light); transition: color 0.2s; }
+.login-forgot:hover { color: var(--gold); }
+.login-submit {
+    width: 100%;
+    padding: 13px;
+    background: var(--gold-gradient);
+    color: #1a1a1a;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: transform 0.2s var(--ease), box-shadow 0.3s;
+    cursor: pointer;
+    font-family: inherit;
+}
+.login-submit:hover { transform: translateY(-1px); box-shadow: 0 12px 26px rgba(201, 162, 39, 0.4); }
+.login-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 16px 0;
+    color: var(--text-muted);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.login-divider::before,
+.login-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.login-wa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px;
+    background: var(--whatsapp);
+    color: #fff;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+}
+.login-foot {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+}
+.login-foot a { color: var(--gold); font-weight: 600; }
+.login-panel .logged-in-only { display: none; }
+.login-panel.is-logged-in .logged-out-only { display: none; }
+.login-panel.is-logged-in .logged-in-only { display: block; }
+.logged-in-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+}
+.logged-in-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--gold-gradient);
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+.logged-in-name { font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.2; }
+.logged-in-email { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+.logged-in-links { display: flex; flex-direction: column; gap: 2px; }
+.logged-in-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 12px;
+    border-radius: 10px;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+}
+.logged-in-link:hover { background: var(--dark-3); color: var(--gold); }
+.logged-in-link span:first-child { font-size: 15px; }
+.logged-in-link .count {
+    margin-left: auto;
+    background: var(--gold-soft);
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 7px;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logout-btn {
+    width: 100%;
+    margin-top: 14px;
+    padding: 11px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--danger);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.2s;
+    cursor: pointer;
+    font-family: inherit;
+}
+.logout-btn:hover { background: rgba(229, 72, 77, 0.08); border-color: var(--danger); }
+
+/* TOP INFO BAR */
+.top-info-bar {
+    background: var(--dark-2);
+    border-bottom: 1px solid var(--border-soft);
+    padding: 8px 28px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    transition: background 0.4s ease;
+}
+.top-info-bar::-webkit-scrollbar { display: none; }
+.top-info-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+    row-gap: 6px;
+}
+.top-info-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    color: var(--text-muted);
+    white-space: nowrap;
+    transition: color 0.2s;
+    cursor: pointer;
+    padding: 3px 4px;
+    border-radius: 6px;
+}
+.top-info-item:hover { color: var(--gold); }
+.top-info-item .top-info-icon {
+    font-size: 13px;
+    color: var(--gold);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    text-align: center;
+    flex-shrink: 0;
+}
+.top-info-divider {
+    width: 1px;
+    height: 14px;
+    background: var(--border);
+    flex-shrink: 0;
+}
+
+/* NAVIGATION */
+.nav-wrapper {
+    position: relative;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 28px;
+}
+.nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0 14px;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.nav-shop-link {
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    padding: 7px 14px;
+    padding: 7px 16px;
     font-size: 13px;
     font-weight: 500;
     letter-spacing: 0.3px;
@@ -342,9 +614,180 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     white-space: nowrap;
     transition: color 0.2s, background 0.2s;
 }
+.nav-shop-link:hover,
+.nav-shop-link.active {
+    color: var(--gold);
+    background: var(--gold-soft);
+}
+.hamburger-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: 100px;
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    color: var(--text-soft);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    transition: all 0.25s var(--ease);
+    white-space: nowrap;
+    font-family: inherit;
+}
+.hamburger-btn:hover {
+    border-color: var(--gold-hairline);
+    color: var(--gold);
+    background: var(--gold-soft);
+}
+.hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 18px;
+    flex-shrink: 0;
+}
+.hamburger-icon span {
+    display: block;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+    transition: transform 0.3s var(--ease), opacity 0.3s;
+    transform-origin: center;
+}
+.hamburger-btn.active .hamburger-icon span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.hamburger-btn.active .hamburger-icon span:nth-child(2) { opacity: 0; }
+.hamburger-btn.active .hamburger-icon span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+.hamburger-label {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
 
-.nav-item > a:hover,
-.nav-item > a.active { color: var(--gold); background: var(--gold-soft); }
+/* MEGA DROPDOWN */
+.mega-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: var(--dark-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px 32px;
+    box-shadow: var(--shadow-elegant);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.28s var(--ease), transform 0.28s var(--ease), visibility 0.28s;
+    z-index: 150;
+    pointer-events: none;
+}
+.mega-dropdown::before {
+    content: '';
+    position: absolute;
+    top: -14px;
+    left: 0;
+    right: 0;
+    height: 14px;
+}
+.mega-dropdown.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+.mega-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+}
+.mega-col {
+    flex: 1 1 180px;
+    min-width: 140px;
+}
+.mega-col-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-soft);
+}
+.mega-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+}
+.mega-links a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--text-soft);
+    font-weight: 400;
+    transition: all 0.2s;
+}
+.mega-links a:hover {
+    background: var(--gold-soft);
+    color: var(--gold);
+    padding-left: 12px;
+}
+.mega-links a .cat-icon {
+    font-size: 15px;
+    color: var(--gold);
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+}
+.mega-featured {
+    flex: 1 1 260px;
+    min-width: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.mega-featured-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-soft);
+}
+.mega-featured-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+    border-radius: 10px;
+    transition: background 0.2s;
+    cursor: pointer;
+}
+.mega-featured-item:hover { background: var(--dark-3); }
+.mega-featured-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--dark-3);
+    flex-shrink: 0;
+}
+.mega-featured-img img { width: 100%; height: 100%; object-fit: cover; }
+.mega-featured-info { display: flex; flex-direction: column; gap: 3px; }
+.mega-featured-name { font-size: 12px; font-weight: 500; color: var(--text); line-height: 1.3; }
+.mega-featured-price { font-size: 12px; font-weight: 700; color: var(--gold); }
 
 /* AUTH SECTION */
 .auth-section {
@@ -393,10 +836,7 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     align-items: center;
 }
 
-/* AUTH LEFT — Marketing */
-.auth-left {
-    max-width: 520px;
-}
+.auth-left { max-width: 520px; }
 
 .auth-left-badge {
     display: inline-flex;
@@ -489,7 +929,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     margin: 0;
 }
 
-/* AUTH RIGHT — Form Card */
 .auth-card {
     background: var(--dark-2);
     border: 1px solid var(--border);
@@ -698,7 +1137,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     font-weight: 300;
 }
 
-/* Password strength */
 .pw-strength {
     display: flex;
     gap: 4px;
@@ -725,7 +1163,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     font-weight: 500;
 }
 
-/* Checkbox */
 .auth-checkbox-row {
     display: flex;
     align-items: flex-start;
@@ -794,7 +1231,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 
 .auth-checkbox-text a:hover { color: var(--gold-light); text-decoration: underline; }
 
-/* Submit button */
 .auth-submit {
     width: 100%;
     padding: 15px;
@@ -844,7 +1280,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     to { transform: rotate(360deg); }
 }
 
-/* Divider */
 .auth-divider {
     display: flex;
     align-items: center;
@@ -861,7 +1296,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 .auth-divider::before,
 .auth-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-/* Social auth */
 .auth-socials {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -909,7 +1343,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 
 .auth-social.guest:hover { background: var(--gold-gradient); color: #1a1a1a; border-color: var(--gold); }
 
-/* Terms note */
 .auth-terms-note {
     font-size: 11px;
     color: var(--text-muted);
@@ -926,7 +1359,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     font-weight: 500;
 }
 
-/* Alternate CTA */
 .auth-alt {
     text-align: center;
     font-size: 13px;
@@ -948,7 +1380,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 
 .auth-alt a:hover { color: var(--gold-light); text-decoration: underline; }
 
-/* Hide/show panels */
 .auth-panel { display: none; }
 .auth-panel.active { display: block; animation: fadeInPanel 0.35s var(--ease); }
 
@@ -957,7 +1388,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Success state */
 .auth-success {
     display: none;
     text-align: center;
@@ -1021,7 +1451,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     flex-wrap: wrap;
 }
 
-/* TOAST */
 .toast {
     position: fixed;
     bottom: 110px;
@@ -1097,6 +1526,7 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 .social-btn svg { width: 17px; height: 17px; fill: currentColor; }
 .social-btn.facebook:hover { background: #1877F2; border-color: #1877F2; color: #fff; }
 .social-btn.instagram:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); border-color: #dc2743; color: #fff; }
+.social-btn.tiktok:hover { background: #FE2C55; border-color: #FE2C55; color: #fff; }
 .social-btn.wa-social:hover { background: var(--whatsapp); border-color: var(--whatsapp); color: #fff; }
 
 .footer-col h5 {
@@ -1142,7 +1572,6 @@ a.contact-line:hover { color: var(--gold); }
 
 .footer-bottom .gold { color: var(--gold); font-weight: 600; }
 
-/* FLOATING */
 .wa-float {
     position: fixed;
     bottom: 28px;
@@ -1197,7 +1626,6 @@ a.contact-line:hover { color: var(--gold); }
 .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
 .back-to-top:hover { background: var(--gold-gradient); color: #1a1a1a; border-color: var(--gold); }
 
-/* RESPONSIVE */
 @media (max-width: 1024px) {
     .auth-wrapper { grid-template-columns: 1fr; gap: 40px; }
     .auth-left { max-width: 100%; text-align: center; }
@@ -1208,16 +1636,58 @@ a.contact-line:hover { color: var(--gold); }
 
 @media (max-width: 900px) {
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-    .search-bar { display: none; }
+    .search-bar { display: flex; flex: 1; max-width: none; }
+    .header-top { flex-wrap: wrap; gap: 12px; }
+    .header-actions { flex-shrink: 0; }
+    .mega-inner { flex-wrap: wrap; }
+    .mega-col { flex: 1 1 150px; }
+    .mega-featured { flex: 1 1 100%; flex-direction: row; flex-wrap: wrap; }
+    .mega-featured-title { width: 100%; }
+    .mega-featured-item { flex: 0 0 calc(50% - 8px); }
 }
 
 @media (max-width: 640px) {
-    .header-top { padding: 14px 18px; }
+    .header-top { padding: 14px 18px; flex-wrap: wrap; }
     .logo-main { font-size: 22px; letter-spacing: 2px; }
     .logo-sub { font-size: 9px; letter-spacing: 6px; }
+    .logo-tag { font-size: 10px; }
     .whatsapp-btn-header span.txt { display: none; }
     .whatsapp-btn-header { padding: 11px; width: 42px; height: 42px; justify-content: center; }
-    .nav { padding: 0 18px 12px; }
+    .signin-btn { height: 42px; padding: 0 14px; font-size: 12px; }
+
+    .search-bar { order: 3; width: 100%; max-width: 100%; flex: 0 0 100%; margin-top: 4px; }
+    .search-bar input { padding: 11px 48px 11px 18px; font-size: 13px; }
+    .search-bar button { width: 34px; height: 34px; font-size: 14px; right: 5px; }
+
+    .login-panel { position: fixed; top: 78px; left: 8px; right: 8px; width: auto; }
+
+    .top-info-bar { padding: 6px 18px; }
+    .top-info-inner { gap: 14px; justify-content: flex-start; }
+    .top-info-item { font-size: 10px; padding: 2px 2px; }
+    .top-info-item .top-info-icon { font-size: 11px; width: 13px; }
+    .top-info-divider { height: 12px; }
+
+    .nav-wrapper { padding: 0 18px; }
+    .nav-bar { padding: 0 0 12px; flex-wrap: wrap; }
+    .hamburger-btn { padding: 7px 14px; font-size: 12px; }
+    .hamburger-label { font-size: 12px; }
+
+    .mega-dropdown {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding: 20px 16px;
+        border-radius: var(--radius);
+        max-height: 75vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .mega-inner { flex-direction: column; gap: 20px; }
+    .mega-col { flex: 1 1 auto; min-width: 0; }
+    .mega-featured { flex: 1 1 auto; flex-direction: column; }
+    .mega-featured-item { flex: 1 1 100%; }
 
     .auth-section { padding: 34px 0 60px; }
     .auth-wrapper { padding: 0 18px; gap: 34px; }
@@ -1247,6 +1717,20 @@ a.contact-line:hover { color: var(--gold); }
 
 <!-- HEADER -->
 <header class="header">
+    <div class="top-info-bar">
+        <div class="top-info-inner">
+            <a href="warranty.html" class="top-info-item">
+                <span class="top-info-icon">◈</span>
+                <span>1-Year Warranty</span>
+            </a>
+            <span class="top-info-divider"></span>
+            <a href="delivery.html" class="top-info-item">
+                <span class="top-info-icon">➤</span>
+                <span>Nationwide Delivery</span>
+            </a>
+        </div>
+    </div>
+
     <div class="header-top">
         <a href="index.html" class="logo">
             <span class="logo-main">OBILO GOLD</span>
@@ -1260,7 +1744,7 @@ a.contact-line:hover { color: var(--gold); }
         </div>
 
         <div class="header-actions">
-            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+            <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme">
                 <span class="theme-icon moon">☾</span>
                 <span class="theme-icon sun">☀</span>
             </button>
@@ -1270,26 +1754,166 @@ a.contact-line:hover { color: var(--gold); }
                 <span class="badge" id="favBadge" style="display:none">0</span>
             </button>
 
-            <a href="https://wa.me/message/XUZF5HG3Y" target="_blank" rel="noopener" class="whatsapp-btn-header">
-                <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            <div class="account-wrap" id="accountWrap">
+                <button class="signin-btn" onclick="toggleAccount(event)" aria-label="Sign In or Register" aria-haspopup="true">
+                    Sign In / Register
+                </button>
+
+                <div class="login-panel" id="loginPanel" role="dialog" aria-label="Account">
+                    <div class="logged-out-only">
+                        <div class="login-panel-head">
+                            <h4>Welcome Back</h4>
+                            <p>Sign in to unlock your favourites and personalised picks.</p>
+                        </div>
+                        <form onsubmit="handleQuickLogin(event)">
+                            <div class="login-field">
+                                <label for="loginEmail">Email or Phone</label>
+                                <input type="text" id="loginEmail" class="login-input" placeholder="you@example.com" autocomplete="username">
+                            </div>
+                            <div class="login-field">
+                                <label for="loginPassword">Password</label>
+                                <input type="password" id="loginPassword" class="login-input" placeholder="••••••••" autocomplete="current-password">
+                            </div>
+                            <div class="login-actions-row">
+                                <a href="#" class="login-forgot">Forgot password?</a>
+                            </div>
+                            <button type="submit" class="login-submit">Sign In</button>
+                        </form>
+                        <div class="login-divider">Or continue with</div>
+                        <a href="https://wa.me/2349094062471" target="_blank" rel="noopener" class="login-wa">
+                            <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                            </svg>
+                            WhatsApp
+                        </a>
+                        <div class="login-foot">
+                            New to OBILO? <a href="register.html">Create an account</a>
+                        </div>
+                    </div>
+
+                    <div class="logged-in-only">
+                        <div class="logged-in-head">
+                            <div class="logged-in-avatar" id="userInitial">O</div>
+                            <div>
+                                <div class="logged-in-name" id="userName">OBILO Customer</div>
+                                <div class="logged-in-email" id="userEmail">customer@obilogold.com</div>
+                            </div>
+                        </div>
+                        <div class="logged-in-links">
+                            <a href="favourites.html" class="logged-in-link">
+                                <span>♡</span>
+                                <span>My Favourites</span>
+                                <span class="count" id="panelFavCount">0</span>
+                            </a>
+                            <a href="#" class="logged-in-link"><span>◈</span><span>Price Watch</span></a>
+                            <a href="help.html" class="logged-in-link"><span>?</span><span>Help &amp; Support</span></a>
+                        </div>
+                        <button class="logout-btn" onclick="handleLogout()">Sign Out</button>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://wa.me/2349094062471" target="_blank" rel="noopener" class="whatsapp-btn-header">
+                <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
                 <span class="txt">WhatsApp</span>
             </a>
         </div>
     </div>
 
-    <nav class="nav">
-        <div class="nav-item"><a href="index.html">Home</a></div>
-        <div class="nav-item"><a href="shop.html">Shop</a></div>
-        <div class="nav-item"><a href="shop.html?deals=1">Deals</a></div>
-        <div class="nav-item"><a href="support.html">Support</a></div>
-    </nav>
+    <div class="nav-wrapper" id="navWrapper">
+        <div class="nav-bar">
+            <div class="nav-left">
+                <a href="index.html" class="nav-shop-link">Home</a>
+                <a href="shop.html" class="nav-shop-link">Shop</a>
+                <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMegaMenu()" aria-label="Browse categories" aria-expanded="false">
+                    <span class="hamburger-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                    <span class="hamburger-label">Browse</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="mega-dropdown" id="megaDropdown">
+            <div class="mega-inner">
+                <div class="mega-col">
+                    <div class="mega-col-title">Categories</div>
+                    <ul class="mega-links">
+                        <li><a href="shop.html?cat=phones"><span class="cat-icon">◐</span> Phones</a></li>
+                        <li><a href="shop.html?cat=laptops"><span class="cat-icon">⌘</span> Laptops</a></li>
+                        <li><a href="shop.html?cat=tablets"><span class="cat-icon">▢</span> Tablets</a></li>
+                        <li><a href="shop.html?cat=audio"><span class="cat-icon">◉</span> Audio</a></li>
+                        <li><a href="shop.html?cat=wearables"><span class="cat-icon">◯</span> Watches</a></li>
+                        <li><a href="shop.html?cat=smart-glasses"><span class="cat-icon">◈</span> Smart Glasses</a></li>
+                    </ul>
+                </div>
+                <div class="mega-col">
+                    <div class="mega-col-title">More Categories</div>
+                    <ul class="mega-links">
+                        <li><a href="shop.html?cat=mp3"><span class="cat-icon">♫</span> MP3 Players</a></li>
+                        <li><a href="shop.html?cat=chargers"><span class="cat-icon">⚡</span> Chargers</a></li>
+                        <li><a href="shop.html?cat=cables"><span class="cat-icon">⌁</span> Cords &amp; Cables</a></li>
+                        <li><a href="shop.html?cat=cases"><span class="cat-icon">⬚</span> Phone Cases</a></li>
+                        <li><a href="shop.html?cat=guards"><span class="cat-icon">◫</span> Screen Guards</a></li>
+                        <li><a href="shop.html?cat=accessories"><span class="cat-icon">✦</span> Accessories</a></li>
+                    </ul>
+                </div>
+                <div class="mega-col">
+                    <div class="mega-col-title">Top Brands</div>
+                    <ul class="mega-links">
+                        <li><a href="shop.html?brand=apple">Apple</a></li>
+                        <li><a href="shop.html?brand=samsung">Samsung</a></li>
+                        <li><a href="shop.html?brand=google">Google Pixel</a></li>
+                        <li><a href="shop.html?brand=xiaomi">Xiaomi / Redmi</a></li>
+                        <li><a href="shop.html?brand=tecno">Tecno</a></li>
+                        <li><a href="shop.html?brand=infinix">Infinix</a></li>
+                        <li><a href="shop.html?brand=oppo">Oppo</a></li>
+                        <li><a href="shop.html?brand=realme">Realme</a></li>
+                    </ul>
+                </div>
+                <div class="mega-featured">
+                    <div class="mega-featured-title">Featured Picks</div>
+                    <a href="product.html?id=1" class="mega-featured-item">
+                        <div class="mega-featured-img">
+                            <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=100&q=80" alt="iPhone 15 Pro Max">
+                        </div>
+                        <div class="mega-featured-info">
+                            <div class="mega-featured-name">iPhone 15 Pro Max</div>
+                            <div class="mega-featured-price">₦1,650,000</div>
+                        </div>
+                    </a>
+                    <a href="product.html?id=5" class="mega-featured-item">
+                        <div class="mega-featured-img">
+                            <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=100&q=80" alt="Google Pixel 9 Pro">
+                        </div>
+                        <div class="mega-featured-info">
+                            <div class="mega-featured-name">Google Pixel 9 Pro</div>
+                            <div class="mega-featured-price">₦1,450,000</div>
+                        </div>
+                    </a>
+                    <a href="product.html?id=3" class="mega-featured-item">
+                        <div class="mega-featured-img">
+                            <img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=100&q=80" alt="Samsung S25 Ultra">
+                        </div>
+                        <div class="mega-featured-info">
+                            <div class="mega-featured-name">Samsung S25 Ultra</div>
+                            <div class="mega-featured-price">₦1,850,000</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
 
 <!-- AUTH SECTION -->
 <section class="auth-section">
     <div class="auth-wrapper">
 
-        <!-- LEFT — Marketing -->
         <div class="auth-left">
             <div class="auth-left-badge">✦ Join The OBILO Family</div>
             <h1>Unlock The Full <span class="gold">OBILO Gold</span> Experience</h1>
@@ -1327,16 +1951,13 @@ a.contact-line:hover { color: var(--gold); }
             </div>
         </div>
 
-        <!-- RIGHT — Form -->
         <div class="auth-card">
 
-            <!-- Tabs -->
             <div class="auth-tabs" role="tablist">
                 <button class="auth-tab active" id="tabSignup" onclick="switchAuthTab('signup')" role="tab" aria-selected="true">Create Account</button>
                 <button class="auth-tab" id="tabSignin" onclick="switchAuthTab('signin')" role="tab" aria-selected="false">Sign In</button>
             </div>
 
-            <!-- SIGN UP PANEL -->
             <div class="auth-panel active" id="panelSignup">
                 <div class="auth-head">
                     <h2>Welcome to <span class="gold">OBILO Gold</span></h2>
@@ -1426,7 +2047,7 @@ a.contact-line:hover { color: var(--gold); }
                 <div class="auth-divider">Or continue with</div>
 
                 <div class="auth-socials">
-                    <a href="https://wa.me/message/XUZF5HG3Y" target="_blank" rel="noopener" class="auth-social wa">
+                    <a href="https://wa.me/2349094062471" target="_blank" rel="noopener" class="auth-social wa">
                         <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
                         WhatsApp
                     </a>
@@ -1440,7 +2061,6 @@ a.contact-line:hover { color: var(--gold); }
                 </div>
             </div>
 
-            <!-- SIGN IN PANEL -->
             <div class="auth-panel" id="panelSignin">
                 <div class="auth-head">
                     <h2>Welcome <span class="gold">Back</span></h2>
@@ -1469,7 +2089,7 @@ a.contact-line:hover { color: var(--gold); }
                     </div>
 
                     <div style="display:flex; justify-content: flex-end; margin-top: -4px;">
-                        <a href="https://wa.me/message/XUZF5HG3Y" target="_blank" rel="noopener" style="font-size:11px; color:var(--blue-light); transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--blue-light)'">Forgot password?</a>
+                        <a href="https://wa.me/2349094062471" target="_blank" rel="noopener" style="font-size:11px; color:var(--blue-light); transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--blue-light)'">Forgot password?</a>
                     </div>
 
                     <button type="submit" class="auth-submit" id="signinSubmit">
@@ -1481,7 +2101,7 @@ a.contact-line:hover { color: var(--gold); }
                 <div class="auth-divider">Or continue with</div>
 
                 <div class="auth-socials">
-                    <a href="https://wa.me/message/XUZF5HG3Y" target="_blank" rel="noopener" class="auth-social wa">
+                    <a href="https://wa.me/2349094062471" target="_blank" rel="noopener" class="auth-social wa">
                         <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
                         WhatsApp
                     </a>
@@ -1495,7 +2115,6 @@ a.contact-line:hover { color: var(--gold); }
                 </div>
             </div>
 
-            <!-- SUCCESS PANEL -->
             <div class="auth-success" id="successPanel">
                 <div class="auth-success-icon">✓</div>
                 <h3 id="successTitle">Welcome to <span class="gold">OBILO Gold</span></h3>
@@ -1532,7 +2151,10 @@ a.contact-line:hover { color: var(--gold); }
                     <a href="https://instagram.com/obilogold" target="_blank" rel="noopener" class="social-btn instagram" aria-label="Instagram">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
                     </a>
-                    <a href="https://wa.me/message/XUZF5HG3Y" target="_blank" rel="noopener" class="social-btn wa-social" aria-label="WhatsApp">
+                    <a href="https://www.tiktok.com/@obilogoldobilogol" target="_blank" rel="noopener" class="social-btn tiktok" aria-label="TikTok">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/></svg>
+                    </a>
+                    <a href="https://wa.me/2349094062471" target="_blank" rel="noopener" class="social-btn wa-social" aria-label="WhatsApp">
                         <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
                     </a>
                 </div>
@@ -1556,7 +2178,7 @@ a.contact-line:hover { color: var(--gold); }
                     <li><a href="warranty.html">Warranty</a></li>
                     <li><a href="delivery.html">Delivery</a></li>
                     <li><a href="privacy.html">Privacy</a></li>
-                    <li><a href="support.html">Help Center</a></li>
+                    <li><a href="help.html">Help Center</a></li>
                     <li><a href="favourites.html">My Favourites</a></li>
                 </ul>
             </div>
@@ -1578,8 +2200,7 @@ a.contact-line:hover { color: var(--gold); }
     </div>
 </footer>
 
-<!-- FLOATING -->
-<a href="https://wa.me/message/XUZF5HG3Y" target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
+<a href="https://wa.me/2349094062471" target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
     <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
 </a>
 
@@ -1589,7 +2210,7 @@ a.contact-line:hover { color: var(--gold); }
 
 <script>
 /* CONFIG */
-var WHATSAPP_BASE = 'https://wa.me/message/XUZF5HG3Y';
+var WHATSAPP_BASE = 'https://wa.me/2349094062471';
 var AUTH_KEY = 'obilo_auth';
 var AUTH_USERS_KEY = 'obilo_users';
 
@@ -1632,6 +2253,97 @@ function handleSearch() {
     var q = el.value.trim();
     if (q) location.href = 'shop.html?q=' + encodeURIComponent(q);
 }
+
+/* MEGA MENU */
+function toggleMegaMenu() {
+    var dropdown = document.getElementById('megaDropdown');
+    var btn = document.getElementById('hamburgerBtn');
+    if (!dropdown || !btn) return;
+    var isOpen = dropdown.classList.contains('open');
+    dropdown.classList.toggle('open');
+    btn.classList.toggle('active');
+    btn.setAttribute('aria-expanded', !isOpen);
+}
+document.addEventListener('click', function(e) {
+    var dropdown = document.getElementById('megaDropdown');
+    var btn = document.getElementById('hamburgerBtn');
+    var wrapper = document.getElementById('navWrapper');
+    if (!dropdown || !btn || !wrapper) return;
+    if (!wrapper.contains(e.target)) {
+        dropdown.classList.remove('open');
+        btn.classList.remove('active');
+        btn.setAttribute('aria-expanded', 'false');
+    }
+});
+
+/* QUICK LOGIN FROM HEADER PANEL */
+function handleQuickLogin(e) {
+    e.preventDefault();
+    var email = document.getElementById('loginEmail').value.trim();
+    var pass = document.getElementById('loginPassword').value.trim();
+    if (!email || !pass) { showToast('Please fill in both fields', 'error'); return; }
+    var users = getUsers();
+    var lower = email.toLowerCase();
+    var matched = null;
+    for (var i = 0; i < users.length; i++) {
+        if (users[i].email && users[i].email.toLowerCase() === lower) { matched = users[i]; break; }
+    }
+    if (!matched || matched.password !== pass) {
+        showToast('Invalid email or password', 'error');
+        return;
+    }
+    setAuth({
+        name: matched.name,
+        email: matched.email,
+        phone: matched.phone,
+        loggedIn: true,
+        loggedInAt: new Date().toISOString()
+    });
+    showToast('✓ Welcome back, ' + (matched.firstName || matched.name.split(' ')[0]), 'success');
+    document.getElementById('loginEmail').value = '';
+    document.getElementById('loginPassword').value = '';
+    closeLoginPanel();
+}
+
+/* AUTH HELPERS */
+function getAuth() { try { return JSON.parse(localStorage.getItem(AUTH_KEY) || 'null'); } catch(e) { return null; } }
+function setAuth(user) { localStorage.setItem(AUTH_KEY, JSON.stringify(user)); applyAuthUI(); }
+function clearAuth() { localStorage.removeItem(AUTH_KEY); applyAuthUI(); }
+function applyAuthUI() {
+    var panel = document.getElementById('loginPanel');
+    var user = getAuth();
+    if (!panel) return;
+    var signinBtn = document.querySelector('.signin-btn');
+    if (user) {
+        panel.classList.add('is-logged-in');
+        var un = document.getElementById('userName');
+        var ue = document.getElementById('userEmail');
+        var ui = document.getElementById('userInitial');
+        if (un) un.textContent = user.name || 'OBILO Customer';
+        if (ue) ue.textContent = user.email || '';
+        if (ui) ui.textContent = (user.name || 'O').charAt(0).toUpperCase();
+        if (signinBtn) signinBtn.textContent = (user.name || 'Account').split(' ')[0];
+    } else {
+        panel.classList.remove('is-logged-in');
+        if (signinBtn) signinBtn.textContent = 'Sign In / Register';
+    }
+}
+function handleLogout() {
+    clearAuth();
+    showToast('Signed out');
+    closeLoginPanel();
+}
+function toggleAccount(event) {
+    if (event) event.stopPropagation();
+    var w = document.getElementById('accountWrap');
+    if (w) w.classList.toggle('open');
+}
+function closeLoginPanel() {
+    var wrap = document.getElementById('accountWrap');
+    if (wrap) wrap.classList.remove('open');
+}
+document.addEventListener('click', function(e) { if (!e.target.closest('#accountWrap')) closeLoginPanel(); });
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLoginPanel(); });
 
 /* TAB SWITCHING */
 function switchAuthTab(tab) {
@@ -1783,7 +2495,6 @@ function findUser(identifier) {
 
 /* SUCCESS */
 function showSuccess(title, message) {
-    var card = document.querySelector('.auth-card');
     var tabs = document.querySelector('.auth-tabs');
     var panelSignup = document.getElementById('panelSignup');
     var panelSignin = document.getElementById('panelSignin');
@@ -1837,7 +2548,6 @@ function handleSignup(e) {
         return;
     }
 
-    /* Check duplicate */
     if (findUser(email)) {
         setFieldError('signupEmail', 'errSignupEmail', true);
         document.getElementById('errSignupEmail').textContent = 'This email is already registered. Try signing in.';
@@ -1851,7 +2561,6 @@ function handleSignup(e) {
         return;
     }
 
-    /* Save user */
     var users = getUsers();
     var newUser = {
         firstName: firstName,
@@ -1865,7 +2574,6 @@ function handleSignup(e) {
     users.push(newUser);
     saveUsers(users);
 
-    /* Save auth */
     try {
         localStorage.setItem(AUTH_KEY, JSON.stringify({
             name: newUser.name,
@@ -1876,7 +2584,6 @@ function handleSignup(e) {
         }));
     } catch(e) {}
 
-    /* Button loading */
     var btn = document.getElementById('signupSubmit');
     btn.classList.add('loading');
     btn.disabled = true;
@@ -1968,16 +2675,6 @@ function initFromURL() {
         if (mode === 'signin') switchAuthTab('signin');
         else if (mode === 'signup') switchAuthTab('signup');
     } catch(e) {}
-
-    /* If already logged in, offer to continue */
-    var existing = null;
-    try { existing = JSON.parse(localStorage.getItem(AUTH_KEY) || 'null'); } catch(e) {}
-    if (existing && existing.loggedIn && !existing.guest) {
-        var head = document.querySelector('.auth-head h2');
-        if (head) {
-            /* Leave as-is — user might want to switch accounts */
-        }
-    }
 }
 
 /* BACK TO TOP */
@@ -2000,7 +2697,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    /* Update fav badge */
     try {
         var favs = JSON.parse(localStorage.getItem('obilo_favs') || '[]');
         var badge = document.getElementById('favBadge');
@@ -2008,9 +2704,10 @@ document.addEventListener('DOMContentLoaded', function() {
             badge.textContent = favs.length;
             badge.style.display = 'flex';
         }
+        var pf = document.getElementById('panelFavCount');
+        if (pf) pf.textContent = favs.length;
     } catch(e) {}
 
-    /* Clear errors on input */
     document.querySelectorAll('.auth-input').forEach(function(input) {
         input.addEventListener('input', function() {
             input.classList.remove('error');
@@ -2019,11 +2716,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    document.getElementById('signupTerms') && document.getElementById('signupTerms').addEventListener('change', function() {
-        var err = document.getElementById('errSignupTerms');
-        if (err) err.classList.remove('show');
-    });
+    var termsEl = document.getElementById('signupTerms');
+    if (termsEl) {
+        termsEl.addEventListener('change', function() {
+            var err = document.getElementById('errSignupTerms');
+            if (err) err.classList.remove('show');
+        });
+    }
 
+    applyAuthUI();
     initFromURL();
 });
 </script>

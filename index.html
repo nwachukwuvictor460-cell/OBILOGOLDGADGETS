@@ -46,6 +46,15 @@
 
     --whatsapp: #25D366;
     --star: #E2C766;
+    --danger: #E5484D;
+    --success: #30A46C;
+    --warning: #F5A623;
+    --uk-blue: #3B82F6;
+    --uk-blue-soft: rgba(59, 130, 246, 0.12);
+    --uk-blue-hairline: rgba(59, 130, 246, 0.35);
+    --us-purple: #A855F7;
+    --us-purple-soft: rgba(168, 85, 247, 0.12);
+    --us-purple-hairline: rgba(168, 85, 247, 0.35);
 
     --shadow-elegant: 0 24px 60px rgba(0, 0, 0, 0.55);
     --shadow-medium: 0 12px 30px rgba(0, 0, 0, 0.35);
@@ -1117,7 +1126,7 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 .news-card-meta .read-more { color: var(--gold); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; font-size: 10px; }
 .news-card:hover .read-more { color: var(--gold-light); }
 
-/* CATEGORIES GRID (kept in CSS for other pages, not used on index) */
+/* CATEGORIES GRID */
 .categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 18px; }
 
 .category-card {
@@ -1281,7 +1290,7 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 .btn-wa-full:active { transform: scale(0.98); }
 .btn-wa-full .wa-icon { width: 16px; height: 16px; }
 
-/* SPONSORED BANNER (kept in CSS for other pages, not used on index) */
+/* SPONSORED BANNER */
 .sponsored-banner {
     position: relative;
     padding: 56px 48px;
@@ -2832,7 +2841,7 @@ a.contact-line:hover { color: var(--gold); }
                             <button type="submit" class="login-submit">Sign In</button>
                         </form>
                         <div class="login-divider">Or continue with</div>
-                        <a href="https://wa.me/message/XUZF5HG3Y" target="_blank" rel="noopener" class="login-wa">
+                        <a href="https://wa.me/2349094062471" target="_blank" rel="noopener" class="login-wa">
                             <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
                             </svg>
@@ -2858,14 +2867,14 @@ a.contact-line:hover { color: var(--gold); }
                                 <span class="count" id="panelFavCount">0</span>
                             </a>
                             <a href="#" class="logged-in-link"><span>◈</span><span>Price Watch</span></a>
-                            <a href="support.html" class="logged-in-link"><span>?</span><span>Help &amp; Support</span></a>
+                            <a href="help.html" class="logged-in-link"><span>?</span><span>Help &amp; Support</span></a>
                         </div>
                         <button class="logout-btn" onclick="handleLogout()">Sign Out</button>
                     </div>
                 </div>
             </div>
 
-            <a href="https://wa.me/message/XUZF5HG3Y" target="_blank" rel="noopener" class="whatsapp-btn-header">
+            <a href="https://wa.me/2349094062471" target="_blank" rel="noopener" class="whatsapp-btn-header">
                 <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
                 </svg>
@@ -2972,11 +2981,11 @@ a.contact-line:hover { color: var(--gold); }
                 <span class="gold">Quality or Nothing.</span>
             </h1>
             <p class="fade-up" style="animation-delay:0.2s">
-                From iPhone and Samsung to Google Pixel, Redmi, Tecno, Infinix, itel, Oppo, Vivo, Realme, Honor and more — every major gadget, all genuine, all tested, all at the right price.
+                From iPhone and Samsung to Google Pixel, Redmi, Tecno, Infinix, itel, Oppo, Vivo, Realme, Honor and more — every major gadget, all genuine, all tested, all at the right price. Brand new and UK/US used available.
             </p>
             <div class="hero-cta fade-up" style="animation-delay:0.3s">
                 <a href="shop.html" class="btn btn-primary">Browse Collection</a>
-                <a href="https://wa.me/message/XUZF5HG3Y" target="_blank" rel="noopener" class="btn btn-whatsapp">
+                <a href="https://wa.me/2349094062471" target="_blank" rel="noopener" class="btn btn-whatsapp">
                     <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
                     </svg>
@@ -3040,7 +3049,7 @@ a.contact-line:hover { color: var(--gold); }
             <div class="trust-card">
                 <div class="trust-icon">✦</div>
                 <h4>100% Genuine</h4>
-                <p>Every gadget is verified, tested and guaranteed authentic.</p>
+                <p>Every gadget is verified, tested and guaranteed authentic — brand new and used.</p>
             </div>
             <div class="trust-card">
                 <div class="trust-icon">◈</div>
@@ -3222,7 +3231,7 @@ a.contact-line:hover { color: var(--gold); }
                     <a href="https://www.tiktok.com/@obilogoldobilogol?_r=1&_t=ZS-99ulZCjwuQf" target="_blank" rel="noopener" class="social-btn tiktok" aria-label="TikTok">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/></svg>
                     </a>
-                    <a href="https://wa.me/message/XUZF5HG3Y" target="_blank" rel="noopener" class="social-btn wa-social" aria-label="WhatsApp">
+                    <a href="https://wa.me/2349094062471" target="_blank" rel="noopener" class="social-btn wa-social" aria-label="WhatsApp">
                         <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
                     </a>
                 </div>
@@ -3294,7 +3303,7 @@ a.contact-line:hover { color: var(--gold); }
 </footer>
 
 <!-- FLOATING -->
-<a href="https://wa.me/message/XUZF5HG3Y" target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
+<a href="https://wa.me/2349094062471" target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
     <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
     </svg>
@@ -3354,7 +3363,7 @@ function toggleTheme() {
 
 /* CONFIG */
 const WHATSAPP_NUMBER = '2349094062471';
-const WHATSAPP_LINK = 'https://wa.me/message/XUZF5HG3Y';
+const WHATSAPP_LINK = 'https://wa.me/2349094062471';
 const WHATSAPP_BASE = WHATSAPP_LINK;
 
 const WA_SVG = `<svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>`;
@@ -3375,113 +3384,144 @@ const CATEGORIES = [
     { id: 'accessories',   name: 'Accessories',    icon: '✦' },
 ];
 
-/* PRODUCTS */
+/* ============================================================
+   MASTER PRODUCT CATALOG (matches shop.html, product.html, favourites.html)
+   ============================================================ */
 const PRODUCTS = [
-    { id: 1,  name: 'iPhone 15 Pro Max', price: 1650000, image: 'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false },
-    { id: 2,  name: 'iPhone 14',         price: 980000,  image: 'https://images.unsplash.com/photo-1591337676887-a217a6970a8a?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false },
-    { id: 3,  name: 'Samsung Galaxy S25 Ultra', price: 1850000, image: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=600&q=80', category: 'phones', brand: 'Samsung', sponsored: true },
-    { id: 4,  name: 'Samsung Galaxy A55',       price: 480000,  image: 'https://images.unsplash.com/photo-1610792516307-ea5acd9c3b00?w=600&q=80', category: 'phones', brand: 'Samsung', sponsored: false },
-    { id: 5,  name: 'Google Pixel 9 Pro',   price: 1450000, image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'phones', brand: 'Google Pixel', sponsored: false },
-    { id: 6,  name: 'Google Pixel 8a',      price: 720000,  image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'phones', brand: 'Google Pixel', sponsored: false },
-    { id: 7,  name: 'Xiaomi 14 Ultra',      price: 1350000, image: 'https://images.unsplash.com/photo-1618478594486-c65b899c4936?w=600&q=80', category: 'phones', brand: 'Xiaomi', sponsored: false },
-    { id: 8,  name: 'Redmi Note 13 Pro',    price: 285000,  image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', category: 'phones', brand: 'Redmi', sponsored: false },
-    { id: 9,  name: 'Redmi 13C',            price: 145000,  image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'phones', brand: 'Redmi', sponsored: false },
-    { id: 10, name: 'Tecno Camon 30 Pro',   price: 385000,  image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'phones', brand: 'Tecno', sponsored: false },
-    { id: 11, name: 'Tecno Spark 20',       price: 145000,  image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', category: 'phones', brand: 'Tecno', sponsored: false },
-    { id: 12, name: 'Infinix Note 40 Pro',  price: 320000,  image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'phones', brand: 'Infinix', sponsored: false },
-    { id: 13, name: 'Infinix Hot 40',       price: 128000,  image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'phones', brand: 'Infinix', sponsored: false },
-    { id: 14, name: 'itel A70',             price: 78000,   image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', category: 'phones', brand: 'itel', sponsored: false },
-    { id: 16, name: 'Oppo Reno 12 Pro',     price: 620000,  image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'phones', brand: 'Oppo', sponsored: false },
-    { id: 17, name: 'Vivo V30 Pro',         price: 580000,  image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'phones', brand: 'Vivo', sponsored: false },
-    { id: 18, name: 'Realme 12 Pro+',       price: 420000,  image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'phones', brand: 'Realme', sponsored: false },
-    { id: 20, name: 'Honor X9b',            price: 380000,  image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'phones', brand: 'Honor', sponsored: false },
-    { id: 21, name: 'Nokia G42 5G',         price: 210000,  image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'phones', brand: 'Nokia', sponsored: false },
-    { id: 22, name: 'Nothing Phone (2a)',   price: 480000,  image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'phones', brand: 'Nothing', sponsored: false },
+    /* ===== BRAND NEW — PHONES ===== */
+    { id: 1,  name: 'iPhone 15 Pro Max', price: 1650000, image: 'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 2,  name: 'iPhone 15 Pro',     price: 1450000, image: 'https://images.unsplash.com/photo-1591337676887-a217a6970a8a?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false, badge: 'new', inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 3,  name: 'Samsung Galaxy S25 Ultra', price: 1850000, image: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=600&q=80', category: 'phones', brand: 'Samsung', sponsored: true, featured: true, badge: 'new', inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 4,  name: 'Samsung Galaxy A55', price: 480000, image: 'https://images.unsplash.com/photo-1610792516307-ea5acd9c3b00?w=600&q=80', category: 'phones', brand: 'Samsung', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 5,  name: 'Google Pixel 9 Pro', price: 1450000, image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'phones', brand: 'Google Pixel', sponsored: false, featured: true, badge: 'new', inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 6,  name: 'Google Pixel 8a', price: 720000, image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'phones', brand: 'Google Pixel', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 7,  name: 'Xiaomi 14 Ultra', price: 1350000, image: 'https://images.unsplash.com/photo-1618478594486-c65b899c4936?w=600&q=80', category: 'phones', brand: 'Xiaomi', sponsored: false, featured: true, badge: 'limited', inStock: true, stockType: 'special-order', condition: 'brand-new' },
+    { id: 8,  name: 'Redmi Note 13 Pro', price: 285000, image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', category: 'phones', brand: 'Redmi', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 9,  name: 'Redmi 13C', price: 145000, image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'phones', brand: 'Redmi', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 10, name: 'Tecno Camon 30 Pro', price: 385000, image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'phones', brand: 'Tecno', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 11, name: 'Tecno Spark 20', price: 145000, image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', category: 'phones', brand: 'Tecno', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 12, name: 'Infinix Note 40 Pro', price: 320000, image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'phones', brand: 'Infinix', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 13, name: 'Infinix Hot 40', price: 128000, image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'phones', brand: 'Infinix', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 14, name: 'itel A70', price: 78000, image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', category: 'phones', brand: 'itel', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 16, name: 'Oppo Reno 12 Pro', price: 620000, image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'phones', brand: 'Oppo', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 17, name: 'Vivo V30 Pro', price: 580000, image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'phones', brand: 'Vivo', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 18, name: 'Realme 12 Pro+', price: 420000, image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'phones', brand: 'Realme', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 20, name: 'Honor X9b', price: 380000, image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'phones', brand: 'Honor', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 21, name: 'Nokia G42 5G', price: 210000, image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'phones', brand: 'Nokia', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 22, name: 'Nothing Phone (2a)', price: 480000, image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'phones', brand: 'Nothing', sponsored: false, badge: 'new', inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 200, name: 'iPhone 15', price: 1150000, image: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 210, name: 'Samsung Galaxy S24 Ultra', price: 1650000, image: 'https://images.unsplash.com/photo-1707060565848-8f1b0ff1e1c4?w=600&q=80', category: 'phones', brand: 'Samsung', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new' },
 
-    { id: 30, name: 'MacBook Pro 14" M3',       price: 2450000, image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&q=80', category: 'laptops', brand: 'Apple', sponsored: false },
-    { id: 31, name: 'MacBook Air M2',           price: 1850000, image: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=600&q=80', category: 'laptops', brand: 'Apple', sponsored: false },
-    { id: 32, name: 'Dell XPS 15',              price: 1980000, image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&q=80', category: 'laptops', brand: 'Dell', sponsored: false },
-    { id: 33, name: 'HP Pavilion 15',           price: 720000,  image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'laptops', brand: 'HP', sponsored: false },
-    { id: 34, name: 'Lenovo IdeaPad Slim 5',    price: 650000,  image: 'https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?w=600&q=80', category: 'laptops', brand: 'Lenovo', sponsored: false },
-    { id: 35, name: 'Asus Vivobook 16',         price: 580000,  image: 'https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?w=600&q=80', category: 'laptops', brand: 'Asus', sponsored: false },
+    /* ===== UK USED — PHONES ===== */
+    { id: 1001, name: 'iPhone 14 Pro Max — UK Used', price: 980000, oldPrice: 1280000, image: 'https://images.unsplash.com/photo-1678652197831-2d180705cd2c?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'uk-used' },
+    { id: 1002, name: 'Samsung Galaxy S23 Ultra — UK Used', price: 780000, oldPrice: 1180000, image: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=600&q=80', category: 'phones', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'uk-used' },
+    { id: 1003, name: 'Google Pixel 7 Pro — UK Used', price: 520000, oldPrice: 780000, image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'phones', brand: 'Google Pixel', sponsored: false, inStock: true, stockType: 'in-store', condition: 'uk-used' },
+    { id: 1004, name: 'iPhone 13 — UK Used', price: 480000, oldPrice: 780000, image: 'https://images.unsplash.com/photo-1632661674596-df8be070a5c5?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store', condition: 'uk-used' },
+    { id: 1005, name: 'Samsung Galaxy S22 Ultra — UK Used', price: 480000, oldPrice: 720000, image: 'https://images.unsplash.com/photo-1610792516307-ea5acd9c3b00?w=600&q=80', category: 'phones', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'uk-used' },
 
-    { id: 40, name: 'iPad Air 5th Gen',         price: 780000,  image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&q=80', category: 'tablets', brand: 'Apple', sponsored: false },
-    { id: 41, name: 'Samsung Galaxy Tab S9',    price: 850000,  image: 'https://images.unsplash.com/photo-1561154464-82e9adf32764?w=600&q=80', category: 'tablets', brand: 'Samsung', sponsored: false },
-    { id: 42, name: 'Xiaomi Pad 6',             price: 380000,  image: 'https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?w=600&q=80', category: 'tablets', brand: 'Xiaomi', sponsored: false },
-    { id: 43, name: 'Lenovo Tab P12',           price: 320000,  image: 'https://images.unsplash.com/photo-1633114128174-2f8aa49759b0?w=600&q=80', category: 'tablets', brand: 'Lenovo', sponsored: false },
+    /* ===== US USED — PHONES ===== */
+    { id: 1101, name: 'iPhone 14 — US Used', price: 720000, oldPrice: 980000, image: 'https://images.unsplash.com/photo-1591337676887-a217a6970a8a?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store', condition: 'us-used' },
+    { id: 1102, name: 'Samsung Galaxy S23 — US Used', price: 580000, oldPrice: 850000, image: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=600&q=80', category: 'phones', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'us-used' },
+    { id: 1103, name: 'Google Pixel 7 — US Used', price: 380000, oldPrice: 580000, image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'phones', brand: 'Google Pixel', sponsored: false, inStock: true, stockType: 'in-store', condition: 'us-used' },
 
-    { id: 50, name: 'AirPods Pro 2nd Gen',      price: 320000,  image: 'https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=600&q=80', category: 'audio', brand: 'Apple', sponsored: false },
-    { id: 51, name: 'Samsung Buds 3 Pro',       price: 210000,  image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&q=80', category: 'audio', brand: 'Samsung', sponsored: false },
-    { id: 52, name: 'Sony WH-1000XM5',          price: 420000,  image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&q=80', category: 'audio', brand: 'Sony', sponsored: false },
-    { id: 53, name: 'JBL Flip 6 Speaker',       price: 95000,   image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600&q=80', category: 'audio', brand: 'JBL', sponsored: false },
-    { id: 54, name: 'Oraimo FreePods 4',        price: 28000,   image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&q=80', category: 'audio', brand: 'Oraimo', sponsored: false },
-    { id: 55, name: 'Anker Soundcore P40i',     price: 65000,   image: 'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=600&q=80', category: 'audio', brand: 'Anker', sponsored: false },
+    /* ===== LAPTOPS ===== */
+    { id: 30, name: 'MacBook Pro 14" M3', price: 2450000, image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&q=80', category: 'laptops', brand: 'Apple', sponsored: false, featured: true, badge: 'new', inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 31, name: 'MacBook Air M2', price: 1850000, image: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=600&q=80', category: 'laptops', brand: 'Apple', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 32, name: 'Dell XPS 15', price: 1980000, image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&q=80', category: 'laptops', brand: 'Dell', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 33, name: 'HP Pavilion 15', price: 720000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'laptops', brand: 'HP', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 34, name: 'Lenovo IdeaPad Slim 5', price: 650000, image: 'https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?w=600&q=80', category: 'laptops', brand: 'Lenovo', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 35, name: 'Asus Vivobook 16', price: 580000, image: 'https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?w=600&q=80', category: 'laptops', brand: 'Asus', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 1201, name: 'MacBook Air M1 — UK Used', price: 920000, oldPrice: 1450000, image: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=600&q=80', category: 'laptops', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store', condition: 'uk-used' },
 
-    { id: 60, name: 'Apple Watch Series 9',     price: 480000,  image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600&q=80', category: 'wearables', brand: 'Apple', sponsored: false },
-    { id: 61, name: 'Samsung Galaxy Watch 6',   price: 320000,  image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80', category: 'wearables', brand: 'Samsung', sponsored: false },
-    { id: 62, name: 'Xiaomi Smart Band 8',      price: 42000,   image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=600&q=80', category: 'wearables', brand: 'Xiaomi', sponsored: false },
-    { id: 63, name: 'Oraimo Watch 4 Plus',      price: 35000,   image: 'https://images.unsplash.com/photo-1544117519-31a4b719223d?w=600&q=80', category: 'wearables', brand: 'Oraimo', sponsored: false },
-    { id: 64, name: 'Huawei Watch GT 4',        price: 280000,  image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600&q=80', category: 'wearables', brand: 'Huawei', sponsored: false },
-    { id: 65, name: 'Amazfit GTR 4',            price: 145000,  image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80', category: 'wearables', brand: 'Amazfit', sponsored: false },
-    { id: 66, name: 'Fitbit Charge 6',          price: 165000,  image: 'https://images.unsplash.com/photo-1544117519-31a4b719223d?w=600&q=80', category: 'wearables', brand: 'Fitbit', sponsored: false },
+    /* ===== TABLETS ===== */
+    { id: 40, name: 'iPad Air 5th Gen', price: 780000, image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&q=80', category: 'tablets', brand: 'Apple', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 41, name: 'Samsung Galaxy Tab S9', price: 850000, image: 'https://images.unsplash.com/photo-1561154464-82e9adf32764?w=600&q=80', category: 'tablets', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 42, name: 'Xiaomi Pad 6', price: 380000, image: 'https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?w=600&q=80', category: 'tablets', brand: 'Xiaomi', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 43, name: 'Lenovo Tab P12', price: 320000, image: 'https://images.unsplash.com/photo-1633114128174-2f8aa49759b0?w=600&q=80', category: 'tablets', brand: 'Lenovo', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
 
-    { id: 70, name: 'Ray-Ban Meta Smart Glasses', price: 620000, image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80', category: 'smart-glasses', brand: 'Meta', sponsored: false },
-    { id: 71, name: 'Xreal Air 2 Pro AR',         price: 890000, image: 'https://images.unsplash.com/photo-1626379953822-baec19c3accd?w=600&q=80', category: 'smart-glasses', brand: 'Xreal', sponsored: false },
+    /* ===== AUDIO ===== */
+    { id: 50, name: 'AirPods Pro 2nd Gen', price: 320000, image: 'https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=600&q=80', category: 'audio', brand: 'Apple', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 51, name: 'Samsung Buds 3 Pro', price: 210000, image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&q=80', category: 'audio', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 52, name: 'Sony WH-1000XM5', price: 420000, image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&q=80', category: 'audio', brand: 'Sony', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 53, name: 'JBL Flip 6 Speaker', price: 95000, image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600&q=80', category: 'audio', brand: 'JBL', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 54, name: 'Oraimo FreePods 4', price: 28000, image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&q=80', category: 'audio', brand: 'Oraimo', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 55, name: 'Anker Soundcore P40i', price: 65000, image: 'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=600&q=80', category: 'audio', brand: 'Anker', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
 
-    { id: 100, name: 'Sony NW-E394 Walkman',     price: 85000,  image: 'https://images.unsplash.com/photo-1592434134753-a70baf7979d5?w=600&q=80', category: 'mp3', brand: 'Sony', sponsored: false },
-    { id: 101, name: 'FiiO M6 Hi-Res Player',    price: 145000, image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&q=80', category: 'mp3', brand: 'FiiO', sponsored: false },
-    { id: 102, name: 'SanDisk Clip Sport Plus',  price: 45000,  image: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600&q=80', category: 'mp3', brand: 'SanDisk', sponsored: false },
-    { id: 103, name: 'Shanling M0 Pro',          price: 95000,  image: 'https://images.unsplash.com/photo-1592434134753-a70baf7979d5?w=600&q=80', category: 'mp3', brand: 'Shanling', sponsored: false },
+    /* ===== WEARABLES ===== */
+    { id: 60, name: 'Apple Watch Series 9', price: 480000, image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600&q=80', category: 'wearables', brand: 'Apple', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 61, name: 'Samsung Galaxy Watch 6', price: 320000, image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80', category: 'wearables', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 62, name: 'Xiaomi Smart Band 8', price: 42000, image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=600&q=80', category: 'wearables', brand: 'Xiaomi', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 63, name: 'Oraimo Watch 4 Plus', price: 35000, image: 'https://images.unsplash.com/photo-1544117519-31a4b719223d?w=600&q=80', category: 'wearables', brand: 'Oraimo', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 64, name: 'Huawei Watch GT 4', price: 280000, image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600&q=80', category: 'wearables', brand: 'Huawei', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 65, name: 'Amazfit GTR 4', price: 145000, image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80', category: 'wearables', brand: 'Amazfit', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 66, name: 'Fitbit Charge 6', price: 165000, image: 'https://images.unsplash.com/photo-1544117519-31a4b719223d?w=600&q=80', category: 'wearables', brand: 'Fitbit', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
 
-    { id: 110, name: 'Anker 65W GaN Charger',    price: 42000,  image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Anker', sponsored: false },
-    { id: 111, name: 'Oraimo 20W Fast Charger',  price: 12000,  image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Oraimo', sponsored: false },
-    { id: 112, name: 'Apple 20W USB-C Adapter',  price: 28000,  image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Apple', sponsored: false },
-    { id: 113, name: 'Samsung 45W Super Charger',price: 35000,  image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Samsung', sponsored: false },
-    { id: 114, name: 'Xiaomi 33W Turbo Charger', price: 18000,  image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Xiaomi', sponsored: false },
-    { id: 115, name: 'Baseus 100W GaN Charger',  price: 55000,  image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Baseus', sponsored: false },
+    /* ===== SMART GLASSES ===== */
+    { id: 70, name: 'Ray-Ban Meta Smart Glasses', price: 620000, image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80', category: 'smart-glasses', brand: 'Meta', sponsored: false, featured: true, badge: 'new', inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 71, name: 'Xreal Air 2 Pro AR', price: 890000, image: 'https://images.unsplash.com/photo-1626379953822-baec19c3accd?w=600&q=80', category: 'smart-glasses', brand: 'Xreal', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
 
-    { id: 120, name: 'Anker USB-C to Lightning',  price: 15000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Anker', sponsored: false },
-    { id: 121, name: 'Oraimo USB-C Fast Cable',   price: 6500,  image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Oraimo', sponsored: false },
-    { id: 122, name: 'Apple USB-C to USB-C 2m',   price: 22000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Apple', sponsored: false },
-    { id: 123, name: 'Baseus 100W Braided Cable', price: 12000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Baseus', sponsored: false },
-    { id: 124, name: 'Samsung USB-C Data Cable',  price: 9500,  image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Samsung', sponsored: false },
-    { id: 125, name: 'UGREEN HDMI 8K Cable',      price: 18000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'UGREEN', sponsored: false },
+    /* ===== MP3 ===== */
+    { id: 100, name: 'Sony NW-E394 Walkman', price: 85000, image: 'https://images.unsplash.com/photo-1592434134753-a70baf7979d5?w=600&q=80', category: 'mp3', brand: 'Sony', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 101, name: 'FiiO M6 Hi-Res Player', price: 145000, image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&q=80', category: 'mp3', brand: 'FiiO', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 102, name: 'SanDisk Clip Sport Plus', price: 45000, image: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600&q=80', category: 'mp3', brand: 'SanDisk', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 103, name: 'Shanling M0 Pro', price: 95000, image: 'https://images.unsplash.com/photo-1592434134753-a70baf7979d5?w=600&q=80', category: 'mp3', brand: 'Shanling', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
 
-    { id: 130, name: 'iPhone 15 Pro Max Silicone Case',      price: 8500,  image: 'https://images.unsplash.com/photo-1601593346740-925612772716?w=600&q=80', category: 'cases', brand: 'Apple', sponsored: false },
-    { id: 131, name: 'iPhone 15 Pro Max Leather Case',       price: 18000, image: 'https://images.unsplash.com/photo-1601593346740-925612772716?w=600&q=80', category: 'cases', brand: 'Apple', sponsored: false },
-    { id: 132, name: 'Samsung S25 Ultra Clear Case',         price: 7500,  image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'cases', brand: 'Samsung', sponsored: false },
-    { id: 133, name: 'Samsung S25 Ultra Rugged Case',        price: 12000, image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'cases', brand: 'Samsung', sponsored: false },
-    { id: 134, name: 'Google Pixel 9 Pro Fabric Case',       price: 15000, image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'cases', brand: 'Google Pixel', sponsored: false },
-    { id: 135, name: 'Redmi Note 13 Pro Silicone Case',      price: 4500,  image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', category: 'cases', brand: 'Redmi', sponsored: false },
-    { id: 136, name: 'Tecno Camon 30 Pro Shockproof Case',   price: 5500,  image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'cases', brand: 'Tecno', sponsored: false },
-    { id: 137, name: 'Infinix Note 40 Pro Leather Case',     price: 6500,  image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'cases', brand: 'Infinix', sponsored: false },
-    { id: 138, name: 'Oppo Reno 12 Pro Clear Case',          price: 5500,  image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'cases', brand: 'Oppo', sponsored: false },
-    { id: 139, name: 'Universal Shockproof Case — Clear',    price: 3500,  image: 'https://images.unsplash.com/photo-1601593346740-925612772716?w=600&q=80', category: 'cases', brand: 'OBILO', sponsored: false },
-    { id: 140, name: 'Universal Ring Holder Case — Black',   price: 4500,  image: 'https://images.unsplash.com/photo-1601593346740-925612772716?w=600&q=80', category: 'cases', brand: 'OBILO', sponsored: false },
+    /* ===== CHARGERS ===== */
+    { id: 110, name: 'Anker 65W GaN Charger', price: 42000, image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Anker', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 111, name: 'Oraimo 20W Fast Charger', price: 12000, image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Oraimo', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 112, name: 'Apple 20W USB-C Adapter', price: 28000, image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 113, name: 'Samsung 45W Super Charger', price: 35000, image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 114, name: 'Xiaomi 33W Turbo Charger', price: 18000, image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Xiaomi', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 115, name: 'Baseus 100W GaN Charger', price: 55000, image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Baseus', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
 
-    { id: 150, name: 'iPhone 15 Pro Max Tempered Glass',      price: 4500,  image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80', category: 'guards', brand: 'Apple', sponsored: false },
-    { id: 151, name: 'iPhone 15 Pro Max Privacy Glass',       price: 8500,  image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80', category: 'guards', brand: 'Apple', sponsored: false },
-    { id: 152, name: 'Samsung S25 Ultra Tempered Glass',      price: 4500,  image: 'https://images.unsplash.com/photo-1610792516307-ea5acd9c3b00?w=600&q=80', category: 'guards', brand: 'Samsung', sponsored: false },
-    { id: 153, name: 'Samsung S25 Ultra Privacy Glass',       price: 8500,  image: 'https://images.unsplash.com/photo-1610792516307-ea5acd9c3b00?w=600&q=80', category: 'guards', brand: 'Samsung', sponsored: false },
-    { id: 154, name: 'Google Pixel 9 Pro Tempered Glass',     price: 5000,  image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'guards', brand: 'Google Pixel', sponsored: false },
-    { id: 155, name: 'Redmi Note 13 Pro Tempered Glass',      price: 2500,  image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', category: 'guards', brand: 'Redmi', sponsored: false },
-    { id: 156, name: 'Tecno Camon 30 Pro Tempered Glass',     price: 2500,  image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'guards', brand: 'Tecno', sponsored: false },
-    { id: 157, name: 'Infinix Note 40 Pro Tempered Glass',    price: 2500,  image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'guards', brand: 'Infinix', sponsored: false },
-    { id: 158, name: 'Universal HD Screen Film (3-pack)',     price: 1500,  image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80', category: 'guards', brand: 'OBILO', sponsored: false },
-    { id: 159, name: 'Universal Matte Anti-Glare Film',       price: 2000,  image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80', category: 'guards', brand: 'OBILO', sponsored: false },
+    /* ===== CABLES ===== */
+    { id: 120, name: 'Anker USB-C to Lightning', price: 15000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Anker', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 121, name: 'Oraimo USB-C Fast Cable', price: 6500, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Oraimo', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 122, name: 'Apple USB-C to USB-C 2m', price: 22000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 123, name: 'Baseus 100W Braided Cable', price: 12000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Baseus', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 124, name: 'Samsung USB-C Data Cable', price: 9500, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 125, name: 'UGREEN HDMI 8K Cable', price: 18000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'UGREEN', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
 
-    { id: 80, name: 'Anker Power Bank 20K',     price: 45000,   image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=600&q=80', category: 'accessories', brand: 'Anker', sponsored: false },
-    { id: 81, name: 'Logitech MX Master 3S',    price: 85000,   image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&q=80', category: 'accessories', brand: 'Logitech', sponsored: false },
+    /* ===== CASES ===== */
+    { id: 130, name: 'iPhone 15 Pro Max Silicone Case', price: 8500, image: 'https://images.unsplash.com/photo-1601593346740-925612772716?w=600&q=80', category: 'cases', brand: 'Apple', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 131, name: 'iPhone 15 Pro Max Leather Case', price: 18000, image: 'https://images.unsplash.com/photo-1601593346740-925612772716?w=600&q=80', category: 'cases', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 132, name: 'Samsung S25 Ultra Clear Case', price: 7500, image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'cases', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 133, name: 'Samsung S25 Ultra Rugged Case', price: 12000, image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'cases', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 134, name: 'Google Pixel 9 Pro Fabric Case', price: 15000, image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'cases', brand: 'Google Pixel', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 135, name: 'Redmi Note 13 Pro Silicone Case', price: 4500, image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', category: 'cases', brand: 'Redmi', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 136, name: 'Tecno Camon 30 Pro Shockproof Case', price: 5500, image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'cases', brand: 'Tecno', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 137, name: 'Infinix Note 40 Pro Leather Case', price: 6500, image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'cases', brand: 'Infinix', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 138, name: 'Oppo Reno 12 Pro Clear Case', price: 5500, image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'cases', brand: 'Oppo', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 139, name: 'Universal Shockproof Case — Clear', price: 3500, image: 'https://images.unsplash.com/photo-1601593346740-925612772716?w=600&q=80', category: 'cases', brand: 'OBILO', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 140, name: 'Universal Ring Holder Case — Black', price: 4500, image: 'https://images.unsplash.com/photo-1601593346740-925612772716?w=600&q=80', category: 'cases', brand: 'OBILO', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+
+    /* ===== GUARDS ===== */
+    { id: 150, name: 'iPhone 15 Pro Max Tempered Glass', price: 4500, image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80', category: 'guards', brand: 'Apple', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 151, name: 'iPhone 15 Pro Max Privacy Glass', price: 8500, image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80', category: 'guards', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 152, name: 'Samsung S25 Ultra Tempered Glass', price: 4500, image: 'https://images.unsplash.com/photo-1610792516307-ea5acd9c3b00?w=600&q=80', category: 'guards', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 153, name: 'Samsung S25 Ultra Privacy Glass', price: 8500, image: 'https://images.unsplash.com/photo-1610792516307-ea5acd9c3b00?w=600&q=80', category: 'guards', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 154, name: 'Google Pixel 9 Pro Tempered Glass', price: 5000, image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'guards', brand: 'Google Pixel', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 155, name: 'Redmi Note 13 Pro Tempered Glass', price: 2500, image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', category: 'guards', brand: 'Redmi', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 156, name: 'Tecno Camon 30 Pro Tempered Glass', price: 2500, image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'guards', brand: 'Tecno', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 157, name: 'Infinix Note 40 Pro Tempered Glass', price: 2500, image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'guards', brand: 'Infinix', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 158, name: 'Universal HD Screen Film (3-pack)', price: 1500, image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80', category: 'guards', brand: 'OBILO', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 159, name: 'Universal Matte Anti-Glare Film', price: 2000, image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80', category: 'guards', brand: 'OBILO', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
+
+    /* ===== ACCESSORIES ===== */
+    { id: 80, name: 'Anker Power Bank 20K', price: 45000, image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=600&q=80', category: 'accessories', brand: 'Anker', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new' },
+    { id: 81, name: 'Logitech MX Master 3S', price: 85000, image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&q=80', category: 'accessories', brand: 'Logitech', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' }
 ];
 
-/* DEALS */
+/* DEALS — pull from master catalog so names/prices match */
 const DEALS = [
-    { id: 8,  name: 'Redmi Note 13 Pro',       price: 285000,  oldPrice: 340000,  image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', discount: '-16%' },
-    { id: 13, name: 'Infinix Hot 40',          price: 128000,  oldPrice: 155000,  image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', discount: '-17%' },
-    { id: 54, name: 'Oraimo FreePods 4',       price: 28000,   oldPrice: 42000,   image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&q=80', discount: '-33%' },
-    { id: 80, name: 'Anker Power Bank 20K',    price: 45000,   oldPrice: 65000,   image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=600&q=80', discount: '-31%' },
-    { id: 11, name: 'Tecno Spark 20',          price: 145000,  oldPrice: 175000,  image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', discount: '-17%' },
-    { id: 6,  name: 'Google Pixel 8a',         price: 720000,  oldPrice: 850000,  image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', discount: '-15%' },
+    { id: 8,    name: 'Redmi Note 13 Pro',                    price: 285000,  oldPrice: 340000,  image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', discount: '-16%' },
+    { id: 13,   name: 'Infinix Hot 40',                       price: 128000,  oldPrice: 155000,  image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', discount: '-17%' },
+    { id: 54,   name: 'Oraimo FreePods 4',                    price: 28000,   oldPrice: 42000,   image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&q=80', discount: '-33%' },
+    { id: 80,   name: 'Anker Power Bank 20K',                 price: 45000,   oldPrice: 65000,   image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=600&q=80', discount: '-31%' },
+    { id: 11,   name: 'Tecno Spark 20',                       price: 145000,  oldPrice: 175000,  image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', discount: '-17%' },
+    { id: 6,    name: 'Google Pixel 8a',                      price: 720000,  oldPrice: 850000,  image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', discount: '-15%' },
+    { id: 1001, name: 'iPhone 14 Pro Max — UK Used',          price: 980000,  oldPrice: 1280000, image: 'https://images.unsplash.com/photo-1678652197831-2d180705cd2c?w=600&q=80', discount: '-23%' },
+    { id: 1101, name: 'iPhone 14 — US Used',                  price: 720000,  oldPrice: 980000,  image: 'https://images.unsplash.com/photo-1591337676887-a217a6970a8a?w=600&q=80', discount: '-27%' }
 ];
 
 const NEWS = [
@@ -3516,6 +3556,13 @@ function buildWhatsAppLink(productName, price) {
     return `${WHATSAPP_BASE}?text=${encodeURIComponent(msg)}`;
 }
 
+/* CONDITION HELPERS */
+function getConditionInfo(condition) {
+    if (condition === 'uk-used') return { cls: 'uk-used', label: 'UK Used' };
+    if (condition === 'us-used') return { cls: 'us-used', label: 'US Used' };
+    return { cls: 'brand-new', label: 'Brand New' };
+}
+
 /* FAVOURITES */
 function getFavourites() { return JSON.parse(localStorage.getItem('obilo_favs') || '[]'); }
 function saveFavourites(favs) { localStorage.setItem('obilo_favs', JSON.stringify(favs)); updateFavBadge(); }
@@ -3525,7 +3572,7 @@ function toggleFavourite(product, btnEl) {
     const idx = favs.findIndex(f => f.id === product.id);
     const isFav = idx > -1;
     if (isFav) { favs.splice(idx, 1); showToast('Removed from favourites'); }
-    else { favs.push(product); showToast('♥ Added to favourites'); }
+    else { favs.push({ ...product, savedAt: new Date().toISOString() }); showToast('♥ Added to favourites'); }
     saveFavourites(favs);
     document.querySelectorAll(`[data-fav-id="${product.id}"]`).forEach(el => {
         el.classList.toggle('active', !isFav);
@@ -3720,15 +3767,25 @@ function renderProducts() {
     if (!grid) return;
     const favs = getFavourites();
     const favIds = favs.map(f => f.id);
-    const featured = PRODUCTS.filter(p =>
-        [1, 3, 5, 7, 10, 12, 16, 18, 30, 33, 40, 50, 60, 64, 70, 100, 110, 120, 130, 150, 80].includes(p.id)
-    );
+
+    /* Featured picks — includes brand-new flagships AND top UK/US used items */
+    const featuredIds = [1, 3, 5, 1001, 200, 210, 30, 33, 40, 50, 60, 70, 54, 80, 100, 110, 130, 150, 1002, 1101];
+    const featured = PRODUCTS.filter(p => featuredIds.includes(p.id));
+
     grid.innerHTML = featured.map(p => {
         const isFav = favIds.includes(p.id);
+        const condInfo = getConditionInfo(p.condition);
+        const condBadge = (p.condition === 'uk-used' || p.condition === 'us-used')
+            ? `<span class="condition-badge ${condInfo.cls}" style="position:absolute;top:14px;left:14px;z-index:2;background:rgba(0,0,0,0.75);backdrop-filter:blur(6px);font-size:9px;font-weight:800;padding:5px 10px;border-radius:4px;letter-spacing:1.4px;text-transform:uppercase;border:1px solid transparent;">${condInfo.label}</span>`
+            : '';
+        const oldPriceHTML = (p.oldPrice && p.oldPrice > p.price)
+            ? `<div style="font-size:12px; color:var(--text-muted); text-decoration:line-through; margin-top:-6px;">${formatPrice(p.oldPrice)}</div>`
+            : '';
         return `
         <div class="product-card" onclick="goToProduct(${p.id})">
             <div class="product-image">
                 ${p.sponsored ? '<span class="sponsored-tag">Sponsored</span>' : ''}
+                ${condBadge}
                 <img src="${p.image}" alt="${p.name}" loading="lazy">
                 <button class="fav-icon ${isFav ? 'active' : ''}"
                         data-fav-id="${p.id}"
@@ -3739,6 +3796,7 @@ function renderProducts() {
                 <div class="product-brand">${p.brand}</div>
                 <div class="product-name">${p.name}</div>
                 <div class="product-price">${formatPrice(p.price)}</div>
+                ${oldPriceHTML}
                 <button class="fav-btn-text ${isFav ? 'active' : ''}"
                         data-fav-id="${p.id}"
                         onclick="handleFav(event, ${p.id}, this)">
@@ -3826,17 +3884,19 @@ const SLIDES = [
       headline: 'iPhone 15 Pro Max <span class="gold">vs</span> Pixel 9 Pro', sub: 'Two camera kings. Which wins your pocket?' },
     { type: 'battle', label: 'Value Battle', deviceA: PRODUCTS.find(p => p.id === 8), deviceB: PRODUCTS.find(p => p.id === 12),
       headline: 'Redmi Note 13 Pro <span class="gold">vs</span> Infinix Note 40 Pro', sub: 'The best value under ₦350K' },
-    { type: 'battle', label: 'Android Battle', deviceA: PRODUCTS.find(p => p.id === 3), deviceB: PRODUCTS.find(p => p.id === 7),
-      headline: 'Samsung S25 Ultra <span class="gold">vs</span> Xiaomi 14 Ultra', sub: 'Two Android titans, head to head' },
+    { type: 'battle', label: 'Android Battle', deviceA: PRODUCTS.find(p => p.id === 3), deviceB: PRODUCTS.find(p => p.id === 210),
+      headline: 'Samsung S25 Ultra <span class="gold">vs</span> S24 Ultra', sub: 'Two Android titans, head to head' },
+    { type: 'battle', label: 'UK Used Pick', deviceA: PRODUCTS.find(p => p.id === 1001), deviceB: PRODUCTS.find(p => p.id === 1002),
+      headline: 'iPhone 14 Pro Max <span class="gold">vs</span> S23 Ultra (UK Used)', sub: 'Grade A+ UK used flagships — save ₦300K+' },
     { type: 'deal', label: 'Limited Offer',
       device: { name: 'Oraimo FreePods 4', price: 28000, oldPrice: 42000, discount: '-33%', image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&q=80' },
       headline: 'Oraimo FreePods 4 — <span class="gold">33% Off</span>', sub: 'Best budget earbuds in Nigeria right now' },
     { type: 'deal', label: 'Limited Offer',
+      device: { name: 'iPhone 14 Pro Max — UK Used', price: 980000, oldPrice: 1280000, discount: '-23%', image: 'https://images.unsplash.com/photo-1678652197831-2d180705cd2c?w=800&q=80' },
+      headline: 'iPhone 14 Pro Max <span class="gold">UK Used</span>', sub: 'Grade A+ — save ₦300,000 vs brand new' },
+    { type: 'deal', label: 'Limited Offer',
       device: { name: 'Redmi Note 13 Pro', price: 285000, oldPrice: 340000, discount: '-16%', image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=800&q=80' },
       headline: 'Redmi Note 13 Pro — <span class="gold">16% Off</span>', sub: 'Flagship camera at a midrange price' },
-    { type: 'deal', label: 'Limited Offer',
-      device: { name: 'Infinix Hot 40', price: 128000, oldPrice: 155000, discount: '-17%', image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&q=80' },
-      headline: 'Infinix Hot 40 — <span class="gold">17% Off</span>', sub: 'Best budget phone for everyday use' },
 ];
 
 let currentSlide = 0;
@@ -3852,7 +3912,7 @@ function renderHeroSlider() {
     if (!slider) return;
 
     const slidesHTML = SLIDES.map((s, i) => {
-        if (s.type === 'battle') {
+        if (s.type === 'battle' && s.deviceA && s.deviceB) {
             return `
                 <div class="slide ${i === 0 ? 'active' : ''}" data-index="${i}">
                     <span class="slide-label">✦ ${s.label}</span>
@@ -3872,13 +3932,13 @@ function renderHeroSlider() {
                     <div class="slide-headline">${s.headline}</div>
                     <div class="slide-sub">${s.sub}</div>
                     <div class="slide-cta-row">
-                        <a href="product.html?id=${s.deviceA.id}" class="slide-btn slide-btn-gold">See Comparison</a>
+                        <a href="product.html?id=${s.deviceA.id}" class="slide-btn slide-btn-gold">See ${s.deviceA.name.split('—')[0].trim().split(' ')[0]}</a>
                         <a href="https://wa.me/2349094062471?text=${encodeURIComponent('Hi OBILO, I need help deciding between ' + s.deviceA.name + ' and ' + s.deviceB.name)}"
                            target="_blank" rel="noopener" class="slide-btn slide-btn-wa">${WA_SVG}<span>Ask</span></a>
                     </div>
                 </div>
             `;
-        } else {
+        } else if (s.type === 'deal') {
             const d = s.device;
             const dealProduct = PRODUCTS.find(p => p.name === d.name);
             const link = dealProduct ? `product.html?id=${dealProduct.id}` : `shop.html?deals=1`;
@@ -3905,7 +3965,8 @@ function renderHeroSlider() {
                 </div>
             `;
         }
-    }).join('');
+        return '';
+    }).filter(Boolean).join('');
 
     slider.insertAdjacentHTML('afterbegin', slidesHTML);
 
@@ -4013,6 +4074,8 @@ function sendAI() {
             reply = "Best student laptops in stock:\n\n• <strong>HP Pavilion 15</strong> — ₦720,000 (reliable all-rounder)\n• <strong>Lenovo IdeaPad Slim 5</strong> — ₦650,000 (light & portable)\n• <strong>Asus Vivobook 16</strong> — ₦580,000 (best budget)\n\nAll come with warranty. Want me to check availability?";
         } else if (lower.includes('earbud') || lower.includes('budget')) {
             reply = "Best budget earbuds:\n\n• <strong>Oraimo FreePods 4</strong> — ₦28,000 (incredible value)\n• <strong>Anker Soundcore P40i</strong> — ₦65,000 (better sound)\n• <strong>Samsung Buds 3 Pro</strong> — ₦210,000 (premium pick)\n\nThe Oraimo is our best seller under ₦30K!";
+        } else if (lower.includes('uk') || lower.includes('used')) {
+            reply = "We stock both <strong>UK Used</strong> and <strong>US Used</strong> devices in Grade A+ condition:\n\n• <strong>iPhone 14 Pro Max — UK Used</strong> — ₦980,000 (was ₦1.28M)\n• <strong>Samsung S23 Ultra — UK Used</strong> — ₦780,000\n• <strong>iPhone 14 — US Used</strong> — ₦720,000\n• <strong>Google Pixel 7 Pro — UK Used</strong> — ₦520,000\n\nEvery used device has a full condition report and 6-month warranty.";
         } else if (lower.includes('phone') || lower.includes('smartphone')) {
             reply = "We carry every major brand — iPhone, Samsung, Google Pixel, Redmi, Tecno, Infinix, itel, Oppo, Vivo, Realme, Honor, Nokia, and Nothing.\n\nWhat's your budget range? I can narrow it down for you.";
         }

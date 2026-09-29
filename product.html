@@ -31,6 +31,7 @@
     --dark: #0A0A0C;
     --dark-2: #121215;
     --dark-3: #1C1C21;
+    --dark-4: #26262D;
     --text: #F2F2F0;
     --text-muted: #8E8E96;
     --text-soft: #B8B8BE;
@@ -61,6 +62,7 @@ html[data-theme="light"] {
     --dark: #FAFAF8;
     --dark-2: #FFFFFF;
     --dark-3: #F2F2EE;
+    --dark-4: #E8E8E2;
     --text: #0F0F12;
     --text-muted: #6A6A72;
     --text-soft: #4A4A52;
@@ -149,6 +151,7 @@ html[data-theme="light"] .logo-tag { color: #8E6E14; }
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     border-bottom: 1px solid var(--border-soft);
+    transition: background 0.4s ease;
 }
 .header-top {
     display: flex;
@@ -170,8 +173,10 @@ html[data-theme="light"] .logo-tag { color: #8E6E14; }
     font-size: 14px;
     font-family: inherit;
     outline: none;
+    transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
 }
-.search-bar input:focus { border-color: var(--gold); }
+.search-bar input:focus { border-color: var(--gold); box-shadow: 0 0 0 4px var(--gold-soft); }
+.search-bar input::placeholder { color: var(--text-muted); }
 .search-bar button {
     position: absolute;
     right: 6px;
@@ -186,7 +191,9 @@ html[data-theme="light"] .logo-tag { color: #8E6E14; }
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.2s var(--ease), box-shadow 0.25s;
 }
+.search-bar button:hover { transform: translateY(-50%) scale(1.06); box-shadow: 0 6px 18px rgba(201, 162, 39, 0.4); }
 .header-actions { display: flex; align-items: center; gap: 4px; }
 .icon-btn {
     position: relative;
@@ -226,22 +233,24 @@ html[data-theme="light"] .logo-tag { color: #8E6E14; }
     align-items: center;
     justify-content: center;
     color: var(--text-soft);
+    transition: background 0.2s, color 0.2s;
     overflow: hidden;
 }
 .theme-toggle:hover { background: var(--dark-3); color: var(--gold); }
 .theme-toggle .theme-icon {
+    display: block;
+    transition: transform 0.6s var(--ease), opacity 0.35s;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    transition: transform 0.6s var(--ease), opacity 0.35s;
+    transform: translate(-50%, -50%) rotate(0deg);
     font-size: 17px;
+    line-height: 1;
 }
 .theme-toggle .theme-icon.sun { opacity: 0; transform: translate(-50%, -50%) rotate(-90deg); }
-.theme-toggle .theme-icon.moon { opacity: 1; }
+.theme-toggle .theme-icon.moon { opacity: 1; transform: translate(-50%, -50%) rotate(0deg); }
 html[data-theme="light"] .theme-toggle .theme-icon.sun { opacity: 1; transform: translate(-50%, -50%) rotate(0deg); }
 html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform: translate(-50%, -50%) rotate(90deg); }
-
 .whatsapp-btn-header {
     display: flex;
     align-items: center;
@@ -252,31 +261,482 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     border-radius: 100px;
     font-size: 13px;
     font-weight: 600;
+    letter-spacing: 0.3px;
+    transition: transform 0.25s var(--ease), box-shadow 0.3s;
+}
+.whatsapp-btn-header:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(37, 211, 102, 0.32); }
+
+/* SIGN IN / REGISTER BUTTON */
+.signin-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 42px;
+    padding: 0 20px;
+    border-radius: 100px;
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    color: var(--text-soft);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.22s var(--ease);
+    white-space: nowrap;
+}
+.signin-btn:hover {
+    border-color: var(--gold-hairline);
+    color: var(--gold);
+    background: var(--gold-soft);
 }
 
-/* NAV */
-.nav {
+/* LOGIN PANEL */
+.account-wrap { position: relative; }
+.account-wrap::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 320px;
+    height: 14px;
+    pointer-events: auto;
+}
+.login-panel {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    width: 320px;
+    background: var(--dark-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px;
+    box-shadow: var(--shadow-elegant);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.28s var(--ease), transform 0.28s var(--ease), visibility 0.28s;
+    z-index: 160;
+}
+.account-wrap:hover .login-panel,
+.account-wrap.open .login-panel { opacity: 1; visibility: visible; transform: translateY(0); }
+.login-panel-head { margin-bottom: 18px; text-align: center; }
+.login-panel-head h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 5px;
+}
+.login-panel-head p { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+.login-field { margin-bottom: 14px; }
+.login-field label {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+.login-input {
+    width: 100%;
+    padding: 11px 15px;
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.25s, box-shadow 0.25s;
+}
+.login-input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-soft); }
+.login-input::placeholder { color: var(--text-muted); }
+.login-actions-row { display: flex; justify-content: flex-end; margin: -4px 0 14px; }
+.login-forgot { font-size: 11px; color: var(--blue-light); transition: color 0.2s; }
+.login-forgot:hover { color: var(--gold); }
+.login-submit {
+    width: 100%;
+    padding: 13px;
+    background: var(--gold-gradient);
+    color: #1a1a1a;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: transform 0.2s var(--ease), box-shadow 0.3s;
+    cursor: pointer;
+    font-family: inherit;
+}
+.login-submit:hover { transform: translateY(-1px); box-shadow: 0 12px 26px rgba(201, 162, 39, 0.4); }
+.login-divider {
     display: flex;
-    gap: 2px;
-    padding: 0 28px 14px;
-    max-width: 1300px;
-    margin: 0 auto;
+    align-items: center;
+    gap: 12px;
+    margin: 16px 0;
+    color: var(--text-muted);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.login-divider::before,
+.login-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.login-wa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px;
+    background: var(--whatsapp);
+    color: #fff;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+}
+.login-foot {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+}
+.login-foot a { color: var(--gold); font-weight: 600; }
+.login-panel .logged-in-only { display: none; }
+.login-panel.is-logged-in .logged-out-only { display: none; }
+.login-panel.is-logged-in .logged-in-only { display: block; }
+.logged-in-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+}
+.logged-in-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--gold-gradient);
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+.logged-in-name { font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.2; }
+.logged-in-email { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+.logged-in-links { display: flex; flex-direction: column; gap: 2px; }
+.logged-in-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 12px;
+    border-radius: 10px;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+}
+.logged-in-link:hover { background: var(--dark-3); color: var(--gold); }
+.logged-in-link span:first-child { font-size: 15px; }
+.logged-in-link .count {
+    margin-left: auto;
+    background: var(--gold-soft);
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 7px;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logout-btn {
+    width: 100%;
+    margin-top: 14px;
+    padding: 11px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--danger);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.2s;
+    cursor: pointer;
+    font-family: inherit;
+}
+.logout-btn:hover { background: rgba(229, 72, 77, 0.08); border-color: var(--danger); }
+
+/* TOP INFO BAR */
+.top-info-bar {
+    background: var(--dark-2);
+    border-bottom: 1px solid var(--border-soft);
+    padding: 8px 28px;
     overflow-x: auto;
     scrollbar-width: none;
+    transition: background 0.4s ease;
 }
-.nav::-webkit-scrollbar { display: none; }
-.nav-item > a {
+.top-info-bar::-webkit-scrollbar { display: none; }
+.top-info-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+    row-gap: 6px;
+}
+.top-info-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    color: var(--text-muted);
+    white-space: nowrap;
+    transition: color 0.2s;
+    cursor: pointer;
+    padding: 3px 4px;
+    border-radius: 6px;
+}
+.top-info-item:hover { color: var(--gold); }
+.top-info-item .top-info-icon {
+    font-size: 13px;
+    color: var(--gold);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    text-align: center;
+    flex-shrink: 0;
+}
+.top-info-divider {
+    width: 1px;
+    height: 14px;
+    background: var(--border);
+    flex-shrink: 0;
+}
+
+/* NAVIGATION */
+.nav-wrapper {
+    position: relative;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 28px;
+}
+.nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0 14px;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.nav-shop-link {
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    padding: 7px 14px;
+    padding: 7px 16px;
     font-size: 13px;
     font-weight: 500;
+    letter-spacing: 0.3px;
     color: var(--text-muted);
     border-radius: 100px;
     white-space: nowrap;
+    transition: color 0.2s, background 0.2s;
 }
-.nav-item > a:hover, .nav-item > a.active { color: var(--gold); background: var(--gold-soft); }
+.nav-shop-link:hover,
+.nav-shop-link.active {
+    color: var(--gold);
+    background: var(--gold-soft);
+}
+.hamburger-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: 100px;
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    color: var(--text-soft);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    transition: all 0.25s var(--ease);
+    white-space: nowrap;
+    font-family: inherit;
+}
+.hamburger-btn:hover {
+    border-color: var(--gold-hairline);
+    color: var(--gold);
+    background: var(--gold-soft);
+}
+.hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 18px;
+    flex-shrink: 0;
+}
+.hamburger-icon span {
+    display: block;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+    transition: transform 0.3s var(--ease), opacity 0.3s;
+    transform-origin: center;
+}
+.hamburger-btn.active .hamburger-icon span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.hamburger-btn.active .hamburger-icon span:nth-child(2) { opacity: 0; }
+.hamburger-btn.active .hamburger-icon span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+.hamburger-label {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+/* MEGA DROPDOWN */
+.mega-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: var(--dark-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px 32px;
+    box-shadow: var(--shadow-elegant);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.28s var(--ease), transform 0.28s var(--ease), visibility 0.28s;
+    z-index: 150;
+    pointer-events: none;
+}
+.mega-dropdown::before {
+    content: '';
+    position: absolute;
+    top: -14px;
+    left: 0;
+    right: 0;
+    height: 14px;
+}
+.mega-dropdown.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+.mega-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+}
+.mega-col {
+    flex: 1 1 180px;
+    min-width: 140px;
+}
+.mega-col-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-soft);
+}
+.mega-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+}
+.mega-links a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--text-soft);
+    font-weight: 400;
+    transition: all 0.2s;
+}
+.mega-links a:hover {
+    background: var(--gold-soft);
+    color: var(--gold);
+    padding-left: 12px;
+}
+.mega-links a .cat-icon {
+    font-size: 15px;
+    color: var(--gold);
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+}
+.mega-featured {
+    flex: 1 1 260px;
+    min-width: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.mega-featured-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-soft);
+}
+.mega-featured-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+    border-radius: 10px;
+    transition: background 0.2s;
+    cursor: pointer;
+}
+.mega-featured-item:hover { background: var(--dark-3); }
+.mega-featured-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--dark-3);
+    flex-shrink: 0;
+}
+.mega-featured-img img { width: 100%; height: 100%; object-fit: cover; }
+.mega-featured-info { display: flex; flex-direction: column; gap: 3px; }
+.mega-featured-name { font-size: 12px; font-weight: 500; color: var(--text); line-height: 1.3; }
+.mega-featured-price { font-size: 12px; font-weight: 700; color: var(--gold); }
 
 /* PRODUCT PAGE */
 .product-wrap {
@@ -306,7 +766,7 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 }
 
 /* GALLERY */
-.gallery { position: sticky; top: 160px; display: flex; flex-direction: column; gap: 16px; }
+.gallery { position: sticky; top: 220px; display: flex; flex-direction: column; gap: 16px; }
 .gallery-main {
     position: relative;
     aspect-ratio: 1 / 1;
@@ -354,7 +814,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 .product-badge.limited { background: rgba(201, 162, 39, 0.16); color: var(--gold); border-color: var(--gold-hairline); }
 .product-badge.sold-out { background: rgba(229, 72, 77, 0.15); color: var(--danger); border-color: rgba(229, 72, 77, 0.45); }
 
-/* CONDITION BADGE — Gallery overlay */
 .condition-badge {
     display: inline-flex;
     align-items: center;
@@ -369,18 +828,9 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     border: 1px solid transparent;
     background: rgba(0, 0, 0, 0.75);
 }
-.condition-badge.brand-new {
-    color: var(--success);
-    border-color: rgba(48, 164, 108, 0.4);
-}
-.condition-badge.uk-used {
-    color: var(--uk-blue);
-    border-color: var(--uk-blue-hairline);
-}
-.condition-badge.us-used {
-    color: var(--us-purple);
-    border-color: var(--us-purple-hairline);
-}
+.condition-badge.brand-new { color: var(--success); border-color: rgba(48, 164, 108, 0.4); }
+.condition-badge.uk-used { color: var(--uk-blue); border-color: var(--uk-blue-hairline); }
+.condition-badge.us-used { color: var(--us-purple); border-color: var(--us-purple-hairline); }
 .condition-badge .cb-dot {
     width: 7px;
     height: 7px;
@@ -406,7 +856,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     border-radius: 100px;
 }
 
-/* Condition + stock pill row */
 .product-meta-row {
     display: flex;
     align-items: center;
@@ -444,18 +893,9 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     border-radius: 100px;
     white-space: nowrap;
 }
-.condition-pill.brand-new {
-    color: var(--success);
-    background: rgba(48, 164, 108, 0.12);
-}
-.condition-pill.uk-used {
-    color: var(--uk-blue);
-    background: var(--uk-blue-soft);
-}
-.condition-pill.us-used {
-    color: var(--us-purple);
-    background: var(--us-purple-soft);
-}
+.condition-pill.brand-new { color: var(--success); background: rgba(48, 164, 108, 0.12); }
+.condition-pill.uk-used { color: var(--uk-blue); background: var(--uk-blue-soft); }
+.condition-pill.us-used { color: var(--us-purple); background: var(--us-purple-soft); }
 .condition-pill .cp-dot {
     width: 6px;
     height: 6px;
@@ -526,7 +966,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 .availability-note strong { display: block; color: var(--text); font-weight: 600; margin-bottom: 3px; font-size: 13px; }
 .availability-note-icon { font-size: 18px; line-height: 1; margin-top: 1px; flex-shrink: 0; }
 
-/* AI BUTTON */
 .ai-ask-btn {
     position: relative;
     display: flex;
@@ -610,7 +1049,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 .action-btn-fav.active { border-color: var(--danger); color: var(--danger); background: rgba(229, 72, 77, 0.08); }
 .action-btn-fav .heart { font-size: 18px; line-height: 1; }
 
-/* SWAP CTA */
 .swap-cta {
     display: flex;
     align-items: center;
@@ -722,7 +1160,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 }
 .share-btn:hover { background: var(--gold-gradient); color: #1a1a1a; }
 
-/* TABS */
 .tabs-section { margin-top: 12px; border-top: 1px solid var(--border-soft); }
 .tabs-head {
     display: flex;
@@ -770,7 +1207,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     white-space: nowrap;
 }
 
-/* CONDITION REPORT — used products */
 .condition-report {
     background: var(--dark-2);
     border: 1px solid var(--border);
@@ -833,18 +1269,9 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     color: var(--text);
     font-weight: 500;
 }
-.condition-row .cond-value.grade-a-plus {
-    color: var(--success);
-    font-weight: 700;
-}
-.condition-row .cond-value.grade-a {
-    color: var(--success);
-    font-weight: 600;
-}
-.condition-row .cond-value.grade-b {
-    color: var(--warning);
-    font-weight: 600;
-}
+.condition-row .cond-value.grade-a-plus { color: var(--success); font-weight: 700; }
+.condition-row .cond-value.grade-a { color: var(--success); font-weight: 600; }
+.condition-row .cond-value.grade-b { color: var(--warning); font-weight: 600; }
 
 .condition-explainer {
     margin-top: 24px;
@@ -929,7 +1356,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 .delivery-item-text h5 { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; margin-bottom: 4px; }
 .delivery-item-text p { font-size: 13px; color: var(--text-muted); line-height: 1.55; font-weight: 300; }
 
-/* SECTIONS BELOW */
 .section-below { margin-top: 70px; padding-top: 50px; border-top: 1px solid var(--border-soft); }
 .section-below-head {
     display: flex;
@@ -1073,18 +1499,17 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     font-family: inherit;
 }
 
-/* NOT FOUND */
 .not-found { text-align: center; padding: 100px 20px; }
 .not-found-icon { font-size: 60px; color: var(--gold); opacity: 0.5; margin-bottom: 20px; }
 .not-found h2 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; margin-bottom: 12px; }
 .not-found p { font-size: 14px; color: var(--text-muted); margin-bottom: 30px; max-width: 420px; margin-left: auto; margin-right: auto; }
 
-/* FOOTER */
 .footer {
     background: var(--footer-bg);
     border-top: 1px solid var(--border-soft);
     padding: 80px 0 36px;
     margin-top: 40px;
+    transition: background 0.4s ease;
 }
 .footer-grid {
     display: grid;
@@ -1105,9 +1530,14 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     justify-content: center;
     color: var(--text-muted);
     font-size: 15px;
+    transition: all 0.25s var(--ease);
 }
 .social-btn svg { width: 17px; height: 17px; fill: currentColor; }
-.social-btn:hover { background: var(--gold-gradient); color: #1a1a1a; }
+.social-btn:hover { background: var(--gold-gradient); color: #1a1a1a; transform: translateY(-3px); box-shadow: 0 10px 22px rgba(201, 162, 39, 0.3); }
+.social-btn.facebook:hover { background: #1877F2; border-color: #1877F2; color: #fff; }
+.social-btn.instagram:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #fff; }
+.social-btn.tiktok:hover { background: #FE2C55; color: #fff; }
+.social-btn.wa-social:hover { background: var(--whatsapp); color: #fff; }
 .footer-col h5 {
     font-family: 'Playfair Display', serif;
     font-size: 14px;
@@ -1118,7 +1548,7 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     text-transform: uppercase;
 }
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
-.footer-col a { font-size: 13px; color: var(--text-muted); font-weight: 300; }
+.footer-col a { font-size: 13px; color: var(--text-muted); font-weight: 300; transition: color 0.2s; }
 .footer-col a:hover { color: var(--gold); }
 .contact-line {
     font-size: 13px;
@@ -1129,6 +1559,7 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     line-height: 1.55;
     font-weight: 300;
 }
+.contact-line .wa-icon { margin-top: 3px; }
 .footer-bottom {
     padding-top: 30px;
     border-top: 1px solid var(--border-soft);
@@ -1139,10 +1570,10 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     flex-wrap: wrap;
     font-size: 11px;
     color: var(--text-muted);
+    letter-spacing: 0.5px;
 }
 .footer-bottom .gold { color: var(--gold); font-weight: 600; }
 
-/* FLOATING */
 .wa-float {
     position: fixed;
     bottom: 28px;
@@ -1158,8 +1589,10 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     box-shadow: 0 14px 32px rgba(37, 211, 102, 0.42);
     z-index: 99;
     animation: wa-pulse 2.6s infinite;
+    transition: transform 0.25s var(--ease);
 }
 .wa-float .wa-icon { width: 28px; height: 28px; }
+.wa-float:hover { transform: scale(1.08); }
 @keyframes wa-pulse {
     0% { box-shadow: 0 14px 32px rgba(37, 211, 102, 0.42), 0 0 0 0 rgba(37, 211, 102, 0.5); }
     70% { box-shadow: 0 14px 32px rgba(37, 211, 102, 0.42), 0 0 0 18px rgba(37, 211, 102, 0); }
@@ -1185,8 +1618,10 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     transform: translateY(10px);
     transition: all 0.3s var(--ease);
     cursor: pointer;
+    box-shadow: var(--shadow-medium);
 }
 .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+.back-to-top:hover { background: var(--gold-gradient); color: #1a1a1a; border-color: var(--gold); }
 
 .toast {
     position: fixed;
@@ -1210,22 +1645,59 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 }
 .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
-/* MOBILE */
 @media (max-width: 1024px) {
     .product-layout { grid-template-columns: 1fr; gap: 36px; }
     .gallery { position: relative; top: auto; }
 }
 @media (max-width: 900px) {
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-    .search-bar { display: none; }
+    .search-bar { display: flex; flex: 1; max-width: none; }
+    .header-top { flex-wrap: wrap; gap: 12px; }
+    .header-actions { flex-shrink: 0; }
+    .mega-inner { flex-wrap: wrap; }
+    .mega-col { flex: 1 1 150px; }
+    .mega-featured { flex: 1 1 100%; flex-direction: row; flex-wrap: wrap; }
+    .mega-featured-title { width: 100%; }
+    .mega-featured-item { flex: 0 0 calc(50% - 8px); }
 }
 @media (max-width: 640px) {
-    .header-top { padding: 14px 18px; }
+    .header-top { padding: 14px 18px; flex-wrap: wrap; }
     .logo-main { font-size: 22px; letter-spacing: 2px; }
     .logo-sub { font-size: 9px; letter-spacing: 6px; }
+    .logo-tag { font-size: 10px; }
     .whatsapp-btn-header span.txt { display: none; }
     .whatsapp-btn-header { padding: 11px; width: 42px; height: 42px; justify-content: center; }
-    .nav { padding: 0 18px 12px; }
+    .signin-btn { height: 42px; padding: 0 14px; font-size: 12px; }
+    .search-bar { order: 3; width: 100%; max-width: 100%; flex: 0 0 100%; margin-top: 4px; }
+    .search-bar input { padding: 11px 48px 11px 18px; font-size: 13px; }
+    .search-bar button { width: 34px; height: 34px; font-size: 14px; right: 5px; }
+    .login-panel { position: fixed; top: 78px; left: 8px; right: 8px; width: auto; }
+    .top-info-bar { padding: 6px 18px; }
+    .top-info-inner { gap: 14px; justify-content: flex-start; }
+    .top-info-item { font-size: 10px; padding: 2px 2px; }
+    .top-info-item .top-info-icon { font-size: 11px; width: 13px; }
+    .top-info-divider { height: 12px; }
+    .nav-wrapper { padding: 0 18px; }
+    .nav-bar { padding: 0 0 12px; flex-wrap: wrap; }
+    .hamburger-btn { padding: 7px 14px; font-size: 12px; }
+    .hamburger-label { font-size: 12px; }
+    .mega-dropdown {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding: 20px 16px;
+        border-radius: var(--radius);
+        max-height: 75vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .mega-inner { flex-direction: column; gap: 20px; }
+    .mega-col { flex: 1 1 auto; min-width: 0; }
+    .mega-featured { flex: 1 1 auto; flex-direction: column; }
+    .mega-featured-item { flex: 1 1 100%; }
+
     .product-wrap { padding: 20px 18px 50px; }
     .product-layout { gap: 30px; margin-bottom: 40px; }
     .product-title { font-size: 24px; }
@@ -1258,43 +1730,206 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     .footer-grid { grid-template-columns: 1fr; gap: 34px; }
     .footer-bottom { flex-direction: column; text-align: center; }
     .wa-float { width: 52px; height: 52px; bottom: 20px; right: 20px; }
+    .wa-float .wa-icon { width: 24px; height: 24px; }
     .back-to-top { bottom: 86px; right: 20px; }
 }
 </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header class="header">
+    <div class="top-info-bar">
+        <div class="top-info-inner">
+            <a href="warranty.html" class="top-info-item">
+                <span class="top-info-icon">◈</span>
+                <span>1-Year Warranty</span>
+            </a>
+            <span class="top-info-divider"></span>
+            <a href="delivery.html" class="top-info-item">
+                <span class="top-info-icon">➤</span>
+                <span>Nationwide Delivery</span>
+            </a>
+        </div>
+    </div>
+
     <div class="header-top">
         <a href="index.html" class="logo">
             <span class="logo-main">OBILO GOLD</span>
             <span class="logo-sub">GADGETS</span>
             <span class="logo-tag">Quality or Nothing</span>
         </a>
+
         <div class="search-bar">
             <input type="text" id="searchInput" placeholder="Search phones, laptops, tablets, brands...">
             <button onclick="handleSearch()" aria-label="Search">⌕</button>
         </div>
+
         <div class="header-actions">
             <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme">
                 <span class="theme-icon moon">☾</span>
                 <span class="theme-icon sun">☀</span>
             </button>
+
             <button class="icon-btn" onclick="location.href='favourites.html'" aria-label="Favourites">
-                ♡<span class="badge" id="favBadge" style="display:none">0</span>
+                ♡
+                <span class="badge" id="favBadge" style="display:none">0</span>
             </button>
-            <a href="https://wa.me/message/XUZF5HG3Y" target="_blank" rel="noopener" class="whatsapp-btn-header">
-                <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+
+            <div class="account-wrap" id="accountWrap">
+                <button class="signin-btn" onclick="toggleAccount(event)" aria-label="Sign In or Register" aria-haspopup="true">
+                    Sign In / Register
+                </button>
+
+                <div class="login-panel" id="loginPanel" role="dialog" aria-label="Account">
+                    <div class="logged-out-only">
+                        <div class="login-panel-head">
+                            <h4>Welcome Back</h4>
+                            <p>Sign in to unlock your favourites and personalised picks.</p>
+                        </div>
+                        <form onsubmit="handleLogin(event)">
+                            <div class="login-field">
+                                <label for="loginEmail">Email or Phone</label>
+                                <input type="text" id="loginEmail" class="login-input" placeholder="you@example.com" autocomplete="username">
+                            </div>
+                            <div class="login-field">
+                                <label for="loginPassword">Password</label>
+                                <input type="password" id="loginPassword" class="login-input" placeholder="••••••••" autocomplete="current-password">
+                            </div>
+                            <div class="login-actions-row">
+                                <a href="#" class="login-forgot">Forgot password?</a>
+                            </div>
+                            <button type="submit" class="login-submit">Sign In</button>
+                        </form>
+                        <div class="login-divider">Or continue with</div>
+                        <a href="https://wa.me/2349094062471" target="_blank" rel="noopener" class="login-wa">
+                            <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                            </svg>
+                            WhatsApp
+                        </a>
+                        <div class="login-foot">
+                            New to OBILO? <a href="register.html">Create an account</a>
+                        </div>
+                    </div>
+
+                    <div class="logged-in-only">
+                        <div class="logged-in-head">
+                            <div class="logged-in-avatar" id="userInitial">O</div>
+                            <div>
+                                <div class="logged-in-name" id="userName">OBILO Customer</div>
+                                <div class="logged-in-email" id="userEmail">customer@obilogold.com</div>
+                            </div>
+                        </div>
+                        <div class="logged-in-links">
+                            <a href="favourites.html" class="logged-in-link">
+                                <span>♡</span>
+                                <span>My Favourites</span>
+                                <span class="count" id="panelFavCount">0</span>
+                            </a>
+                            <a href="#" class="logged-in-link"><span>◈</span><span>Price Watch</span></a>
+                            <a href="help.html" class="logged-in-link"><span>?</span><span>Help &amp; Support</span></a>
+                        </div>
+                        <button class="logout-btn" onclick="handleLogout()">Sign Out</button>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://wa.me/2349094062471" target="_blank" rel="noopener" class="whatsapp-btn-header">
+                <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
                 <span class="txt">WhatsApp</span>
             </a>
         </div>
     </div>
-    <nav class="nav">
-        <div class="nav-item"><a href="index.html">Home</a></div>
-        <div class="nav-item"><a href="shop.html">Shop</a></div>
-        <div class="nav-item"><a href="shop.html?deals=1">Deals</a></div>
-        <div class="nav-item"><a href="support.html">Support</a></div>
-    </nav>
+
+    <div class="nav-wrapper" id="navWrapper">
+        <div class="nav-bar">
+            <div class="nav-left">
+                <a href="index.html" class="nav-shop-link">Home</a>
+                <a href="shop.html" class="nav-shop-link active">Shop</a>
+                <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMegaMenu()" aria-label="Browse categories" aria-expanded="false">
+                    <span class="hamburger-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                    <span class="hamburger-label">Browse</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="mega-dropdown" id="megaDropdown">
+            <div class="mega-inner">
+                <div class="mega-col">
+                    <div class="mega-col-title">Categories</div>
+                    <ul class="mega-links">
+                        <li><a href="shop.html?cat=phones"><span class="cat-icon">◐</span> Phones</a></li>
+                        <li><a href="shop.html?cat=laptops"><span class="cat-icon">⌘</span> Laptops</a></li>
+                        <li><a href="shop.html?cat=tablets"><span class="cat-icon">▢</span> Tablets</a></li>
+                        <li><a href="shop.html?cat=audio"><span class="cat-icon">◉</span> Audio</a></li>
+                        <li><a href="shop.html?cat=wearables"><span class="cat-icon">◯</span> Watches</a></li>
+                        <li><a href="shop.html?cat=smart-glasses"><span class="cat-icon">◈</span> Smart Glasses</a></li>
+                    </ul>
+                </div>
+                <div class="mega-col">
+                    <div class="mega-col-title">More Categories</div>
+                    <ul class="mega-links">
+                        <li><a href="shop.html?cat=mp3"><span class="cat-icon">♫</span> MP3 Players</a></li>
+                        <li><a href="shop.html?cat=chargers"><span class="cat-icon">⚡</span> Chargers</a></li>
+                        <li><a href="shop.html?cat=cables"><span class="cat-icon">⌁</span> Cords &amp; Cables</a></li>
+                        <li><a href="shop.html?cat=cases"><span class="cat-icon">⬚</span> Phone Cases</a></li>
+                        <li><a href="shop.html?cat=guards"><span class="cat-icon">◫</span> Screen Guards</a></li>
+                        <li><a href="shop.html?cat=accessories"><span class="cat-icon">✦</span> Accessories</a></li>
+                    </ul>
+                </div>
+                <div class="mega-col">
+                    <div class="mega-col-title">Top Brands</div>
+                    <ul class="mega-links">
+                        <li><a href="shop.html?brand=apple">Apple</a></li>
+                        <li><a href="shop.html?brand=samsung">Samsung</a></li>
+                        <li><a href="shop.html?brand=google">Google Pixel</a></li>
+                        <li><a href="shop.html?brand=xiaomi">Xiaomi / Redmi</a></li>
+                        <li><a href="shop.html?brand=tecno">Tecno</a></li>
+                        <li><a href="shop.html?brand=infinix">Infinix</a></li>
+                        <li><a href="shop.html?brand=oppo">Oppo</a></li>
+                        <li><a href="shop.html?brand=realme">Realme</a></li>
+                    </ul>
+                </div>
+                <div class="mega-featured">
+                    <div class="mega-featured-title">Featured Picks</div>
+                    <a href="product.html?id=1" class="mega-featured-item">
+                        <div class="mega-featured-img">
+                            <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=100&q=80" alt="iPhone 15 Pro Max">
+                        </div>
+                        <div class="mega-featured-info">
+                            <div class="mega-featured-name">iPhone 15 Pro Max</div>
+                            <div class="mega-featured-price">₦1,650,000</div>
+                        </div>
+                    </a>
+                    <a href="product.html?id=5" class="mega-featured-item">
+                        <div class="mega-featured-img">
+                            <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=100&q=80" alt="Google Pixel 9 Pro">
+                        </div>
+                        <div class="mega-featured-info">
+                            <div class="mega-featured-name">Google Pixel 9 Pro</div>
+                            <div class="mega-featured-price">₦1,450,000</div>
+                        </div>
+                    </a>
+                    <a href="product.html?id=3" class="mega-featured-item">
+                        <div class="mega-featured-img">
+                            <img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=100&q=80" alt="Samsung S25 Ultra">
+                        </div>
+                        <div class="mega-featured-info">
+                            <div class="mega-featured-name">Samsung S25 Ultra</div>
+                            <div class="mega-featured-price">₦1,850,000</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
 
 <div class="product-wrap" id="productWrap"></div>
@@ -1322,13 +1957,16 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
                 </div>
                 <p>Your trusted destination for premium gadgets in Nigeria. Genuine products, honest prices, real conversations.</p>
                 <div class="footer-socials">
-                    <a href="https://facebook.com/obilogold" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">
+                    <a href="https://facebook.com/obilogold" target="_blank" rel="noopener" class="social-btn facebook" aria-label="Facebook">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                     </a>
-                    <a href="https://instagram.com/obilogold" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+                    <a href="https://instagram.com/obilogold" target="_blank" rel="noopener" class="social-btn instagram" aria-label="Instagram">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
                     </a>
-                    <a href="https://wa.me/message/XUZF5HG3Y" target="_blank" rel="noopener" class="social-btn" aria-label="WhatsApp">
+                    <a href="https://www.tiktok.com/@obilogoldobilogol" target="_blank" rel="noopener" class="social-btn tiktok" aria-label="TikTok">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/></svg>
+                    </a>
+                    <a href="https://wa.me/2349094062471" target="_blank" rel="noopener" class="social-btn wa-social" aria-label="WhatsApp">
                         <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
                     </a>
                 </div>
@@ -1383,8 +2021,10 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     </div>
 </footer>
 
-<a href="https://wa.me/message/XUZF5HG3Y" target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
-    <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+<a href="https://wa.me/2349094062471" target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
+    <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
 </a>
 
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
@@ -1393,7 +2033,7 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 
 <script>
 /* CONFIG */
-var WHATSAPP_BASE = 'https://wa.me/message/XUZF5HG3Y';
+var WHATSAPP_BASE = 'https://wa.me/2349094062471';
 var WA_SVG = '<svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>';
 
 var CATEGORIES = [
@@ -1827,6 +2467,8 @@ function updateFavBadge() {
         if (favs.length > 0) { badge.textContent = favs.length; badge.style.display = 'flex'; }
         else { badge.style.display = 'none'; }
     }
+    var pf = document.getElementById('panelFavCount');
+    if (pf) pf.textContent = favs.length;
 }
 
 function showToast(msg) {
@@ -1866,7 +2508,6 @@ function renderRecentlyViewedSection(currentId) {
     grid.innerHTML = html;
 }
 
-/* CONDITION REPORT TAB */
 function buildConditionReportHTML(product) {
     if (product.condition !== 'uk-used' && product.condition !== 'us-used') return '';
     var report = product.conditionReport || {};
@@ -1905,7 +2546,6 @@ function buildConditionReportHTML(product) {
     return html;
 }
 
-/* RENDER PRODUCT PAGE */
 function renderProductPage() {
     var wrap = document.getElementById('productWrap');
     if (!wrap) return;
@@ -1992,7 +2632,6 @@ function renderProductPage() {
 
     var isFav = getFavourites().some(function(f) { return f.id === product.id; });
 
-    /* Tabs — condition tab only if used */
     var tabsHTML = '<button class="tab-btn active" onclick="switchTab(\'specs\')">Specifications</button>' +
                    '<button class="tab-btn" onclick="switchTab(\'description\')">Description</button>' +
                    (isUsed ? '<button class="tab-btn" onclick="switchTab(\'condition\')">Condition Report</button>' : '') +
@@ -2093,7 +2732,6 @@ function renderProductPage() {
                         '<span id="mainFavLabel">' + (isFav ? 'Saved to Favourites' : 'Add to Favourite') + '</span>' +
                     '</button>' +
 
-                    /* SWAP CTA */
                     '<a href="' + swapHref + '" target="_blank" rel="noopener" class="swap-cta">' +
                         '<span class="swap-cta-icon">🔄</span>' +
                         '<span class="swap-cta-text">' +
@@ -2208,6 +2846,7 @@ function shareProduct(type) {
     }
 }
 
+/* HEADER HELPERS */
 function handleSearch() {
     var el = document.getElementById('searchInput');
     if (!el) return;
@@ -2223,12 +2862,83 @@ function toggleTheme() {
     try { localStorage.setItem('obilo_theme', next); } catch(e) {}
 }
 
+function toggleMegaMenu() {
+    var dropdown = document.getElementById('megaDropdown');
+    var btn = document.getElementById('hamburgerBtn');
+    if (!dropdown || !btn) return;
+    var isOpen = dropdown.classList.contains('open');
+    dropdown.classList.toggle('open');
+    btn.classList.toggle('active');
+    btn.setAttribute('aria-expanded', !isOpen);
+}
+document.addEventListener('click', function(e) {
+    var dropdown = document.getElementById('megaDropdown');
+    var btn = document.getElementById('hamburgerBtn');
+    var wrapper = document.getElementById('navWrapper');
+    if (!dropdown || !btn || !wrapper) return;
+    if (!wrapper.contains(e.target)) {
+        dropdown.classList.remove('open');
+        btn.classList.remove('active');
+        btn.setAttribute('aria-expanded', 'false');
+    }
+});
+
+/* AUTH */
+var AUTH_KEY = 'obilo_auth';
+function getAuth() { try { return JSON.parse(localStorage.getItem(AUTH_KEY) || 'null'); } catch(e) { return null; } }
+function setAuth(user) { localStorage.setItem(AUTH_KEY, JSON.stringify(user)); applyAuthUI(); }
+function clearAuth() { localStorage.removeItem(AUTH_KEY); applyAuthUI(); }
+function applyAuthUI() {
+    var panel = document.getElementById('loginPanel');
+    var user = getAuth();
+    if (!panel) return;
+    var signinBtn = document.querySelector('.signin-btn');
+    if (user) {
+        panel.classList.add('is-logged-in');
+        var un = document.getElementById('userName');
+        var ue = document.getElementById('userEmail');
+        var ui = document.getElementById('userInitial');
+        if (un) un.textContent = user.name || 'OBILO Customer';
+        if (ue) ue.textContent = user.email || '';
+        if (ui) ui.textContent = (user.name || 'O').charAt(0).toUpperCase();
+        if (signinBtn) signinBtn.textContent = (user.name || 'Account').split(' ')[0];
+    } else {
+        panel.classList.remove('is-logged-in');
+        if (signinBtn) signinBtn.textContent = 'Sign In / Register';
+    }
+}
+function handleLogin(e) {
+    e.preventDefault();
+    var email = document.getElementById('loginEmail').value.trim();
+    var pass = document.getElementById('loginPassword').value.trim();
+    if (!email || !pass) { showToast('Please fill in both fields'); return; }
+    var name = email.split('@')[0] || 'Customer';
+    setAuth({ name: name, email: email });
+    showToast('✓ Welcome, ' + name);
+    document.getElementById('loginEmail').value = '';
+    document.getElementById('loginPassword').value = '';
+    closeLoginPanel();
+}
+function handleLogout() { clearAuth(); showToast('Signed out'); closeLoginPanel(); }
+function toggleAccount(event) {
+    if (event) event.stopPropagation();
+    var w = document.getElementById('accountWrap');
+    if (w) w.classList.toggle('open');
+}
+function closeLoginPanel() {
+    var wrap = document.getElementById('accountWrap');
+    if (wrap) wrap.classList.remove('open');
+}
+document.addEventListener('click', function(e) { if (!e.target.closest('#accountWrap')) closeLoginPanel(); });
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLoginPanel(); });
+
 /* BOOT */
 try {
     var yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
     renderProductPage();
     updateFavBadge();
+    applyAuthUI();
 
     var searchInput = document.getElementById('searchInput');
     if (searchInput) {
@@ -2250,7 +2960,7 @@ try {
         wrap2.innerHTML = '<div style="padding:60px 20px;text-align:center;">' +
             '<h2 style="font-family:Playfair Display,serif;font-size:24px;margin-bottom:12px;">Something went wrong</h2>' +
             '<p style="color:#8E8E96;margin-bottom:20px;">Please refresh the page or contact us on WhatsApp.</p>' +
-            '<a href="https://wa.me/message/XUZF5HG3Y" target="_blank" class="action-btn action-btn-wa" style="display:inline-flex;">Chat with us</a>' +
+            '<a href="https://wa.me/2349094062471" target="_blank" class="action-btn action-btn-wa" style="display:inline-flex;">Chat with us</a>' +
         '</div>';
     }
 }

@@ -46,6 +46,9 @@
 
     --whatsapp: #25D366;
     --star: #E2C766;
+    --danger: #E5484D;
+    --success: #30A46C;
+    --warning: #F5A623;
 
     --shadow-elegant: 0 24px 60px rgba(0, 0, 0, 0.55);
     --shadow-medium: 0 12px 30px rgba(0, 0, 0, 0.35);
@@ -336,65 +339,30 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 
 .whatsapp-btn-header:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(37, 211, 102, 0.32); }
 
-/* REGISTER ICON BUTTON */
-.register-icon-btn {
-    position: relative;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    display: flex;
+/* SIGN IN / REGISTER BUTTON */
+.signin-btn {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 19px;
+    height: 42px;
+    padding: 0 20px;
+    border-radius: 100px;
+    background: var(--dark-3);
+    border: 1px solid var(--border);
     color: var(--text-soft);
-    transition: background 0.2s, color 0.2s;
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    font-family: inherit;
-}
-
-.register-icon-btn:hover { background: var(--dark-3); color: var(--gold); }
-
-.register-icon-btn .register-tooltip {
-    position: absolute;
-    bottom: -32px;
-    left: 50%;
-    transform: translateX(-50%) translateY(-6px);
-    background: var(--dark-2);
-    border: 1px solid var(--gold-hairline);
-    color: var(--gold);
-    font-size: 10px;
+    font-size: 13px;
     font-weight: 600;
-    letter-spacing: 0.5px;
-    padding: 5px 10px;
-    border-radius: 6px;
+    letter-spacing: 0.3px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.22s var(--ease);
     white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.22s var(--ease), transform 0.22s var(--ease), visibility 0.22s;
-    pointer-events: none;
-    box-shadow: var(--shadow-soft);
-    z-index: 20;
 }
 
-.register-icon-btn .register-tooltip::before {
-    content: '';
-    position: absolute;
-    top: -4px;
-    left: 50%;
-    transform: translateX(-50%) rotate(45deg);
-    width: 8px;
-    height: 8px;
-    background: var(--dark-2);
-    border-left: 1px solid var(--gold-hairline);
-    border-top: 1px solid var(--gold-hairline);
-}
-
-.register-icon-btn:hover .register-tooltip {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
+.signin-btn:hover {
+    border-color: var(--gold-hairline);
+    color: var(--gold);
+    background: var(--gold-soft);
 }
 
 /* LOGIN PANEL */
@@ -600,7 +568,7 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     background: transparent;
     border: 1px solid var(--border);
     border-radius: 10px;
-    color: #E5484D;
+    color: var(--danger);
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -609,7 +577,7 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     font-family: inherit;
 }
 
-.logout-btn:hover { background: rgba(229, 72, 77, 0.08); border-color: #E5484D; }
+.logout-btn:hover { background: rgba(229, 72, 77, 0.08); border-color: var(--danger); }
 
 /* TOP INFO BAR */
 .top-info-bar {
@@ -670,7 +638,7 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     flex-shrink: 0;
 }
 
-/* NAV */
+/* NAVIGATION */
 .nav-wrapper {
     position: relative;
     max-width: 1300px;
@@ -713,6 +681,199 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     color: var(--gold);
     background: var(--gold-soft);
 }
+
+.hamburger-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: 100px;
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    color: var(--text-soft);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    transition: all 0.25s var(--ease);
+    white-space: nowrap;
+    font-family: inherit;
+}
+
+.hamburger-btn:hover {
+    border-color: var(--gold-hairline);
+    color: var(--gold);
+    background: var(--gold-soft);
+}
+
+.hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 18px;
+    flex-shrink: 0;
+}
+
+.hamburger-icon span {
+    display: block;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+    transition: transform 0.3s var(--ease), opacity 0.3s;
+    transform-origin: center;
+}
+
+.hamburger-btn.active .hamburger-icon span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.hamburger-btn.active .hamburger-icon span:nth-child(2) { opacity: 0; }
+.hamburger-btn.active .hamburger-icon span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+.hamburger-label {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+/* MEGA DROPDOWN */
+.mega-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: var(--dark-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px 32px;
+    box-shadow: var(--shadow-elegant);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.28s var(--ease), transform 0.28s var(--ease), visibility 0.28s;
+    z-index: 150;
+    pointer-events: none;
+}
+
+.mega-dropdown::before {
+    content: '';
+    position: absolute;
+    top: -14px;
+    left: 0;
+    right: 0;
+    height: 14px;
+}
+
+.mega-dropdown.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.mega-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+}
+
+.mega-col {
+    flex: 1 1 180px;
+    min-width: 140px;
+}
+
+.mega-col-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.mega-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+}
+
+.mega-links a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--text-soft);
+    font-weight: 400;
+    transition: all 0.2s;
+}
+
+.mega-links a:hover {
+    background: var(--gold-soft);
+    color: var(--gold);
+    padding-left: 12px;
+}
+
+.mega-links a .cat-icon {
+    font-size: 15px;
+    color: var(--gold);
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.mega-featured {
+    flex: 1 1 260px;
+    min-width: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mega-featured-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.mega-featured-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+    border-radius: 10px;
+    transition: background 0.2s;
+    cursor: pointer;
+}
+
+.mega-featured-item:hover { background: var(--dark-3); }
+
+.mega-featured-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--dark-3);
+    flex-shrink: 0;
+}
+
+.mega-featured-img img { width: 100%; height: 100%; object-fit: cover; }
+
+.mega-featured-info { display: flex; flex-direction: column; gap: 3px; }
+
+.mega-featured-name { font-size: 12px; font-weight: 500; color: var(--text); line-height: 1.3; }
+
+.mega-featured-price { font-size: 12px; font-weight: 700; color: var(--gold); }
 
 /* PAGE HERO */
 .page-hero {
@@ -1217,6 +1378,11 @@ a.contact-line:hover { color: var(--gold); }
     .search-bar { display: flex; flex: 1; max-width: none; }
     .header-top { flex-wrap: wrap; gap: 12px; }
     .header-actions { flex-shrink: 0; }
+    .mega-inner { flex-wrap: wrap; }
+    .mega-col { flex: 1 1 150px; }
+    .mega-featured { flex: 1 1 100%; flex-direction: row; flex-wrap: wrap; }
+    .mega-featured-title { width: 100%; }
+    .mega-featured-item { flex: 0 0 calc(50% - 8px); }
 }
 
 @media (max-width: 640px) {
@@ -1226,6 +1392,7 @@ a.contact-line:hover { color: var(--gold); }
     .logo-tag { font-size: 10px; }
     .whatsapp-btn-header span.txt { display: none; }
     .whatsapp-btn-header { padding: 11px; width: 42px; height: 42px; justify-content: center; }
+    .signin-btn { height: 42px; padding: 0 14px; font-size: 12px; }
 
     .search-bar {
         order: 3;
@@ -1247,6 +1414,25 @@ a.contact-line:hover { color: var(--gold); }
 
     .nav-wrapper { padding: 0 18px; }
     .nav-bar { padding: 0 0 12px; flex-wrap: wrap; }
+    .hamburger-btn { padding: 7px 14px; font-size: 12px; }
+    .hamburger-label { font-size: 12px; }
+
+    .mega-dropdown {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding: 20px 16px;
+        border-radius: var(--radius);
+        max-height: 75vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .mega-inner { flex-direction: column; gap: 20px; }
+    .mega-col { flex: 1 1 auto; min-width: 0; }
+    .mega-featured { flex: 1 1 auto; flex-direction: column; }
+    .mega-featured-item { flex: 1 1 100%; }
 
     .page-hero { padding: 50px 18px 40px; }
 
@@ -1275,11 +1461,6 @@ a.contact-line:hover { color: var(--gold); }
                 <span class="top-info-icon">➤</span>
                 <span>Nationwide Delivery</span>
             </a>
-            <span class="top-info-divider"></span>
-            <a href="privacy.html" class="top-info-item">
-                <span class="top-info-icon">✦</span>
-                <span>100% Privacy Protected</span>
-            </a>
         </div>
     </div>
 
@@ -1306,14 +1487,9 @@ a.contact-line:hover { color: var(--gold); }
                 <span class="badge" id="favBadge" style="display:none">0</span>
             </button>
 
-            <button class="register-icon-btn" onclick="openRegister()" aria-label="Register or Sign In">
-                <span>✎</span>
-                <span class="register-tooltip">Register / Sign In</span>
-            </button>
-
             <div class="account-wrap" id="accountWrap">
-                <button class="icon-btn" onclick="toggleAccount(event)" aria-label="Account" aria-haspopup="true">
-                    ◯
+                <button class="signin-btn" onclick="toggleAccount(event)" aria-label="Sign In or Register" aria-haspopup="true">
+                    Sign In / Register
                 </button>
 
                 <div class="login-panel" id="loginPanel" role="dialog" aria-label="Account">
@@ -1337,7 +1513,7 @@ a.contact-line:hover { color: var(--gold); }
                             <button type="submit" class="login-submit">Sign In</button>
                         </form>
                         <div class="login-divider">Or continue with</div>
-                        <a href="https://wa.me/message/XUZF5HG3Y" target="_blank" rel="noopener" class="login-wa">
+                        <a href="https://wa.me/2349094062471" target="_blank" rel="noopener" class="login-wa">
                             <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
                             </svg>
@@ -1363,14 +1539,14 @@ a.contact-line:hover { color: var(--gold); }
                                 <span class="count" id="panelFavCount">0</span>
                             </a>
                             <a href="#" class="logged-in-link"><span>◈</span><span>Price Watch</span></a>
-                            <a href="support.html" class="logged-in-link"><span>?</span><span>Help &amp; Support</span></a>
+                            <a href="help.html" class="logged-in-link"><span>?</span><span>Help &amp; Support</span></a>
                         </div>
                         <button class="logout-btn" onclick="handleLogout()">Sign Out</button>
                     </div>
                 </div>
             </div>
 
-            <a href="https://wa.me/message/XUZF5HG3Y" target="_blank" rel="noopener" class="whatsapp-btn-header">
+            <a href="https://wa.me/2349094062471" target="_blank" rel="noopener" class="whatsapp-btn-header">
                 <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
                 </svg>
@@ -1387,7 +1563,84 @@ a.contact-line:hover { color: var(--gold); }
                 <a href="shop.html" class="nav-shop-link">Shop</a>
                 <a href="warranty.html" class="nav-shop-link active">Warranty</a>
                 <a href="delivery.html" class="nav-shop-link">Delivery</a>
-                <a href="privacy.html" class="nav-shop-link">Privacy</a>
+                <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMegaMenu()" aria-label="Browse categories" aria-expanded="false">
+                    <span class="hamburger-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                    <span class="hamburger-label">Browse</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="mega-dropdown" id="megaDropdown">
+            <div class="mega-inner">
+                <div class="mega-col">
+                    <div class="mega-col-title">Categories</div>
+                    <ul class="mega-links">
+                        <li><a href="shop.html?cat=phones"><span class="cat-icon">◐</span> Phones</a></li>
+                        <li><a href="shop.html?cat=laptops"><span class="cat-icon">⌘</span> Laptops</a></li>
+                        <li><a href="shop.html?cat=tablets"><span class="cat-icon">▢</span> Tablets</a></li>
+                        <li><a href="shop.html?cat=audio"><span class="cat-icon">◉</span> Audio</a></li>
+                        <li><a href="shop.html?cat=wearables"><span class="cat-icon">◯</span> Watches</a></li>
+                        <li><a href="shop.html?cat=smart-glasses"><span class="cat-icon">◈</span> Smart Glasses</a></li>
+                    </ul>
+                </div>
+                <div class="mega-col">
+                    <div class="mega-col-title">More Categories</div>
+                    <ul class="mega-links">
+                        <li><a href="shop.html?cat=mp3"><span class="cat-icon">♫</span> MP3 Players</a></li>
+                        <li><a href="shop.html?cat=chargers"><span class="cat-icon">⚡</span> Chargers</a></li>
+                        <li><a href="shop.html?cat=cables"><span class="cat-icon">⌁</span> Cords &amp; Cables</a></li>
+                        <li><a href="shop.html?cat=cases"><span class="cat-icon">⬚</span> Phone Cases</a></li>
+                        <li><a href="shop.html?cat=guards"><span class="cat-icon">◫</span> Screen Guards</a></li>
+                        <li><a href="shop.html?cat=accessories"><span class="cat-icon">✦</span> Accessories</a></li>
+                    </ul>
+                </div>
+                <div class="mega-col">
+                    <div class="mega-col-title">Top Brands</div>
+                    <ul class="mega-links">
+                        <li><a href="shop.html?brand=apple">Apple</a></li>
+                        <li><a href="shop.html?brand=samsung">Samsung</a></li>
+                        <li><a href="shop.html?brand=google">Google Pixel</a></li>
+                        <li><a href="shop.html?brand=xiaomi">Xiaomi / Redmi</a></li>
+                        <li><a href="shop.html?brand=tecno">Tecno</a></li>
+                        <li><a href="shop.html?brand=infinix">Infinix</a></li>
+                        <li><a href="shop.html?brand=oppo">Oppo</a></li>
+                        <li><a href="shop.html?brand=realme">Realme</a></li>
+                    </ul>
+                </div>
+                <div class="mega-featured">
+                    <div class="mega-featured-title">Featured Picks</div>
+                    <a href="product.html?id=1" class="mega-featured-item">
+                        <div class="mega-featured-img">
+                            <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=100&q=80" alt="iPhone 15 Pro Max">
+                        </div>
+                        <div class="mega-featured-info">
+                            <div class="mega-featured-name">iPhone 15 Pro Max</div>
+                            <div class="mega-featured-price">₦1,650,000</div>
+                        </div>
+                    </a>
+                    <a href="product.html?id=5" class="mega-featured-item">
+                        <div class="mega-featured-img">
+                            <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=100&q=80" alt="Google Pixel 9 Pro">
+                        </div>
+                        <div class="mega-featured-info">
+                            <div class="mega-featured-name">Google Pixel 9 Pro</div>
+                            <div class="mega-featured-price">₦1,450,000</div>
+                        </div>
+                    </a>
+                    <a href="product.html?id=3" class="mega-featured-item">
+                        <div class="mega-featured-img">
+                            <img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=100&q=80" alt="Samsung S25 Ultra">
+                        </div>
+                        <div class="mega-featured-info">
+                            <div class="mega-featured-name">Samsung S25 Ultra</div>
+                            <div class="mega-featured-price">₦1,850,000</div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -1494,7 +1747,7 @@ a.contact-line:hover { color: var(--gold); }
                     </svg>
                     Chat with Us
                 </a>
-                <a href="support.html" class="btn btn-primary">Visit Support →</a>
+                <a href="help.html" class="btn btn-primary">Visit Support →</a>
             </div>
         </div>
     </div>
@@ -1518,10 +1771,10 @@ a.contact-line:hover { color: var(--gold); }
                     <a href="https://instagram.com/obilogold" target="_blank" rel="noopener" class="social-btn instagram" aria-label="Instagram">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
                     </a>
-                    <a href="https://www.tiktok.com/@obilogoldobilogol?_r=1&_t=ZS-99ulZCjwuQf" target="_blank" rel="noopener" class="social-btn tiktok" aria-label="TikTok">
+                    <a href="https://www.tiktok.com/@obilogoldobilogol" target="_blank" rel="noopener" class="social-btn tiktok" aria-label="TikTok">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/></svg>
                     </a>
-                    <a href="https://wa.me/message/XUZF5HG3Y" target="_blank" rel="noopener" class="social-btn wa-social" aria-label="WhatsApp">
+                    <a href="https://wa.me/2349094062471" target="_blank" rel="noopener" class="social-btn wa-social" aria-label="WhatsApp">
                         <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
                     </a>
                 </div>
@@ -1546,22 +1799,13 @@ a.contact-line:hover { color: var(--gold); }
             </div>
 
             <div class="footer-col">
-                <h5>Brands</h5>
+                <h5>Support</h5>
                 <ul>
-                    <li><a href="shop.html?brand=apple">Apple</a></li>
-                    <li><a href="shop.html?brand=samsung">Samsung</a></li>
-                    <li><a href="shop.html?brand=google">Google Pixel</a></li>
-                    <li><a href="shop.html?brand=xiaomi">Xiaomi</a></li>
-                    <li><a href="shop.html?brand=redmi">Redmi</a></li>
-                    <li><a href="shop.html?brand=tecno">Tecno</a></li>
-                    <li><a href="shop.html?brand=infinix">Infinix</a></li>
-                    <li><a href="shop.html?brand=oppo">Oppo</a></li>
-                    <li><a href="shop.html?brand=vivo">Vivo</a></li>
-                    <li><a href="shop.html?brand=realme">Realme</a></li>
-                    <li><a href="shop.html?brand=honor">Honor</a></li>
-                    <li><a href="shop.html?brand=anker">Anker</a></li>
-                    <li><a href="shop.html?brand=oraimo">Oraimo</a></li>
-                    <li><a href="shop.html?brand=baseus">Baseus</a></li>
+                    <li><a href="warranty.html">Warranty</a></li>
+                    <li><a href="delivery.html">Delivery</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="help.html">Help Center</a></li>
+                    <li><a href="favourites.html">My Favourites</a></li>
                 </ul>
             </div>
 
@@ -1593,7 +1837,7 @@ a.contact-line:hover { color: var(--gold); }
 </footer>
 
 <!-- FLOATING -->
-<a href="https://wa.me/message/XUZF5HG3Y" target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
+<a href="https://wa.me/2349094062471" target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
     <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
     </svg>
@@ -1617,10 +1861,27 @@ function handleSearch() {
     if (q) location.href = `shop.html?q=${encodeURIComponent(q)}`;
 }
 
-/* REGISTER */
-function openRegister() {
-    location.href = 'register.html';
+/* MEGA MENU */
+function toggleMegaMenu() {
+    const dropdown = document.getElementById('megaDropdown');
+    const btn = document.getElementById('hamburgerBtn');
+    if (!dropdown || !btn) return;
+    const isOpen = dropdown.classList.contains('open');
+    dropdown.classList.toggle('open');
+    btn.classList.toggle('active');
+    btn.setAttribute('aria-expanded', !isOpen);
 }
+document.addEventListener('click', (e) => {
+    const dropdown = document.getElementById('megaDropdown');
+    const btn = document.getElementById('hamburgerBtn');
+    const wrapper = document.getElementById('navWrapper');
+    if (!dropdown || !btn || !wrapper) return;
+    if (!wrapper.contains(e.target)) {
+        dropdown.classList.remove('open');
+        btn.classList.remove('active');
+        btn.setAttribute('aria-expanded', 'false');
+    }
+});
 
 /* AUTH */
 const AUTH_KEY = 'obilo_auth';
@@ -1632,13 +1893,16 @@ function applyAuthUI() {
     const panel = document.getElementById('loginPanel');
     const user = getAuth();
     if (!panel) return;
+    const signinBtn = document.querySelector('.signin-btn');
     if (user) {
         panel.classList.add('is-logged-in');
         document.getElementById('userName').textContent = user.name || 'OBILO Customer';
         document.getElementById('userEmail').textContent = user.email || '';
         document.getElementById('userInitial').textContent = (user.name || 'O').charAt(0).toUpperCase();
+        if (signinBtn) signinBtn.textContent = (user.name || 'Account').split(' ')[0];
     } else {
         panel.classList.remove('is-logged-in');
+        if (signinBtn) signinBtn.textContent = 'Sign In / Register';
     }
 }
 
@@ -1666,7 +1930,7 @@ function closeLoginPanel() {
 document.addEventListener('click', (e) => { if (!e.target.closest('#accountWrap')) closeLoginPanel(); });
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLoginPanel(); });
 
-/* FAVOURITES BADGE (sync) */
+/* FAVOURITES BADGE */
 function updateFavBadge() {
     const favs = JSON.parse(localStorage.getItem('obilo_favs') || '[]');
     const badge = document.getElementById('favBadge');

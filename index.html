@@ -1126,6 +1126,366 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 .news-card-meta .read-more { color: var(--gold); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; font-size: 10px; }
 .news-card:hover .read-more { color: var(--gold-light); }
 
+/* NEWS GRID (Admin Posts) */
+.news-grid-public {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 22px;
+}
+
+.news-card-published {
+    background: var(--dark-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform 0.3s var(--ease), border-color 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-card-published:hover { transform: translateY(-4px); border-color: var(--gold-hairline); box-shadow: var(--shadow-medium); }
+
+.news-card-published.pinned {
+    border-color: var(--gold-hairline);
+    box-shadow: 0 0 0 1px var(--gold-hairline);
+}
+
+.news-card-published .news-card-image { aspect-ratio: 16 / 9; }
+
+.news-tag-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    backdrop-filter: blur(6px);
+}
+
+.news-tag-chip.general      { background: rgba(201, 162, 39, 0.9); color: #1a1a1a; }
+.news-tag-chip.promo        { background: rgba(229, 72, 77, 0.9);  color: #fff; }
+.news-tag-chip.announcement { background: rgba(74, 123, 200, 0.9); color: #fff; }
+.news-tag-chip.arrival      { background: rgba(48, 164, 108, 0.9); color: #fff; }
+.news-tag-chip.tip          { background: rgba(168, 85, 247, 0.9); color: #fff; }
+
+.news-tag-pinned {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    background: rgba(0, 0, 0, 0.75);
+    color: var(--gold);
+    border: 1px solid var(--gold-hairline);
+    backdrop-filter: blur(6px);
+}
+
+.news-empty-msg {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-muted);
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* NEWS FLASH TICKER */
+.news-flash-bar {
+    background: linear-gradient(90deg, rgba(201, 162, 39, 0.08), rgba(27, 58, 107, 0.08));
+    border-bottom: 1px solid var(--border-soft);
+    display: none;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 28px;
+    overflow: hidden;
+    position: relative;
+    transition: background 0.4s ease;
+}
+
+.news-flash-bar.show { display: flex; }
+
+.news-flash-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 12px;
+    background: var(--gold-gradient);
+    color: #1a1a1a;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    z-index: 2;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(201, 162, 39, 0.35);
+}
+
+.news-flash-label::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #1a1a1a;
+    animation: flash-dot 1.4s ease-in-out infinite;
+}
+
+@keyframes flash-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.news-flash-track-wrap {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    height: 24px;
+    mask-image: linear-gradient(90deg, transparent 0%, #000 40px, #000 calc(100% - 40px), transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 40px, #000 calc(100% - 40px), transparent 100%);
+}
+
+.news-flash-track {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    animation: flash-scroll 45s linear infinite;
+    will-change: transform;
+}
+
+.news-flash-track:hover { animation-play-state: paused; }
+
+@keyframes flash-scroll {
+    from { transform: translate(0, -50%); }
+    to   { transform: translate(-50%, -50%); }
+}
+
+.news-flash-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-soft);
+    cursor: pointer;
+    transition: color 0.2s;
+    white-space: nowrap;
+}
+
+.news-flash-item:hover { color: var(--gold); }
+
+.news-flash-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+    box-shadow: 0 0 6px rgba(201, 162, 39, 0.8);
+}
+
+.news-flash-tag {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+    background: var(--gold-soft);
+    color: var(--gold);
+    border: 1px solid var(--gold-hairline);
+    flex-shrink: 0;
+}
+
+.news-flash-tag.promo        { background: rgba(229, 72, 77, 0.15); color: #E5484D; border-color: rgba(229, 72, 77, 0.35); }
+.news-flash-tag.announcement { background: rgba(74, 123, 200, 0.15); color: var(--blue-light); border-color: rgba(74, 123, 200, 0.35); }
+.news-flash-tag.arrival      { background: rgba(48, 164, 108, 0.15); color: #30A46C; border-color: rgba(48, 164, 108, 0.35); }
+.news-flash-tag.tip          { background: rgba(168, 85, 247, 0.15); color: #A855F7; border-color: rgba(168, 85, 247, 0.35); }
+
+.news-flash-title { color: inherit; }
+
+@media (max-width: 640px) {
+    .news-flash-bar { padding: 8px 14px; gap: 8px; }
+    .news-flash-label { font-size: 9px; padding: 4px 9px; letter-spacing: 1.2px; }
+    .news-flash-item { font-size: 12px; gap: 8px; }
+    .news-flash-track { gap: 28px; }
+}
+
+/* NEWS ARTICLE READER (full-page overlay) */
+.news-reader {
+    position: fixed;
+    inset: 0;
+    background: var(--dark);
+    z-index: 500;
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.32s var(--ease), transform 0.32s var(--ease), visibility 0.32s;
+}
+
+.news-reader.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.news-reader-bar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: var(--header-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid var(--border-soft);
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.news-reader-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    color: var(--text-soft);
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s var(--ease);
+    font-family: inherit;
+}
+
+.news-reader-back:hover {
+    border-color: var(--gold-hairline);
+    color: var(--gold);
+    background: var(--gold-soft);
+}
+
+.news-reader-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 2px;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.news-reader-article {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 40px 28px 80px;
+}
+
+.news-reader-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    background: var(--gold-soft);
+    color: var(--gold);
+    border: 1px solid var(--gold-hairline);
+}
+
+.news-reader-tag.promo        { background: rgba(229, 72, 77, 0.15); color: #E5484D; border-color: rgba(229, 72, 77, 0.4); }
+.news-reader-tag.announcement { background: rgba(74, 123, 200, 0.15); color: var(--blue-light); border-color: rgba(74, 123, 200, 0.4); }
+.news-reader-tag.arrival      { background: rgba(48, 164, 108, 0.15); color: #30A46C; border-color: rgba(48, 164, 108, 0.4); }
+.news-reader-tag.tip          { background: rgba(168, 85, 247, 0.15); color: #A855F7; border-color: rgba(168, 85, 247, 0.4); }
+
+.news-reader-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 46px);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.6px;
+    color: var(--text);
+    margin-bottom: 20px;
+}
+
+.news-reader-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.3px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+}
+
+.news-reader-meta .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--text-muted); opacity: 0.6; }
+
+.news-reader-image {
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    margin-bottom: 36px;
+}
+
+.news-reader-image img { width: 100%; height: 100%; object-fit: cover; }
+
+.news-reader-body {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--text-soft);
+    white-space: pre-wrap;
+    font-weight: 400;
+}
+
+.news-reader-cta {
+    margin-top: 48px;
+    padding: 28px;
+    background: var(--dark-2);
+    border: 1px solid var(--gold-hairline);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.news-reader-cta-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+}
+
+.news-reader-cta-text span { color: var(--gold); font-style: italic; }
+
+@media (max-width: 640px) {
+    .news-reader-article { padding: 28px 20px 60px; }
+    .news-reader-bar { padding: 12px 18px; }
+    .news-reader-cta { flex-direction: column; align-items: stretch; text-align: center; }
+    .news-reader-cta .btn { width: 100%; }
+}
+
 /* CATEGORIES GRID */
 .categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 18px; }
 
@@ -2764,6 +3124,8 @@ a.contact-line:hover { color: var(--gold); }
     .broadcast { padding: 36px 24px; }
     .broadcast-form { flex-direction: column; }
     .broadcast-form button { width: 100%; }
+
+    .news-grid-public { grid-template-columns: 1fr; gap: 16px; }
 }
 
 @keyframes fadeUp {
@@ -2789,6 +3151,14 @@ a.contact-line:hover { color: var(--gold); }
                 <span class="top-info-icon">➤</span>
                 <span>Nationwide Delivery</span>
             </a>
+        </div>
+    </div>
+
+    <!-- FLASH NEWS TICKER -->
+    <div class="news-flash-bar" id="newsFlashBar">
+        <span class="news-flash-label">Flash News</span>
+        <div class="news-flash-track-wrap">
+            <div class="news-flash-track" id="newsFlashTrack"></div>
         </div>
     </div>
 
@@ -3159,7 +3529,7 @@ a.contact-line:hover { color: var(--gold); }
     </div>
 </section>
 
-<!-- 8. RECENTLY VIEWED (auto-shows after 2+ items viewed) -->
+<!-- 8. RECENTLY VIEWED -->
 <section class="section recently-viewed" id="recentlyViewedSection" style="padding-top:0">
     <div class="container">
         <div class="section-head">
@@ -3172,7 +3542,22 @@ a.contact-line:hover { color: var(--gold); }
     </div>
 </section>
 
-<!-- 9. TECH NEWS -->
+<!-- 9. NEWS FROM ADMIN (renders before Tech News) -->
+<section class="section" id="adminNewsSection" style="padding-top:0; display:none;">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <div class="eyebrow" style="margin-bottom:10px;">From the Store</div>
+                <h2 class="section-title">Latest <span class="gold">News &amp; Updates</span></h2>
+                <p class="section-sub">Announcements, promos and fresh arrivals straight from OBILO GOLD.</p>
+            </div>
+            <button class="section-link" id="newsToggleBtn" onclick="toggleAllAdminNews()" style="background:none; border:none; cursor:pointer; padding:0;">View All</button>
+        </div>
+        <div class="news-grid-public" id="adminNewsGrid"></div>
+    </div>
+</section>
+
+<!-- 10. TECH NEWS -->
 <section class="section" style="padding-top:0">
     <div class="container">
         <div class="section-head">
@@ -3186,7 +3571,7 @@ a.contact-line:hover { color: var(--gold); }
     </div>
 </section>
 
-<!-- 10. BROADCAST SIGNUP -->
+<!-- 11. BROADCAST SIGNUP -->
 <section class="section" style="padding-top:0;padding-bottom:0">
     <div class="container">
         <div class="broadcast">
@@ -3349,6 +3734,15 @@ a.contact-line:hover { color: var(--gold); }
     </div>
 </div>
 
+<!-- NEWS READER (full-screen article view) -->
+<div class="news-reader" id="newsReader" role="dialog" aria-label="News article">
+    <div class="news-reader-bar">
+        <button class="news-reader-back" onclick="closeNewsReader()">← Back to Home</button>
+        <span class="news-reader-brand">OBILO GOLD</span>
+    </div>
+    <div class="news-reader-article" id="newsReaderArticle"></div>
+</div>
+
 <div class="toast" id="toast">Added</div>
 
 <script>
@@ -3384,11 +3778,8 @@ const CATEGORIES = [
     { id: 'accessories',   name: 'Accessories',    icon: '✦' },
 ];
 
-/* ============================================================
-   MASTER PRODUCT CATALOG (matches shop.html, product.html, favourites.html)
-   ============================================================ */
+/* MASTER PRODUCT CATALOG */
 const PRODUCTS = [
-    /* ===== BRAND NEW — PHONES ===== */
     { id: 1,  name: 'iPhone 15 Pro Max', price: 1650000, image: 'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 2,  name: 'iPhone 15 Pro',     price: 1450000, image: 'https://images.unsplash.com/photo-1591337676887-a217a6970a8a?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false, badge: 'new', inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 3,  name: 'Samsung Galaxy S25 Ultra', price: 1850000, image: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=600&q=80', category: 'phones', brand: 'Samsung', sponsored: true, featured: true, badge: 'new', inStock: true, stockType: 'in-store', condition: 'brand-new' },
@@ -3411,20 +3802,14 @@ const PRODUCTS = [
     { id: 22, name: 'Nothing Phone (2a)', price: 480000, image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'phones', brand: 'Nothing', sponsored: false, badge: 'new', inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 200, name: 'iPhone 15', price: 1150000, image: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 210, name: 'Samsung Galaxy S24 Ultra', price: 1650000, image: 'https://images.unsplash.com/photo-1707060565848-8f1b0ff1e1c4?w=600&q=80', category: 'phones', brand: 'Samsung', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new' },
-
-    /* ===== UK USED — PHONES ===== */
     { id: 1001, name: 'iPhone 14 Pro Max — UK Used', price: 980000, oldPrice: 1280000, image: 'https://images.unsplash.com/photo-1678652197831-2d180705cd2c?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'uk-used' },
     { id: 1002, name: 'Samsung Galaxy S23 Ultra — UK Used', price: 780000, oldPrice: 1180000, image: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=600&q=80', category: 'phones', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'uk-used' },
     { id: 1003, name: 'Google Pixel 7 Pro — UK Used', price: 520000, oldPrice: 780000, image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'phones', brand: 'Google Pixel', sponsored: false, inStock: true, stockType: 'in-store', condition: 'uk-used' },
     { id: 1004, name: 'iPhone 13 — UK Used', price: 480000, oldPrice: 780000, image: 'https://images.unsplash.com/photo-1632661674596-df8be070a5c5?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store', condition: 'uk-used' },
     { id: 1005, name: 'Samsung Galaxy S22 Ultra — UK Used', price: 480000, oldPrice: 720000, image: 'https://images.unsplash.com/photo-1610792516307-ea5acd9c3b00?w=600&q=80', category: 'phones', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'uk-used' },
-
-    /* ===== US USED — PHONES ===== */
     { id: 1101, name: 'iPhone 14 — US Used', price: 720000, oldPrice: 980000, image: 'https://images.unsplash.com/photo-1591337676887-a217a6970a8a?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store', condition: 'us-used' },
     { id: 1102, name: 'Samsung Galaxy S23 — US Used', price: 580000, oldPrice: 850000, image: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=600&q=80', category: 'phones', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'us-used' },
     { id: 1103, name: 'Google Pixel 7 — US Used', price: 380000, oldPrice: 580000, image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'phones', brand: 'Google Pixel', sponsored: false, inStock: true, stockType: 'in-store', condition: 'us-used' },
-
-    /* ===== LAPTOPS ===== */
     { id: 30, name: 'MacBook Pro 14" M3', price: 2450000, image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&q=80', category: 'laptops', brand: 'Apple', sponsored: false, featured: true, badge: 'new', inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 31, name: 'MacBook Air M2', price: 1850000, image: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=600&q=80', category: 'laptops', brand: 'Apple', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 32, name: 'Dell XPS 15', price: 1980000, image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&q=80', category: 'laptops', brand: 'Dell', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
@@ -3432,22 +3817,16 @@ const PRODUCTS = [
     { id: 34, name: 'Lenovo IdeaPad Slim 5', price: 650000, image: 'https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?w=600&q=80', category: 'laptops', brand: 'Lenovo', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 35, name: 'Asus Vivobook 16', price: 580000, image: 'https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?w=600&q=80', category: 'laptops', brand: 'Asus', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 1201, name: 'MacBook Air M1 — UK Used', price: 920000, oldPrice: 1450000, image: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=600&q=80', category: 'laptops', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store', condition: 'uk-used' },
-
-    /* ===== TABLETS ===== */
     { id: 40, name: 'iPad Air 5th Gen', price: 780000, image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&q=80', category: 'tablets', brand: 'Apple', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 41, name: 'Samsung Galaxy Tab S9', price: 850000, image: 'https://images.unsplash.com/photo-1561154464-82e9adf32764?w=600&q=80', category: 'tablets', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 42, name: 'Xiaomi Pad 6', price: 380000, image: 'https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?w=600&q=80', category: 'tablets', brand: 'Xiaomi', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 43, name: 'Lenovo Tab P12', price: 320000, image: 'https://images.unsplash.com/photo-1633114128174-2f8aa49759b0?w=600&q=80', category: 'tablets', brand: 'Lenovo', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
-
-    /* ===== AUDIO ===== */
     { id: 50, name: 'AirPods Pro 2nd Gen', price: 320000, image: 'https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=600&q=80', category: 'audio', brand: 'Apple', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 51, name: 'Samsung Buds 3 Pro', price: 210000, image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&q=80', category: 'audio', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 52, name: 'Sony WH-1000XM5', price: 420000, image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&q=80', category: 'audio', brand: 'Sony', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 53, name: 'JBL Flip 6 Speaker', price: 95000, image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600&q=80', category: 'audio', brand: 'JBL', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 54, name: 'Oraimo FreePods 4', price: 28000, image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&q=80', category: 'audio', brand: 'Oraimo', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 55, name: 'Anker Soundcore P40i', price: 65000, image: 'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=600&q=80', category: 'audio', brand: 'Anker', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
-
-    /* ===== WEARABLES ===== */
     { id: 60, name: 'Apple Watch Series 9', price: 480000, image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600&q=80', category: 'wearables', brand: 'Apple', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 61, name: 'Samsung Galaxy Watch 6', price: 320000, image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80', category: 'wearables', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 62, name: 'Xiaomi Smart Band 8', price: 42000, image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=600&q=80', category: 'wearables', brand: 'Xiaomi', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
@@ -3455,34 +3834,24 @@ const PRODUCTS = [
     { id: 64, name: 'Huawei Watch GT 4', price: 280000, image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600&q=80', category: 'wearables', brand: 'Huawei', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 65, name: 'Amazfit GTR 4', price: 145000, image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80', category: 'wearables', brand: 'Amazfit', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 66, name: 'Fitbit Charge 6', price: 165000, image: 'https://images.unsplash.com/photo-1544117519-31a4b719223d?w=600&q=80', category: 'wearables', brand: 'Fitbit', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
-
-    /* ===== SMART GLASSES ===== */
     { id: 70, name: 'Ray-Ban Meta Smart Glasses', price: 620000, image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80', category: 'smart-glasses', brand: 'Meta', sponsored: false, featured: true, badge: 'new', inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 71, name: 'Xreal Air 2 Pro AR', price: 890000, image: 'https://images.unsplash.com/photo-1626379953822-baec19c3accd?w=600&q=80', category: 'smart-glasses', brand: 'Xreal', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
-
-    /* ===== MP3 ===== */
     { id: 100, name: 'Sony NW-E394 Walkman', price: 85000, image: 'https://images.unsplash.com/photo-1592434134753-a70baf7979d5?w=600&q=80', category: 'mp3', brand: 'Sony', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 101, name: 'FiiO M6 Hi-Res Player', price: 145000, image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&q=80', category: 'mp3', brand: 'FiiO', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 102, name: 'SanDisk Clip Sport Plus', price: 45000, image: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600&q=80', category: 'mp3', brand: 'SanDisk', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 103, name: 'Shanling M0 Pro', price: 95000, image: 'https://images.unsplash.com/photo-1592434134753-a70baf7979d5?w=600&q=80', category: 'mp3', brand: 'Shanling', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
-
-    /* ===== CHARGERS ===== */
     { id: 110, name: 'Anker 65W GaN Charger', price: 42000, image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Anker', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 111, name: 'Oraimo 20W Fast Charger', price: 12000, image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Oraimo', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 112, name: 'Apple 20W USB-C Adapter', price: 28000, image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 113, name: 'Samsung 45W Super Charger', price: 35000, image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 114, name: 'Xiaomi 33W Turbo Charger', price: 18000, image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Xiaomi', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 115, name: 'Baseus 100W GaN Charger', price: 55000, image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Baseus', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
-
-    /* ===== CABLES ===== */
     { id: 120, name: 'Anker USB-C to Lightning', price: 15000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Anker', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 121, name: 'Oraimo USB-C Fast Cable', price: 6500, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Oraimo', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 122, name: 'Apple USB-C to USB-C 2m', price: 22000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 123, name: 'Baseus 100W Braided Cable', price: 12000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Baseus', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 124, name: 'Samsung USB-C Data Cable', price: 9500, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 125, name: 'UGREEN HDMI 8K Cable', price: 18000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'UGREEN', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
-
-    /* ===== CASES ===== */
     { id: 130, name: 'iPhone 15 Pro Max Silicone Case', price: 8500, image: 'https://images.unsplash.com/photo-1601593346740-925612772716?w=600&q=80', category: 'cases', brand: 'Apple', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 131, name: 'iPhone 15 Pro Max Leather Case', price: 18000, image: 'https://images.unsplash.com/photo-1601593346740-925612772716?w=600&q=80', category: 'cases', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 132, name: 'Samsung S25 Ultra Clear Case', price: 7500, image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'cases', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
@@ -3494,8 +3863,6 @@ const PRODUCTS = [
     { id: 138, name: 'Oppo Reno 12 Pro Clear Case', price: 5500, image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'cases', brand: 'Oppo', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 139, name: 'Universal Shockproof Case — Clear', price: 3500, image: 'https://images.unsplash.com/photo-1601593346740-925612772716?w=600&q=80', category: 'cases', brand: 'OBILO', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 140, name: 'Universal Ring Holder Case — Black', price: 4500, image: 'https://images.unsplash.com/photo-1601593346740-925612772716?w=600&q=80', category: 'cases', brand: 'OBILO', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
-
-    /* ===== GUARDS ===== */
     { id: 150, name: 'iPhone 15 Pro Max Tempered Glass', price: 4500, image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80', category: 'guards', brand: 'Apple', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 151, name: 'iPhone 15 Pro Max Privacy Glass', price: 8500, image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80', category: 'guards', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 152, name: 'Samsung S25 Ultra Tempered Glass', price: 4500, image: 'https://images.unsplash.com/photo-1610792516307-ea5acd9c3b00?w=600&q=80', category: 'guards', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
@@ -3506,13 +3873,10 @@ const PRODUCTS = [
     { id: 157, name: 'Infinix Note 40 Pro Tempered Glass', price: 2500, image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'guards', brand: 'Infinix', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 158, name: 'Universal HD Screen Film (3-pack)', price: 1500, image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80', category: 'guards', brand: 'OBILO', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 159, name: 'Universal Matte Anti-Glare Film', price: 2000, image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80', category: 'guards', brand: 'OBILO', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
-
-    /* ===== ACCESSORIES ===== */
     { id: 80, name: 'Anker Power Bank 20K', price: 45000, image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=600&q=80', category: 'accessories', brand: 'Anker', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 81, name: 'Logitech MX Master 3S', price: 85000, image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&q=80', category: 'accessories', brand: 'Logitech', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' }
 ];
 
-/* DEALS — pull from master catalog so names/prices match */
 const DEALS = [
     { id: 8,    name: 'Redmi Note 13 Pro',                    price: 285000,  oldPrice: 340000,  image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&q=80', discount: '-16%' },
     { id: 13,   name: 'Infinix Hot 40',                       price: 128000,  oldPrice: 155000,  image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', discount: '-17%' },
@@ -3556,7 +3920,6 @@ function buildWhatsAppLink(productName, price) {
     return `${WHATSAPP_BASE}?text=${encodeURIComponent(msg)}`;
 }
 
-/* CONDITION HELPERS */
 function getConditionInfo(condition) {
     if (condition === 'uk-used') return { cls: 'uk-used', label: 'UK Used' };
     if (condition === 'us-used') return { cls: 'us-used', label: 'US Used' };
@@ -3750,6 +4113,169 @@ document.addEventListener('click', (e) => {
     }
 });
 
+/* ============================================================
+   ADMIN NEWS — reads from obilo_admin_news
+   ============================================================ */
+const ADMIN_NEWS_KEY = 'obilo_admin_news';
+let adminNewsExpanded = false;
+
+function getAdminNews() {
+    try { return JSON.parse(localStorage.getItem(ADMIN_NEWS_KEY) || '[]'); }
+    catch(e) { return []; }
+}
+
+function getPublishedNews() {
+    return getAdminNews()
+        .filter(n => n.published === true)
+        .sort((a, b) => {
+            if (a.pinned && !b.pinned) return -1;
+            if (!a.pinned && b.pinned) return 1;
+            return new Date(b.date || b.createdAt) - new Date(a.date || a.createdAt);
+        });
+}
+
+function formatNewsDate(dateStr) {
+    if (!dateStr) return '';
+    try {
+        const d = new Date(dateStr);
+        return d.toLocaleDateString('en-NG', { day: 'numeric', month: 'short', year: 'numeric' });
+    } catch(e) { return dateStr; }
+}
+
+function renderFlashNews() {
+    const bar = document.getElementById('newsFlashBar');
+    const track = document.getElementById('newsFlashTrack');
+    if (!bar || !track) return;
+
+    const published = getPublishedNews();
+    if (!published.length) {
+        bar.classList.remove('show');
+        return;
+    }
+
+    // Show up to 10 items
+    const items = published.slice(0, 10);
+
+    const itemsHTML = items.map(n => `
+        <span class="news-flash-item" onclick="openNewsReader('${n.id}')">
+            <span class="news-flash-dot"></span>
+            <span class="news-flash-tag ${n.tag || 'general'}">${(n.tag || 'general').toUpperCase()}</span>
+            <span class="news-flash-title">${escapeHtml(n.title)}</span>
+        </span>
+    `).join('');
+
+    // Duplicate for seamless loop
+    track.innerHTML = itemsHTML + itemsHTML;
+    bar.classList.add('show');
+}
+
+function renderAdminNews() {
+    const section = document.getElementById('adminNewsSection');
+    const grid = document.getElementById('adminNewsGrid');
+    const toggleBtn = document.getElementById('newsToggleBtn');
+    if (!section || !grid) return;
+
+    const all = getPublishedNews();
+    if (!all.length) {
+        section.style.display = 'none';
+        return;
+    }
+
+    section.style.display = 'block';
+    const list = adminNewsExpanded ? all : all.slice(0, 3);
+
+    if (toggleBtn) {
+        if (all.length <= 3) {
+            toggleBtn.style.display = 'none';
+        } else {
+            toggleBtn.style.display = '';
+            toggleBtn.textContent = adminNewsExpanded ? 'Show Less' : `View All (${all.length})`;
+        }
+    }
+
+    grid.innerHTML = list.map(n => {
+        const img = n.image || 'https://placehold.co/600x340/1C1C21/C9A227?text=News';
+        const dateStr = formatNewsDate(n.date);
+        const excerpt = n.excerpt || (n.body ? n.body.substring(0, 130) + (n.body.length > 130 ? '…' : '') : '');
+        return `
+            <div class="news-card-published ${n.pinned ? 'pinned' : ''}" onclick="openNewsReader('${n.id}')">
+                <div class="news-card-image">
+                    <div style="position:absolute; top:12px; left:12px; display:flex; flex-direction:column; gap:6px; align-items:flex-start; z-index:2;">
+                        <span class="news-tag-chip ${n.tag || 'general'}">${(n.tag || 'general').toUpperCase()}</span>
+                        ${n.pinned ? '<span class="news-tag-pinned">📌 PINNED</span>' : ''}
+                    </div>
+                    <img src="${escapeAttr(img)}" alt="${escapeAttr(n.title)}" loading="lazy" onerror="this.src='https://placehold.co/600x340/1C1C21/C9A227?text=News'">
+                </div>
+                <div class="news-card-body">
+                    <div class="news-card-meta" style="border-top:none; padding-top:0; margin-top:0;">
+                        <span>📅 ${dateStr}</span>
+                    </div>
+                    <div class="news-card-title">${escapeHtml(n.title)}</div>
+                    <div class="news-card-excerpt">${escapeHtml(excerpt)}</div>
+                    <div class="news-card-meta" style="margin-top:auto;">
+                        <span></span>
+                        <span class="read-more">Read →</span>
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+function toggleAllAdminNews() {
+    adminNewsExpanded = !adminNewsExpanded;
+    renderAdminNews();
+}
+
+function openNewsReader(id) {
+    const news = getAdminNews();
+    const n = news.find(x => x.id === id);
+    if (!n) return;
+
+    const reader = document.getElementById('newsReader');
+    const article = document.getElementById('newsReaderArticle');
+    if (!reader || !article) return;
+
+    const img = n.image || '';
+    const dateStr = formatNewsDate(n.date);
+
+    article.innerHTML = `
+        <span class="news-reader-tag ${n.tag || 'general'}">${(n.tag || 'general').toUpperCase()}</span>
+        <h1 class="news-reader-title">${escapeHtml(n.title)}</h1>
+        <div class="news-reader-meta">
+            <span>📅 ${dateStr}</span>
+            ${n.pinned ? '<span class="dot"></span><span>📌 Pinned</span>' : ''}
+        </div>
+        ${img ? `<div class="news-reader-image"><img src="${escapeAttr(img)}" alt="${escapeAttr(n.title)}" onerror="this.style.display='none'; this.parentElement.style.display='none';"></div>` : ''}
+        <div class="news-reader-body">${escapeHtml(n.body || n.excerpt || '')}</div>
+        <div class="news-reader-cta">
+            <div class="news-reader-cta-text">Interested in what you just read?<br><span>Talk to us on WhatsApp.</span></div>
+            <a href="https://wa.me/2349094062471?text=${encodeURIComponent('Hi OBILO GOLD, I just read about: ' + n.title)}" target="_blank" rel="noopener" class="btn btn-whatsapp">${WA_SVG}<span>Chat with Us</span></a>
+        </div>
+    `;
+
+    reader.classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeNewsReader() {
+    const reader = document.getElementById('newsReader');
+    if (reader) reader.classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeNewsReader();
+});
+
+/* Listen for updates from admin in another tab */
+window.addEventListener('storage', (e) => {
+    if (e.key === ADMIN_NEWS_KEY) {
+        renderFlashNews();
+        renderAdminNews();
+    }
+});
+
 /* RENDER */
 function renderCategoryStrip() {
     const strip = document.getElementById('categoryStrip');
@@ -3768,7 +4294,6 @@ function renderProducts() {
     const favs = getFavourites();
     const favIds = favs.map(f => f.id);
 
-    /* Featured picks — includes brand-new flagships AND top UK/US used items */
     const featuredIds = [1, 3, 5, 1001, 200, 210, 30, 33, 40, 50, 60, 70, 54, 80, 100, 110, 130, 150, 1002, 1101];
     const featured = PRODUCTS.filter(p => featuredIds.includes(p.id));
 
@@ -4091,6 +4616,17 @@ window.addEventListener('scroll', () => {
     else btn.classList.remove('show');
 });
 
+/* ESCAPE HELPERS (for safe rendering) */
+function escapeHtml(str) {
+    if (str == null) return '';
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+function escapeAttr(str) {
+    if (str == null) return '';
+    return String(str).replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
 /* INIT */
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -4103,6 +4639,10 @@ document.addEventListener('DOMContentLoaded', () => {
     renderRecentlyViewed();
     updateFavBadge();
     applyAuthUI();
+
+    // Admin news — flash ticker + full section
+    renderFlashNews();
+    renderAdminNews();
 });
 </script>
 </body>

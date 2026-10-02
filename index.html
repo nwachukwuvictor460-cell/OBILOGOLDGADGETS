@@ -770,264 +770,14 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 
 .logout-btn:hover { background: rgba(229, 72, 77, 0.08); border-color: #E5484D; }
 
-/* DESKTOP NAV */
+/* DESKTOP NAV — hidden */
 .nav-wrapper {
-    position: relative;
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 28px;
-}
-
-.nav-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 0 14px;
-    gap: 16px;
-    flex-wrap: wrap;
-}
-
-.nav-left {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
-.nav-shop-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    padding: 7px 16px;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-    color: var(--text-muted);
-    border-radius: 100px;
-    white-space: nowrap;
-    transition: color 0.2s, background 0.2s;
-}
-
-.nav-shop-link:hover,
-.nav-shop-link.active {
-    color: var(--gold);
-    background: var(--gold-soft);
-}
-
-.hamburger-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 8px 18px;
-    border-radius: 100px;
-    background: var(--dark-3);
-    border: 1px solid var(--border);
-    color: var(--text-soft);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-    cursor: pointer;
-    transition: all 0.25s var(--ease);
-    white-space: nowrap;
-    font-family: inherit;
-}
-
-.hamburger-btn:hover {
-    border-color: var(--gold-hairline);
-    color: var(--gold);
-    background: var(--gold-soft);
-}
-
-.hamburger-icon {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    width: 18px;
-    flex-shrink: 0;
-}
-
-.hamburger-icon span {
-    display: block;
-    height: 2px;
-    background: currentColor;
-    border-radius: 2px;
-    transition: transform 0.3s var(--ease), opacity 0.3s;
-    transform-origin: center;
-}
-
-.hamburger-btn.active .hamburger-icon span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-.hamburger-btn.active .hamburger-icon span:nth-child(2) { opacity: 0; }
-.hamburger-btn.active .hamburger-icon span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
-
-.hamburger-label {
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-}
-
-/* MEGA DROPDOWN (desktop only) */
-.mega-dropdown {
-    position: absolute;
-    top: calc(100% + 8px);
-    left: 0;
-    right: 0;
-    width: 100%;
-    background: var(--dark-2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 28px 32px;
-    box-shadow: var(--shadow-elegant);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: opacity 0.28s var(--ease), transform 0.28s var(--ease), visibility 0.28s;
-    z-index: 150;
-    pointer-events: none;
-}
-
-.mega-dropdown::before {
-    content: '';
-    position: absolute;
-    top: -14px;
-    left: 0;
-    right: 0;
-    height: 14px;
-}
-
-.mega-dropdown.open {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    pointer-events: auto;
-}
-
-.mega-inner {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 28px;
-}
-
-.mega-col {
-    flex: 1 1 180px;
-    min-width: 140px;
-}
-
-.mega-col-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--gold);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--border-soft);
-}
-
-.mega-links {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    list-style: none;
-}
-
-.mega-links a {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 8px;
-    border-radius: 8px;
-    font-size: 13px;
-    color: var(--text-soft);
-    font-weight: 400;
-    transition: all 0.2s;
-}
-
-.mega-links a:hover {
-    background: var(--gold-soft);
-    color: var(--gold);
-    padding-left: 12px;
-}
-
-.mega-links a .cat-icon {
-    font-size: 15px;
-    color: var(--gold);
-    width: 20px;
-    text-align: center;
-    flex-shrink: 0;
-}
-
-.mega-featured {
-    flex: 1 1 260px;
-    min-width: 220px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.mega-featured-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--gold);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 4px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--border-soft);
-}
-
-.mega-featured-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 8px;
-    border-radius: 10px;
-    transition: background 0.2s;
-    cursor: pointer;
-}
-
-.mega-featured-item:hover { background: var(--dark-3); }
-
-.mega-featured-img {
-    width: 48px;
-    height: 48px;
-    border-radius: 8px;
-    overflow: hidden;
-    background: var(--dark-3);
-    flex-shrink: 0;
-}
-
-.mega-featured-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.mega-featured-info {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-}
-
-.mega-featured-name {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--text);
-    line-height: 1.3;
-}
-
-.mega-featured-price {
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--gold);
+    display: none !important;
 }
 
 /* ============================================
    PROFESSIONAL MOBILE NAVIGATION
    ============================================ */
-/* Mobile top bar (compact, replaces desktop header on phones) */
 .mobile-header {
     display: none;
     position: sticky;
@@ -1183,7 +933,42 @@ html[data-theme="light"] .mobile-logo-sub { color: #1E5AA8; }
     border: 2px solid var(--header-bg);
 }
 
-/* Mobile search trigger (compressed into the header row) */
+/* Mobile theme toggle icon animation */
+.mobile-icon-btn.theme-toggle-mobile {
+    position: relative;
+    overflow: hidden;
+}
+
+.mobile-icon-btn .theme-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 18px;
+    line-height: 1;
+    transition: transform 0.6s var(--ease), opacity 0.35s;
+    pointer-events: none;
+}
+
+.mobile-icon-btn .theme-icon.sun {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.mobile-icon-btn .theme-icon.moon {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+html[data-theme="light"] .mobile-icon-btn .theme-icon.sun {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+html[data-theme="light"] .mobile-icon-btn .theme-icon.moon {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
 .mobile-search-trigger {
     flex: 1;
     display: flex;
@@ -1332,9 +1117,7 @@ html[data-theme="light"] .mobile-drawer-brand .brand-sub { color: #1E5AA8; }
 .mobile-drawer-body::-webkit-scrollbar { width: 3px; }
 .mobile-drawer-body::-webkit-scrollbar-thumb { background: var(--gold-gradient); border-radius: 2px; }
 
-.drawer-section {
-    padding: 4px 12px;
-}
+.drawer-section { padding: 4px 12px; }
 
 .drawer-section-title {
     font-size: 9px;
@@ -1428,7 +1211,6 @@ html[data-theme="light"] .mobile-drawer-brand .brand-sub { color: #1E5AA8; }
     opacity: 1;
 }
 
-/* Drawer accordion submenu */
 .drawer-submenu {
     max-height: 0;
     overflow: hidden;
@@ -1485,7 +1267,6 @@ html[data-theme="light"] .mobile-drawer-brand .brand-sub { color: #1E5AA8; }
     letter-spacing: 0.3px;
 }
 
-/* Drawer footer (account + WhatsApp) */
 .mobile-drawer-foot {
     flex-shrink: 0;
     border-top: 1px solid var(--border-soft);
@@ -1720,7 +1501,7 @@ html[data-theme="light"] .mobile-drawer-brand .brand-sub { color: #1E5AA8; }
 }
 
 /* ============================================
-   HERO / SECTIONS (unchanged)
+   HERO / SECTIONS
    ============================================ */
 .hero {
     position: relative;
@@ -2603,7 +2384,7 @@ html[data-theme="light"] .mobile-drawer-brand .brand-sub { color: #1E5AA8; }
 .btn-wa-full:active { transform: scale(0.98); }
 .btn-wa-full .wa-icon { width: 16px; height: 16px; }
 
-/* TRUST / REVIEWS / STORE / BROADCAST / DEALS (unchanged) */
+/* TRUST / REVIEWS / STORE / BROADCAST / DEALS */
 .trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px; }
 
 .trust-card {
@@ -3580,7 +3361,6 @@ a.contact-line:hover { color: var(--gold); }
    RESPONSIVE
    ============================================ */
 
-/* Tablet + small desktop */
 @media (max-width: 900px) {
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
     .search-bar { display: flex; flex: 1; max-width: none; }
@@ -3599,15 +3379,8 @@ a.contact-line:hover { color: var(--gold); }
     .store-map { min-height: 360px; }
 
     .broadcast { grid-template-columns: 1fr; padding: 46px 34px; }
-
-    .mega-inner { flex-wrap: wrap; }
-    .mega-col { flex: 1 1 150px; }
-    .mega-featured { flex: 1 1 100%; flex-direction: row; flex-wrap: wrap; }
-    .mega-featured-title { width: 100%; }
-    .mega-featured-item { flex: 0 0 calc(50% - 8px); }
 }
 
-/* Mobile — switch to the mobile header + drawer nav */
 @media (max-width: 768px) {
     .container { padding: 0 18px; }
 
@@ -3615,7 +3388,7 @@ a.contact-line:hover { color: var(--gold); }
     .top-info-bar,
     .news-flash-bar,
     .header-top,
-    .nav-wrapper { display: none; }
+    .nav-wrapper { display: none !important; }
 
     /* Show mobile-specific chrome */
     .mobile-header { display: block; }
@@ -3623,7 +3396,6 @@ a.contact-line:hover { color: var(--gold); }
     .mobile-drawer-backdrop,
     .mobile-search-overlay { display: flex; }
 
-    /* Hide the AI label text on very small screens */
     .ai-float span:not(.ai-avatar) { display: none; }
     .ai-float { padding: 0; width: 56px; justify-content: center; }
 
@@ -3873,95 +3645,9 @@ a.contact-line:hover { color: var(--gold); }
         </div>
     </div>
 
-    <!-- ============ DESKTOP NAV ============ -->
-    <div class="nav-wrapper" id="navWrapper">
-        <div class="nav-bar">
-            <div class="nav-left">
-                <a href="index.html" class="nav-shop-link active">Home</a>
-                <a href="shop.html" class="nav-shop-link">Shop</a>
-                <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMegaMenu()" aria-label="Browse categories" aria-expanded="false">
-                    <span class="hamburger-icon">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </span>
-                    <span class="hamburger-label">Browse</span>
-                </button>
-            </div>
-        </div>
+    <!-- DESKTOP NAV IS HIDDEN — nav-wrapper is display:none in CSS -->
 
-        <div class="mega-dropdown" id="megaDropdown">
-            <div class="mega-inner">
-                <div class="mega-col">
-                    <div class="mega-col-title">Categories</div>
-                    <ul class="mega-links">
-                        <li><a href="shop.html?cat=phones"><span class="cat-icon">◐</span> Phones</a></li>
-                        <li><a href="shop.html?cat=laptops"><span class="cat-icon">⌘</span> Laptops</a></li>
-                        <li><a href="shop.html?cat=tablets"><span class="cat-icon">▢</span> Tablets</a></li>
-                        <li><a href="shop.html?cat=audio"><span class="cat-icon">◉</span> Audio</a></li>
-                        <li><a href="shop.html?cat=wearables"><span class="cat-icon">◯</span> Watches</a></li>
-                        <li><a href="shop.html?cat=smart-glasses"><span class="cat-icon">◈</span> Smart Glasses</a></li>
-                    </ul>
-                </div>
-                <div class="mega-col">
-                    <div class="mega-col-title">More Categories</div>
-                    <ul class="mega-links">
-                        <li><a href="shop.html?cat=mp3"><span class="cat-icon">♫</span> MP3 Players</a></li>
-                        <li><a href="shop.html?cat=chargers"><span class="cat-icon">⚡</span> Chargers</a></li>
-                        <li><a href="shop.html?cat=cables"><span class="cat-icon">⌁</span> Cords &amp; Cables</a></li>
-                        <li><a href="shop.html?cat=cases"><span class="cat-icon">⬚</span> Phone Cases</a></li>
-                        <li><a href="shop.html?cat=guards"><span class="cat-icon">◫</span> Screen Guards</a></li>
-                        <li><a href="shop.html?cat=accessories"><span class="cat-icon">✦</span> Accessories</a></li>
-                    </ul>
-                </div>
-                <div class="mega-col">
-                    <div class="mega-col-title">Top Brands</div>
-                    <ul class="mega-links">
-                        <li><a href="shop.html?brand=apple">Apple</a></li>
-                        <li><a href="shop.html?brand=samsung">Samsung</a></li>
-                        <li><a href="shop.html?brand=google">Google Pixel</a></li>
-                        <li><a href="shop.html?brand=xiaomi">Xiaomi / Redmi</a></li>
-                        <li><a href="shop.html?brand=tecno">Tecno</a></li>
-                        <li><a href="shop.html?brand=infinix">Infinix</a></li>
-                        <li><a href="shop.html?brand=oppo">Oppo</a></li>
-                        <li><a href="shop.html?brand=realme">Realme</a></li>
-                    </ul>
-                </div>
-                <div class="mega-featured">
-                    <div class="mega-featured-title">Featured Picks</div>
-                    <a href="product.html?id=1" class="mega-featured-item">
-                        <div class="mega-featured-img">
-                            <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=100&q=80" alt="iPhone 15 Pro Max">
-                        </div>
-                        <div class="mega-featured-info">
-                            <div class="mega-featured-name">iPhone 15 Pro Max</div>
-                            <div class="mega-featured-price">₦1,650,000</div>
-                        </div>
-                    </a>
-                    <a href="product.html?id=5" class="mega-featured-item">
-                        <div class="mega-featured-img">
-                            <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=100&q=80" alt="Google Pixel 9 Pro">
-                        </div>
-                        <div class="mega-featured-info">
-                            <div class="mega-featured-name">Google Pixel 9 Pro</div>
-                            <div class="mega-featured-price">₦1,450,000</div>
-                        </div>
-                    </a>
-                    <a href="product.html?id=3" class="mega-featured-item">
-                        <div class="mega-featured-img">
-                            <img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=100&q=80" alt="Samsung S25 Ultra">
-                        </div>
-                        <div class="mega-featured-info">
-                            <div class="mega-featured-name">Samsung S25 Ultra</div>
-                            <div class="mega-featured-price">₦1,850,000</div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ============ MOBILE HEADER (Professional) ============ -->
+    <!-- ============ MOBILE HEADER ============ -->
     <div class="mobile-header">
         <div class="mobile-header-inner">
             <button class="mobile-menu-trigger" id="mobileMenuTrigger" onclick="toggleMobileDrawer()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer">
@@ -3981,9 +3667,9 @@ a.contact-line:hover { color: var(--gold); }
                 <button class="mobile-icon-btn" onclick="openMobileSearch()" aria-label="Search">
                     ⌕
                 </button>
-                <button class="mobile-icon-btn" onclick="location.href='favourites.html'" aria-label="Favourites">
-                    ♡
-                    <span class="badge" id="favBadgeMobile" style="display:none">0</span>
+                <button class="mobile-icon-btn theme-toggle-mobile" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <span class="theme-icon moon">☾</span>
+                    <span class="theme-icon sun">☀</span>
                 </button>
             </div>
         </div>
@@ -4092,7 +3778,7 @@ a.contact-line:hover { color: var(--gold); }
                     <span class="drawer-link-label">My Favourites</span>
                     <span class="drawer-link-sub">Your saved gadgets</span>
                 </span>
-                <span class="drawer-link-arrow">›</span>
+                <span class="drawer-link-arrow" id="drawerFavCount" style="font-size:11px; font-weight:700; color:var(--gold); background:var(--gold-soft); padding:3px 9px; border-radius:100px; border:1px solid var(--gold-hairline);">0</span>
             </a>
         </div>
 
@@ -4624,7 +4310,7 @@ const CATEGORIES = [
     { id: 'accessories',   name: 'Accessories',    icon: '✦' },
 ];
 
-/* MASTER PRODUCT CATALOG (same as before) */
+/* MASTER PRODUCT CATALOG */
 const PRODUCTS = [
     { id: 1,  name: 'iPhone 15 Pro Max', price: 1650000, image: 'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 2,  name: 'iPhone 15 Pro',     price: 1450000, image: 'https://images.unsplash.com/photo-1591337676887-a217a6970a8a?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false, badge: 'new', inStock: true, stockType: 'in-store', condition: 'brand-new' },
@@ -4811,6 +4497,18 @@ function updateFavBadge() {
         else { badgeMobile.style.display = 'none'; }
     }
 
+    const drawerCount = document.getElementById('drawerFavCount');
+    if (drawerCount) {
+        drawerCount.textContent = count > 0 ? count : '›';
+        if (count === 0) {
+            drawerCount.style.background = 'transparent';
+            drawerCount.style.border = 'none';
+            drawerCount.style.padding = '0';
+            drawerCount.style.color = 'var(--text-muted)';
+            drawerCount.style.fontSize = '14px';
+        }
+    }
+
     const pf = document.getElementById('panelFavCount');
     if (pf) pf.textContent = count;
 }
@@ -4876,7 +4574,6 @@ function applyAuthUI() {
     const panel = document.getElementById('loginPanel');
     const user = getAuth();
 
-    // Update desktop panel
     if (panel) {
         const signinBtn = document.querySelector('.signin-btn');
         if (user) {
@@ -4894,7 +4591,6 @@ function applyAuthUI() {
         }
     }
 
-    // Update mobile drawer
     const drawerAvatar = document.getElementById('drawerAccountAvatar');
     const drawerName = document.getElementById('drawerAccountName');
     const drawerSub = document.getElementById('drawerAccountSub');
@@ -5030,7 +4726,6 @@ function toggleDrawerAccordion(id) {
         ? document.getElementById('drawerCategoriesToggle')
         : document.getElementById('drawerBrandsToggle');
 
-    // Close the other accordion
     document.querySelectorAll('.drawer-submenu').forEach(el => {
         if (el.id !== id) el.classList.remove('open');
     });
@@ -5075,7 +4770,7 @@ function quickMobileSearch(term) {
     location.href = `shop.html?q=${encodeURIComponent(term)}`;
 }
 
-/* ESC key handler — closes everything */
+/* ESC key handler */
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeLoginPanel();
@@ -5112,29 +4807,6 @@ document.addEventListener('keydown', (e) => {
 
     document.addEventListener('touchend', () => { tracking = false; }, { passive: true });
 })();
-
-/* MEGA MENU (desktop) */
-function toggleMegaMenu() {
-    const dropdown = document.getElementById('megaDropdown');
-    const btn = document.getElementById('hamburgerBtn');
-    if (!dropdown || !btn) return;
-    const isOpen = dropdown.classList.contains('open');
-    dropdown.classList.toggle('open');
-    btn.classList.toggle('active');
-    btn.setAttribute('aria-expanded', !isOpen);
-}
-
-document.addEventListener('click', (e) => {
-    const dropdown = document.getElementById('megaDropdown');
-    const btn = document.getElementById('hamburgerBtn');
-    const wrapper = document.getElementById('navWrapper');
-    if (!dropdown || !btn || !wrapper) return;
-    if (!wrapper.contains(e.target)) {
-        dropdown.classList.remove('open');
-        btn.classList.remove('active');
-        btn.setAttribute('aria-expanded', 'false');
-    }
-});
 
 /* ============================================
    ADMIN NEWS

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Admin Login — OBILO GOLD GADGETS</title>
+<title>Admin — OBILO GOLD GADGETS</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
@@ -19,6 +19,9 @@
 })();
 </script>
 <style>
+/* ============================================================
+   BASE
+   ============================================================ */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
@@ -28,10 +31,7 @@
     --gold-gradient: linear-gradient(135deg, #E2C766 0%, #C9A227 45%, #9C7A1A 100%);
     --gold-soft: rgba(201, 162, 39, 0.12);
     --gold-hairline: rgba(201, 162, 39, 0.28);
-
-    --blue: #1B3A6B;
     --blue-light: #4A7BC8;
-
     --dark: #0A0A0C;
     --dark-2: #121215;
     --dark-3: #1C1C21;
@@ -41,19 +41,11 @@
     --text-soft: #B8B8BE;
     --border: #23232A;
     --border-soft: #1A1A20;
-
-    --whatsapp: #25D366;
     --danger: #E5484D;
     --success: #30A46C;
     --warning: #F5A623;
-    --info: #4A7BC8;
-
     --shadow-elegant: 0 24px 60px rgba(0, 0, 0, 0.55);
-    --shadow-medium: 0 12px 30px rgba(0, 0, 0, 0.35);
-
     --header-bg: rgba(10, 10, 12, 0.88);
-    --footer-bg: #060608;
-
     --radius: 14px;
     --radius-lg: 22px;
     --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -70,10 +62,8 @@ html[data-theme="light"] {
     --border: #E4E4DD;
     --border-soft: #EDEDE6;
     --header-bg: rgba(250, 250, 248, 0.92);
-    --footer-bg: #F2F2EE;
     --gold-soft: rgba(201, 162, 39, 0.1);
     --shadow-elegant: 0 24px 60px rgba(0, 0, 0, 0.08);
-    --shadow-medium: 0 12px 30px rgba(0, 0, 0, 0.06);
 }
 
 body {
@@ -92,10 +82,8 @@ body {
 body::before {
     content: '';
     position: fixed;
-    top: -300px;
-    left: -300px;
-    width: 900px;
-    height: 900px;
+    top: -300px; left: -300px;
+    width: 900px; height: 900px;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(201, 162, 39, 0.14), transparent 65%);
     pointer-events: none;
@@ -105,10 +93,8 @@ body::before {
 body::after {
     content: '';
     position: fixed;
-    bottom: -400px;
-    right: -300px;
-    width: 1000px;
-    height: 1000px;
+    bottom: -400px; right: -300px;
+    width: 1000px; height: 1000px;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(27, 58, 107, 0.18), transparent 65%);
     pointer-events: none;
@@ -143,8 +129,7 @@ input { font-family: inherit; }
 }
 
 .admin-logo-mark {
-    width: 46px;
-    height: 46px;
+    width: 46px; height: 46px;
     border-radius: 50%;
     background: var(--gold-gradient);
     color: #1a1a1a;
@@ -159,11 +144,7 @@ input { font-family: inherit; }
     flex-shrink: 0;
 }
 
-.admin-logo-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
-}
+.admin-logo-text { display: flex; flex-direction: column; line-height: 1; }
 
 .admin-logo-main {
     font-family: 'Playfair Display', serif;
@@ -184,15 +165,10 @@ input { font-family: inherit; }
     margin-top: 4px;
 }
 
-.admin-top-actions {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
+.admin-top-actions { display: flex; align-items: center; gap: 8px; }
 
 .top-action-btn {
-    width: 40px;
-    height: 40px;
+    width: 40px; height: 40px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -208,8 +184,7 @@ input { font-family: inherit; }
 
 .top-action-btn .theme-icon {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 50%; left: 50%;
     transition: transform 0.6s var(--ease), opacity 0.35s;
     font-size: 16px;
     line-height: 1;
@@ -241,7 +216,7 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
     background: var(--gold-soft);
 }
 
-/* ===== MAIN LOGIN AREA ===== */
+/* ===== LOGIN AREA ===== */
 .admin-login-wrap {
     flex: 1;
     display: flex;
@@ -254,7 +229,7 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
 
 .login-card {
     width: 100%;
-    max-width: 520px;
+    max-width: 560px;
     background: var(--dark-2);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
@@ -273,10 +248,8 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
 .login-card::before {
     content: '';
     position: absolute;
-    top: -100px;
-    right: -100px;
-    width: 280px;
-    height: 280px;
+    top: -100px; right: -100px;
+    width: 280px; height: 280px;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(201, 162, 39, 0.14), transparent 65%);
     pointer-events: none;
@@ -285,10 +258,8 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
 .login-card::after {
     content: '';
     position: absolute;
-    bottom: -120px;
-    left: -80px;
-    width: 260px;
-    height: 260px;
+    bottom: -120px; left: -80px;
+    width: 260px; height: 260px;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(27, 58, 107, 0.16), transparent 65%);
     pointer-events: none;
@@ -312,9 +283,14 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
     background: var(--gold-soft);
 }
 
+.login-badge.setup {
+    border-color: rgba(74, 123, 200, 0.4);
+    color: var(--blue-light);
+    background: rgba(74, 123, 200, 0.1);
+}
+
 .login-icon-wrap {
-    width: 74px;
-    height: 74px;
+    width: 74px; height: 74px;
     border-radius: 50%;
     background: var(--gold-soft);
     border: 1.5px solid var(--gold-hairline);
@@ -364,120 +340,13 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
     font-size: 13px;
     color: var(--text-muted);
     line-height: 1.6;
-    margin-bottom: 22px;
+    margin-bottom: 24px;
     font-weight: 300;
-    max-width: 380px;
+    max-width: 420px;
 }
-
-/* ===== DEMO AUTOFILL BAR ===== */
-.demo-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 11px 14px;
-    background: linear-gradient(135deg, rgba(201, 162, 39, 0.14), rgba(27, 58, 107, 0.1));
-    border: 1px dashed var(--gold-hairline);
-    border-radius: 12px;
-    margin-bottom: 26px;
-    flex-wrap: wrap;
-}
-
-.demo-bar-text {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--gold);
-    letter-spacing: 0.4px;
-}
-
-.demo-bar-text .demo-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--gold);
-    box-shadow: 0 0 8px var(--gold);
-    animation: demoPulse 2s ease-in-out infinite;
-    flex-shrink: 0;
-}
-
-@keyframes demoPulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.35; }
-}
-
-.demo-bar-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 14px;
-    background: var(--gold-gradient);
-    color: #1a1a1a;
-    border-radius: 100px;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.6px;
-    text-transform: uppercase;
-    transition: transform 0.2s var(--ease), box-shadow 0.3s;
-    white-space: nowrap;
-}
-
-.demo-bar-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 8px 18px rgba(201, 162, 39, 0.4);
-}
-
-.demo-bar-btn:active { transform: translateY(0); }
-
-.demo-bar-btn.filled {
-    background: rgba(48, 164, 108, 0.15);
-    color: var(--success);
-    border: 1px solid rgba(48, 164, 108, 0.4);
-    box-shadow: none;
-}
-
-/* ===== STEP INDICATOR ===== */
-.step-indicator {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    margin-bottom: 28px;
-}
-
-.step-dot {
-    flex: 1;
-    height: 3px;
-    border-radius: 2px;
-    background: var(--dark-4);
-    transition: background 0.4s var(--ease);
-}
-
-.step-dot.active { background: var(--gold-gradient); }
-.step-dot.done { background: var(--gold); }
-
-.step-label {
-    font-size: 11px;
-    color: var(--text-muted);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    font-weight: 600;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-}
-
-.step-label .step-count { color: var(--gold); font-weight: 700; }
 
 /* ===== FORM ===== */
-.login-form {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
+.login-form { display: flex; flex-direction: column; gap: 16px; }
 
 .field { display: flex; flex-direction: column; gap: 8px; }
 
@@ -493,10 +362,7 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
     gap: 10px;
 }
 
-.field label .required {
-    color: var(--gold);
-    font-size: 12px;
-}
+.field label .required { color: var(--gold); font-size: 12px; }
 
 .field label .autofill-btn {
     display: inline-flex;
@@ -521,7 +387,6 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
     background: var(--gold);
     color: #1a1a1a;
     opacity: 1;
-    transform: translateY(-1px);
 }
 
 .input-wrap { position: relative; }
@@ -545,24 +410,11 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
     background: var(--dark-2);
 }
 
-.input::placeholder {
-    color: var(--text-muted);
-    letter-spacing: 0.3px;
-    font-size: 13px;
-}
+.input::placeholder { color: var(--text-muted); font-size: 13px; }
 
 .input.error {
     border-color: var(--danger);
     box-shadow: 0 0 0 3px rgba(229, 72, 77, 0.15);
-}
-
-.input.flash {
-    animation: inputFlash 0.6s var(--ease);
-}
-
-@keyframes inputFlash {
-    0% { background: var(--gold-soft); border-color: var(--gold); }
-    100% { background: var(--dark-3); border-color: var(--border); }
 }
 
 .input-icon {
@@ -583,8 +435,7 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
     right: 12px;
     top: 50%;
     transform: translateY(-50%);
-    width: 28px;
-    height: 28px;
+    width: 28px; height: 28px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -597,17 +448,7 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
 
 .input-toggle:hover { color: var(--gold); background: var(--gold-soft); }
 
-/* PIN input - special */
-.pin-input {
-    letter-spacing: 12px;
-    font-size: 20px;
-    text-align: center;
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    padding: 14px 46px 14px 16px;
-}
-
-/* Phone input */
+/* Phone input with country code */
 .phone-wrap {
     display: flex;
     align-items: stretch;
@@ -621,16 +462,11 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
 .phone-wrap:focus-within {
     border-color: var(--gold);
     box-shadow: 0 0 0 3px var(--gold-soft);
-    background: var(--dark-2);
 }
 
 .phone-wrap.error {
     border-color: var(--danger);
     box-shadow: 0 0 0 3px rgba(229, 72, 77, 0.15);
-}
-
-.phone-wrap.flash {
-    animation: inputFlash 0.6s var(--ease);
 }
 
 .phone-prefix {
@@ -668,20 +504,43 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
     align-items: center;
     gap: 6px;
     font-weight: 500;
-    letter-spacing: 0.2px;
     animation: errIn 0.25s var(--ease);
 }
 
 .field-error.show { display: flex; }
-
-.field-error::before {
-    content: '⚠';
-    font-size: 11px;
-}
+.field-error::before { content: '⚠'; font-size: 11px; }
 
 @keyframes errIn {
     from { opacity: 0; transform: translateY(-4px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* Password strength */
+.pw-strength {
+    display: flex;
+    gap: 4px;
+    margin-top: 2px;
+}
+
+.pw-strength-bar {
+    flex: 1;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--dark-4);
+    transition: background 0.3s;
+}
+
+.pw-strength-bar.weak   { background: var(--danger); }
+.pw-strength-bar.fair   { background: var(--warning); }
+.pw-strength-bar.good   { background: var(--blue-light); }
+.pw-strength-bar.strong { background: var(--success); }
+
+.pw-strength-text {
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    margin-top: 4px;
 }
 
 /* Checkbox */
@@ -689,23 +548,18 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    margin-top: 2px;
+    margin-top: 4px;
 }
 
 .checkbox-wrap { position: relative; flex-shrink: 0; margin-top: 2px; }
 
-.checkbox-input {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-}
+.checkbox-input { position: absolute; opacity: 0; pointer-events: none; }
 
 .checkbox-label {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 20px;
-    height: 20px;
+    width: 20px; height: 20px;
     border: 1.5px solid var(--border);
     border-radius: 6px;
     background: var(--dark-3);
@@ -741,10 +595,7 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
     font-weight: 300;
 }
 
-.checkbox-text a {
-    color: var(--gold);
-    font-weight: 600;
-}
+.checkbox-text a { color: var(--gold); font-weight: 600; }
 
 /* Submit */
 .submit-btn {
@@ -764,7 +615,7 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
     align-items: center;
     justify-content: center;
     gap: 10px;
-    margin-top: 6px;
+    margin-top: 8px;
     position: relative;
     overflow: hidden;
 }
@@ -792,8 +643,7 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
 }
 
 .submit-btn .spinner {
-    width: 16px;
-    height: 16px;
+    width: 16px; height: 16px;
     border: 2px solid rgba(0, 0, 0, 0.25);
     border-top-color: #1a1a1a;
     border-radius: 50%;
@@ -806,17 +656,11 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
 
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* Forgot link */
-.forgot-row {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: -4px;
-}
+.forgot-row { display: flex; justify-content: flex-end; margin-top: -4px; }
 
 .forgot-link {
     font-size: 11px;
     color: var(--blue-light);
-    transition: color 0.2s;
     font-weight: 500;
     letter-spacing: 0.3px;
     cursor: pointer;
@@ -824,9 +668,35 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
     border: none;
     font-family: inherit;
     padding: 0;
+    transition: color 0.2s;
 }
 
 .forgot-link:hover { color: var(--gold); }
+
+/* Divider */
+.switch-mode {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-soft);
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.switch-mode button {
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    letter-spacing: 0.3px;
+    padding: 0 4px;
+    transition: color 0.2s;
+}
+
+.switch-mode button:hover { color: var(--gold-light); }
 
 /* Security notice */
 .security-notice {
@@ -860,7 +730,7 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
     font-size: 12px;
 }
 
-/* ===== ATTEMPT WARNING ===== */
+/* Attempt warning */
 .attempt-warning {
     display: none;
     align-items: flex-start;
@@ -878,21 +748,8 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
 }
 
 .attempt-warning.show { display: flex; }
-
-.attempt-warning-icon {
-    font-size: 16px;
-    color: var(--danger);
-    flex-shrink: 0;
-    line-height: 1.2;
-}
-
-.attempt-warning strong {
-    color: var(--danger);
-    display: block;
-    margin-bottom: 3px;
-    font-size: 12px;
-    font-weight: 700;
-}
+.attempt-warning-icon { font-size: 16px; color: var(--danger); flex-shrink: 0; line-height: 1.2; }
+.attempt-warning strong { color: var(--danger); display: block; margin-bottom: 3px; font-size: 12px; font-weight: 700; }
 
 @keyframes shakeIn {
     0%, 100% { transform: translateX(0); }
@@ -900,56 +757,27 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
     75% { transform: translateX(4px); }
 }
 
-/* ===== STEP PANEL ===== */
-.step-panel { display: none; }
-.step-panel.active { display: block; animation: stepIn 0.4s var(--ease); }
+/* Mode panels */
+.mode-panel { display: none; }
+.mode-panel.active { display: block; animation: modeIn 0.4s var(--ease); }
 
-@keyframes stepIn {
+@keyframes modeIn {
     from { opacity: 0; transform: translateX(20px); }
     to { opacity: 1; transform: translateX(0); }
 }
 
-/* ===== STEP ACTIONS ===== */
-.step-actions {
-    display: flex;
-    gap: 10px;
-    margin-top: 8px;
-}
-
-.step-actions .submit-btn { margin-top: 0; }
-.step-actions .btn-back {
-    padding: 16px 22px;
-    border-radius: 12px;
-    background: transparent;
-    border: 1.5px solid var(--border);
-    color: var(--text-soft);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    transition: all 0.22s var(--ease);
-    font-family: inherit;
-    white-space: nowrap;
-}
-
-.step-actions .btn-back:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-    background: var(--gold-soft);
-}
-
-/* ===== SUCCESS STATE ===== */
+/* Success state */
 .success-state {
     display: none;
     text-align: center;
     padding: 20px 0;
-    animation: stepIn 0.4s var(--ease);
+    animation: modeIn 0.4s var(--ease);
 }
 
 .success-state.show { display: block; }
 
 .success-icon {
-    width: 90px;
-    height: 90px;
+    width: 90px; height: 90px;
     margin: 0 auto 24px;
     border-radius: 50%;
     background: rgba(48, 164, 108, 0.12);
@@ -993,19 +821,18 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
     font-weight: 300;
 }
 
-/* ===== LOCKOUT STATE ===== */
+/* Lockout */
 .lockout-state {
     display: none;
     text-align: center;
     padding: 20px 0;
-    animation: stepIn 0.4s var(--ease);
+    animation: modeIn 0.4s var(--ease);
 }
 
 .lockout-state.show { display: block; }
 
 .lockout-icon {
-    width: 90px;
-    height: 90px;
+    width: 90px; height: 90px;
     margin: 0 auto 24px;
     border-radius: 50%;
     background: rgba(229, 72, 77, 0.12);
@@ -1023,7 +850,6 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
     font-weight: 700;
     color: var(--danger);
     margin-bottom: 12px;
-    letter-spacing: -0.3px;
 }
 
 .lockout-text {
@@ -1044,7 +870,7 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
     letter-spacing: 2px;
 }
 
-/* ===== FOOTER ===== */
+/* Footer */
 .admin-footer {
     position: relative;
     z-index: 2;
@@ -1072,7 +898,7 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
     font-size: 11px;
 }
 
-/* ===== TOAST ===== */
+/* Toast */
 .toast {
     position: fixed;
     bottom: 30px;
@@ -1102,7 +928,7 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
 .toast.success { border-color: rgba(48, 164, 108, 0.5); color: var(--success); }
 .toast.error { border-color: rgba(229, 72, 77, 0.5); color: var(--danger); }
 
-/* ===== RESPONSIVE ===== */
+/* Responsive */
 @media (max-width: 640px) {
     .admin-top-bar { padding: 14px 18px; }
     .admin-logo-mark { width: 40px; height: 40px; font-size: 16px; }
@@ -1117,14 +943,9 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
     .login-title { font-size: 22px; }
     .login-sub { font-size: 12px; }
     .input { padding: 13px 42px 13px 14px; font-size: 13px; }
-    .pin-input { font-size: 18px; letter-spacing: 8px; }
     .phone-prefix { padding: 0 10px; font-size: 13px; }
     .phone-input { padding: 13px 12px; font-size: 13px; }
     .submit-btn { padding: 14px; font-size: 12px; }
-
-    .demo-bar { padding: 10px 12px; }
-    .demo-bar-text { font-size: 10px; }
-    .demo-bar-btn { font-size: 10px; padding: 7px 12px; }
 
     .admin-footer { padding: 16px 18px; flex-direction: column; text-align: center; }
 }
@@ -1158,158 +979,180 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
     <div class="login-card">
         <div class="login-inner">
 
-            <!-- Header -->
-            <div class="login-badge">✦ Secure Admin Access</div>
+            <!-- ========== SETUP MODE (first time only) ========== -->
+            <div class="mode-panel active" id="modeSetup">
+                <div class="login-badge setup">✦ First-Time Setup</div>
 
-            <div id="loginHeaderWrap">
-                <div class="login-icon-wrap" aria-hidden="true">🔐</div>
-                <h1 class="login-title">Welcome Back, <span class="gold">Administrator</span></h1>
-                <p class="login-sub">Sign in with your credentials to manage products, uploads, and orders at OBILO GOLD GADGETS.</p>
-            </div>
+                <div class="login-icon-wrap" aria-hidden="true">🛡</div>
+                <h1 class="login-title">Create Your <span class="gold">Admin Account</span></h1>
+                <p class="login-sub">
+                    This is a one-time setup. Choose a username, add your email and phone number, and set a strong password.
+                    You'll only need your email and password to sign in from now on.
+                </p>
 
-            <!-- ===== DEMO AUTOFILL BAR ===== -->
-            <div class="demo-bar" id="demoBar">
-                <div class="demo-bar-text">
-                    <span class="demo-dot"></span>
-                    <span id="demoBarLabel">Demo mode · Test credentials available</span>
-                </div>
-                <button type="button" class="demo-bar-btn" id="demoFillBtn" onclick="autofillAll()">
-                    ⚡ Auto-fill All
-                </button>
-            </div>
+                <form class="login-form" id="setupForm" onsubmit="handleSetupSubmit(event)" novalidate>
 
-            <!-- Step indicator -->
-            <div id="stepIndicatorWrap">
-                <div class="step-label">
-                    <span id="stepLabelText">Step 1 of 4 — Identity</span>
-                    <span class="step-count" id="stepCountText">1 / 4</span>
-                </div>
-                <div class="step-indicator">
-                    <span class="step-dot active" id="stepDot1"></span>
-                    <span class="step-dot" id="stepDot2"></span>
-                    <span class="step-dot" id="stepDot3"></span>
-                    <span class="step-dot" id="stepDot4"></span>
-                </div>
-            </div>
-
-            <!-- Attempt warning -->
-            <div class="attempt-warning" id="attemptWarning">
-                <span class="attempt-warning-icon">⚠</span>
-                <div>
-                    <strong id="attemptWarningTitle">Invalid credentials</strong>
-                    <span id="attemptWarningText">Please check your details and try again.</span>
-                </div>
-            </div>
-
-            <!-- ===== STEP 1: EMAIL ===== -->
-            <div class="step-panel active" id="stepPanel1">
-                <form class="login-form" onsubmit="handleEmailSubmit(event)" novalidate>
+                    <!-- Username -->
                     <div class="field">
-                        <label for="adminEmail">
-                            <span>Admin Email <span class="required">*</span></span>
-                            <button type="button" class="autofill-btn" onclick="autofillField('email')">⚡ Fill</button>
+                        <label for="setupUsername">
+                            <span>Username <span class="required">*</span></span>
                         </label>
                         <div class="input-wrap">
-                            <input type="email" id="adminEmail" class="input" placeholder="admin@obilogold.com" autocomplete="username" required>
+                            <input type="text" id="setupUsername" class="input" placeholder="e.g. obiloadmin" autocomplete="username" required>
+                            <span class="input-icon">👤</span>
+                        </div>
+                        <div class="field-error" id="errSetupUsername">Username must be at least 3 characters</div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="field">
+                        <label for="setupEmail">
+                            <span>Email <span class="required">*</span></span>
+                        </label>
+                        <div class="input-wrap">
+                            <input type="email" id="setupEmail" class="input" placeholder="admin@obilogold.com" autocomplete="email" required>
                             <span class="input-icon">✉</span>
                         </div>
-                        <div class="field-error" id="errAdminEmail">Please enter a valid email address</div>
+                        <div class="field-error" id="errSetupEmail">Please enter a valid email</div>
                     </div>
-                    <button type="submit" class="submit-btn" id="emailSubmitBtn">
-                        <span class="spinner"></span>
-                        <span class="submit-label">Continue →</span>
-                    </button>
-                </form>
-            </div>
 
-            <!-- ===== STEP 2: PASSWORD ===== -->
-            <div class="step-panel" id="stepPanel2">
-                <form class="login-form" onsubmit="handlePasswordSubmit(event)" novalidate>
+                    <!-- Phone -->
                     <div class="field">
-                        <label for="adminPassword">
-                            <span>Password <span class="required">*</span></span>
-                            <button type="button" class="autofill-btn" onclick="autofillField('password')">⚡ Fill</button>
+                        <label for="setupPhone">
+                            <span>Phone Number <span class="required">*</span></span>
                         </label>
-                        <div class="input-wrap">
-                            <input type="password" id="adminPassword" class="input" placeholder="Enter your password" autocomplete="current-password" required>
-                            <button type="button" class="input-toggle" onclick="togglePasswordVisibility('adminPassword', this)" aria-label="Show password">👁</button>
-                        </div>
-                        <div class="field-error" id="errAdminPassword">Password is required</div>
-                    </div>
-                    <button type="submit" class="submit-btn" id="passwordSubmitBtn">
-                        <span class="spinner"></span>
-                        <span class="submit-label">Continue →</span>
-                    </button>
-                    <div class="step-actions">
-                        <button type="button" class="btn-back" onclick="goToStep(1)">← Back</button>
-                    </div>
-                </form>
-            </div>
-
-            <!-- ===== STEP 3: PIN ===== -->
-            <div class="step-panel" id="stepPanel3">
-                <form class="login-form" onsubmit="handlePinSubmit(event)" novalidate>
-                    <div class="field">
-                        <label for="adminPin">
-                            <span>Security PIN <span class="required">*</span></span>
-                            <button type="button" class="autofill-btn" onclick="autofillField('pin')">⚡ Fill</button>
-                        </label>
-                        <div class="input-wrap">
-                            <input type="password" id="adminPin" class="input pin-input" placeholder="••••" maxlength="4" inputmode="numeric" pattern="[0-9]*" autocomplete="off" required>
-                        </div>
-                        <div class="field-error" id="errAdminPin">PIN must be 4 digits</div>
-                    </div>
-                    <button type="submit" class="submit-btn" id="pinSubmitBtn">
-                        <span class="spinner"></span>
-                        <span class="submit-label">Continue →</span>
-                    </button>
-                    <div class="step-actions">
-                        <button type="button" class="btn-back" onclick="goToStep(2)">← Back</button>
-                    </div>
-                </form>
-            </div>
-
-            <!-- ===== STEP 4: PHONE ===== -->
-            <div class="step-panel" id="stepPanel4">
-                <form class="login-form" onsubmit="handlePhoneSubmit(event)" novalidate>
-                    <div class="field">
-                        <label for="adminPhone">
-                            <span>Registered Phone <span class="required">*</span></span>
-                            <button type="button" class="autofill-btn" onclick="autofillField('phone')">⚡ Fill</button>
-                        </label>
-                        <div class="phone-wrap" id="phoneWrap">
+                        <div class="phone-wrap" id="setupPhoneWrap">
                             <span class="phone-prefix">🇳🇬 +234</span>
-                            <input type="tel" id="adminPhone" class="phone-input" placeholder="909 406 2471" inputmode="numeric" maxlength="11" autocomplete="tel" required>
+                            <input type="tel" id="setupPhone" class="phone-input" placeholder="909 406 2471" inputmode="numeric" autocomplete="tel" required>
                         </div>
-                        <div class="field-error" id="errAdminPhone">Enter the registered phone number</div>
+                        <div class="field-error" id="errSetupPhone">Enter a valid Nigerian phone number</div>
                     </div>
+
+                    <!-- Password -->
+                    <div class="field">
+                        <label for="setupPassword">
+                            <span>Password <span class="required">*</span></span>
+                        </label>
+                        <div class="input-wrap">
+                            <input type="password" id="setupPassword" class="input" placeholder="Min 8 characters" autocomplete="new-password" required oninput="updatePasswordStrength(this.value)">
+                            <button type="button" class="input-toggle" onclick="togglePasswordVisibility('setupPassword', this)" aria-label="Show password">👁</button>
+                        </div>
+                        <div class="pw-strength" id="pwStrength">
+                            <div class="pw-strength-bar" id="pwBar1"></div>
+                            <div class="pw-strength-bar" id="pwBar2"></div>
+                            <div class="pw-strength-bar" id="pwBar3"></div>
+                            <div class="pw-strength-bar" id="pwBar4"></div>
+                        </div>
+                        <div class="pw-strength-text" id="pwStrengthText">Password strength: —</div>
+                        <div class="field-error" id="errSetupPassword">Password must be at least 8 characters</div>
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div class="field">
+                        <label for="setupConfirm">
+                            <span>Confirm Password <span class="required">*</span></span>
+                        </label>
+                        <div class="input-wrap">
+                            <input type="password" id="setupConfirm" class="input" placeholder="Re-enter password" autocomplete="new-password" required>
+                            <button type="button" class="input-toggle" onclick="togglePasswordVisibility('setupConfirm', this)" aria-label="Show password">👁</button>
+                        </div>
+                        <div class="field-error" id="errSetupConfirm">Passwords do not match</div>
+                    </div>
+
                     <div class="checkbox-row">
                         <div class="checkbox-wrap">
-                            <input type="checkbox" id="stayLoggedIn" class="checkbox-input">
-                            <label for="stayLoggedIn" class="checkbox-label"></label>
+                            <input type="checkbox" id="setupAgree" class="checkbox-input">
+                            <label for="setupAgree" class="checkbox-label"></label>
                         </div>
-                        <label for="stayLoggedIn" class="checkbox-text">
-                            Keep me signed in on this device for <strong>7 days</strong>. Only use on your personal device.
+                        <label for="setupAgree" class="checkbox-text">
+                            I agree to keep these credentials safe. I understand this account controls my entire store.
                         </label>
                     </div>
-                    <button type="submit" class="submit-btn" id="phoneSubmitBtn">
+
+                    <button type="submit" class="submit-btn" id="setupSubmitBtn">
+                        <span class="spinner"></span>
+                        <span class="submit-label">Create Admin Account</span>
+                    </button>
+                </form>
+
+                <div class="switch-mode">
+                    Already have an account? <button type="button" onclick="switchMode('login')">Sign In Instead</button>
+                </div>
+            </div>
+
+            <!-- ========== LOGIN MODE (all subsequent visits) ========== -->
+            <div class="mode-panel" id="modeLogin">
+                <div class="login-badge">✦ Secure Admin Access</div>
+
+                <div class="login-icon-wrap" aria-hidden="true">🔐</div>
+                <h1 class="login-title">Welcome Back, <span class="gold">Administrator</span></h1>
+                <p class="login-sub">
+                    Sign in with your email and password to manage products, uploads, and orders at OBILO GOLD GADGETS.
+                </p>
+
+                <!-- Attempt warning -->
+                <div class="attempt-warning" id="attemptWarning">
+                    <span class="attempt-warning-icon">⚠</span>
+                    <div>
+                        <strong id="attemptWarningTitle">Invalid credentials</strong>
+                        <span id="attemptWarningText">Please check your details and try again.</span>
+                    </div>
+                </div>
+
+                <form class="login-form" id="loginForm" onsubmit="handleLoginSubmit(event)" novalidate>
+
+                    <div class="field">
+                        <label for="loginEmail">
+                            <span>Email <span class="required">*</span></span>
+                        </label>
+                        <div class="input-wrap">
+                            <input type="email" id="loginEmail" class="input" placeholder="admin@obilogold.com" autocomplete="username" required>
+                            <span class="input-icon">✉</span>
+                        </div>
+                        <div class="field-error" id="errLoginEmail">Please enter a valid email</div>
+                    </div>
+
+                    <div class="field">
+                        <label for="loginPassword">
+                            <span>Password <span class="required">*</span></span>
+                        </label>
+                        <div class="input-wrap">
+                            <input type="password" id="loginPassword" class="input" placeholder="Enter your password" autocomplete="current-password" required>
+                            <button type="button" class="input-toggle" onclick="togglePasswordVisibility('loginPassword', this)" aria-label="Show password">👁</button>
+                        </div>
+                        <div class="field-error" id="errLoginPassword">Password is required</div>
+                    </div>
+
+                    <div class="forgot-row" style="justify-content: space-between; margin-top: 0;">
+                        <label for="loginRemember" class="checkbox-text" style="display: inline-flex; align-items: center; gap: 8px; cursor: pointer;">
+                            <span class="checkbox-wrap" style="margin: 0;">
+                                <input type="checkbox" id="loginRemember" class="checkbox-input">
+                                <span class="checkbox-label" onclick="document.getElementById('loginRemember').click();"></span>
+                            </span>
+                            Keep me signed in for 7 days
+                        </label>
+                        <a href="#" class="forgot-link" onclick="event.preventDefault(); showToast('Contact your developer to reset the admin password.');">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="loginSubmitBtn">
                         <span class="spinner"></span>
                         <span class="submit-label">Sign In to Dashboard</span>
                     </button>
-                    <div class="step-actions">
-                        <button type="button" class="btn-back" onclick="goToStep(3)">← Back</button>
-                    </div>
                 </form>
+
+                <div class="switch-mode">
+                    Setting up a new device? <button type="button" onclick="resetSetup()">Reset &amp; Re-run Setup</button>
+                </div>
             </div>
 
-            <!-- ===== SUCCESS ===== -->
+            <!-- ========== SUCCESS ========== -->
             <div class="success-state" id="successState">
                 <div class="success-icon">✓</div>
-                <h2 class="success-title">Access <span class="gold">Granted</span></h2>
-                <p class="success-text">Welcome back. Redirecting you to the admin dashboard...</p>
+                <h2 class="success-title" id="successTitle">Access <span class="gold">Granted</span></h2>
+                <p class="success-text" id="successText">Welcome back. Redirecting you to the admin dashboard...</p>
             </div>
 
-            <!-- ===== LOCKOUT ===== -->
+            <!-- ========== LOCKOUT ========== -->
             <div class="lockout-state" id="lockoutState">
                 <div class="lockout-icon">🔒</div>
                 <h2 class="lockout-title">Account Temporarily Locked</h2>
@@ -1333,7 +1176,7 @@ html[data-theme="light"] .top-action-btn .theme-icon.moon { opacity: 0; transfor
 
 <!-- ===== FOOTER ===== -->
 <footer class="admin-footer">
-    <span>© <span id="year"></span> <span class="gold">OBILO GOLD GADGETS</span> · Admin Panel v1.0</span>
+    <span>© <span id="year"></span> <span class="gold">OBILO GOLD GADGETS</span> · Admin Panel v1.1</span>
     <span class="admin-footer-security">
         <span>🛡</span> Encrypted · Rate-limited · Session-protected
     </span>
@@ -1369,121 +1212,60 @@ function showToast(msg, type) {
 }
 
 /* ============================================================
-   ⚠️  API LAYER — SWAP THIS FOR PHP/DJANGO LATER
+   CREDENTIALS STORAGE
    ------------------------------------------------------------
-   Right now everything runs against localStorage so you can
-   test the frontend without a backend. When your PHP/Django
-   backend is ready, replace the body of each method with a
-   `fetch()` call. Nothing else in this file needs to change.
+   `obilo_admin_creds` holds the admin's real credentials once
+   they've completed setup. Before setup, it does NOT exist.
+
+   This is the same key the dashboard reads via getCreds().
    ============================================================ */
-var API = {
+var CREDS_KEY = 'obilo_admin_creds';
 
-    /* ---------------------------------------------------------
-       Demo credentials (replace with backend validation)
-       --------------------------------------------------------- */
-    DEMO: {
-        email: 'admin@obilogold.com',
-        password: 'ObiloAdmin2026!',
-        pin: '2471',
-        phone: '09094062471'
+function getCreds() {
+    try {
+        var raw = localStorage.getItem(CREDS_KEY);
+        if (!raw) return null;
+        return JSON.parse(raw);
+    } catch(e) { return null; }
+}
+
+function saveCreds(creds) {
+    try { localStorage.setItem(CREDS_KEY, JSON.stringify(creds)); } catch(e) {}
+}
+
+function hasAccount() {
+    var creds = getCreds();
+    return !!(creds && creds.email && creds.password);
+}
+
+function clearCreds() {
+    try { localStorage.removeItem(CREDS_KEY); } catch(e) {}
+}
+
+/* ============================================================
+   SESSION
+   ============================================================ */
+var SESSION = {
+    KEY: 'obilo_admin_session',
+    save: function(data) {
+        try { localStorage.setItem(SESSION.KEY, JSON.stringify(data)); } catch(e) {}
     },
-
-    /* ---------------------------------------------------------
-       POST /api/admin/verify-email
-       --------------------------------------------------------- */
-    verifyEmail: function(email) {
-        return new Promise(function(resolve) {
-            setTimeout(function() {
-                // BACKEND: replace with fetch('/api/admin/verify-email', {...})
-                var cleanInput = String(email || '').trim().toLowerCase();
-                var cleanDemo = String(API.DEMO.email || '').trim().toLowerCase();
-                resolve(cleanInput === cleanDemo);
-            }, 500);
-        });
+    get: function() {
+        try {
+            var raw = localStorage.getItem(SESSION.KEY);
+            if (!raw) return null;
+            var data = JSON.parse(raw);
+            if (data.expiresAt && data.expiresAt < Date.now()) {
+                SESSION.clear();
+                return null;
+            }
+            return data;
+        } catch(e) { return null; }
     },
-
-    /* ---------------------------------------------------------
-       POST /api/admin/verify-password
-       --------------------------------------------------------- */
-    verifyPassword: function(email, password) {
-        return new Promise(function(resolve) {
-            setTimeout(function() {
-                // BACKEND: replace with fetch('/api/admin/verify-password', {...})
-                var cleanInput = String(password || '').trim();
-                var cleanDemo = String(API.DEMO.password || '').trim();
-                resolve(cleanInput === cleanDemo);
-            }, 500);
-        });
+    clear: function() {
+        try { localStorage.removeItem(SESSION.KEY); } catch(e) {}
     },
-
-    /* ---------------------------------------------------------
-       POST /api/admin/verify-pin
-       --------------------------------------------------------- */
-    verifyPin: function(email, pin) {
-        return new Promise(function(resolve) {
-            setTimeout(function() {
-                // BACKEND: replace with fetch('/api/admin/verify-pin', {...})
-                var cleanInput = String(pin || '').trim();
-                var cleanDemo = String(API.DEMO.pin || '').trim();
-                resolve(cleanInput === cleanDemo);
-            }, 500);
-        });
-    },
-
-    /* ---------------------------------------------------------
-       POST /api/admin/login   (final step)
-       --------------------------------------------------------- */
-    login: function(email, password, pin, phone, remember) {
-        return new Promise(function(resolve, reject) {
-            setTimeout(function() {
-                // BACKEND: replace with fetch('/api/admin/login', {...})
-                // Backend should return: { token, expiresAt, admin: {name, email} }
-                var trim = function(v) { return String(v == null ? '' : v).trim(); };
-                var normalizedPhone = trim(phone).replace(/[\s\-\(\)]/g, '').replace(/^\+?234/, '0').replace(/^0+/, '0');
-                var demoPhone = trim(API.DEMO.phone).replace(/[\s\-\(\)]/g, '').replace(/^\+?234/, '0');
-
-                // Normalize demo phone to have leading 0
-                if (demoPhone.charAt(0) !== '0') demoPhone = '0' + demoPhone;
-
-                if (
-                    trim(email).toLowerCase() !== trim(API.DEMO.email).toLowerCase() ||
-                    trim(password) !== trim(API.DEMO.password) ||
-                    trim(pin) !== trim(API.DEMO.pin) ||
-                    normalizedPhone !== demoPhone
-                ) {
-                    reject(new Error('Invalid credentials. Please check your details.'));
-                    return;
-                }
-
-                // Generate a mock token (backend will generate a real JWT/session)
-                var token = API._generateToken();
-                var expiresAt = Date.now() + (remember ? 7 * 24 * 60 * 60 * 1000 : 2 * 60 * 60 * 1000);
-
-                resolve({
-                    token: token,
-                    expiresAt: expiresAt,
-                    admin: {
-                        name: 'Admin',
-                        email: email,
-                        role: 'super-admin'
-                    }
-                });
-            }, 800);
-        });
-    },
-
-    /* ---------------------------------------------------------
-       Utils
-       --------------------------------------------------------- */
-    _generateToken: function() {
-        var arr = new Uint8Array(32);
-        if (window.crypto && window.crypto.getRandomValues) {
-            window.crypto.getRandomValues(arr);
-        } else {
-            for (var i = 0; i < 32; i++) arr[i] = Math.floor(Math.random() * 256);
-        }
-        return Array.from(arr).map(function(b) { return b.toString(16).padStart(2, '0'); }).join('');
-    }
+    exists: function() { return SESSION.get() !== null; }
 };
 
 /* ============================================================
@@ -1499,9 +1281,7 @@ var SECURITY = {
             var raw = localStorage.getItem(SECURITY.STORAGE_KEY);
             if (!raw) return { count: 0, lockedUntil: 0 };
             return JSON.parse(raw);
-        } catch(e) {
-            return { count: 0, lockedUntil: 0 };
-        }
+        } catch(e) { return { count: 0, lockedUntil: 0 }; }
     },
 
     saveAttempts: function(data) {
@@ -1509,13 +1289,11 @@ var SECURITY = {
     },
 
     isLocked: function() {
-        var data = SECURITY.getAttempts();
-        return data.lockedUntil > Date.now();
+        return SECURITY.getAttempts().lockedUntil > Date.now();
     },
 
     getRemainingLockTime: function() {
-        var data = SECURITY.getAttempts();
-        var remaining = data.lockedUntil - Date.now();
+        var remaining = SECURITY.getAttempts().lockedUntil - Date.now();
         return Math.max(0, Math.ceil(remaining / 1000));
     },
 
@@ -1541,201 +1319,27 @@ var SECURITY = {
 };
 
 /* ============================================================
-   SESSION
-   ============================================================ */
-var SESSION = {
-    KEY: 'obilo_admin_session',
-
-    save: function(data) {
-        try { localStorage.setItem(SESSION.KEY, JSON.stringify(data)); } catch(e) {}
-    },
-
-    get: function() {
-        try {
-            var raw = localStorage.getItem(SESSION.KEY);
-            if (!raw) return null;
-            var data = JSON.parse(raw);
-            if (data.expiresAt && data.expiresAt < Date.now()) {
-                SESSION.clear();
-                return null;
-            }
-            return data;
-        } catch(e) { return null; }
-    },
-
-    clear: function() {
-        try { localStorage.removeItem(SESSION.KEY); } catch(e) {}
-    },
-
-    exists: function() {
-        return SESSION.get() !== null;
-    }
-};
-
-/* ============================================================
-   FORM STATE
-   ============================================================ */
-var formState = {
-    email: '',
-    password: '',
-    pin: '',
-    phone: '',
-    remember: false,
-    currentStep: 1
-};
-
-/* ============================================================
-   AUTOFILL
-   ============================================================ */
-function flashInput(el) {
-    if (!el) return;
-    el.classList.add('flash');
-    setTimeout(function() { el.classList.remove('flash'); }, 600);
-}
-
-function autofillField(field) {
-    if (field === 'email') {
-        var el = document.getElementById('adminEmail');
-        if (el) {
-            el.value = API.DEMO.email;
-            flashInput(el);
-            el.focus();
-            showToast('✓ Email auto-filled', 'success');
-        }
-    } else if (field === 'password') {
-        var el = document.getElementById('adminPassword');
-        if (el) {
-            el.value = API.DEMO.password;
-            // Make sure it's masked
-            el.type = 'password';
-            var toggleBtn = el.parentElement.querySelector('.input-toggle');
-            if (toggleBtn) toggleBtn.textContent = '👁';
-            flashInput(el);
-            el.focus();
-            showToast('✓ Password auto-filled', 'success');
-        }
-    } else if (field === 'pin') {
-        var el = document.getElementById('adminPin');
-        if (el) {
-            el.value = API.DEMO.pin;
-            flashInput(el);
-            el.focus();
-            showToast('✓ PIN auto-filled', 'success');
-        }
-    } else if (field === 'phone') {
-        var el = document.getElementById('adminPhone');
-        if (el) {
-            // Strip leading 0 since the prefix already shows +234
-            var phone = String(API.DEMO.phone || '').replace(/[\s\-\(\)]/g, '');
-            if (phone.charAt(0) === '0') phone = phone.substring(1);
-            el.value = phone;
-            flashInput(el.parentElement);
-            el.focus();
-            showToast('✓ Phone auto-filled', 'success');
-        }
-    }
-}
-
-function autofillAll() {
-    // Fill all fields at once
-    document.getElementById('adminEmail').value = API.DEMO.email;
-    document.getElementById('adminPassword').value = API.DEMO.password;
-    document.getElementById('adminPassword').type = 'password';
-    document.getElementById('adminPin').value = API.DEMO.pin;
-
-    var phoneEl = document.getElementById('adminPhone');
-    var phone = String(API.DEMO.phone || '').replace(/[\s\-\(\)]/g, '');
-    if (phone.charAt(0) === '0') phone = phone.substring(1);
-    phoneEl.value = phone;
-
-    // Flash all inputs
-    flashInput(document.getElementById('adminEmail'));
-    flashInput(document.getElementById('adminPassword'));
-    flashInput(document.getElementById('adminPin'));
-    flashInput(phoneEl.parentElement);
-
-    // Update button state
-    var btn = document.getElementById('demoFillBtn');
-    if (btn) {
-        btn.classList.add('filled');
-        btn.innerHTML = '✓ Filled';
-    }
-
-    var label = document.getElementById('demoBarLabel');
-    if (label) {
-        label.textContent = 'Demo credentials loaded — click Continue to proceed';
-    }
-
-    // Fill the remember checkbox
-    document.getElementById('stayLoggedIn').checked = true;
-
-    showToast('✓ All credentials auto-filled', 'success');
-
-    // Jump back to step 1 with everything set
-    goToStep(1);
-}
-
-/* ============================================================
-   STEP NAVIGATION
-   ============================================================ */
-var STEP_LABELS = {
-    1: 'Step 1 of 4 — Identity',
-    2: 'Step 2 of 4 — Password',
-    3: 'Step 3 of 4 — Security PIN',
-    4: 'Step 4 of 4 — Verification'
-};
-
-function goToStep(step) {
-    if (step < 1 || step > 4) return;
-
-    // Clear all errors and warning
-    clearAllErrors();
-    hideAttemptWarning();
-
-    // Hide all panels
-    for (var i = 1; i <= 4; i++) {
-        var panel = document.getElementById('stepPanel' + i);
-        if (panel) panel.classList.remove('active');
-        var dot = document.getElementById('stepDot' + i);
-        if (dot) {
-            dot.classList.remove('active');
-            if (i < step) dot.classList.add('done');
-            else dot.classList.remove('done');
-        }
-    }
-
-    // Show current panel
-    var currentPanel = document.getElementById('stepPanel' + step);
-    if (currentPanel) currentPanel.classList.add('active');
-    var currentDot = document.getElementById('stepDot' + step);
-    if (currentDot) currentDot.classList.add('active');
-
-    // Update labels
-    document.getElementById('stepLabelText').textContent = STEP_LABELS[step];
-    document.getElementById('stepCountText').textContent = step + ' / 4';
-
-    formState.currentStep = step;
-
-    // Focus first input in panel
-    setTimeout(function() {
-        var panel = document.getElementById('stepPanel' + step);
-        if (panel) {
-            var input = panel.querySelector('input');
-            if (input) input.focus();
-        }
-    }, 100);
-}
-
-/* ============================================================
-   VALIDATION
+   HELPERS
    ============================================================ */
 function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email || '').trim());
+}
+
+function isValidUsername(username) {
+    return /^[a-zA-Z0-9_.-]{3,30}$/.test(String(username || '').trim());
 }
 
 function isValidPhone(phone) {
     var cleaned = String(phone || '').replace(/[\s\-\(\)]/g, '');
     return /^(\+?234|0)?[7-9][0-1]\d{8}$/.test(cleaned);
+}
+
+function normalizePhone(phone) {
+    var cleaned = String(phone || '').replace(/[\s\-\(\)]/g, '');
+    if (cleaned.indexOf('+234') === 0) cleaned = '0' + cleaned.slice(4);
+    if (cleaned.indexOf('234') === 0) cleaned = '0' + cleaned.slice(3);
+    if (cleaned.charAt(0) !== '0') cleaned = '0' + cleaned;
+    return cleaned;
 }
 
 function setFieldError(inputId, errorId, show, message) {
@@ -1759,6 +1363,7 @@ function clearAllErrors() {
     document.querySelectorAll('.field-error.show').forEach(function(el) {
         el.classList.remove('show');
     });
+    hideAttemptWarning();
 }
 
 function showAttemptWarning(title, text) {
@@ -1774,9 +1379,6 @@ function hideAttemptWarning() {
     if (warning) warning.classList.remove('show');
 }
 
-/* ============================================================
-   BUTTON LOADING
-   ============================================================ */
 function setButtonLoading(btnId, loading) {
     var btn = document.getElementById(btnId);
     if (!btn) return;
@@ -1789,9 +1391,6 @@ function setButtonLoading(btnId, loading) {
     }
 }
 
-/* ============================================================
-   PASSWORD VISIBILITY
-   ============================================================ */
 function togglePasswordVisibility(inputId, btn) {
     var input = document.getElementById(inputId);
     if (!input) return;
@@ -1804,20 +1403,108 @@ function togglePasswordVisibility(inputId, btn) {
     }
 }
 
-/* ============================================================
-   INPUT SANITIZATION
-   ============================================================ */
-document.addEventListener('DOMContentLoaded', function() {
-    var pinInput = document.getElementById('adminPin');
-    if (pinInput) {
-        pinInput.addEventListener('input', function(e) {
-            e.target.value = e.target.value.replace(/\D/g, '').slice(0, 4);
-        });
+/* Password strength meter */
+function updatePasswordStrength(pw) {
+    var score = 0;
+    if (pw.length >= 8) score++;
+    if (/[A-Z]/.test(pw)) score++;
+    if (/[0-9]/.test(pw)) score++;
+    if (/[^A-Za-z0-9]/.test(pw)) score++;
+    if (pw.length >= 12) score = Math.min(score + 1, 4);
+
+    var bars = [
+        document.getElementById('pwBar1'),
+        document.getElementById('pwBar2'),
+        document.getElementById('pwBar3'),
+        document.getElementById('pwBar4')
+    ];
+    var text = document.getElementById('pwStrengthText');
+
+    bars.forEach(function(b) { if (b) b.className = 'pw-strength-bar'; });
+
+    var level = 'weak';
+    var label = 'Password strength: —';
+
+    if (pw.length === 0) {
+        label = 'Password strength: —';
+    } else if (score <= 1) {
+        level = 'weak'; label = 'Password strength: Weak';
+    } else if (score === 2) {
+        level = 'fair'; label = 'Password strength: Fair';
+    } else if (score === 3) {
+        level = 'good'; label = 'Password strength: Good';
+    } else {
+        level = 'strong'; label = 'Password strength: Strong';
     }
 
-    var phoneInput = document.getElementById('adminPhone');
-    if (phoneInput) {
-        phoneInput.addEventListener('input', function(e) {
+    var barsToFill = score;
+    for (var i = 0; i < barsToFill && i < bars.length; i++) {
+        if (bars[i]) bars[i].classList.add(level);
+    }
+    if (text) text.textContent = label;
+}
+
+/* ============================================================
+   MODE SWITCHING
+   ============================================================ */
+function switchMode(mode) {
+    clearAllErrors();
+    document.getElementById('modeSetup').classList.remove('active');
+    document.getElementById('modeLogin').classList.remove('active');
+    document.getElementById('successState').classList.remove('show');
+    document.getElementById('lockoutState').classList.remove('show');
+    document.getElementById('securityNotice').style.display = '';
+
+    if (mode === 'setup') {
+        document.getElementById('modeSetup').classList.add('active');
+    } else {
+        document.getElementById('modeLogin').classList.add('active');
+    }
+}
+
+function resetSetup() {
+    if (!confirm('This will erase your saved admin credentials and let you run setup again.\n\nYou will lose access to the dashboard until you complete setup. Continue?')) return;
+    clearCreds();
+    try { localStorage.removeItem(SESSION.KEY); } catch(e) {}
+    SECURITY.reset();
+    document.getElementById('setupForm').reset();
+    document.getElementById('loginForm').reset();
+    clearAllErrors();
+    updatePasswordStrength('');
+    switchMode('setup');
+    showToast('Setup cleared. You can create a new admin account.', 'success');
+}
+
+/* ============================================================
+   INIT — decide which mode to show
+   ============================================================ */
+document.addEventListener('DOMContentLoaded', function() {
+    var y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+
+    // If already signed in, go to dashboard
+    if (SESSION.exists()) {
+        window.location.href = 'admin.html';
+        return;
+    }
+
+    // If locked out, show lockout
+    if (SECURITY.isLocked()) {
+        showLockout();
+        return;
+    }
+
+    // Decide mode: setup if no saved creds, else login
+    if (hasAccount()) {
+        switchMode('login');
+    } else {
+        switchMode('setup');
+    }
+
+    // Input sanitization
+    var setupPhone = document.getElementById('setupPhone');
+    if (setupPhone) {
+        setupPhone.addEventListener('input', function(e) {
             e.target.value = e.target.value.replace(/\D/g, '').slice(0, 11);
         });
     }
@@ -1826,209 +1513,186 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.input, .phone-input').forEach(function(input) {
         input.addEventListener('input', function() {
             input.classList.remove('error');
+            var wrap = input.closest('.phone-wrap');
+            if (wrap) wrap.classList.remove('error');
             var field = input.closest('.field');
             if (field) {
                 var err = field.querySelector('.field-error');
                 if (err) err.classList.remove('show');
             }
-            var wrap = input.closest('.phone-wrap');
-            if (wrap) wrap.classList.remove('error');
             hideAttemptWarning();
         });
     });
-
-    // Check lockout on load
-    if (SECURITY.isLocked()) {
-        showLockout();
-    }
-
-    // Check if already logged in
-    if (SESSION.exists()) {
-        window.location.href = 'admin.html';
-    }
-
-    var y = document.getElementById('year');
-    if (y) y.textContent = new Date().getFullYear();
 });
 
 /* ============================================================
-   STEP 1: EMAIL
+   SETUP SUBMIT — first-time account creation
    ============================================================ */
-function handleEmailSubmit(e) {
+function handleSetupSubmit(e) {
     e.preventDefault();
     clearAllErrors();
 
-    var email = document.getElementById('adminEmail').value.trim();
+    var username = document.getElementById('setupUsername').value.trim();
+    var email = document.getElementById('setupEmail').value.trim();
+    var phone = document.getElementById('setupPhone').value.trim();
+    var password = document.getElementById('setupPassword').value;
+    var confirm = document.getElementById('setupConfirm').value;
+    var agree = document.getElementById('setupAgree').checked;
 
-    if (!email || !isValidEmail(email)) {
-        setFieldError('adminEmail', 'errAdminEmail', true, 'Please enter a valid email address');
-        return;
+    var hasError = false;
+
+    if (!isValidUsername(username)) {
+        setFieldError('setupUsername', 'errSetupUsername', true, 'Username must be 3–30 chars (letters, numbers, _ . -)');
+        hasError = true;
+    }
+    if (!isValidEmail(email)) {
+        setFieldError('setupEmail', 'errSetupEmail', true, 'Please enter a valid email');
+        hasError = true;
+    }
+    if (!isValidPhone(phone)) {
+        setFieldError('setupPhone', 'errSetupPhone', true, 'Enter a valid Nigerian phone number');
+        document.getElementById('setupPhoneWrap').classList.add('error');
+        hasError = true;
+    }
+    if (!password || password.length < 8) {
+        setFieldError('setupPassword', 'errSetupPassword', true, 'Password must be at least 8 characters');
+        hasError = true;
+    }
+    if (password !== confirm) {
+        setFieldError('setupConfirm', 'errSetupConfirm', true, 'Passwords do not match');
+        hasError = true;
+    }
+    if (!agree) {
+        showToast('Please agree to keep your credentials safe', 'error');
+        hasError = true;
     }
 
-    setButtonLoading('emailSubmitBtn', true);
+    if (hasError) return;
 
-    API.verifyEmail(email).then(function(valid) {
-        setButtonLoading('emailSubmitBtn', false);
-        if (!valid) {
-            showAttemptWarning('Email not recognized', 'This email is not registered as an admin account.');
-            setFieldError('adminEmail', 'errAdminEmail', true, 'This email is not authorized');
-            return;
-        }
-        formState.email = email;
-        goToStep(2);
-    }).catch(function() {
-        setButtonLoading('emailSubmitBtn', false);
-        showToast('Something went wrong. Please try again.', 'error');
-    });
-}
+    setButtonLoading('setupSubmitBtn', true);
 
-/* ============================================================
-   STEP 2: PASSWORD
-   ============================================================ */
-function handlePasswordSubmit(e) {
-    e.preventDefault();
-    clearAllErrors();
+    setTimeout(function() {
+        var creds = {
+            username: username,
+            email: email,
+            phone: normalizePhone(phone),
+            password: password,
+            name: username, // used by dashboard for display
+            role: 'super-admin',
+            createdAt: new Date().toISOString()
+        };
+        saveCreds(creds);
+        setButtonLoading('setupSubmitBtn', false);
 
-    var password = document.getElementById('adminPassword').value;
-
-    if (!password) {
-        setFieldError('adminPassword', 'errAdminPassword', true, 'Password is required');
-        return;
-    }
-
-    setButtonLoading('passwordSubmitBtn', true);
-
-    API.verifyPassword(formState.email, password).then(function(valid) {
-        setButtonLoading('passwordSubmitBtn', false);
-        if (!valid) {
-            var result = SECURITY.recordFailure();
-            if (result.lockedUntil > Date.now()) {
-                showLockout();
-                return;
-            }
-            var remaining = SECURITY.getRemainingAttempts();
-            showAttemptWarning(
-                'Incorrect password',
-                'You have ' + remaining + ' attempt' + (remaining === 1 ? '' : 's') + ' remaining before lockout.'
-            );
-            setFieldError('adminPassword', 'errAdminPassword', true, 'Incorrect password');
-            return;
-        }
-        formState.password = password;
-        goToStep(3);
-    }).catch(function() {
-        setButtonLoading('passwordSubmitBtn', false);
-        showToast('Something went wrong. Please try again.', 'error');
-    });
-}
-
-/* ============================================================
-   STEP 3: PIN
-   ============================================================ */
-function handlePinSubmit(e) {
-    e.preventDefault();
-    clearAllErrors();
-
-    var pin = document.getElementById('adminPin').value.trim();
-
-    if (!pin || pin.length !== 4) {
-        setFieldError('adminPin', 'errAdminPin', true, 'PIN must be exactly 4 digits');
-        return;
-    }
-
-    setButtonLoading('pinSubmitBtn', true);
-
-    API.verifyPin(formState.email, pin).then(function(valid) {
-        setButtonLoading('pinSubmitBtn', false);
-        if (!valid) {
-            var result = SECURITY.recordFailure();
-            if (result.lockedUntil > Date.now()) {
-                showLockout();
-                return;
-            }
-            var remaining = SECURITY.getRemainingAttempts();
-            showAttemptWarning(
-                'Incorrect PIN',
-                'You have ' + remaining + ' attempt' + (remaining === 1 ? '' : 's') + ' remaining before lockout.'
-            );
-            setFieldError('adminPin', 'errAdminPin', true, 'Incorrect PIN');
-            return;
-        }
-        formState.pin = pin;
-        goToStep(4);
-    }).catch(function() {
-        setButtonLoading('pinSubmitBtn', false);
-        showToast('Something went wrong. Please try again.', 'error');
-    });
-}
-
-/* ============================================================
-   STEP 4: PHONE + LOGIN
-   ============================================================ */
-function handlePhoneSubmit(e) {
-    e.preventDefault();
-    clearAllErrors();
-
-    var phone = document.getElementById('adminPhone').value.trim();
-    var remember = document.getElementById('stayLoggedIn').checked;
-
-    if (!phone || phone.length < 10) {
-        setFieldError('adminPhone', 'errAdminPhone', true, 'Enter a valid Nigerian phone number');
-        document.getElementById('phoneWrap').classList.add('error');
-        return;
-    }
-
-    formState.phone = phone;
-    formState.remember = remember;
-
-    setButtonLoading('phoneSubmitBtn', true);
-
-    API.login(formState.email, formState.password, formState.pin, phone, remember).then(function(result) {
-        setButtonLoading('phoneSubmitBtn', false);
-
-        // Save session
+        // Auto sign-in after setup
+        var token = generateToken();
+        var expiresAt = Date.now() + (7 * 24 * 60 * 60 * 1000);
         SESSION.save({
-            token: result.token,
-            expiresAt: result.expiresAt,
-            admin: result.admin
+            token: token,
+            expiresAt: expiresAt,
+            admin: { name: creds.name, email: creds.email, role: creds.role }
         });
 
-        // Reset attempts
-        SECURITY.reset();
-
-        // Show success
+        document.getElementById('successTitle').innerHTML = 'Account <span class="gold">Created</span>';
+        document.getElementById('successText').textContent = 'Welcome, ' + creds.name + '. Taking you to your dashboard...';
         showSuccess();
-    }).catch(function(err) {
-        setButtonLoading('phoneSubmitBtn', false);
-        var result = SECURITY.recordFailure();
-        if (result.lockedUntil > Date.now()) {
-            showLockout();
+    }, 700);
+}
+
+/* ============================================================
+   LOGIN SUBMIT — email + password only
+   ============================================================ */
+function handleLoginSubmit(e) {
+    e.preventDefault();
+    clearAllErrors();
+
+    var email = document.getElementById('loginEmail').value.trim();
+    var password = document.getElementById('loginPassword').value;
+    var remember = document.getElementById('loginRemember').checked;
+
+    var hasError = false;
+    if (!isValidEmail(email)) {
+        setFieldError('loginEmail', 'errLoginEmail', true, 'Please enter a valid email');
+        hasError = true;
+    }
+    if (!password) {
+        setFieldError('loginPassword', 'errLoginPassword', true, 'Password is required');
+        hasError = true;
+    }
+    if (hasError) return;
+
+    if (SECURITY.isLocked()) { showLockout(); return; }
+
+    setButtonLoading('loginSubmitBtn', true);
+
+    setTimeout(function() {
+        var creds = getCreds();
+        setButtonLoading('loginSubmitBtn', false);
+
+        if (!creds) {
+            showToast('No admin account found. Please run setup first.', 'error');
+            switchMode('setup');
             return;
         }
-        var remaining = SECURITY.getRemainingAttempts();
-        showAttemptWarning(
-            'Verification failed',
-            (err && err.message ? err.message + ' ' : '') + 'You have ' + remaining + ' attempt' + (remaining === 1 ? '' : 's') + ' remaining.'
-        );
-        setFieldError('adminPhone', 'errAdminPhone', true, 'Verification failed');
-        document.getElementById('phoneWrap').classList.add('error');
-    });
+
+        var emailMatch = String(creds.email || '').toLowerCase() === email.toLowerCase();
+        var passwordMatch = String(creds.password || '') === password;
+
+        if (!emailMatch || !passwordMatch) {
+            var result = SECURITY.recordFailure();
+            if (result.lockedUntil > Date.now()) {
+                showLockout();
+                return;
+            }
+            var remaining = SECURITY.getRemainingAttempts();
+            showAttemptWarning(
+                'Invalid credentials',
+                'You have ' + remaining + ' attempt' + (remaining === 1 ? '' : 's') + ' remaining before lockout.'
+            );
+            if (!emailMatch) setFieldError('loginEmail', 'errLoginEmail', true, 'Email not recognized');
+            if (!passwordMatch) setFieldError('loginPassword', 'errLoginPassword', true, 'Incorrect password');
+            return;
+        }
+
+        // Success
+        SECURITY.reset();
+        var token = generateToken();
+        var expiresAt = Date.now() + (remember ? 7 * 24 * 60 * 60 * 1000 : 2 * 60 * 60 * 1000);
+        SESSION.save({
+            token: token,
+            expiresAt: expiresAt,
+            admin: { name: creds.name || creds.username || 'Admin', email: creds.email, role: creds.role || 'super-admin' }
+        });
+
+        document.getElementById('successTitle').innerHTML = 'Access <span class="gold">Granted</span>';
+        document.getElementById('successText').textContent = 'Welcome back. Redirecting you to the admin dashboard...';
+        showSuccess();
+    }, 600);
+}
+
+/* ============================================================
+   TOKEN
+   ============================================================ */
+function generateToken() {
+    var arr = new Uint8Array(32);
+    if (window.crypto && window.crypto.getRandomValues) {
+        window.crypto.getRandomValues(arr);
+    } else {
+        for (var i = 0; i < 32; i++) arr[i] = Math.floor(Math.random() * 256);
+    }
+    return Array.from(arr).map(function(b) { return b.toString(16).padStart(2, '0'); }).join('');
 }
 
 /* ============================================================
    SUCCESS
    ============================================================ */
 function showSuccess() {
-    document.getElementById('loginHeaderWrap').style.display = 'none';
-    document.getElementById('stepIndicatorWrap').style.display = 'none';
-    document.getElementById('demoBar').style.display = 'none';
+    document.getElementById('modeSetup').classList.remove('active');
+    document.getElementById('modeLogin').classList.remove('active');
     document.getElementById('attemptWarning').classList.remove('show');
-    for (var i = 1; i <= 4; i++) {
-        var panel = document.getElementById('stepPanel' + i);
-        if (panel) panel.classList.remove('active');
-    }
-    document.getElementById('successState').classList.add('show');
+    document.getElementById('lockoutState').classList.remove('show');
     document.getElementById('securityNotice').style.display = 'none';
+    document.getElementById('successState').classList.add('show');
 
     setTimeout(function() {
         window.location.href = 'admin.html';
@@ -2041,17 +1705,12 @@ function showSuccess() {
 var lockoutInterval = null;
 
 function showLockout() {
-    document.getElementById('loginHeaderWrap').style.display = 'none';
-    document.getElementById('stepIndicatorWrap').style.display = 'none';
-    document.getElementById('demoBar').style.display = 'none';
-    for (var i = 1; i <= 4; i++) {
-        var panel = document.getElementById('stepPanel' + i);
-        if (panel) panel.classList.remove('active');
-    }
+    document.getElementById('modeSetup').classList.remove('active');
+    document.getElementById('modeLogin').classList.remove('active');
     document.getElementById('attemptWarning').classList.remove('show');
-    document.getElementById('lockoutState').classList.add('show');
+    document.getElementById('successState').classList.remove('show');
     document.getElementById('securityNotice').style.display = 'none';
-
+    document.getElementById('lockoutState').classList.add('show');
     startLockoutTimer();
 }
 
@@ -2059,8 +1718,7 @@ function startLockoutTimer() {
     clearInterval(lockoutInterval);
     updateLockoutTimer();
     lockoutInterval = setInterval(function() {
-        var remaining = SECURITY.getRemainingLockTime();
-        if (remaining <= 0) {
+        if (SECURITY.getRemainingLockTime() <= 0) {
             clearInterval(lockoutInterval);
             resetLockout();
             return;
@@ -2083,11 +1741,8 @@ function resetLockout() {
     clearInterval(lockoutInterval);
     SECURITY.reset();
     document.getElementById('lockoutState').classList.remove('show');
-    document.getElementById('loginHeaderWrap').style.display = '';
-    document.getElementById('stepIndicatorWrap').style.display = '';
-    document.getElementById('demoBar').style.display = '';
     document.getElementById('securityNotice').style.display = '';
-    goToStep(1);
+    switchMode(hasAccount() ? 'login' : 'setup');
 }
 </script>
 

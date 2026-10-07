@@ -3647,8 +3647,6 @@ a.contact-line:hover { color: var(--gold); }
         </div>
     </div>
 
-    <!-- DESKTOP NAV IS HIDDEN — nav-wrapper is display:none in CSS -->
-
     <!-- ============ MOBILE HEADER ============ -->
     <div class="mobile-header">
         <div class="mobile-header-inner">
@@ -3672,6 +3670,10 @@ a.contact-line:hover { color: var(--gold); }
                 <button class="mobile-icon-btn theme-toggle-mobile" onclick="toggleTheme()" aria-label="Toggle theme">
                     <span class="theme-icon moon">☾</span>
                     <span class="theme-icon sun">☀</span>
+                </button>
+                <button class="mobile-icon-btn" onclick="location.href='favourites.html'" aria-label="Favourites">
+                    ♡
+                    <span class="badge" id="favBadgeMobile" style="display:none">0</span>
                 </button>
             </div>
         </div>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+    <defs>
+        <!-- ═══ PRIMARY GOLD GRADIENT (5-stop = real metal) ═══ -->
+        <linearGradient id="og-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%"   stop-color="#F8E9B0"/>
+            <stop offset="22%"  stop-color="#E2C766"/>
+            <stop offset="48%"  stop-color="#C9A227"/>
+            <stop offset="75%"  stop-color="#9C7A1A"/>
+            <stop offset="100%" stop-color="#6E550E"/>
+        </linearGradient>
+
+        <!-- ═══ GOLD SHINE (top highlight) ═══ -->
+        <linearGradient id="og-shine" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%"   stop-color="#FFF9E0" stop-opacity="0.85"/>
+            <stop offset="55%"  stop-color="#F8E9B0" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#C9A227" stop-opacity="0"/>
+        </linearGradient>
+
+        <!-- ═══ DEEP MIDNIGHT CORE ═══ -->
+        <radialGradient id="og-core" cx="50%" cy="35%" r="75%">
+            <stop offset="0%"   stop-color="#2E5FA8"/>
+            <stop offset="45%"  stop-color="#1B3A6B"/>
+            <stop offset="100%" stop-color="#0A1832"/>
+        </radialGradient>
+
+        <!-- ═══ BLUE OUTER RING ═══ -->
+        <linearGradient id="og-blue-ring" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%"   stop-color="#4A7BC8"/>
+            <stop offset="100%" stop-color="#122A4F"/>
+        </linearGradient>
+
+        <!-- ═══ "O" LETTER GRADIENT (bright gold) ═══ -->
+        <linearGradient id="og-letter-o" x1="20%" y1="10%" x2="80%" y2="90%">
+            <stop offset="0%"   stop-color="#FFF9E0"/>
+            <stop offset="30%"  stop-color="#E2C766"/>
+            <stop offset="65%"  stop-color="#C9A227"/>
+            <stop offset="100%" stop-color="#8E6E14"/>
+        </linearGradient>
+
+        <!-- ═══ "G" LETTER GRADIENT (deeper gold for contrast) ═══ -->
+        <linearGradient id="og-letter-g" x1="15%" y1="15%" x2="85%" y2="85%">
+            <stop offset="0%"   stop-color="#E2C766"/>
+            <stop offset="40%"  stop-color="#C9A227"/>
+            <stop offset="75%"  stop-color="#9C7A1A"/>
+            <stop offset="100%" stop-color="#6E550E"/>
+        </linearGradient>
+
+        <!-- ═══ FILTERS ═══ -->
+        <filter id="og-glow" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="3.5" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+
+        <filter id="og-letter-shadow" x="-25%" y="-25%" width="150%" height="150%">
+            <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.6"/>
+        </filter>
+
+        <filter id="og-outer-glow" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="2" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+
+        <!-- ═══ CLIP FOR TEXT ON RING ═══ -->
+        <path id="og-text-arc" d="M 40 120 A 80 80 0 0 1 200 120" fill="none"/>
+        <path id="og-text-arc-bottom" d="M 200 120 A 80 80 0 0 1 40 120" fill="none"/>
+    </defs>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- LAYER 1: OUTER GOLD MEDALLION -->
+    <!-- ═══════════════════════════════════════════ -->
+    <circle cx="120" cy="120" r="118" fill="url(#og-gold)" filter="url(#og-glow)"/>
+    
+    <!-- Dark separator -->
+    <circle cx="120" cy="120" r="110" fill="#0A0A0C"/>
+    
+    <!-- Blue ring (mid) -->
+    <circle cx="120" cy="120" r="104" fill="url(#og-blue-ring)"/>
+    
+    <!-- Deep blue core (radial dome) -->
+    <circle cx="120" cy="120" r="96" fill="url(#og-core)"/>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- LAYER 2: TOP SHINE ARC -->
+    <!-- ═══════════════════════════════════════════ -->
+    <path d="M 40 90 A 96 96 0 0 1 200 90"
+          fill="none"
+          stroke="url(#og-shine)"
+          stroke-width="26"
+          stroke-linecap="round"
+          opacity="0.5"/>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- LAYER 3: THE MONOGRAM — O + G INTERLOCKED -->
+    <!-- ═══════════════════════════════════════════ -->
+    <g filter="url(#og-letter-shadow)">
+        
+        <!-- ══ LETTER "O" — Outer gold ring, thick and bold ══ -->
+        <circle cx="120" cy="120" r="62"
+                fill="none"
+                stroke="url(#og-letter-o)"
+                stroke-width="16"
+                stroke-linecap="round"/>
+
+        <!-- O highlight (light catching top-left of ring) -->
+        <path d="M 78 78 A 62 62 0 0 1 130 58"
+              fill="none"
+              stroke="#FFF9E0"
+              stroke-width="4"
+              stroke-linecap="round"
+              opacity="0.7"/>
+
+        <!-- ══ LETTER "G" — Nested inside O, with tail crossing ══ -->
+        <!-- G main curve (arc + bar) -->
+        <path d="M 148 96
+                 A 42 42 0 1 0 148 144
+                 L 148 122
+                 L 122 122"
+              fill="none"
+              stroke="url(#og-letter-g)"
+              stroke-width="15"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
+
+        <!-- G highlight (light catching top-right) -->
+        <path d="M 148 96 A 42 42 0 0 0 118 78"
+              fill="none"
+              stroke="#FFF9E0"
+              stroke-width="3"
+              stroke-linecap="round"
+              opacity="0.6"/>
+
+        <!-- ══ INTERLOCK DETAIL — small gold bridge where G meets O ══ -->
+        <circle cx="148" cy="122" r="6" fill="#F8E9B0" opacity="0.85"/>
+        <circle cx="148" cy="122" r="3" fill="#FFF9E0"/>
+
+    </g>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- LAYER 4: INNER GOLD RING (frames the monogram) -->
+    <!-- ═══════════════════════════════════════════ -->
+    <circle cx="120" cy="120" r="96"
+            fill="none"
+            stroke="url(#og-gold)"
+            stroke-width="1.8"
+            opacity="0.6"/>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- LAYER 5: RIVET DOTS (minted-coin precision) -->
+    <!-- ═══════════════════════════════════════════ -->
+    <g fill="url(#og-gold)" filter="url(#og-outer-glow)">
+        <circle cx="120" cy="8"   r="4"/>
+        <circle cx="120" cy="232" r="4"/>
+        <circle cx="8"   cy="120" r="4"/>
+        <circle cx="232" cy="120" r="4"/>
+    </g>
+    <!-- Rivet inner shine -->
+    <g fill="#FFF9E0" opacity="0.9">
+        <circle cx="120" cy="8"   r="1.4"/>
+        <circle cx="120" cy="232" r="1.4"/>
+        <circle cx="8"   cy="120" r="1.4"/>
+        <circle cx="232" cy="120" r="1.4"/>
+    </g>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- LAYER 6: FINAL TOP POLISH SHINE -->
+    <!-- ═══════════════════════════════════════════ -->
+    <path d="M 55 55 A 80 80 0 0 1 185 55"
+          fill="none"
+          stroke="#FFFFFF"
+          stroke-width="1.2"
+          stroke-linecap="round"
+          opacity="0.28"/>
+</svg>

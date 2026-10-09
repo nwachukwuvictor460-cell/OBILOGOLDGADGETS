@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>OBILO GOLD GADGETS — Quality or Nothing</title>
-<meta name="theme-color" content="#0A0A0C">
+<meta name="theme-color" content="#FAFAF8">
 
 <!-- ===== LOGO / FAVICON ===== -->
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -27,10 +27,14 @@
 (function() {
     try {
         const saved = localStorage.getItem('obilo_theme');
-        if (saved === 'light' || saved === 'dark') {
+        if (saved === 'dark' || saved === 'light') {
             document.documentElement.setAttribute('data-theme', saved);
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
         }
-    } catch(e) {}
+    } catch(e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+    }
 })();
 </script>
 <style>
@@ -50,15 +54,15 @@
     --blue: #1B3A6B;
     --blue-light: #4A7BC8;
 
-    --dark: #0A0A0C;
-    --dark-2: #121215;
-    --dark-3: #1C1C21;
-    --dark-4: #26262D;
-    --text: #F2F2F0;
-    --text-muted: #8E8E96;
-    --text-soft: #B8B8BE;
-    --border: #23232A;
-    --border-soft: #1A1A20;
+    --dark: #14161B;
+    --dark-2: #1A1D24;
+    --dark-3: #232733;
+    --dark-4: #2E3341;
+    --text: #ECEDF0;
+    --text-muted: #9CA0AC;
+    --text-soft: #C4C7CF;
+    --border: #2E3341;
+    --border-soft: #232733;
 
     --whatsapp: #25D366;
     --star: #E2C766;
@@ -72,12 +76,12 @@
     --us-purple-soft: rgba(168, 85, 247, 0.12);
     --us-purple-hairline: rgba(168, 85, 247, 0.35);
 
-    --shadow-elegant: 0 24px 60px rgba(0, 0, 0, 0.55);
-    --shadow-medium: 0 12px 30px rgba(0, 0, 0, 0.35);
-    --shadow-soft: 0 4px 14px rgba(0, 0, 0, 0.2);
+    --shadow-elegant: 0 24px 60px rgba(0, 0, 0, 0.45);
+    --shadow-medium: 0 12px 30px rgba(0, 0, 0, 0.28);
+    --shadow-soft: 0 4px 14px rgba(0, 0, 0, 0.16);
 
-    --header-bg: rgba(10, 10, 12, 0.88);
-    --footer-bg: #060608;
+    --header-bg: rgba(20, 22, 27, 0.88);
+    --footer-bg: #101217;
 
     --radius: 14px;
     --radius-lg: 22px;
@@ -648,36 +652,106 @@ html[data-theme="light"] .mobile-drawer-brand .brand-sub { color: #1E5AA8; }
     padding: 0 5px;
 }
 
-.theme-toggle {
+/* ============================================
+   THEME SWITCH (sliding toggle)
+   ============================================ */
+.theme-switch {
     position: relative;
-    width: 42px;
-    height: 42px;
+    width: 56px;
+    height: 28px;
+    border-radius: 100px;
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.4s var(--ease), border-color 0.4s var(--ease);
+    flex-shrink: 0;
+}
+
+.theme-switch:hover {
+    border-color: var(--gold-hairline);
+}
+
+.theme-switch-track {
+    position: absolute;
+    inset: 0;
+    border-radius: 100px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(201, 162, 39, 0.08), rgba(27, 58, 107, 0.06));
+    transition: background 0.4s var(--ease);
+}
+
+.theme-switch-thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
+    background: var(--gold-gradient);
+    box-shadow:
+        0 2px 6px rgba(201, 162, 39, 0.4),
+        0 0 0 1px rgba(201, 162, 39, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-soft);
-    transition: background 0.2s, color 0.2s;
-    overflow: hidden;
+    transition: transform 0.4s var(--ease), background 0.4s var(--ease);
+    z-index: 2;
 }
 
-.theme-toggle:hover { background: var(--dark-3); color: var(--gold); }
-
-.theme-toggle .theme-icon {
-    display: block;
-    transition: transform 0.6s var(--ease), opacity 0.35s;
+.theme-switch-icon {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) rotate(0deg);
-    font-size: 17px;
+    transform: translate(-50%, -50%);
+    font-size: 11px;
     line-height: 1;
+    transition: opacity 0.3s var(--ease), transform 0.4s var(--ease);
 }
 
-.theme-toggle .theme-icon.sun { opacity: 0; transform: translate(-50%, -50%) rotate(-90deg); }
-.theme-toggle .theme-icon.moon { opacity: 1; transform: translate(-50%, -50%) rotate(0deg); }
-html[data-theme="light"] .theme-toggle .theme-icon.sun { opacity: 1; transform: translate(-50%, -50%) rotate(0deg); }
-html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform: translate(-50%, -50%) rotate(90deg); }
+html[data-theme="light"] .theme-switch-thumb {
+    transform: translateX(0);
+}
+html[data-theme="light"] .moon-icon {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+html[data-theme="light"] .sun-icon {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+html[data-theme="dark"] .theme-switch-thumb {
+    transform: translateX(28px);
+    background: linear-gradient(135deg, #2E3341 0%, #1A1D24 100%);
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+html[data-theme="dark"] .moon-icon {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0deg);
+    color: var(--gold);
+}
+html[data-theme="dark"] .sun-icon {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(-180deg);
+}
+
+/* Mobile variant — same switch, smaller */
+.theme-switch-mobile {
+    width: 50px;
+    height: 26px;
+}
+.theme-switch-mobile .theme-switch-thumb {
+    width: 18px;
+    height: 18px;
+}
+html[data-theme="dark"] .theme-switch-mobile .theme-switch-thumb {
+    transform: translateX(24px);
+}
 
 .whatsapp-btn-header {
     display: flex;
@@ -993,7 +1067,7 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 .mobile-header-actions {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
     flex-shrink: 0;
 }
 
@@ -3667,7 +3741,7 @@ body.no-scroll {
     .logo-sub { font-size: 8.5px; letter-spacing: 5.5px; }
     .signin-btn { padding: 0 16px; font-size: 12.5px; height: 42px; }
     .whatsapp-btn-header { padding: 10px 16px; font-size: 12px; }
-    .icon-btn, .theme-toggle { width: 38px; height: 38px; font-size: 16px; }
+    .icon-btn { width: 38px; height: 38px; font-size: 16px; }
     .search-bar input { padding: 11px 46px 11px 18px; font-size: 13px; }
     .top-info-inner { gap: 18px; }
 }
@@ -3771,9 +3845,13 @@ body.no-scroll {
         </div>
 
         <div class="header-actions">
-            <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme">
-                <span class="theme-icon moon">☾</span>
-                <span class="theme-icon sun">☀</span>
+            <button class="theme-switch" id="themeSwitch" onclick="toggleTheme()" aria-label="Toggle dark mode" aria-pressed="false">
+                <span class="theme-switch-track">
+                    <span class="theme-switch-thumb">
+                        <span class="theme-switch-icon moon-icon">☾</span>
+                        <span class="theme-switch-icon sun-icon">☀</span>
+                    </span>
+                </span>
             </button>
 
             <button class="icon-btn" onclick="location.href='favourites.html'" aria-label="Favourites">
@@ -3872,9 +3950,13 @@ body.no-scroll {
                 <button class="mobile-icon-btn" onclick="openMobileSearch()" aria-label="Search">
                     ⌕
                 </button>
-                <button class="mobile-icon-btn theme-toggle-mobile" onclick="toggleTheme()" aria-label="Toggle theme">
-                    <span class="theme-icon moon">☾</span>
-                    <span class="theme-icon sun">☀</span>
+                <button class="theme-switch theme-switch-mobile" onclick="toggleTheme()" aria-label="Toggle dark mode" aria-pressed="false">
+                    <span class="theme-switch-track">
+                        <span class="theme-switch-thumb">
+                            <span class="theme-switch-icon moon-icon">☾</span>
+                            <span class="theme-switch-icon sun-icon">☀</span>
+                        </span>
+                    </span>
                 </button>
                 <button class="mobile-icon-btn" onclick="location.href='favourites.html'" aria-label="Favourites">
                     ♡
@@ -4498,10 +4580,27 @@ body.no-scroll {
 /* THEME */
 function toggleTheme() {
     const html = document.documentElement;
-    const current = html.getAttribute('data-theme') || 'dark';
+    const current = html.getAttribute('data-theme') || 'light';
     const next = current === 'dark' ? 'light' : 'dark';
     html.setAttribute('data-theme', next);
     try { localStorage.setItem('obilo_theme', next); } catch(e) {}
+
+    document.querySelectorAll('.theme-switch').forEach(sw => {
+        sw.setAttribute('aria-pressed', next === 'dark' ? 'true' : 'false');
+    });
+
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) {
+        meta.setAttribute('content', next === 'dark' ? '#14161B' : '#FAFAF8');
+    }
+}
+
+/* Sync the switch state on page load */
+function syncThemeSwitch() {
+    const current = document.documentElement.getAttribute('data-theme') || 'light';
+    document.querySelectorAll('.theme-switch').forEach(sw => {
+        sw.setAttribute('aria-pressed', current === 'dark' ? 'true' : 'false');
+    });
 }
 
 /* CONFIG */
@@ -5546,6 +5645,8 @@ function escapeAttr(str) {
 document.addEventListener('DOMContentLoaded', () => {
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    syncThemeSwitch();
 
     renderCategoryStrip();
     renderProducts();

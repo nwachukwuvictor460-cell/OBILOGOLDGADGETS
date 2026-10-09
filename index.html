@@ -48,6 +48,7 @@
     --gold-light: #E2C766;
     --gold-dark: #9C7A1A;
     --gold-gradient: linear-gradient(135deg, #E2C766 0%, #C9A227 45%, #9C7A1A 100%);
+    --gold-gradient-brand: linear-gradient(135deg, #F0D67A 0%, #E2C766 20%, #C9A227 50%, #9C7A1A 80%, #7A5E12 100%);
     --gold-soft: rgba(201, 162, 39, 0.12);
     --gold-hairline: rgba(201, 162, 39, 0.28);
 
@@ -156,7 +157,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 /* ============================================
-   DESKTOP LOGO — Pointek-style chunky
+   DESKTOP LOGO — BOLD + GOLD GRADIENT
+   The trick: gradient fill on top, text-stroke in gold
+   behind it via a ::before layer to add visual weight
+   without losing the gradient.
    ============================================ */
 .logo {
     display: inline-flex;
@@ -188,25 +192,40 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     line-height: 1;
 }
 
+/* BOLD + GRADIENT: two stacked layers */
 .logo-main {
+    position: relative;
     font-family: 'Poppins', 'Inter', sans-serif;
     font-weight: 900;
     font-size: 24px;
     letter-spacing: -0.3px;
     line-height: 0.95;
-    color: #C9A227;
-    -webkit-text-fill-color: #C9A227;
-    background: none;
-    -webkit-text-stroke: 0.9px #C9A227;
+    display: inline-block;
+    /* The gradient text */
+    background: var(--gold-gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    /* Add visual weight without killing gradient */
+    -webkit-text-stroke: 0.9px rgba(201, 162, 39, 0.85);
     paint-order: stroke fill;
-    text-shadow: 0 2px 10px rgba(201, 162, 39, 0.35);
+    /* Glow behind the letters */
+    filter:
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.4))
+        drop-shadow(0 2px 8px rgba(201, 162, 39, 0.5));
 }
 
 html[data-theme="light"] .logo-main {
-    color: #B8901F;
-    -webkit-text-fill-color: #B8901F;
-    -webkit-text-stroke: 0.9px #B8901F;
-    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    background: linear-gradient(135deg, #D4A82C 0%, #B8901F 35%, #8E6E14 70%, #6E550E 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    -webkit-text-stroke: 0.9px rgba(110, 85, 14, 0.75);
+    filter:
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.35))
+        drop-shadow(0 2px 6px rgba(201, 162, 39, 0.35));
 }
 
 .logo-sub {
@@ -244,15 +263,10 @@ html[data-theme="light"] .logo-tag {
 .footer-logo .logo-main { font-size: 22px; }
 
 /* ============================================
-   MOBILE LOGO — hidden in new layout, kept for safety
+   MOBILE BRAND ROW — BOLD + GOLD GRADIENT
    ============================================ */
-.mobile-logo {
-    display: none;
-}
+.mobile-logo { display: none; }
 
-/* ============================================
-   MOBILE BRAND ROW — big, bold, unmissable
-   ============================================ */
 .mobile-brand-row {
     display: flex;
     align-items: center;
@@ -295,36 +309,42 @@ html[data-theme="light"] .mobile-brand-row {
     line-height: 1;
 }
 
-/* THE BIG BOLD BRAND — Pointek-style chunky sans */
+/* BOLD + GOLD GRADIENT — the mobile wordmark */
 .mobile-brand-main {
+    position: relative;
     font-family: 'Poppins', 'Inter', -apple-system, sans-serif;
     font-weight: 900;
     font-size: 28px;
     letter-spacing: -0.5px;
     line-height: 0.95;
     white-space: nowrap;
-
-    background: none;
-    background-clip: initial;
-    -webkit-background-clip: initial;
-    color: #C9A227;
-    -webkit-text-fill-color: #C9A227;
-
-    -webkit-text-stroke: 1.2px #C9A227;
+    display: inline-block;
+    /* The gradient fill */
+    background: var(--gold-gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    /* Heavy stroke in gold to add weight (keeps gradient visible) */
+    -webkit-text-stroke: 1.1px rgba(201, 162, 39, 0.85);
     paint-order: stroke fill;
-
-    text-shadow:
-        0 1px 0 rgba(0, 0, 0, 0.25),
-        0 2px 12px rgba(201, 162, 39, 0.4);
+    /* Premium gold glow */
+    filter:
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.4))
+        drop-shadow(0 2px 10px rgba(201, 162, 39, 0.55))
+        drop-shadow(0 0 24px rgba(201, 162, 39, 0.35));
 }
 
 html[data-theme="light"] .mobile-brand-main {
-    color: #B8901F;
-    -webkit-text-fill-color: #B8901F;
-    -webkit-text-stroke: 1.2px #B8901F;
-    text-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.5),
-        0 2px 10px rgba(201, 162, 39, 0.25);
+    background: linear-gradient(135deg, #D4A82C 0%, #B8901F 35%, #8E6E14 70%, #6E550E 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    -webkit-text-stroke: 1.1px rgba(110, 85, 14, 0.75);
+    filter:
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.35))
+        drop-shadow(0 2px 8px rgba(201, 162, 39, 0.4));
 }
 
 .mobile-brand-sub {
@@ -343,7 +363,7 @@ html[data-theme="light"] .mobile-brand-sub {
 }
 
 /* ============================================
-   MOBILE DRAWER BRAND — same chunky style
+   MOBILE DRAWER BRAND — BOLD + GOLD GRADIENT
    ============================================ */
 .mobile-drawer-brand {
     display: flex;
@@ -368,23 +388,32 @@ html[data-theme="light"] .mobile-brand-sub {
 }
 
 .mobile-drawer-brand .brand-main {
+    position: relative;
     font-family: 'Poppins', 'Inter', sans-serif;
     font-weight: 900;
     font-size: 26px;
     letter-spacing: -0.5px;
     line-height: 1;
-    color: #C9A227;
-    -webkit-text-fill-color: #C9A227;
-    background: none;
-    -webkit-text-stroke: 1.2px #C9A227;
+    display: inline-block;
+    background: var(--gold-gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    -webkit-text-stroke: 1.1px rgba(201, 162, 39, 0.85);
     paint-order: stroke fill;
-    text-shadow: 0 2px 12px rgba(201, 162, 39, 0.4);
+    filter:
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.4))
+        drop-shadow(0 2px 10px rgba(201, 162, 39, 0.5));
 }
 
 html[data-theme="light"] .mobile-drawer-brand .brand-main {
-    color: #B8901F;
-    -webkit-text-fill-color: #B8901F;
-    -webkit-text-stroke: 1.2px #B8901F;
+    background: linear-gradient(135deg, #D4A82C 0%, #B8901F 35%, #8E6E14 70%, #6E550E 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    -webkit-text-stroke: 1.1px rgba(110, 85, 14, 0.75);
 }
 
 .mobile-drawer-brand .brand-sub {
@@ -599,11 +628,14 @@ html[data-theme="light"] .mobile-drawer-brand .brand-sub { color: #1E5AA8; }
     gap: 24px;
 }
 
+/* ============================================
+   DESKTOP SEARCH BAR — GLASS + BOLD ICON
+   ============================================ */
 .search-bar { flex: 1; max-width: 520px; position: relative; }
 
 .search-bar input {
     width: 100%;
-    padding: 12px 50px 12px 20px;
+    padding: 12px 60px 12px 20px;
     background: var(--dark-3);
     border: 1px solid var(--border);
     border-radius: 100px;
@@ -617,24 +649,82 @@ html[data-theme="light"] .mobile-drawer-brand .brand-sub { color: #1E5AA8; }
 .search-bar input:focus { border-color: var(--gold); box-shadow: 0 0 0 4px var(--gold-soft); }
 .search-bar input::placeholder { color: var(--text-muted); }
 
+/* BOLD GLASS SEARCH BUTTON */
 .search-bar button {
     position: absolute;
-    right: 6px;
+    right: 5px;
     top: 50%;
     transform: translateY(-50%);
-    width: 38px;
-    height: 38px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    background: var(--gold-gradient);
+    /* Glassmorphism: layered translucency */
+    background:
+        linear-gradient(135deg,
+            rgba(226, 199, 102, 0.95) 0%,
+            rgba(201, 162, 39, 0.95) 45%,
+            rgba(156, 122, 26, 0.95) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    box-shadow:
+        0 6px 18px rgba(201, 162, 39, 0.5),
+        0 0 0 3px rgba(201, 162, 39, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.4),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.15);
     color: #1a1a1a;
-    font-size: 15px;
+    font-size: 20px;
+    font-weight: 900;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s var(--ease), box-shadow 0.25s;
+    transition: transform 0.2s var(--ease), box-shadow 0.25s, background 0.25s;
+    cursor: pointer;
 }
 
-.search-bar button:hover { transform: translateY(-50%) scale(1.06); box-shadow: 0 6px 18px rgba(201, 162, 39, 0.4); }
+/* The magnifier glyph itself — bolder using an SVG-like bold circle+handle */
+.search-bar button svg {
+    width: 22px;
+    height: 22px;
+    stroke: #1a1a1a;
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.35));
+    transition: stroke 0.2s;
+}
+
+.search-bar button:hover {
+    transform: translateY(-50%) scale(1.08);
+    box-shadow:
+        0 10px 26px rgba(201, 162, 39, 0.65),
+        0 0 0 5px rgba(201, 162, 39, 0.22),
+        inset 0 1px 1px rgba(255, 255, 255, 0.5),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.search-bar button:active {
+    transform: translateY(-50%) scale(0.96);
+}
+
+html[data-theme="light"] .search-bar button {
+    background: linear-gradient(135deg,
+        rgba(212, 168, 44, 1) 0%,
+        rgba(184, 144, 31, 1) 50%,
+        rgba(142, 110, 20, 1) 100%);
+    border-color: rgba(255, 255, 255, 0.55);
+    box-shadow:
+        0 6px 18px rgba(184, 144, 31, 0.4),
+        0 0 0 3px rgba(201, 162, 39, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.55),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.12);
+    color: #1a1a1a;
+}
+html[data-theme="light"] .search-bar button svg {
+    stroke: #1a1a1a;
+    filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.5));
+}
 
 .header-actions { display: flex; align-items: center; gap: 4px; }
 
@@ -1114,6 +1204,39 @@ html[data-theme="dark"] .theme-switch-mobile .theme-switch-thumb {
     border: 2px solid var(--header-bg);
 }
 
+/* BOLD GLASS SEARCH ICON (mobile) */
+.mobile-icon-btn.search-mobile-btn {
+    background: linear-gradient(135deg,
+        rgba(226, 199, 102, 0.22) 0%,
+        rgba(201, 162, 39, 0.18) 45%,
+        rgba(156, 122, 26, 0.22) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(201, 162, 39, 0.55);
+    box-shadow:
+        0 4px 12px rgba(201, 162, 39, 0.28),
+        inset 0 1px 1px rgba(255, 255, 255, 0.15);
+    color: var(--gold);
+}
+
+.mobile-icon-btn.search-mobile-btn:active {
+    background: var(--gold-gradient);
+    color: #1a1a1a;
+    border-color: transparent;
+    box-shadow: 0 6px 16px rgba(201, 162, 39, 0.5);
+}
+
+.mobile-icon-btn.search-mobile-btn svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    filter: drop-shadow(0 1px 2px rgba(201, 162, 39, 0.35));
+}
+
 .mobile-icon-btn .theme-icon {
     position: absolute;
     top: 50%;
@@ -1454,7 +1577,7 @@ html[data-theme="light"] .mobile-icon-btn .theme-icon.moon { opacity: 0; transfo
 
 .mobile-search-input {
     width: 100%;
-    padding: 12px 42px 12px 18px;
+    padding: 12px 52px 12px 18px;
     background: var(--dark-3);
     border: 1px solid var(--border);
     border-radius: 100px;
@@ -1468,23 +1591,43 @@ html[data-theme="light"] .mobile-icon-btn .theme-icon.moon { opacity: 0; transfo
 .mobile-search-input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-soft); }
 .mobile-search-input::placeholder { color: var(--text-muted); }
 
+/* BOLD GLASS SEARCH BUTTON (mobile overlay) */
 .mobile-search-submit {
     position: absolute;
-    right: 5px;
+    right: 4px;
     top: 50%;
     transform: translateY(-50%);
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background: var(--gold-gradient);
+    background: linear-gradient(135deg,
+        rgba(226, 199, 102, 1) 0%,
+        rgba(201, 162, 39, 1) 50%,
+        rgba(156, 122, 26, 1) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    box-shadow:
+        0 4px 12px rgba(201, 162, 39, 0.45),
+        inset 0 1px 1px rgba(255, 255, 255, 0.4);
     color: #1a1a1a;
-    font-size: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border: none;
 }
+
+.mobile-search-submit svg {
+    width: 20px;
+    height: 20px;
+    stroke: #1a1a1a;
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+}
+
+.mobile-search-submit:active { transform: translateY(-50%) scale(0.95); }
 
 .mobile-search-cancel {
     padding: 10px 12px;
@@ -2183,9 +2326,12 @@ html[data-theme="light"] .mobile-icon-btn .theme-icon.moon { opacity: 0; transfo
     font-weight: 900;
     font-size: 14px;
     letter-spacing: -0.2px;
-    color: #C9A227;
-    -webkit-text-fill-color: #C9A227;
-    -webkit-text-stroke: 0.5px #C9A227;
+    background: var(--gold-gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    -webkit-text-stroke: 0.5px rgba(201, 162, 39, 0.85);
     paint-order: stroke fill;
 }
 
@@ -2729,9 +2875,12 @@ html[data-theme="light"] .store-map iframe { filter: grayscale(0.15) contrast(1)
     font-weight: 900;
     font-size: 13px;
     letter-spacing: -0.2px;
-    color: var(--gold);
-    -webkit-text-fill-color: var(--gold);
-    -webkit-text-stroke: 0.4px var(--gold);
+    background: var(--gold-gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    -webkit-text-stroke: 0.4px rgba(201, 162, 39, 0.85);
     paint-order: stroke fill;
 }
 
@@ -3415,13 +3564,11 @@ a.contact-line:hover { color: var(--gold); }
 @media (max-width: 768px) {
     .container { padding: 0 18px; }
 
-    /* Hide desktop header elements on mobile */
     .top-info-bar,
     .news-flash-bar,
     .header-top,
     .nav-wrapper { display: none !important; }
 
-    /* Show mobile-specific chrome */
     .mobile-header { display: block; }
     .mobile-drawer,
     .mobile-drawer-backdrop,
@@ -3539,29 +3686,28 @@ a.contact-line:hover { color: var(--gold); }
     .section-title { font-size: 22px; }
     .container { padding: 0 16px; }
 
-    /* Mobile brand row scaling */
-    .mobile-brand-main { font-size: 26px; -webkit-text-stroke: 1.1px #C9A227; }
-    html[data-theme="light"] .mobile-brand-main { -webkit-text-stroke: 1.1px #B8901F; }
+    .mobile-brand-main { font-size: 26px; -webkit-text-stroke: 1px rgba(201, 162, 39, 0.85); }
+    html[data-theme="light"] .mobile-brand-main { -webkit-text-stroke: 1px rgba(110, 85, 14, 0.75); }
     .mobile-brand-sub { font-size: 9.5px; letter-spacing: 4.5px; }
     .mobile-brand-icon { width: 42px; height: 42px; }
     .mobile-brand-row { gap: 10px; padding: 12px 14px 8px; }
 
-    .mobile-drawer-brand .brand-main { font-size: 22px; -webkit-text-stroke: 1.1px #C9A227; }
-    html[data-theme="light"] .mobile-drawer-brand .brand-main { -webkit-text-stroke: 1.1px #B8901F; }
+    .mobile-drawer-brand .brand-main { font-size: 22px; -webkit-text-stroke: 1px rgba(201, 162, 39, 0.85); }
+    html[data-theme="light"] .mobile-drawer-brand .brand-main { -webkit-text-stroke: 1px rgba(110, 85, 14, 0.75); }
     .mobile-drawer-brand img { width: 46px; height: 46px; }
 }
 
 @media (max-width: 360px) {
     .products-grid { grid-template-columns: 1fr; }
 
-    .mobile-brand-main { font-size: 23px; -webkit-text-stroke: 1px #C9A227; letter-spacing: -0.4px; }
-    html[data-theme="light"] .mobile-brand-main { -webkit-text-stroke: 1px #B8901F; }
+    .mobile-brand-main { font-size: 23px; -webkit-text-stroke: 0.9px rgba(201, 162, 39, 0.85); letter-spacing: -0.4px; }
+    html[data-theme="light"] .mobile-brand-main { -webkit-text-stroke: 0.9px rgba(110, 85, 14, 0.75); }
     .mobile-brand-sub { font-size: 8.5px; letter-spacing: 4px; }
     .mobile-brand-icon { width: 38px; height: 38px; }
     .mobile-brand-row { gap: 9px; padding: 10px 12px 8px; }
 
-    .mobile-drawer-brand .brand-main { font-size: 20px; -webkit-text-stroke: 1px #C9A227; }
-    html[data-theme="light"] .mobile-drawer-brand .brand-main { -webkit-text-stroke: 1px #B8901F; }
+    .mobile-drawer-brand .brand-main { font-size: 20px; -webkit-text-stroke: 0.9px rgba(201, 162, 39, 0.85); }
+    html[data-theme="light"] .mobile-drawer-brand .brand-main { -webkit-text-stroke: 0.9px rgba(110, 85, 14, 0.75); }
     .mobile-drawer-brand img { width: 42px; height: 42px; }
 }
 
@@ -3656,7 +3802,9 @@ body.no-scroll {
     .signin-btn { padding: 0 16px; font-size: 12.5px; height: 42px; }
     .whatsapp-btn-header { padding: 10px 16px; font-size: 12px; }
     .icon-btn { width: 38px; height: 38px; font-size: 16px; }
-    .search-bar input { padding: 11px 46px 11px 18px; font-size: 13px; }
+    .search-bar input { padding: 11px 56px 11px 18px; font-size: 13px; }
+    .search-bar button { width: 40px; height: 40px; }
+    .search-bar button svg { width: 19px; height: 19px; }
     .top-info-inner { gap: 18px; }
 }
 
@@ -3692,10 +3840,9 @@ body.no-scroll {
     .back-to-top { bottom: calc(70px + var(--safe-bottom)); width: 38px; height: 38px; }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
 
-    /* Compact brand row on landscape */
     .mobile-brand-row { padding: 8px 12px 6px; }
-    .mobile-brand-main { font-size: 20px; -webkit-text-stroke: 0.9px #C9A227; }
-    html[data-theme="light"] .mobile-brand-main { -webkit-text-stroke: 0.9px #B8901F; }
+    .mobile-brand-main { font-size: 20px; -webkit-text-stroke: 0.9px rgba(201, 162, 39, 0.85); }
+    html[data-theme="light"] .mobile-brand-main { -webkit-text-stroke: 0.9px rgba(110, 85, 14, 0.75); }
     .mobile-brand-sub { font-size: 8px; letter-spacing: 3.5px; }
     .mobile-brand-icon { width: 34px; height: 34px; }
 }
@@ -3716,8 +3863,8 @@ body.no-scroll {
     .drawer-link-sub { font-size: 10px; }
     .drawer-cta { font-size: 12px; padding: 14px 10px; }
 
-    .mobile-brand-main { font-size: 20px; -webkit-text-stroke: 0.9px #C9A227; }
-    html[data-theme="light"] .mobile-brand-main { -webkit-text-stroke: 0.9px #B8901F; }
+    .mobile-brand-main { font-size: 20px; -webkit-text-stroke: 0.8px rgba(201, 162, 39, 0.85); }
+    html[data-theme="light"] .mobile-brand-main { -webkit-text-stroke: 0.8px rgba(110, 85, 14, 0.75); }
     .mobile-brand-sub { font-size: 7.5px; letter-spacing: 3.5px; }
     .mobile-brand-icon { width: 34px; height: 34px; }
 }
@@ -3766,7 +3913,12 @@ body.no-scroll {
 
         <div class="search-bar">
             <input type="text" id="searchInput" placeholder="Search phones, laptops, tablets, brands...">
-            <button onclick="handleSearch()" aria-label="Search">⌕</button>
+            <button onclick="handleSearch()" aria-label="Search">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7" />
+                    <line x1="16.2" y1="16.2" x2="21" y2="21" />
+                </svg>
+            </button>
         </div>
 
         <div class="header-actions">
@@ -3874,8 +4026,11 @@ body.no-scroll {
             </button>
 
             <div class="mobile-header-actions">
-                <button class="mobile-icon-btn" onclick="openMobileSearch()" aria-label="Search">
-                    ⌕
+                <button class="mobile-icon-btn search-mobile-btn" onclick="openMobileSearch()" aria-label="Search">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <circle cx="11" cy="11" r="7" />
+                        <line x1="16.2" y1="16.2" x2="21" y2="21" />
+                    </svg>
                 </button>
                 <button class="theme-switch theme-switch-mobile" onclick="toggleTheme()" aria-label="Toggle dark mode" aria-pressed="false">
                     <span class="theme-switch-track">
@@ -4063,7 +4218,12 @@ body.no-scroll {
     <div class="mobile-search-head">
         <div class="mobile-search-input-wrap">
             <input type="text" id="mobileSearchInput" class="mobile-search-input" placeholder="Search gadgets, brands..." autocomplete="off">
-            <button class="mobile-search-submit" onclick="submitMobileSearch()" aria-label="Search">⌕</button>
+            <button class="mobile-search-submit" onclick="submitMobileSearch()" aria-label="Search">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7" />
+                    <line x1="16.2" y1="16.2" x2="21" y2="21" />
+                </svg>
+            </button>
         </div>
         <button class="mobile-search-cancel" onclick="closeMobileSearch()">Cancel</button>
     </div>

@@ -1110,6 +1110,126 @@ html[data-theme="dark"] .theme-switch-mobile .theme-switch-thumb {
     padding-top: var(--safe-top);
 }
 
+/* ============================================
+   MOBILE — Full-width Search Bar
+   ============================================ */
+.mobile-search-bar {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    width: 100%;
+    padding: 13px 16px;
+    background: var(--dark-3);
+    border: none;
+    border-bottom: 1px solid var(--border-soft);
+    color: var(--text-muted);
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    position: relative;
+}
+
+.mobile-search-bar::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--gold-gradient);
+    opacity: 0;
+    transition: opacity 0.2s var(--ease);
+}
+
+.mobile-search-bar:active {
+    background: var(--dark-2);
+    color: var(--text-soft);
+}
+
+.mobile-search-bar:active::before {
+    opacity: 1;
+}
+
+.mobile-search-bar-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: var(--gold);
+    transition: transform 0.15s var(--ease);
+}
+
+.mobile-search-bar:active .mobile-search-bar-icon {
+    transform: scale(0.9);
+}
+
+.mobile-search-bar-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke: currentColor;
+    stroke-width: 2.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    filter: drop-shadow(0 0 4px rgba(201, 162, 39, 0.35));
+}
+
+.mobile-search-bar-text {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.mobile-search-bar-hint {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 9px;
+    background: var(--gold-soft);
+    border: 1px solid var(--gold-hairline);
+    border-radius: 100px;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gold);
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+html[data-theme="light"] .mobile-search-bar-hint {
+    background: rgba(201, 162, 39, 0.14);
+    color: #8E6E14;
+    border-color: rgba(142, 110, 20, 0.35);
+}
+
+/* Small screen tweaks for search bar */
+@media (max-width: 480px) {
+    .mobile-search-bar { font-size: 13px; padding: 12px 14px; gap: 9px; }
+    .mobile-search-bar-hint { font-size: 8.5px; padding: 2px 7px; }
+}
+
+@media (max-width: 360px) {
+    .mobile-search-bar { font-size: 12.5px; padding: 11px 13px; gap: 8px; }
+    .mobile-search-bar-hint { display: none; }
+}
+
+@media (max-width: 320px) {
+    .mobile-search-bar { padding: 10px 12px; font-size: 12px; }
+    .mobile-search-bar-hint { display: none; }
+}
+
 .mobile-header-inner {
     display: flex;
     align-items: center;
@@ -4003,52 +4123,56 @@ body.no-scroll {
             </a>
         </div>
     </div>
+<!-- ============ MOBILE HEADER (3 ROWS) ============ -->
+<div class="mobile-header">
 
-    <!-- ============ MOBILE HEADER ============ -->
-    <div class="mobile-header">
-        <!-- Row 1: Big centred brand -->
-        <a href="index.html" class="mobile-brand-row" aria-label="OBILO GOLD GADGETS — Home">
-            <img src="logo-mark.svg" alt="" class="mobile-brand-icon" width="46" height="46">
-            <span class="mobile-brand-text">
-                <span class="mobile-brand-main">OBILO GOLD</span>
-                <span class="mobile-brand-sub">GADGETS</span>
+    <!-- ROW 1 — Centered Brand -->
+    <a href="index.html" class="mobile-brand-row" aria-label="OBILO GOLD GADGETS — Home">
+        <img src="logo-mark.svg" alt="" class="mobile-brand-icon" width="46" height="46">
+        <span class="mobile-brand-text">
+            <span class="mobile-brand-main">OBILO GOLD</span>
+            <span class="mobile-brand-sub">GADGETS</span>
+        </span>
+    </a>
+
+    <!-- ROW 2 — Full-width Premium Search Bar -->
+    <button class="mobile-search-bar" onclick="openMobileSearch()" aria-label="Open search">
+        <span class="mobile-search-bar-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="11" cy="11" r="7" />
+                <line x1="16.2" y1="16.2" x2="21" y2="21" />
+            </svg>
+        </span>
+        <span class="mobile-search-bar-text">Search phones, laptops, brands...</span>
+        <span class="mobile-search-bar-hint">Search</span>
+    </button>
+
+    <!-- ROW 3 — Menu + Actions -->
+    <div class="mobile-header-inner">
+        <button class="mobile-menu-trigger" id="mobileMenuTrigger" onclick="toggleMobileDrawer()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer">
+            <span class="mobile-menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
             </span>
-        </a>
+        </button>
 
-        <!-- Row 2: Menu + actions -->
-        <div class="mobile-header-inner">
-            <button class="mobile-menu-trigger" id="mobileMenuTrigger" onclick="toggleMobileDrawer()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer">
-                <span class="mobile-menu-icon">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+        <div class="mobile-header-actions">
+            <button class="theme-switch theme-switch-mobile" onclick="toggleTheme()" aria-label="Toggle dark mode" aria-pressed="false">
+                <span class="theme-switch-track">
+                    <span class="theme-switch-thumb">
+                        <span class="theme-switch-icon moon-icon">☾</span>
+                        <span class="theme-switch-icon sun-icon">☀</span>
+                    </span>
                 </span>
             </button>
-
-            <div class="mobile-header-actions">
-                <button class="mobile-icon-btn search-mobile-btn" onclick="openMobileSearch()" aria-label="Search">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <circle cx="11" cy="11" r="7" />
-                        <line x1="16.2" y1="16.2" x2="21" y2="21" />
-                    </svg>
-                </button>
-                <button class="theme-switch theme-switch-mobile" onclick="toggleTheme()" aria-label="Toggle dark mode" aria-pressed="false">
-                    <span class="theme-switch-track">
-                        <span class="theme-switch-thumb">
-                            <span class="theme-switch-icon moon-icon">☾</span>
-                            <span class="theme-switch-icon sun-icon">☀</span>
-                        </span>
-                    </span>
-                </button>
-                <button class="mobile-icon-btn" onclick="location.href='favourites.html'" aria-label="Favourites">
-                    ♡
-                    <span class="badge" id="favBadgeMobile" style="display:none">0</span>
-                </button>
-            </div>
+            <button class="mobile-icon-btn" onclick="location.href='favourites.html'" aria-label="Favourites">
+                ♡
+                <span class="badge" id="favBadgeMobile" style="display:none">0</span>
+            </button>
         </div>
     </div>
-</header>
-
+</div>
 <!-- ============ MOBILE DRAWER ============ -->
 <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop" onclick="closeMobileDrawer()"></div>
 

@@ -1,22 +1,34 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Shop — OBILO GOLD GADGETS</title>
+<meta name="theme-color" content="#FAFAF8">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="favicon.svg">
+<link rel="mask-icon" href="favicon.svg" color="#C9A227">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+
 <script>
 (function() {
     try {
         const saved = localStorage.getItem('obilo_theme');
-        if (saved === 'light' || saved === 'dark') {
+        if (saved === 'dark' || saved === 'light') {
             document.documentElement.setAttribute('data-theme', saved);
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
         }
-    } catch(e) {}
+    } catch(e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+    }
 })();
 </script>
+
 <style>
 /* ============================================
    RESET & BASE
@@ -28,21 +40,22 @@
     --gold-light: #E2C766;
     --gold-dark: #9C7A1A;
     --gold-gradient: linear-gradient(135deg, #E2C766 0%, #C9A227 45%, #9C7A1A 100%);
+    --gold-gradient-brand: linear-gradient(135deg, #F0D67A 0%, #E2C766 20%, #C9A227 50%, #9C7A1A 80%, #7A5E12 100%);
     --gold-soft: rgba(201, 162, 39, 0.12);
     --gold-hairline: rgba(201, 162, 39, 0.28);
 
     --blue: #1B3A6B;
     --blue-light: #4A7BC8;
 
-    --dark: #0A0A0C;
-    --dark-2: #121215;
-    --dark-3: #1C1C21;
-    --dark-4: #26262D;
-    --text: #F2F2F0;
-    --text-muted: #8E8E96;
-    --text-soft: #B8B8BE;
-    --border: #23232A;
-    --border-soft: #1A1A20;
+    --dark: #14161B;
+    --dark-2: #1A1D24;
+    --dark-3: #232733;
+    --dark-4: #2E3341;
+    --text: #ECEDF0;
+    --text-muted: #9CA0AC;
+    --text-soft: #C4C7CF;
+    --border: #2E3341;
+    --border-soft: #232733;
 
     --whatsapp: #25D366;
     --star: #E2C766;
@@ -56,17 +69,21 @@
     --us-purple-soft: rgba(168, 85, 247, 0.12);
     --us-purple-hairline: rgba(168, 85, 247, 0.35);
 
-    --shadow-elegant: 0 24px 60px rgba(0, 0, 0, 0.55);
-    --shadow-medium: 0 12px 30px rgba(0, 0, 0, 0.35);
-    --shadow-soft: 0 4px 14px rgba(0, 0, 0, 0.2);
+    --shadow-elegant: 0 24px 60px rgba(0, 0, 0, 0.45);
+    --shadow-medium: 0 12px 30px rgba(0, 0, 0, 0.28);
+    --shadow-soft: 0 4px 14px rgba(0, 0, 0, 0.16);
 
-    --header-bg: rgba(10, 10, 12, 0.88);
-    --footer-bg: #060608;
+    --header-bg: rgba(20, 22, 27, 0.88);
+    --footer-bg: #101217;
 
     --radius: 14px;
     --radius-lg: 22px;
 
     --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --mobile-header-h: 64px;
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 html[data-theme="light"] {
@@ -101,6 +118,8 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+body.no-scroll { overflow: hidden; }
+
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
@@ -129,74 +148,240 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     padding: 0 28px;
 }
 
-/* LOGO */
+/* ============================================
+   DESKTOP LOGO — BOLD + GOLD GRADIENT
+   ============================================ */
 .logo {
-    display: flex;
-    flex-direction: column;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
     line-height: 1;
     user-select: none;
     padding: 4px 0;
+    transition: transform 0.3s var(--ease);
 }
 
+.logo-mark-img {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    display: block;
+    filter: drop-shadow(0 4px 12px rgba(201, 162, 39, 0.28));
+    transition: transform 0.5s var(--ease), filter 0.5s var(--ease);
+}
+
+.logo:hover .logo-mark-img {
+    transform: scale(1.06) rotate(-3deg);
+    filter: drop-shadow(0 8px 20px rgba(201, 162, 39, 0.5));
+}
+
+.logo-text { display: flex; flex-direction: column; line-height: 1; }
+
 .logo-main {
-    font-family: 'Playfair Display', serif;
+    position: relative;
+    font-family: 'Poppins', 'Inter', sans-serif;
     font-weight: 900;
-    font-size: 27px;
-    letter-spacing: 3.5px;
-    background: var(--gold-gradient);
+    font-size: 24px;
+    letter-spacing: -0.3px;
+    line-height: 0.95;
+    display: inline-block;
+    background: var(--gold-gradient-brand);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent;
+    -webkit-text-stroke: 0.9px rgba(201, 162, 39, 0.85);
+    paint-order: stroke fill;
     filter:
-        drop-shadow(0 0 1px rgba(0, 0, 0, 0.85))
-        drop-shadow(0 0 0.5px rgba(0, 0, 0, 0.7))
-        drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45))
-        drop-shadow(0 0 18px rgba(201, 162, 39, 0.35));
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.4))
+        drop-shadow(0 2px 8px rgba(201, 162, 39, 0.5));
 }
 
 html[data-theme="light"] .logo-main {
-    background: linear-gradient(135deg, #B8901F 0%, #8E6E14 50%, #6E550E 100%);
+    background: linear-gradient(135deg, #D4A82C 0%, #B8901F 35%, #8E6E14 70%, #6E550E 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent;
+    -webkit-text-stroke: 0.9px rgba(110, 85, 14, 0.75);
     filter:
-        drop-shadow(0 0 1px rgba(0, 0, 0, 0.9))
-        drop-shadow(0 0 0.5px rgba(0, 0, 0, 0.8))
-        drop-shadow(0 1px 1px rgba(0, 0, 0, 0.6))
-        drop-shadow(0 1px 3px rgba(0, 0, 0, 0.25));
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.35))
+        drop-shadow(0 2px 6px rgba(201, 162, 39, 0.35));
 }
 
 .logo-sub {
     font-family: 'Inter', sans-serif;
     font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 8.5px;
+    font-weight: 900;
+    letter-spacing: 6px;
     color: var(--blue-light);
-    margin-top: 4px;
-    margin-left: 3px;
-    text-shadow: 0 0 1px rgba(0, 0, 0, 0.35);
+    margin-top: 6px;
+    margin-left: 2px;
+    text-transform: uppercase;
 }
 
-html[data-theme="light"] .logo-sub { color: #1E5AA8; text-shadow: none; }
+html[data-theme="light"] .logo-sub { color: #1E5AA8; }
 
 .logo-tag {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-size: 12px;
     font-weight: 700;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.4px;
     color: var(--gold);
     margin-top: 3px;
-    margin-left: 3px;
-    opacity: 1;
-    text-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
+    margin-left: 2px;
 }
 
-html[data-theme="light"] .logo-tag { color: #8E6E14; text-shadow: none; }
+html[data-theme="light"] .logo-tag { color: #8E6E14; }
 
-.footer-brand .logo-main { font-size: 24px; letter-spacing: 3px; }
+.footer-logo .logo-mark-img { width: 48px; height: 48px; }
+.footer-logo .logo-main { font-size: 22px; }
 
-/* HEADER */
+/* ============================================
+   MOBILE BRAND ROW
+   ============================================ */
+.mobile-logo { display: none; }
+
+.mobile-brand-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 16px 10px;
+    text-decoration: none;
+    border-bottom: 1px solid var(--border-soft);
+    background: linear-gradient(135deg, rgba(201, 162, 39, 0.06), rgba(27, 58, 107, 0.05));
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html[data-theme="light"] .mobile-brand-row {
+    background: linear-gradient(135deg, rgba(201, 162, 39, 0.08), rgba(27, 58, 107, 0.04));
+}
+
+.mobile-brand-icon {
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+    display: block;
+    filter: drop-shadow(0 3px 10px rgba(201, 162, 39, 0.45));
+}
+
+.mobile-brand-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    line-height: 1;
+}
+
+.mobile-brand-main {
+    position: relative;
+    font-family: 'Poppins', 'Inter', -apple-system, sans-serif;
+    font-weight: 900;
+    font-size: 28px;
+    letter-spacing: -0.5px;
+    line-height: 0.95;
+    white-space: nowrap;
+    display: inline-block;
+    background: var(--gold-gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    -webkit-text-stroke: 1.1px rgba(201, 162, 39, 0.85);
+    paint-order: stroke fill;
+    filter:
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.4))
+        drop-shadow(0 2px 10px rgba(201, 162, 39, 0.55))
+        drop-shadow(0 0 24px rgba(201, 162, 39, 0.35));
+}
+
+html[data-theme="light"] .mobile-brand-main {
+    background: linear-gradient(135deg, #D4A82C 0%, #B8901F 35%, #8E6E14 70%, #6E550E 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    -webkit-text-stroke: 1.1px rgba(110, 85, 14, 0.75);
+    filter:
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.35))
+        drop-shadow(0 2px 8px rgba(201, 162, 39, 0.4));
+}
+
+.mobile-brand-sub {
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    color: var(--blue-light);
+    margin-left: 2px;
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+
+html[data-theme="light"] .mobile-brand-sub { color: #1E5AA8; }
+
+/* ============================================
+   MOBILE DRAWER BRAND
+   ============================================ */
+.mobile-drawer-brand { display: flex; align-items: center; gap: 12px; line-height: 1; }
+
+.mobile-drawer-brand img {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    display: block;
+    filter: drop-shadow(0 2px 8px rgba(201, 162, 39, 0.35));
+}
+
+.mobile-drawer-brand-text { display: flex; flex-direction: column; line-height: 1; gap: 3px; }
+
+.mobile-drawer-brand .brand-main {
+    position: relative;
+    font-family: 'Poppins', 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 26px;
+    letter-spacing: -0.5px;
+    line-height: 1;
+    display: inline-block;
+    background: var(--gold-gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    -webkit-text-stroke: 1.1px rgba(201, 162, 39, 0.85);
+    paint-order: stroke fill;
+    filter:
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.4))
+        drop-shadow(0 2px 10px rgba(201, 162, 39, 0.5));
+}
+
+html[data-theme="light"] .mobile-drawer-brand .brand-main {
+    background: linear-gradient(135deg, #D4A82C 0%, #B8901F 35%, #8E6E14 70%, #6E550E 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    -webkit-text-stroke: 1.1px rgba(110, 85, 14, 0.75);
+}
+
+.mobile-drawer-brand .brand-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    color: var(--blue-light);
+    margin-top: 5px;
+}
+
+html[data-theme="light"] .mobile-drawer-brand .brand-sub { color: #1E5AA8; }
+
+/* ============================================
+   HEADER
+   ============================================ */
 .header {
     position: sticky;
     top: 0;
@@ -205,9 +390,178 @@ html[data-theme="light"] .logo-tag { color: #8E6E14; text-shadow: none; }
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     border-bottom: 1px solid var(--border-soft);
+    transition: background 0.4s ease, transform 0.3s var(--ease);
+}
+
+.top-info-bar {
+    background: var(--dark-2);
+    border-bottom: 1px solid var(--border-soft);
+    padding: 8px 28px;
+    overflow-x: auto;
+    scrollbar-width: none;
     transition: background 0.4s ease;
 }
 
+.top-info-bar::-webkit-scrollbar { display: none; }
+
+.top-info-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+    row-gap: 6px;
+}
+
+.top-info-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    color: var(--text-muted);
+    white-space: nowrap;
+    transition: color 0.2s;
+    cursor: pointer;
+    padding: 3px 4px;
+    border-radius: 6px;
+}
+
+.top-info-item:hover { color: var(--gold); }
+
+.top-info-item .top-info-icon {
+    font-size: 13px;
+    color: var(--gold);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.top-info-divider { width: 1px; height: 14px; background: var(--border); flex-shrink: 0; }
+
+/* FLASH NEWS TICKER */
+.news-flash-bar {
+    background: linear-gradient(90deg, rgba(201, 162, 39, 0.08), rgba(27, 58, 107, 0.08));
+    border-bottom: 1px solid var(--border-soft);
+    display: none;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 28px;
+    overflow: hidden;
+    position: relative;
+    transition: background 0.4s ease;
+}
+
+.news-flash-bar.show { display: flex; }
+
+.news-flash-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 12px;
+    background: var(--gold-gradient);
+    color: #1a1a1a;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    z-index: 2;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(201, 162, 39, 0.35);
+}
+
+.news-flash-label::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #1a1a1a;
+    animation: flash-dot 1.4s ease-in-out infinite;
+}
+
+@keyframes flash-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.news-flash-track-wrap {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    height: 24px;
+    mask-image: linear-gradient(90deg, transparent 0%, #000 40px, #000 calc(100% - 40px), transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 40px, #000 calc(100% - 40px), transparent 100%);
+}
+
+.news-flash-track {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    animation: flash-scroll 45s linear infinite;
+    will-change: transform;
+}
+
+.news-flash-track:hover { animation-play-state: paused; }
+
+@keyframes flash-scroll {
+    from { transform: translate(0, -50%); }
+    to   { transform: translate(-50%, -50%); }
+}
+
+.news-flash-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-soft);
+    cursor: pointer;
+    transition: color 0.2s;
+    white-space: nowrap;
+}
+
+.news-flash-item:hover { color: var(--gold); }
+
+.news-flash-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+    box-shadow: 0 0 6px rgba(201, 162, 39, 0.8);
+}
+
+.news-flash-tag {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+    background: var(--gold-soft);
+    color: var(--gold);
+    border: 1px solid var(--gold-hairline);
+    flex-shrink: 0;
+}
+
+.news-flash-tag.promo { background: rgba(229, 72, 77, 0.15); color: #E5484D; border-color: rgba(229, 72, 77, 0.35); }
+.news-flash-tag.announcement { background: rgba(74, 123, 200, 0.15); color: var(--blue-light); border-color: rgba(74, 123, 200, 0.35); }
+.news-flash-tag.arrival { background: rgba(48, 164, 108, 0.15); color: #30A46C; border-color: rgba(48, 164, 108, 0.35); }
+.news-flash-tag.tip { background: rgba(168, 85, 247, 0.15); color: #A855F7; border-color: rgba(168, 85, 247, 0.35); }
+
+/* DESKTOP HEADER ROW */
 .header-top {
     display: flex;
     align-items: center;
@@ -222,7 +576,7 @@ html[data-theme="light"] .logo-tag { color: #8E6E14; text-shadow: none; }
 
 .search-bar input {
     width: 100%;
-    padding: 12px 50px 12px 20px;
+    padding: 12px 60px 12px 20px;
     background: var(--dark-3);
     border: 1px solid var(--border);
     border-radius: 100px;
@@ -238,22 +592,57 @@ html[data-theme="light"] .logo-tag { color: #8E6E14; text-shadow: none; }
 
 .search-bar button {
     position: absolute;
-    right: 6px;
+    right: 5px;
     top: 50%;
     transform: translateY(-50%);
-    width: 38px;
-    height: 38px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    background: var(--gold-gradient);
+    background: linear-gradient(135deg, rgba(226,199,102,0.95) 0%, rgba(201,162,39,0.95) 45%, rgba(156,122,26,0.95) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    box-shadow:
+        0 6px 18px rgba(201, 162, 39, 0.5),
+        0 0 0 3px rgba(201, 162, 39, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.4),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.15);
     color: #1a1a1a;
-    font-size: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: transform 0.2s var(--ease), box-shadow 0.25s;
 }
 
-.search-bar button:hover { transform: translateY(-50%) scale(1.06); box-shadow: 0 6px 18px rgba(201, 162, 39, 0.4); }
+.search-bar button svg {
+    width: 22px;
+    height: 22px;
+    stroke: #1a1a1a;
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.35));
+}
+
+.search-bar button:hover {
+    transform: translateY(-50%) scale(1.08);
+    box-shadow:
+        0 10px 26px rgba(201, 162, 39, 0.65),
+        0 0 0 5px rgba(201, 162, 39, 0.22),
+        inset 0 1px 1px rgba(255, 255, 255, 0.5),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+}
+
+html[data-theme="light"] .search-bar button {
+    background: linear-gradient(135deg, rgba(212,168,44,1) 0%, rgba(184,144,31,1) 50%, rgba(142,110,20,1) 100%);
+    border-color: rgba(255, 255, 255, 0.55);
+    box-shadow:
+        0 6px 18px rgba(184, 144, 31, 0.4),
+        0 0 0 3px rgba(201, 162, 39, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.55),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.12);
+}
 
 .header-actions { display: flex; align-items: center; gap: 4px; }
 
@@ -276,13 +665,13 @@ html[data-theme="light"] .logo-tag { color: #8E6E14; text-shadow: none; }
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 42px;
-    padding: 0 20px;
+    height: 46px;
+    padding: 0 24px;
     border-radius: 100px;
     background: var(--dark-3);
     border: 1px solid var(--border);
     color: var(--text-soft);
-    font-size: 13px;
+    font-size: 13.5px;
     font-weight: 600;
     letter-spacing: 0.3px;
     font-family: inherit;
@@ -291,11 +680,7 @@ html[data-theme="light"] .logo-tag { color: #8E6E14; text-shadow: none; }
     white-space: nowrap;
 }
 
-.signin-btn:hover {
-    border-color: var(--gold-hairline);
-    color: var(--gold);
-    background: var(--gold-soft);
-}
+.signin-btn:hover { border-color: var(--gold-hairline); color: var(--gold); background: var(--gold-soft); }
 
 .badge {
     position: absolute;
@@ -314,36 +699,74 @@ html[data-theme="light"] .logo-tag { color: #8E6E14; text-shadow: none; }
     padding: 0 5px;
 }
 
-.theme-toggle {
+/* THEME SWITCH */
+.theme-switch {
     position: relative;
-    width: 42px;
-    height: 42px;
+    width: 56px;
+    height: 28px;
+    border-radius: 100px;
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.4s var(--ease), border-color 0.4s var(--ease);
+    flex-shrink: 0;
+}
+
+.theme-switch:hover { border-color: var(--gold-hairline); }
+
+.theme-switch-track {
+    position: absolute;
+    inset: 0;
+    border-radius: 100px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(201, 162, 39, 0.08), rgba(27, 58, 107, 0.06));
+    transition: background 0.4s var(--ease);
+}
+
+.theme-switch-thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
+    background: var(--gold-gradient);
+    box-shadow: 0 2px 6px rgba(201, 162, 39, 0.4), 0 0 0 1px rgba(201, 162, 39, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-soft);
-    transition: background 0.2s, color 0.2s;
-    overflow: hidden;
+    transition: transform 0.4s var(--ease), background 0.4s var(--ease);
+    z-index: 2;
 }
 
-.theme-toggle:hover { background: var(--dark-3); color: var(--gold); }
-
-.theme-toggle .theme-icon {
-    display: block;
-    transition: transform 0.6s var(--ease), opacity 0.35s;
+.theme-switch-icon {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) rotate(0deg);
-    font-size: 17px;
+    transform: translate(-50%, -50%);
+    font-size: 11px;
     line-height: 1;
+    transition: opacity 0.3s var(--ease), transform 0.4s var(--ease);
 }
 
-.theme-toggle .theme-icon.sun { opacity: 0; transform: translate(-50%, -50%) rotate(-90deg); }
-.theme-toggle .theme-icon.moon { opacity: 1; transform: translate(-50%, -50%) rotate(0deg); }
-html[data-theme="light"] .theme-toggle .theme-icon.sun { opacity: 1; transform: translate(-50%, -50%) rotate(0deg); }
-html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform: translate(-50%, -50%) rotate(90deg); }
+html[data-theme="light"] .theme-switch-thumb { transform: translateX(0); }
+html[data-theme="light"] .moon-icon { opacity: 0; transform: translate(-50%, -50%) rotate(180deg); }
+html[data-theme="light"] .sun-icon { opacity: 1; transform: translate(-50%, -50%) rotate(0deg); }
+
+html[data-theme="dark"] .theme-switch-thumb {
+    transform: translateX(28px);
+    background: linear-gradient(135deg, #2E3341 0%, #1A1D24 100%);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+html[data-theme="dark"] .moon-icon { opacity: 1; transform: translate(-50%, -50%) rotate(0deg); color: var(--gold); }
+html[data-theme="dark"] .sun-icon { opacity: 0; transform: translate(-50%, -50%) rotate(-180deg); }
+
+.theme-switch-mobile { width: 50px; height: 26px; }
+.theme-switch-mobile .theme-switch-thumb { width: 18px; height: 18px; }
+html[data-theme="dark"] .theme-switch-mobile .theme-switch-thumb { transform: translateX(24px); }
 
 .whatsapp-btn-header {
     display: flex;
@@ -395,7 +818,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 .account-wrap.open .login-panel { opacity: 1; visibility: visible; transform: translateY(0); }
 
 .login-panel-head { margin-bottom: 18px; text-align: center; }
-
 .login-panel-head h4 {
     font-family: 'Playfair Display', serif;
     font-size: 18px;
@@ -403,11 +825,8 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     color: var(--text);
     margin-bottom: 5px;
 }
-
 .login-panel-head p { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
-
 .login-field { margin-bottom: 14px; }
-
 .login-field label {
     display: block;
     font-size: 10px;
@@ -417,7 +836,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     letter-spacing: 1.5px;
     text-transform: uppercase;
 }
-
 .login-input {
     width: 100%;
     padding: 11px 15px;
@@ -430,14 +848,11 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     outline: none;
     transition: border-color 0.25s, box-shadow 0.25s;
 }
-
 .login-input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-soft); }
 .login-input::placeholder { color: var(--text-muted); }
-
 .login-actions-row { display: flex; justify-content: flex-end; margin: -4px 0 14px; }
 .login-forgot { font-size: 11px; color: var(--blue-light); transition: color 0.2s; }
 .login-forgot:hover { color: var(--gold); }
-
 .login-submit {
     width: 100%;
     padding: 13px;
@@ -452,9 +867,7 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     cursor: pointer;
     font-family: inherit;
 }
-
 .login-submit:hover { transform: translateY(-1px); box-shadow: 0 12px 26px rgba(201, 162, 39, 0.4); }
-
 .login-divider {
     display: flex;
     align-items: center;
@@ -465,10 +878,8 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     letter-spacing: 2px;
     text-transform: uppercase;
 }
-
 .login-divider::before,
 .login-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-
 .login-wa {
     display: flex;
     align-items: center;
@@ -482,7 +893,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     font-size: 13px;
     font-weight: 600;
 }
-
 .login-foot {
     text-align: center;
     font-size: 12px;
@@ -491,13 +901,10 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     padding-top: 16px;
     border-top: 1px solid var(--border);
 }
-
 .login-foot a { color: var(--gold); font-weight: 600; }
-
 .login-panel .logged-in-only { display: none; }
 .login-panel.is-logged-in .logged-out-only { display: none; }
 .login-panel.is-logged-in .logged-in-only { display: block; }
-
 .logged-in-head {
     display: flex;
     align-items: center;
@@ -506,7 +913,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     padding-bottom: 16px;
     border-bottom: 1px solid var(--border);
 }
-
 .logged-in-avatar {
     width: 44px;
     height: 44px;
@@ -521,12 +927,9 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     font-size: 18px;
     flex-shrink: 0;
 }
-
 .logged-in-name { font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.2; }
 .logged-in-email { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
-
 .logged-in-links { display: flex; flex-direction: column; gap: 2px; }
-
 .logged-in-link {
     display: flex;
     align-items: center;
@@ -538,10 +941,8 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     font-weight: 500;
     transition: background 0.2s, color 0.2s;
 }
-
 .logged-in-link:hover { background: var(--dark-3); color: var(--gold); }
 .logged-in-link span:first-child { font-size: 15px; }
-
 .logged-in-link .count {
     margin-left: auto;
     background: var(--gold-soft);
@@ -556,7 +957,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     align-items: center;
     justify-content: center;
 }
-
 .logout-btn {
     width: 100%;
     margin-top: 14px;
@@ -564,7 +964,7 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     background: transparent;
     border: 1px solid var(--border);
     border-radius: 10px;
-    color: var(--danger);
+    color: #E5484D;
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -572,305 +972,599 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     cursor: pointer;
     font-family: inherit;
 }
+.logout-btn:hover { background: rgba(229, 72, 77, 0.08); border-color: #E5484D; }
 
-.logout-btn:hover { background: rgba(229, 72, 77, 0.08); border-color: var(--danger); }
+.nav-wrapper { display: none !important; }
 
-/* TOP INFO BAR */
-.top-info-bar {
-    background: var(--dark-2);
+/* ============================================
+   MOBILE NAVIGATION
+   ============================================ */
+.mobile-header {
+    display: none;
+    position: sticky;
+    top: 0;
+    z-index: 110;
+    background: var(--header-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     border-bottom: 1px solid var(--border-soft);
-    padding: 8px 28px;
-    overflow-x: auto;
-    scrollbar-width: none;
-    transition: background 0.4s ease;
+    padding-top: var(--safe-top);
 }
 
-.top-info-bar::-webkit-scrollbar { display: none; }
-
-.top-info-inner {
-    max-width: 1300px;
-    margin: 0 auto;
+.mobile-search-bar {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 28px;
-    flex-wrap: wrap;
-    row-gap: 6px;
-}
-
-.top-info-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.3px;
+    gap: 11px;
+    width: 100%;
+    padding: 13px 16px;
+    background: var(--dark-3);
+    border: none;
+    border-bottom: 1px solid var(--border-soft);
     color: var(--text-muted);
-    white-space: nowrap;
-    transition: color 0.2s;
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    text-align: left;
     cursor: pointer;
-    padding: 3px 4px;
-    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    position: relative;
 }
 
-.top-info-item:hover { color: var(--gold); }
+.mobile-search-bar:active { background: var(--dark-2); color: var(--text-soft); }
 
-.top-info-item .top-info-icon {
-    font-size: 13px;
-    color: var(--gold);
+.mobile-search-bar-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 16px;
-    text-align: center;
+    width: 20px;
+    height: 20px;
     flex-shrink: 0;
+    color: var(--gold);
 }
 
-.top-info-divider {
-    width: 1px;
-    height: 14px;
-    background: var(--border);
+.mobile-search-bar-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke: currentColor;
+    stroke-width: 2.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    filter: drop-shadow(0 0 4px rgba(201, 162, 39, 0.35));
+}
+
+.mobile-search-bar-text {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.mobile-search-bar-hint {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 9px;
+    background: var(--gold-soft);
+    border: 1px solid var(--gold-hairline);
+    border-radius: 100px;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gold);
     flex-shrink: 0;
+    line-height: 1;
 }
 
-/* NAVIGATION */
-.nav-wrapper {
-    position: relative;
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 28px;
+html[data-theme="light"] .mobile-search-bar-hint {
+    background: rgba(201, 162, 39, 0.14);
+    color: #8E6E14;
+    border-color: rgba(142, 110, 20, 0.35);
 }
 
-.nav-bar {
+.mobile-header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 0 14px;
-    gap: 16px;
-    flex-wrap: wrap;
+    gap: 12px;
+    padding: 8px 16px 10px;
+    height: auto;
+    min-height: 56px;
 }
 
-.nav-left {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
-.nav-shop-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    padding: 7px 16px;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-    color: var(--text-muted);
-    border-radius: 100px;
-    white-space: nowrap;
-    transition: color 0.2s, background 0.2s;
-}
-
-.nav-shop-link:hover,
-.nav-shop-link.active {
-    color: var(--gold);
-    background: var(--gold-soft);
-}
-
-.hamburger-btn {
+.mobile-menu-trigger {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--text);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    padding: 8px 18px;
-    border-radius: 100px;
-    background: var(--dark-3);
-    border: 1px solid var(--border);
-    color: var(--text-soft);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-    cursor: pointer;
-    transition: all 0.25s var(--ease);
-    white-space: nowrap;
-    font-family: inherit;
+    flex-shrink: 0;
+    transition: background 0.2s, border-color 0.2s;
 }
 
-.hamburger-btn:hover {
-    border-color: var(--gold-hairline);
-    color: var(--gold);
-    background: var(--gold-soft);
-}
+.mobile-menu-trigger:active { background: var(--dark-3); border-color: var(--border); }
 
-.hamburger-icon {
+.mobile-menu-icon {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    width: 18px;
-    flex-shrink: 0;
+    gap: 5px;
+    width: 22px;
 }
 
-.hamburger-icon span {
+.mobile-menu-icon span {
     display: block;
     height: 2px;
     background: currentColor;
     border-radius: 2px;
-    transition: transform 0.3s var(--ease), opacity 0.3s;
+    transition: transform 0.32s var(--ease), opacity 0.2s, width 0.3s var(--ease);
     transform-origin: center;
 }
 
-.hamburger-btn.active .hamburger-icon span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-.hamburger-btn.active .hamburger-icon span:nth-child(2) { opacity: 0; }
-.hamburger-btn.active .hamburger-icon span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+.mobile-menu-icon span:nth-child(1) { width: 22px; }
+.mobile-menu-icon span:nth-child(2) { width: 16px; }
+.mobile-menu-icon span:nth-child(3) { width: 22px; }
 
-.hamburger-label {
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-}
+.mobile-menu-trigger.active .mobile-menu-icon span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.mobile-menu-trigger.active .mobile-menu-icon span:nth-child(2) { opacity: 0; transform: translateX(-10px); }
+.mobile-menu-trigger.active .mobile-menu-icon span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); width: 22px; }
 
-/* MEGA DROPDOWN */
-.mega-dropdown {
-    position: absolute;
-    top: calc(100% + 8px);
-    left: 0;
-    right: 0;
-    width: 100%;
-    background: var(--dark-2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 28px 32px;
-    box-shadow: var(--shadow-elegant);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: opacity 0.28s var(--ease), transform 0.28s var(--ease), visibility 0.28s;
-    z-index: 150;
-    pointer-events: none;
-}
+.mobile-header-actions { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
 
-.mega-dropdown::before {
-    content: '';
-    position: absolute;
-    top: -14px;
-    left: 0;
-    right: 0;
-    height: 14px;
-}
-
-.mega-dropdown.open {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    pointer-events: auto;
-}
-
-.mega-inner {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 28px;
-}
-
-.mega-col {
-    flex: 1 1 180px;
-    min-width: 140px;
-}
-
-.mega-col-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--gold);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--border-soft);
-}
-
-.mega-links {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    list-style: none;
-}
-
-.mega-links a {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 8px;
-    border-radius: 8px;
-    font-size: 13px;
+.mobile-icon-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: transparent;
+    border: 1px solid transparent;
     color: var(--text-soft);
-    font-weight: 400;
-    transition: all 0.2s;
-}
-
-.mega-links a:hover {
-    background: var(--gold-soft);
-    color: var(--gold);
-    padding-left: 12px;
-}
-
-.mega-links a .cat-icon {
-    font-size: 15px;
-    color: var(--gold);
-    width: 20px;
-    text-align: center;
-    flex-shrink: 0;
-}
-
-.mega-featured {
-    flex: 1 1 260px;
-    min-width: 220px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.mega-featured-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--gold);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 4px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--border-soft);
-}
-
-.mega-featured-item {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 8px;
-    border-radius: 10px;
-    transition: background 0.2s;
+    justify-content: center;
+    font-size: 18px;
+    position: relative;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
     cursor: pointer;
 }
 
-.mega-featured-item:hover { background: var(--dark-3); }
+.mobile-icon-btn:active { background: var(--dark-3); border-color: var(--border); color: var(--gold); }
 
-.mega-featured-img {
-    width: 48px;
-    height: 48px;
-    border-radius: 8px;
+.mobile-icon-btn .badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    min-width: 16px;
+    height: 16px;
+    font-size: 9px;
+    padding: 0 4px;
+    border: 2px solid var(--header-bg);
+}
+
+/* ============================================
+   MOBILE DRAWER
+   ============================================ */
+.mobile-drawer-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s var(--ease), visibility 0.35s;
+    display: none;
+}
+
+.mobile-drawer-backdrop.show { opacity: 1; visibility: visible; }
+
+.mobile-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: min(88vw, 400px);
+    background: var(--dark);
+    z-index: 999;
+    transform: translateX(-100%);
+    transition: transform 0.42s var(--ease);
+    display: none;
+    flex-direction: column;
     overflow: hidden;
-    background: var(--dark-3);
+    box-shadow: 24px 0 60px rgba(0, 0, 0, 0.5);
+    padding-top: var(--safe-top);
+    padding-bottom: var(--safe-bottom);
+    will-change: transform;
+}
+
+.mobile-drawer.open { transform: translateX(0); }
+
+.mobile-drawer-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border-soft);
+    background: linear-gradient(135deg, rgba(201, 162, 39, 0.06), rgba(27, 58, 107, 0.06));
     flex-shrink: 0;
 }
 
-.mega-featured-img img { width: 100%; height: 100%; object-fit: cover; }
+.mobile-drawer-close {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    color: var(--text-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: all 0.2s;
+    cursor: pointer;
+    flex-shrink: 0;
+}
 
-.mega-featured-info { display: flex; flex-direction: column; gap: 3px; }
+.mobile-drawer-close:active {
+    background: rgba(229, 72, 77, 0.12);
+    color: #E5484D;
+    border-color: #E5484D;
+}
 
-.mega-featured-name { font-size: 12px; font-weight: 500; color: var(--text); line-height: 1.3; }
+.mobile-drawer-body {
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 8px 0 20px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold) var(--dark-3);
+}
 
-.mega-featured-price { font-size: 12px; font-weight: 700; color: var(--gold); }
+.mobile-drawer-body::-webkit-scrollbar { width: 3px; }
+.mobile-drawer-body::-webkit-scrollbar-thumb { background: var(--gold-gradient); border-radius: 2px; }
 
-/* SHOP HERO */
+.drawer-section { padding: 4px 12px; }
+
+.drawer-section-title {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    opacity: 0.7;
+    padding: 16px 12px 8px;
+    display: block;
+}
+
+.drawer-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 14px;
+    border-radius: 12px;
+    color: var(--text-soft);
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+    min-height: 52px;
+}
+
+.drawer-link:active,
+.drawer-link.active { background: var(--gold-soft); color: var(--gold); }
+
+.drawer-link-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--gold);
+    flex-shrink: 0;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.drawer-link:active .drawer-link-icon,
+.drawer-link.active .drawer-link-icon {
+    background: var(--gold-gradient);
+    color: #1a1a1a;
+    border-color: transparent;
+}
+
+.drawer-link-text { flex: 1; min-width: 0; }
+.drawer-link-label { font-size: 14px; font-weight: 600; color: inherit; line-height: 1.2; }
+.drawer-link-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; font-weight: 400; letter-spacing: 0.2px; }
+
+.drawer-link-arrow {
+    font-size: 14px;
+    color: var(--text-muted);
+    opacity: 0.5;
+    flex-shrink: 0;
+    transition: transform 0.32s var(--ease);
+}
+
+.drawer-link.expanded .drawer-link-arrow {
+    transform: rotate(90deg);
+    color: var(--gold);
+    opacity: 1;
+}
+
+.drawer-submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s var(--ease);
+    padding: 0 12px;
+}
+
+.drawer-submenu.open { max-height: 900px; }
+
+.drawer-submenu-inner {
+    padding: 4px 0 12px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    border-left: 2px solid var(--gold-hairline);
+    margin-left: 26px;
+}
+
+.drawer-submenu-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-soft);
+    transition: background 0.2s, color 0.2s;
+}
+
+.drawer-submenu-link:active { background: var(--gold-soft); color: var(--gold); }
+.drawer-submenu-link .sub-icon { font-size: 14px; color: var(--gold); width: 20px; text-align: center; flex-shrink: 0; }
+
+.mobile-drawer-foot {
+    flex-shrink: 0;
+    border-top: 1px solid var(--border-soft);
+    padding: 16px 20px calc(16px + var(--safe-bottom));
+    background: var(--dark-2);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.drawer-account-btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 16px;
+    border-radius: 14px;
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: border-color 0.2s, background 0.2s;
+    width: 100%;
+    text-align: left;
+    min-height: 64px;
+}
+
+.drawer-account-btn:active { border-color: var(--gold-hairline); background: var(--gold-soft); }
+
+.drawer-account-avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--gold-gradient);
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.drawer-account-info { flex: 1; min-width: 0; }
+.drawer-account-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+}
+.drawer-account-sub { font-size: 12px; color: var(--text-muted); margin-top: 3px; font-weight: 400; }
+
+.drawer-cta-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.drawer-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 16px 14px;
+    border-radius: 12px;
+    font-size: 13.5px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.25s;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+    min-height: 52px;
+}
+
+.drawer-cta:active { transform: scale(0.97); }
+
+.drawer-cta.primary {
+    background: var(--gold-gradient);
+    color: #1a1a1a;
+    box-shadow: 0 8px 20px rgba(201, 162, 39, 0.32);
+}
+
+.drawer-cta.whatsapp {
+    background: var(--whatsapp);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.28);
+}
+
+.drawer-cta .wa-icon { width: 17px; height: 17px; }
+
+/* MOBILE SEARCH OVERLAY */
+.mobile-search-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--dark);
+    z-index: 999;
+    display: none;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px);
+    transition: opacity 0.28s var(--ease), transform 0.28s var(--ease), visibility 0.28s;
+    padding-top: var(--safe-top);
+}
+
+.mobile-search-overlay.open { opacity: 1; visibility: visible; transform: translateY(0); }
+
+.mobile-search-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border-soft);
+    background: var(--header-bg);
+    backdrop-filter: blur(20px);
+    flex-shrink: 0;
+}
+
+.mobile-search-input-wrap { flex: 1; position: relative; }
+
+.mobile-search-input {
+    width: 100%;
+    padding: 12px 52px 12px 18px;
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    color: var(--text);
+    font-size: 14px;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.mobile-search-input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-soft); }
+.mobile-search-input::placeholder { color: var(--text-muted); }
+
+.mobile-search-submit {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(226,199,102,1) 0%, rgba(201,162,39,1) 50%, rgba(156,122,26,1) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 4px 12px rgba(201, 162, 39, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.mobile-search-submit svg {
+    width: 20px;
+    height: 20px;
+    stroke: #1a1a1a;
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+}
+
+.mobile-search-cancel {
+    padding: 10px 12px;
+    color: var(--text-muted);
+    font-size: 13px;
+    font-weight: 600;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    flex-shrink: 0;
+}
+
+.mobile-search-suggestions { flex: 1; overflow-y: auto; padding: 20px 16px; }
+
+.mobile-search-suggest-title {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+    opacity: 0.75;
+}
+
+.mobile-search-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+
+.mobile-search-chip {
+    padding: 9px 15px;
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    color: var(--text-soft);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.mobile-search-chip:active {
+    background: var(--gold-soft);
+    border-color: var(--gold-hairline);
+    color: var(--gold);
+}
+
+/* ============================================
+   SHOP-SPECIFIC STYLES (unchanged)
+   ============================================ */
 .shop-hero {
     position: relative;
     padding: 44px 0 26px;
@@ -950,7 +1644,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     font-weight: 300;
 }
 
-/* CATEGORY PILLS */
 .category-pills-wrap {
     max-width: 1300px;
     margin: 0 auto;
@@ -1001,10 +1694,7 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     box-shadow: 0 6px 18px rgba(201, 162, 39, 0.32);
 }
 
-.cat-pill-icon {
-    font-size: 14px;
-    line-height: 1;
-}
+.cat-pill-icon { font-size: 14px; line-height: 1; }
 
 .cat-pill-count {
     font-size: 10px;
@@ -1019,7 +1709,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     color: var(--text-muted);
 }
 
-/* STOCK LEGEND */
 .stock-legend {
     display: flex;
     flex-wrap: wrap;
@@ -1030,25 +1719,13 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     letter-spacing: 0.3px;
 }
 
-.stock-legend-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 500;
-}
+.stock-legend-item { display: inline-flex; align-items: center; gap: 8px; font-weight: 500; }
 
-.stock-legend-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
-}
-
+.stock-legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 .stock-legend-dot.in-store { background: var(--success); box-shadow: 0 0 8px rgba(48, 164, 108, 0.6); }
 .stock-legend-dot.pre-order { background: var(--warning); box-shadow: 0 0 8px rgba(245, 166, 35, 0.6); }
 .stock-legend-dot.special-order { background: var(--gold); box-shadow: 0 0 8px rgba(201, 162, 39, 0.6); }
 
-/* CONDITION LEGEND */
 .condition-legend {
     display: flex;
     flex-wrap: wrap;
@@ -1059,25 +1736,13 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     letter-spacing: 0.3px;
 }
 
-.condition-legend-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 500;
-}
+.condition-legend-item { display: inline-flex; align-items: center; gap: 8px; font-weight: 500; }
 
-.condition-legend-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
-}
-
+.condition-legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 .condition-legend-dot.brand-new { background: var(--success); box-shadow: 0 0 8px rgba(48, 164, 108, 0.6); }
 .condition-legend-dot.uk-used { background: var(--uk-blue); box-shadow: 0 0 8px rgba(59, 130, 246, 0.6); }
 .condition-legend-dot.us-used { background: var(--us-purple); box-shadow: 0 0 8px rgba(168, 85, 247, 0.6); }
 
-/* SHOP LAYOUT */
 .shop-layout {
     max-width: 1300px;
     margin: 0 auto;
@@ -1088,7 +1753,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     align-items: start;
 }
 
-/* FILTER SIDEBAR */
 .filter-sidebar {
     position: sticky;
     top: 220px;
@@ -1186,7 +1850,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     border-radius: 8px;
 }
 
-/* CONDITION FILTER COLORS */
 .filter-option input[value="brand-new"]:checked ~ .filter-label { color: var(--success); }
 .filter-option input[value="uk-used"]:checked ~ .filter-label { color: var(--uk-blue); }
 .filter-option input[value="us-used"]:checked ~ .filter-label { color: var(--us-purple); }
@@ -1202,7 +1865,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 .filter-option .cond-mini-dot.uk-used { background: var(--uk-blue); }
 .filter-option .cond-mini-dot.us-used { background: var(--us-purple); }
 
-/* PRICE RANGE */
 .price-range-display {
     display: flex;
     align-items: center;
@@ -1251,11 +1913,7 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     box-shadow: 0 2px 8px rgba(201, 162, 39, 0.5);
 }
 
-.price-quick {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-}
+.price-quick { display: flex; flex-wrap: wrap; gap: 6px; }
 
 .price-quick-btn {
     padding: 6px 12px;
@@ -1304,7 +1962,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     font-family: inherit;
 }
 
-/* RESULTS */
 .results-area { min-width: 0; }
 
 .results-toolbar {
@@ -1333,10 +1990,7 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
     font-weight: 700;
 }
 
-.results-count .results-context {
-    color: var(--text-soft);
-    font-weight: 500;
-}
+.results-count .results-context { color: var(--text-soft); font-weight: 500; }
 
 .sort-select {
     padding: 10px 36px 10px 16px;
@@ -1359,7 +2013,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 
 .sort-select:focus { border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-soft); }
 
-/* ACTIVE FILTER CHIPS */
 .active-filters {
     display: flex;
     flex-wrap: wrap;
@@ -1391,7 +2044,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 
 .active-filter-chip button:hover { opacity: 1; }
 
-/* CATEGORY SECTIONS */
 .category-sections {
     display: flex;
     flex-direction: column;
@@ -1482,12 +2134,7 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 
 .category-section-link:hover { color: var(--gold-light); border-bottom-color: var(--gold); }
 
-/* BRAND BLOCKS */
-.brand-blocks {
-    display: flex;
-    flex-direction: column;
-    gap: 44px;
-}
+.brand-blocks { display: flex; flex-direction: column; gap: 44px; }
 
 .brand-block { position: relative; }
 
@@ -1591,7 +2238,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 
 .brand-scroll .product-card { scroll-snap-align: start; }
 
-/* PRODUCTS GRID */
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
@@ -1680,7 +2326,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 .product-badge.limited { background: rgba(201, 162, 39, 0.16); color: var(--gold); border-color: var(--gold-hairline); }
 .product-badge.sold-out { background: rgba(229, 72, 77, 0.15); color: var(--danger); border-color: rgba(229, 72, 77, 0.45); }
 
-/* CONDITION BADGES on card */
 .condition-badge {
     display: inline-flex;
     align-items: center;
@@ -1875,7 +2520,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 
 .btn-card-notify:hover { border-color: var(--gold); color: var(--gold); }
 
-/* EMPTY STATE */
 .empty-state {
     grid-column: 1 / -1;
     text-align: center;
@@ -1933,7 +2577,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 .btn-whatsapp { background: var(--whatsapp); color: #fff; box-shadow: 0 10px 26px rgba(37, 211, 102, 0.22); }
 .btn-whatsapp:hover { box-shadow: 0 14px 34px rgba(37, 211, 102, 0.4); }
 
-/* PAGINATION */
 .pagination {
     display: flex;
     align-items: center;
@@ -1965,7 +2608,6 @@ html[data-theme="light"] .theme-toggle .theme-icon.moon { opacity: 0; transform:
 .page-btn.active { background: var(--gold-gradient); border-color: var(--gold); color: #1a1a1a; }
 .page-btn:disabled { opacity: 0.3; cursor: not-allowed; }
 
-/* RECENTLY VIEWED */
 .recently-viewed-section {
     max-width: 1300px;
     margin: 0 auto;
@@ -2115,7 +2757,7 @@ a.contact-line:hover { color: var(--gold); }
 /* FLOATING */
 .wa-float {
     position: fixed;
-    bottom: 28px;
+    bottom: calc(28px + var(--safe-bottom));
     right: 28px;
     width: 58px;
     height: 58px;
@@ -2142,7 +2784,7 @@ a.contact-line:hover { color: var(--gold); }
 
 .back-to-top {
     position: fixed;
-    bottom: 100px;
+    bottom: calc(100px + var(--safe-bottom));
     right: 28px;
     width: 46px;
     height: 46px;
@@ -2167,10 +2809,9 @@ a.contact-line:hover { color: var(--gold); }
 .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
 .back-to-top:hover { background: var(--gold-gradient); color: #1a1a1a; border-color: var(--gold); }
 
-/* TOAST */
 .toast {
     position: fixed;
-    bottom: 110px;
+    bottom: calc(110px + var(--safe-bottom));
     left: 50%;
     transform: translateX(-50%) translateY(130px);
     background: var(--dark-2);
@@ -2275,7 +2916,9 @@ a.contact-line:hover { color: var(--gold); }
 
 .filter-drawer-foot .btn { flex: 1; padding: 13px; justify-content: center; }
 
-/* RESPONSIVE */
+/* ============================================
+   RESPONSIVE
+   ============================================ */
 @media (max-width: 1024px) {
     .shop-layout { grid-template-columns: 1fr; }
     .filter-sidebar { display: none; }
@@ -2289,57 +2932,23 @@ a.contact-line:hover { color: var(--gold); }
     .search-bar { display: flex; flex: 1; max-width: none; }
     .header-top { flex-wrap: wrap; gap: 12px; }
     .header-actions { flex-shrink: 0; }
-
-    .mega-inner { flex-wrap: wrap; }
-    .mega-col { flex: 1 1 150px; }
-    .mega-featured { flex: 1 1 100%; flex-direction: row; flex-wrap: wrap; }
-    .mega-featured-title { width: 100%; }
-    .mega-featured-item { flex: 0 0 calc(50% - 8px); }
 }
 
-@media (max-width: 640px) {
-    .header-top { padding: 14px 18px; flex-wrap: wrap; }
-    .logo-main { font-size: 22px; letter-spacing: 2px; }
-    .logo-sub { font-size: 9px; letter-spacing: 6px; }
-    .logo-tag { font-size: 10px; }
-    .whatsapp-btn-header span.txt { display: none; }
-    .whatsapp-btn-header { padding: 11px; width: 42px; height: 42px; justify-content: center; }
+@media (max-width: 768px) {
+    .container { padding: 0 18px; }
 
-    .signin-btn { height: 42px; padding: 0 14px; font-size: 12px; }
+    .top-info-bar,
+    .news-flash-bar,
+    .header-top { display: none !important; }
 
-    .search-bar { order: 3; width: 100%; max-width: 100%; flex: 0 0 100%; margin-top: 4px; }
-    .search-bar input { padding: 11px 48px 11px 18px; font-size: 13px; }
-    .search-bar button { width: 34px; height: 34px; font-size: 14px; right: 5px; }
+    .mobile-header { display: block; }
+    .mobile-drawer,
+    .mobile-drawer-backdrop,
+    .mobile-search-overlay { display: flex; }
 
-    .login-panel { position: fixed; top: 78px; left: 8px; right: 8px; width: auto; }
-
-    .top-info-bar { padding: 6px 18px; }
-    .top-info-inner { gap: 14px; justify-content: flex-start; }
-    .top-info-item { font-size: 10px; padding: 2px 2px; }
-    .top-info-item .top-info-icon { font-size: 11px; width: 13px; }
-    .top-info-divider { height: 12px; }
-
-    .nav-wrapper { padding: 0 18px; }
-    .nav-bar { padding: 0 0 12px; flex-wrap: wrap; }
-    .hamburger-btn { padding: 7px 14px; font-size: 12px; }
-    .hamburger-label { font-size: 12px; }
-
-    .mega-dropdown {
-        position: absolute;
-        top: calc(100% + 8px);
-        left: 0;
-        right: 0;
-        width: 100%;
-        padding: 20px 16px;
-        border-radius: var(--radius);
-        max-height: 75vh;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-    .mega-inner { flex-direction: column; gap: 20px; }
-    .mega-col { flex: 1 1 auto; min-width: 0; }
-    .mega-featured { flex: 1 1 auto; flex-direction: column; }
-    .mega-featured-item { flex: 1 1 100%; }
+    .wa-float { width: 54px; height: 54px; bottom: calc(20px + var(--safe-bottom)); right: 16px; }
+    .wa-float .wa-icon { width: 26px; height: 26px; }
+    .back-to-top { bottom: calc(84px + var(--safe-bottom)); right: 16px; width: 44px; height: 44px; }
 
     .shop-hero { padding: 30px 0 20px; }
     .shop-hero-inner { padding: 0 18px; }
@@ -2381,9 +2990,6 @@ a.contact-line:hover { color: var(--gold); }
 
     .footer-grid { grid-template-columns: 1fr; gap: 34px; }
     .footer-bottom { flex-direction: column; text-align: center; }
-    .wa-float { width: 52px; height: 52px; bottom: 20px; right: 20px; }
-    .wa-float .wa-icon { width: 24px; height: 24px; }
-    .back-to-top { bottom: 86px; right: 20px; }
 
     .results-toolbar { gap: 10px; }
     .sort-select { font-size: 12px; padding: 9px 32px 9px 14px; }
@@ -2392,18 +2998,119 @@ a.contact-line:hover { color: var(--gold); }
     .recently-scroll { grid-auto-columns: minmax(160px, 1fr); gap: 12px; }
 }
 
+@media (max-width: 480px) {
+    .container { padding: 0 16px; }
+
+    .mobile-brand-main { font-size: 26px; -webkit-text-stroke: 1px rgba(201, 162, 39, 0.85); }
+    html[data-theme="light"] .mobile-brand-main { -webkit-text-stroke: 1px rgba(110, 85, 14, 0.75); }
+    .mobile-brand-sub { font-size: 9.5px; letter-spacing: 4.5px; }
+    .mobile-brand-icon { width: 42px; height: 42px; }
+    .mobile-brand-row { gap: 10px; padding: 12px 14px 8px; }
+
+    .mobile-drawer-brand .brand-main { font-size: 22px; -webkit-text-stroke: 1px rgba(201, 162, 39, 0.85); }
+    html[data-theme="light"] .mobile-drawer-brand .brand-main { -webkit-text-stroke: 1px rgba(110, 85, 14, 0.75); }
+    .mobile-drawer-brand img { width: 46px; height: 46px; }
+
+    .mobile-search-bar { font-size: 13px; padding: 12px 14px; gap: 9px; }
+    .mobile-search-bar-hint { font-size: 8.5px; padding: 2px 7px; }
+
+    .toast {
+        left: 16px;
+        right: 16px;
+        transform: translateY(130px);
+        bottom: calc(90px + var(--safe-bottom));
+        max-width: none;
+        font-size: 12.5px;
+        padding: 12px 18px;
+    }
+    .toast.show { transform: translateY(0); }
+}
+
+@media (max-width: 360px) {
+    .mobile-brand-main { font-size: 23px; -webkit-text-stroke: 0.9px rgba(201, 162, 39, 0.85); letter-spacing: -0.4px; }
+    html[data-theme="light"] .mobile-brand-main { -webkit-text-stroke: 0.9px rgba(110, 85, 14, 0.75); }
+    .mobile-brand-sub { font-size: 8.5px; letter-spacing: 4px; }
+    .mobile-brand-icon { width: 38px; height: 38px; }
+    .mobile-brand-row { gap: 9px; padding: 10px 12px 8px; }
+
+    .mobile-drawer-brand .brand-main { font-size: 20px; -webkit-text-stroke: 0.9px rgba(201, 162, 39, 0.85); }
+    html[data-theme="light"] .mobile-drawer-brand .brand-main { -webkit-text-stroke: 0.9px rgba(110, 85, 14, 0.75); }
+    .mobile-drawer-brand img { width: 42px; height: 42px; }
+
+    .mobile-search-bar { font-size: 12.5px; padding: 11px 13px; gap: 8px; }
+    .mobile-search-bar-hint { display: none; }
+}
+
+@media (max-width: 320px) {
+    .mobile-search-bar { padding: 10px 12px; font-size: 12px; }
+    .mobile-search-bar-hint { display: none; }
+
+    .mobile-icon-btn { width: 38px; height: 38px; font-size: 16px; }
+    .mobile-menu-trigger { width: 40px; height: 40px; }
+    .container { padding: 0 12px; }
+    .drawer-link { padding: 12px 12px; min-height: 48px; }
+    .drawer-link-icon { width: 32px; height: 32px; font-size: 14px; }
+    .drawer-link-label { font-size: 13px; }
+    .drawer-link-sub { font-size: 10px; }
+    .drawer-cta { font-size: 12px; padding: 14px 10px; }
+
+    .mobile-brand-main { font-size: 20px; -webkit-text-stroke: 0.8px rgba(201, 162, 39, 0.85); }
+    html[data-theme="light"] .mobile-brand-main { -webkit-text-stroke: 0.8px rgba(110, 85, 14, 0.75); }
+    .mobile-brand-sub { font-size: 7.5px; letter-spacing: 3.5px; }
+    .mobile-brand-icon { width: 34px; height: 34px; }
+}
+
+@media (min-width: 769px) and (max-width: 900px) {
+    .header-top { padding: 16px 20px; gap: 14px; }
+    .logo-main { font-size: 22px; }
+    .logo-sub { font-size: 9px; letter-spacing: 5.5px; }
+    .signin-btn { padding: 0 16px; font-size: 12.5px; height: 42px; }
+    .whatsapp-btn-header { padding: 10px 16px; font-size: 12px; }
+    .icon-btn { width: 38px; height: 38px; font-size: 16px; }
+    .search-bar input { padding: 11px 56px 11px 18px; font-size: 13px; }
+    .search-bar button { width: 40px; height: 40px; }
+    .search-bar button svg { width: 19px; height: 19px; }
+    .top-info-inner { gap: 18px; }
+}
+
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 .fade-up { animation: fadeUp 0.8s var(--ease) backwards; }
+
+/* Mobile responsiveness hardening */
+* { -webkit-tap-highlight-color: transparent; }
+
+button, a, .drawer-link, .cat-pill, .product-card, .fav-icon, .fav-btn-text, .page-btn, .mobile-search-chip {
+    touch-action: manipulation;
+}
+
+.mobile-header, .mobile-drawer { -webkit-user-select: none; user-select: none; }
+
+html, body { overflow-x: clip; max-width: 100vw; }
+@supports not (overflow: clip) {
+    html, body { overflow-x: hidden; }
+}
+
+.mobile-drawer-body { -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
+
+iframe, video, embed, object { max-width: 100%; }
+
+.mobile-header { z-index: 120; }
+.mobile-drawer { z-index: 999; }
+.mobile-drawer-backdrop { z-index: 998; }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- ============================================
+     HEADER (identical to index.html)
+     ============================================ -->
 <header class="header">
+
+    <!-- TOP INFO BAR (Desktop only) -->
     <div class="top-info-bar">
         <div class="top-info-inner">
             <a href="warranty.html" class="top-info-item">
@@ -2418,22 +3125,43 @@ a.contact-line:hover { color: var(--gold); }
         </div>
     </div>
 
+    <!-- FLASH NEWS TICKER (Desktop only) -->
+    <div class="news-flash-bar" id="newsFlashBar">
+        <span class="news-flash-label">Flash News</span>
+        <div class="news-flash-track-wrap">
+            <div class="news-flash-track" id="newsFlashTrack"></div>
+        </div>
+    </div>
+
+    <!-- ============ DESKTOP HEADER ============ -->
     <div class="header-top">
-        <a href="index.html" class="logo">
-            <span class="logo-main">OBILO GOLD</span>
-            <span class="logo-sub">GADGETS</span>
-            <span class="logo-tag">Quality or Nothing</span>
+        <a href="index.html" class="logo" aria-label="OBILO GOLD GADGETS — Home">
+            <img src="logo-mark.svg" alt="" class="logo-mark-img" width="52" height="52">
+            <span class="logo-text">
+                <span class="logo-main">OBILO GOLD</span>
+                <span class="logo-sub">GADGETS</span>
+                <span class="logo-tag">Quality or Nothing</span>
+            </span>
         </a>
 
         <div class="search-bar">
             <input type="text" id="searchInput" placeholder="Search phones, laptops, tablets, brands...">
-            <button onclick="handleSearch()" aria-label="Search">⌕</button>
+            <button onclick="handleSearch()" aria-label="Search">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7" />
+                    <line x1="16.2" y1="16.2" x2="21" y2="21" />
+                </svg>
+            </button>
         </div>
 
         <div class="header-actions">
-            <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme">
-                <span class="theme-icon moon">☾</span>
-                <span class="theme-icon sun">☀</span>
+            <button class="theme-switch" id="themeSwitch" onclick="toggleTheme()" aria-label="Toggle dark mode" aria-pressed="false">
+                <span class="theme-switch-track">
+                    <span class="theme-switch-thumb">
+                        <span class="theme-switch-icon moon-icon">☾</span>
+                        <span class="theme-switch-icon sun-icon">☀</span>
+                    </span>
+                </span>
             </button>
 
             <button class="icon-btn" onclick="location.href='favourites.html'" aria-label="Favourites">
@@ -2509,95 +3237,264 @@ a.contact-line:hover { color: var(--gold); }
         </div>
     </div>
 
-    <div class="nav-wrapper" id="navWrapper">
-        <div class="nav-bar">
-            <div class="nav-left">
-                <a href="index.html" class="nav-shop-link">Home</a>
-                <a href="shop.html" class="nav-shop-link active">Shop</a>
-                <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMegaMenu()" aria-label="Browse categories" aria-expanded="false">
-                    <span class="hamburger-icon">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </span>
-                    <span class="hamburger-label">Browse</span>
-                </button>
-            </div>
-        </div>
+    <!-- ============ MOBILE HEADER (3 ROWS) ============ -->
+    <div class="mobile-header">
 
-        <div class="mega-dropdown" id="megaDropdown">
-            <div class="mega-inner">
-                <div class="mega-col">
-                    <div class="mega-col-title">Categories</div>
-                    <ul class="mega-links">
-                        <li><a href="shop.html?cat=phones"><span class="cat-icon">◐</span> Phones</a></li>
-                        <li><a href="shop.html?cat=laptops"><span class="cat-icon">⌘</span> Laptops</a></li>
-                        <li><a href="shop.html?cat=tablets"><span class="cat-icon">▢</span> Tablets</a></li>
-                        <li><a href="shop.html?cat=audio"><span class="cat-icon">◉</span> Audio</a></li>
-                        <li><a href="shop.html?cat=wearables"><span class="cat-icon">◯</span> Watches</a></li>
-                        <li><a href="shop.html?cat=smart-glasses"><span class="cat-icon">◈</span> Smart Glasses</a></li>
-                    </ul>
-                </div>
-                <div class="mega-col">
-                    <div class="mega-col-title">More Categories</div>
-                    <ul class="mega-links">
-                        <li><a href="shop.html?cat=mp3"><span class="cat-icon">♫</span> MP3 Players</a></li>
-                        <li><a href="shop.html?cat=chargers"><span class="cat-icon">⚡</span> Chargers</a></li>
-                        <li><a href="shop.html?cat=cables"><span class="cat-icon">⌁</span> Cords &amp; Cables</a></li>
-                        <li><a href="shop.html?cat=cases"><span class="cat-icon">⬚</span> Phone Cases</a></li>
-                        <li><a href="shop.html?cat=guards"><span class="cat-icon">◫</span> Screen Guards</a></li>
-                        <li><a href="shop.html?cat=accessories"><span class="cat-icon">✦</span> Accessories</a></li>
-                    </ul>
-                </div>
-                <div class="mega-col">
-                    <div class="mega-col-title">Top Brands</div>
-                    <ul class="mega-links">
-                        <li><a href="shop.html?brand=apple">Apple</a></li>
-                        <li><a href="shop.html?brand=samsung">Samsung</a></li>
-                        <li><a href="shop.html?brand=google">Google Pixel</a></li>
-                        <li><a href="shop.html?brand=xiaomi">Xiaomi / Redmi</a></li>
-                        <li><a href="shop.html?brand=tecno">Tecno</a></li>
-                        <li><a href="shop.html?brand=infinix">Infinix</a></li>
-                        <li><a href="shop.html?brand=oppo">Oppo</a></li>
-                        <li><a href="shop.html?brand=realme">Realme</a></li>
-                    </ul>
-                </div>
-                <div class="mega-featured">
-                    <div class="mega-featured-title">Featured Picks</div>
-                    <a href="product.html?id=1" class="mega-featured-item">
-                        <div class="mega-featured-img">
-                            <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=100&q=80" alt="iPhone 15 Pro Max">
-                        </div>
-                        <div class="mega-featured-info">
-                            <div class="mega-featured-name">iPhone 15 Pro Max</div>
-                            <div class="mega-featured-price">₦1,650,000</div>
-                        </div>
-                    </a>
-                    <a href="product.html?id=5" class="mega-featured-item">
-                        <div class="mega-featured-img">
-                            <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=100&q=80" alt="Google Pixel 9 Pro">
-                        </div>
-                        <div class="mega-featured-info">
-                            <div class="mega-featured-name">Google Pixel 9 Pro</div>
-                            <div class="mega-featured-price">₦1,450,000</div>
-                        </div>
-                    </a>
-                    <a href="product.html?id=3" class="mega-featured-item">
-                        <div class="mega-featured-img">
-                            <img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=100&q=80" alt="Samsung S25 Ultra">
-                        </div>
-                        <div class="mega-featured-info">
-                            <div class="mega-featured-name">Samsung S25 Ultra</div>
-                            <div class="mega-featured-price">₦1,850,000</div>
-                        </div>
-                    </a>
-                </div>
+        <!-- ROW 1 — Centered Brand -->
+        <a href="index.html" class="mobile-brand-row" aria-label="OBILO GOLD GADGETS — Home">
+            <img src="logo-mark.svg" alt="" class="mobile-brand-icon" width="46" height="46">
+            <span class="mobile-brand-text">
+                <span class="mobile-brand-main">OBILO GOLD</span>
+                <span class="mobile-brand-sub">GADGETS</span>
+            </span>
+        </a>
+
+        <!-- ROW 2 — Full-width Premium Search Bar -->
+        <button class="mobile-search-bar" onclick="openMobileSearch()" aria-label="Open search">
+            <span class="mobile-search-bar-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7" />
+                    <line x1="16.2" y1="16.2" x2="21" y2="21" />
+                </svg>
+            </span>
+            <span class="mobile-search-bar-text">Search phones, laptops, brands...</span>
+            <span class="mobile-search-bar-hint">Search</span>
+        </button>
+
+        <!-- ROW 3 — Menu + Actions -->
+        <div class="mobile-header-inner">
+            <button class="mobile-menu-trigger" id="mobileMenuTrigger" onclick="toggleMobileDrawer()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer">
+                <span class="mobile-menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+
+            <div class="mobile-header-actions">
+                <button class="theme-switch theme-switch-mobile" onclick="toggleTheme()" aria-label="Toggle dark mode" aria-pressed="false">
+                    <span class="theme-switch-track">
+                        <span class="theme-switch-thumb">
+                            <span class="theme-switch-icon moon-icon">☾</span>
+                            <span class="theme-switch-icon sun-icon">☀</span>
+                        </span>
+                    </span>
+                </button>
+                <button class="mobile-icon-btn" onclick="location.href='favourites.html'" aria-label="Favourites">
+                    ♡
+                    <span class="badge" id="favBadgeMobile" style="display:none">0</span>
+                </button>
             </div>
         </div>
     </div>
 </header>
 
-<!-- SHOP HERO -->
+<!-- ============ MOBILE DRAWER ============ -->
+<div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop" onclick="closeMobileDrawer()"></div>
+
+<aside class="mobile-drawer" id="mobileDrawer" role="dialog" aria-label="Main menu" aria-modal="true">
+    <div class="mobile-drawer-head">
+        <div class="mobile-drawer-brand">
+            <img src="logo-mark.svg" alt="" width="52" height="52">
+            <div class="mobile-drawer-brand-text">
+                <span class="brand-main">OBILO GOLD</span>
+                <span class="brand-sub">GADGETS</span>
+            </div>
+        </div>
+        <button class="mobile-drawer-close" onclick="closeMobileDrawer()" aria-label="Close menu">✕</button>
+    </div>
+
+    <div class="mobile-drawer-body">
+
+        <div class="drawer-section">
+            <span class="drawer-section-title">Menu</span>
+
+            <a href="index.html" class="drawer-link">
+                <span class="drawer-link-icon">⌂</span>
+                <span class="drawer-link-text">
+                    <span class="drawer-link-label">Home</span>
+                    <span class="drawer-link-sub">Back to the homepage</span>
+                </span>
+                <span class="drawer-link-arrow">›</span>
+            </a>
+
+            <a href="shop.html" class="drawer-link active">
+                <span class="drawer-link-icon">◐</span>
+                <span class="drawer-link-text">
+                    <span class="drawer-link-label">Shop All</span>
+                    <span class="drawer-link-sub">Browse every gadget</span>
+                </span>
+                <span class="drawer-link-arrow">›</span>
+            </a>
+
+            <button class="drawer-link" id="drawerCategoriesToggle" onclick="toggleDrawerAccordion('drawerCategories')">
+                <span class="drawer-link-icon">▦</span>
+                <span class="drawer-link-text">
+                    <span class="drawer-link-label">Categories</span>
+                    <span class="drawer-link-sub">12 categories to explore</span>
+                </span>
+                <span class="drawer-link-arrow" id="drawerCategoriesArrow">›</span>
+            </button>
+
+            <div class="drawer-submenu" id="drawerCategories">
+                <div class="drawer-submenu-inner">
+                    <a href="shop.html?cat=phones" class="drawer-submenu-link"><span class="sub-icon">◐</span> Phones</a>
+                    <a href="shop.html?cat=laptops" class="drawer-submenu-link"><span class="sub-icon">⌘</span> Laptops</a>
+                    <a href="shop.html?cat=tablets" class="drawer-submenu-link"><span class="sub-icon">▢</span> Tablets</a>
+                    <a href="shop.html?cat=audio" class="drawer-submenu-link"><span class="sub-icon">◉</span> Audio</a>
+                    <a href="shop.html?cat=wearables" class="drawer-submenu-link"><span class="sub-icon">◯</span> Watches</a>
+                    <a href="shop.html?cat=smart-glasses" class="drawer-submenu-link"><span class="sub-icon">◈</span> Smart Glasses</a>
+                    <a href="shop.html?cat=mp3" class="drawer-submenu-link"><span class="sub-icon">♫</span> MP3 Players</a>
+                    <a href="shop.html?cat=chargers" class="drawer-submenu-link"><span class="sub-icon">⚡</span> Chargers</a>
+                    <a href="shop.html?cat=cables" class="drawer-submenu-link"><span class="sub-icon">⌁</span> Cords &amp; Cables</a>
+                    <a href="shop.html?cat=cases" class="drawer-submenu-link"><span class="sub-icon">⬚</span> Phone Cases</a>
+                    <a href="shop.html?cat=guards" class="drawer-submenu-link"><span class="sub-icon">◫</span> Screen Guards</a>
+                    <a href="shop.html?cat=accessories" class="drawer-submenu-link"><span class="sub-icon">✦</span> Accessories</a>
+                </div>
+            </div>
+
+            <button class="drawer-link" id="drawerBrandsToggle" onclick="toggleDrawerAccordion('drawerBrands')">
+                <span class="drawer-link-icon">◆</span>
+                <span class="drawer-link-text">
+                    <span class="drawer-link-label">Brands</span>
+                    <span class="drawer-link-sub">Apple, Samsung, Tecno &amp; more</span>
+                </span>
+                <span class="drawer-link-arrow" id="drawerBrandsArrow">›</span>
+            </button>
+
+            <div class="drawer-submenu" id="drawerBrands">
+                <div class="drawer-submenu-inner">
+                    <a href="shop.html?brand=apple" class="drawer-submenu-link">Apple</a>
+                    <a href="shop.html?brand=samsung" class="drawer-submenu-link">Samsung</a>
+                    <a href="shop.html?brand=google" class="drawer-submenu-link">Google Pixel</a>
+                    <a href="shop.html?brand=xiaomi" class="drawer-submenu-link">Xiaomi</a>
+                    <a href="shop.html?brand=redmi" class="drawer-submenu-link">Redmi</a>
+                    <a href="shop.html?brand=tecno" class="drawer-submenu-link">Tecno</a>
+                    <a href="shop.html?brand=infinix" class="drawer-submenu-link">Infinix</a>
+                    <a href="shop.html?brand=oppo" class="drawer-submenu-link">Oppo</a>
+                    <a href="shop.html?brand=vivo" class="drawer-submenu-link">Vivo</a>
+                    <a href="shop.html?brand=realme" class="drawer-submenu-link">Realme</a>
+                    <a href="shop.html?brand=honor" class="drawer-submenu-link">Honor</a>
+                    <a href="shop.html?brand=anker" class="drawer-submenu-link">Anker</a>
+                </div>
+            </div>
+
+            <a href="shop.html?deals=1" class="drawer-link">
+                <span class="drawer-link-icon">⚡</span>
+                <span class="drawer-link-text">
+                    <span class="drawer-link-label">Hot Deals</span>
+                    <span class="drawer-link-sub">Limited-time offers</span>
+                </span>
+                <span class="drawer-link-arrow">›</span>
+            </a>
+
+            <a href="favourites.html" class="drawer-link">
+                <span class="drawer-link-icon">♡</span>
+                <span class="drawer-link-text">
+                    <span class="drawer-link-label">My Favourites</span>
+                    <span class="drawer-link-sub">Your saved gadgets</span>
+                </span>
+                <span class="drawer-link-arrow" id="drawerFavCount" style="font-size:11px; font-weight:700; color:var(--gold); background:var(--gold-soft); padding:3px 9px; border-radius:100px; border:1px solid var(--gold-hairline);">0</span>
+            </a>
+        </div>
+
+        <div class="drawer-section">
+            <span class="drawer-section-title">Support</span>
+
+            <a href="warranty.html" class="drawer-link">
+                <span class="drawer-link-icon">◈</span>
+                <span class="drawer-link-text">
+                    <span class="drawer-link-label">Warranty Info</span>
+                    <span class="drawer-link-sub">1-year coverage</span>
+                </span>
+                <span class="drawer-link-arrow">›</span>
+            </a>
+
+            <a href="delivery.html" class="drawer-link">
+                <span class="drawer-link-icon">➤</span>
+                <span class="drawer-link-text">
+                    <span class="drawer-link-label">Delivery</span>
+                    <span class="drawer-link-sub">Nationwide shipping</span>
+                </span>
+                <span class="drawer-link-arrow">›</span>
+            </a>
+
+            <a href="help.html" class="drawer-link">
+                <span class="drawer-link-icon">?</span>
+                <span class="drawer-link-text">
+                    <span class="drawer-link-label">Help &amp; Support</span>
+                    <span class="drawer-link-sub">FAQ and contact</span>
+                </span>
+                <span class="drawer-link-arrow">›</span>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="mobile-drawer-foot">
+        <button class="drawer-account-btn" onclick="closeMobileDrawer(); setTimeout(() => { document.getElementById('accountWrap')?.classList.add('open'); }, 400);">
+            <span class="drawer-account-avatar" id="drawerAccountAvatar">O</span>
+            <span class="drawer-account-info">
+                <span class="drawer-account-name" id="drawerAccountName">Sign In / Register</span>
+                <span class="drawer-account-sub" id="drawerAccountSub">Unlock favourites &amp; personalised picks</span>
+            </span>
+            <span class="drawer-link-arrow">›</span>
+        </button>
+
+        <div class="drawer-cta-row">
+            <a href="shop.html" class="drawer-cta primary">
+                <span>◐</span> Shop Now
+            </a>
+            <a href="https://wa.me/2349094062471" target="_blank" rel="noopener" class="drawer-cta whatsapp">
+                <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                WhatsApp
+            </a>
+        </div>
+    </div>
+</aside>
+
+<!-- ============ MOBILE SEARCH OVERLAY ============ -->
+<div class="mobile-search-overlay" id="mobileSearchOverlay" role="dialog" aria-label="Search">
+    <div class="mobile-search-head">
+        <div class="mobile-search-input-wrap">
+            <input type="text" id="mobileSearchInput" class="mobile-search-input" placeholder="Search gadgets, brands..." autocomplete="off">
+            <button class="mobile-search-submit" onclick="submitMobileSearch()" aria-label="Search">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7" />
+                    <line x1="16.2" y1="16.2" x2="21" y2="21" />
+                </svg>
+            </button>
+        </div>
+        <button class="mobile-search-cancel" onclick="closeMobileSearch()">Cancel</button>
+    </div>
+    <div class="mobile-search-suggestions">
+        <div class="mobile-search-suggest-title">Popular Searches</div>
+        <div class="mobile-search-chips">
+            <button class="mobile-search-chip" onclick="quickMobileSearch('iPhone')">iPhone</button>
+            <button class="mobile-search-chip" onclick="quickMobileSearch('Samsung')">Samsung</button>
+            <button class="mobile-search-chip" onclick="quickMobileSearch('Google Pixel')">Google Pixel</button>
+            <button class="mobile-search-chip" onclick="quickMobileSearch('Redmi')">Redmi</button>
+            <button class="mobile-search-chip" onclick="quickMobileSearch('Tecno')">Tecno</button>
+            <button class="mobile-search-chip" onclick="quickMobileSearch('Infinix')">Infinix</button>
+            <button class="mobile-search-chip" onclick="quickMobileSearch('MacBook')">MacBook</button>
+            <button class="mobile-search-chip" onclick="quickMobileSearch('earbuds')">Earbuds</button>
+            <button class="mobile-search-chip" onclick="quickMobileSearch('smartwatch')">Smartwatch</button>
+        </div>
+
+        <div class="mobile-search-suggest-title">Popular Categories</div>
+        <div class="mobile-search-chips">
+            <button class="mobile-search-chip" onclick="location.href='shop.html?cat=phones'">Phones</button>
+            <button class="mobile-search-chip" onclick="location.href='shop.html?cat=laptops'">Laptops</button>
+            <button class="mobile-search-chip" onclick="location.href='shop.html?cat=audio'">Audio</button>
+            <button class="mobile-search-chip" onclick="location.href='shop.html?cat=wearables'">Watches</button>
+            <button class="mobile-search-chip" onclick="location.href='shop.html?cat=accessories'">Accessories</button>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================
+     SHOP HERO
+     ============================================ -->
 <section class="shop-hero">
     <div class="shop-hero-inner">
         <div class="breadcrumb" id="breadcrumbTrail">
@@ -2744,10 +3641,13 @@ a.contact-line:hover { color: var(--gold); }
     <div class="container">
         <div class="footer-grid">
             <div class="footer-brand">
-                <div class="logo">
-                    <span class="logo-main">OBILO GOLD</span>
-                    <span class="logo-sub">GADGETS</span>
-                    <span class="logo-tag">Quality or Nothing</span>
+                <div class="logo footer-logo">
+                    <img src="logo-mark.svg" alt="" class="logo-mark-img" width="48" height="48">
+                    <span class="logo-text">
+                        <span class="logo-main">OBILO GOLD</span>
+                        <span class="logo-sub">GADGETS</span>
+                        <span class="logo-tag">Quality or Nothing</span>
+                    </span>
                 </div>
                 <p>Your trusted destination for premium gadgets in Nigeria. Genuine products, honest prices, real conversations.</p>
                 <div class="footer-socials">
@@ -2767,47 +3667,34 @@ a.contact-line:hover { color: var(--gold); }
             </div>
 
             <div class="footer-col">
-                <h5>Categories</h5>
+                <h5>Shop</h5>
                 <ul>
                     <li><a href="shop.html?cat=phones">Phones</a></li>
                     <li><a href="shop.html?cat=laptops">Laptops</a></li>
                     <li><a href="shop.html?cat=tablets">Tablets</a></li>
                     <li><a href="shop.html?cat=audio">Audio</a></li>
                     <li><a href="shop.html?cat=wearables">Watches</a></li>
-                    <li><a href="shop.html?cat=chargers">Chargers</a></li>
                     <li><a href="shop.html?cat=accessories">Accessories</a></li>
                 </ul>
             </div>
 
             <div class="footer-col">
-                <h5>Brands</h5>
+                <h5>Support</h5>
                 <ul>
-                    <li><a href="shop.html?cat=phones&brand=Apple">Apple Phones</a></li>
-                    <li><a href="shop.html?cat=phones&brand=Samsung">Samsung Phones</a></li>
-                    <li><a href="shop.html?cat=phones&brand=Google Pixel">Google Pixel Phones</a></li>
-                    <li><a href="shop.html?cat=phones&brand=Redmi">Redmi Phones</a></li>
-                    <li><a href="shop.html?cat=phones&brand=Tecno">Tecno Phones</a></li>
-                    <li><a href="shop.html?cat=phones&brand=Infinix">Infinix Phones</a></li>
-                    <li><a href="shop.html?cat=phones&brand=Oppo">Oppo Phones</a></li>
+                    <li><a href="warranty.html">Warranty</a></li>
+                    <li><a href="delivery.html">Delivery</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="help.html">Help Center</a></li>
+                    <li><a href="favourites.html">My Favourites</a></li>
                 </ul>
             </div>
 
             <div class="footer-col">
                 <h5>Contact</h5>
                 <ul>
-                    <li>
-                        <a href="https://wa.me/2349094062471" target="_blank" rel="noopener" class="contact-line">
-                            <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="color:var(--whatsapp)"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                            0909 406 2471
-                        </a>
-                    </li>
+                    <li><a href="https://wa.me/2349094062471" target="_blank" rel="noopener" class="contact-line">0909 406 2471</a></li>
                     <li><a href="mailto:obilogold@gmail.com" class="contact-line">✉ obilogold@gmail.com</a></li>
-                    <li>
-                        <span class="contact-line" style="cursor:default;">
-                            ✦ No 38 St Michaels GSM Center,<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;Aba, Abia State
-                        </span>
-                    </li>
+                    <li><span class="contact-line" style="cursor:default;">✦ No 38 St Michaels GSM Center,<br>&nbsp;&nbsp;&nbsp;&nbsp;Aba, Abia State</span></li>
                 </ul>
             </div>
         </div>
@@ -2831,22 +3718,39 @@ a.contact-line:hover { color: var(--gold); }
 <div class="toast" id="toast">Added</div>
 
 <script>
-/* THEME */
+/* ============================================================
+   THEME
+   ============================================================ */
 function toggleTheme() {
     const html = document.documentElement;
-    const current = html.getAttribute('data-theme') || 'dark';
+    const current = html.getAttribute('data-theme') || 'light';
     const next = current === 'dark' ? 'light' : 'dark';
     html.setAttribute('data-theme', next);
     try { localStorage.setItem('obilo_theme', next); } catch(e) {}
+
+    document.querySelectorAll('.theme-switch').forEach(sw => {
+        sw.setAttribute('aria-pressed', next === 'dark' ? 'true' : 'false');
+    });
+
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', next === 'dark' ? '#14161B' : '#FAFAF8');
 }
 
-/* CONFIG */
+function syncThemeSwitch() {
+    const current = document.documentElement.getAttribute('data-theme') || 'light';
+    document.querySelectorAll('.theme-switch').forEach(sw => {
+        sw.setAttribute('aria-pressed', current === 'dark' ? 'true' : 'false');
+    });
+}
+
+/* ============================================================
+   CONFIG
+   ============================================================ */
 const WHATSAPP_BASE = 'https://wa.me/2349094062471';
 const MAX_PRICE = 2500000;
 
 const WA_SVG = `<svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>`;
 
-/* CATEGORIES */
 const CATEGORIES = [
     { id: 'phones',        name: 'Phones',         icon: '◐' },
     { id: 'laptops',       name: 'Laptops',        icon: '⌘' },
@@ -2862,18 +3766,13 @@ const CATEGORIES = [
     { id: 'accessories',   name: 'Accessories',    icon: '✦' },
 ];
 
-/* CONDITIONS */
 const CONDITIONS = [
     { id: 'brand-new', name: 'Brand New',        color: 'var(--success)' },
     { id: 'uk-used',   name: 'UK Used · Clean',  color: 'var(--uk-blue)' },
     { id: 'us-used',   name: 'US Used · Clean',  color: 'var(--us-purple)' },
 ];
 
-/* ============================================================
-   MASTER PRODUCT CATALOG (matches product.html)
-   ============================================================ */
 const PRODUCTS = [
-    /* ===== BRAND NEW — PHONES ===== */
     { id: 1,  name: 'iPhone 15 Pro Max', price: 1650000, image: 'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 2,  name: 'iPhone 15 Pro',     price: 1450000, image: 'https://images.unsplash.com/photo-1591337676887-a217a6970a8a?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false, badge: 'new', inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 3,  name: 'Samsung Galaxy S25 Ultra', price: 1850000, image: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=600&q=80', category: 'phones', brand: 'Samsung', sponsored: true, featured: true, badge: 'new', inStock: true, stockType: 'in-store', condition: 'brand-new' },
@@ -2896,20 +3795,14 @@ const PRODUCTS = [
     { id: 22, name: 'Nothing Phone (2a)', price: 480000, image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'phones', brand: 'Nothing', sponsored: false, badge: 'new', inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 200, name: 'iPhone 15', price: 1150000, image: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 210, name: 'Samsung Galaxy S24 Ultra', price: 1650000, image: 'https://images.unsplash.com/photo-1707060565848-8f1b0ff1e1c4?w=600&q=80', category: 'phones', brand: 'Samsung', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new' },
-
-    /* ===== UK USED — PHONES ===== */
     { id: 1001, name: 'iPhone 14 Pro Max — UK Used', price: 980000, oldPrice: 1280000, image: 'https://images.unsplash.com/photo-1678652197831-2d180705cd2c?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'uk-used' },
     { id: 1002, name: 'Samsung Galaxy S23 Ultra — UK Used', price: 780000, oldPrice: 1180000, image: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=600&q=80', category: 'phones', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'uk-used' },
     { id: 1003, name: 'Google Pixel 7 Pro — UK Used', price: 520000, oldPrice: 780000, image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80', category: 'phones', brand: 'Google Pixel', sponsored: false, inStock: true, stockType: 'in-store', condition: 'uk-used' },
     { id: 1004, name: 'iPhone 13 — UK Used', price: 480000, oldPrice: 780000, image: 'https://images.unsplash.com/photo-1632661674596-df8be070a5c5?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store', condition: 'uk-used' },
     { id: 1005, name: 'Samsung Galaxy S22 Ultra — UK Used', price: 480000, oldPrice: 720000, image: 'https://images.unsplash.com/photo-1610792516307-ea5acd9c3b00?w=600&q=80', category: 'phones', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'uk-used' },
-
-    /* ===== US USED — PHONES ===== */
     { id: 1101, name: 'iPhone 14 — US Used', price: 720000, oldPrice: 980000, image: 'https://images.unsplash.com/photo-1591337676887-a217a6970a8a?w=600&q=80', category: 'phones', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store', condition: 'us-used' },
     { id: 1102, name: 'Samsung Galaxy S23 — US Used', price: 580000, oldPrice: 850000, image: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=600&q=80', category: 'phones', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'us-used' },
     { id: 1103, name: 'Google Pixel 7 — US Used', price: 380000, oldPrice: 580000, image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'phones', brand: 'Google Pixel', sponsored: false, inStock: true, stockType: 'in-store', condition: 'us-used' },
-
-    /* ===== LAPTOPS ===== */
     { id: 30, name: 'MacBook Pro 14" M3', price: 2450000, image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&q=80', category: 'laptops', brand: 'Apple', sponsored: false, featured: true, badge: 'new', inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 31, name: 'MacBook Air M2', price: 1850000, image: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=600&q=80', category: 'laptops', brand: 'Apple', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 32, name: 'Dell XPS 15', price: 1980000, image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&q=80', category: 'laptops', brand: 'Dell', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
@@ -2917,22 +3810,16 @@ const PRODUCTS = [
     { id: 34, name: 'Lenovo IdeaPad Slim 5', price: 650000, image: 'https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?w=600&q=80', category: 'laptops', brand: 'Lenovo', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 35, name: 'Asus Vivobook 16', price: 580000, image: 'https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?w=600&q=80', category: 'laptops', brand: 'Asus', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 1201, name: 'MacBook Air M1 — UK Used', price: 920000, oldPrice: 1450000, image: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=600&q=80', category: 'laptops', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store', condition: 'uk-used' },
-
-    /* ===== TABLETS ===== */
     { id: 40, name: 'iPad Air 5th Gen', price: 780000, image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&q=80', category: 'tablets', brand: 'Apple', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 41, name: 'Samsung Galaxy Tab S9', price: 850000, image: 'https://images.unsplash.com/photo-1561154464-82e9adf32764?w=600&q=80', category: 'tablets', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 42, name: 'Xiaomi Pad 6', price: 380000, image: 'https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?w=600&q=80', category: 'tablets', brand: 'Xiaomi', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 43, name: 'Lenovo Tab P12', price: 320000, image: 'https://images.unsplash.com/photo-1633114128174-2f8aa49759b0?w=600&q=80', category: 'tablets', brand: 'Lenovo', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
-
-    /* ===== AUDIO ===== */
     { id: 50, name: 'AirPods Pro 2nd Gen', price: 320000, image: 'https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=600&q=80', category: 'audio', brand: 'Apple', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 51, name: 'Samsung Buds 3 Pro', price: 210000, image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&q=80', category: 'audio', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 52, name: 'Sony WH-1000XM5', price: 420000, image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&q=80', category: 'audio', brand: 'Sony', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 53, name: 'JBL Flip 6 Speaker', price: 95000, image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600&q=80', category: 'audio', brand: 'JBL', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 54, name: 'Oraimo FreePods 4', price: 28000, image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&q=80', category: 'audio', brand: 'Oraimo', sponsored: false, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 55, name: 'Anker Soundcore P40i', price: 65000, image: 'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=600&q=80', category: 'audio', brand: 'Anker', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
-
-    /* ===== WEARABLES ===== */
     { id: 60, name: 'Apple Watch Series 9', price: 480000, image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600&q=80', category: 'wearables', brand: 'Apple', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 61, name: 'Samsung Galaxy Watch 6', price: 320000, image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80', category: 'wearables', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 62, name: 'Xiaomi Smart Band 8', price: 42000, image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=600&q=80', category: 'wearables', brand: 'Xiaomi', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
@@ -2940,34 +3827,24 @@ const PRODUCTS = [
     { id: 64, name: 'Huawei Watch GT 4', price: 280000, image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600&q=80', category: 'wearables', brand: 'Huawei', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 65, name: 'Amazfit GTR 4', price: 145000, image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80', category: 'wearables', brand: 'Amazfit', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 66, name: 'Fitbit Charge 6', price: 165000, image: 'https://images.unsplash.com/photo-1544117519-31a4b719223d?w=600&q=80', category: 'wearables', brand: 'Fitbit', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
-
-    /* ===== SMART GLASSES ===== */
     { id: 70, name: 'Ray-Ban Meta Smart Glasses', price: 620000, image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80', category: 'smart-glasses', brand: 'Meta', sponsored: false, featured: true, badge: 'new', inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 71, name: 'Xreal Air 2 Pro AR', price: 890000, image: 'https://images.unsplash.com/photo-1626379953822-baec19c3accd?w=600&q=80', category: 'smart-glasses', brand: 'Xreal', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
-
-    /* ===== MP3 ===== */
     { id: 100, name: 'Sony NW-E394 Walkman', price: 85000, image: 'https://images.unsplash.com/photo-1592434134753-a70baf7979d5?w=600&q=80', category: 'mp3', brand: 'Sony', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 101, name: 'FiiO M6 Hi-Res Player', price: 145000, image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&q=80', category: 'mp3', brand: 'FiiO', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 102, name: 'SanDisk Clip Sport Plus', price: 45000, image: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600&q=80', category: 'mp3', brand: 'SanDisk', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 103, name: 'Shanling M0 Pro', price: 95000, image: 'https://images.unsplash.com/photo-1592434134753-a70baf7979d5?w=600&q=80', category: 'mp3', brand: 'Shanling', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
-
-    /* ===== CHARGERS ===== */
     { id: 110, name: 'Anker 65W GaN Charger', price: 42000, image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Anker', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 111, name: 'Oraimo 20W Fast Charger', price: 12000, image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Oraimo', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 112, name: 'Apple 20W USB-C Adapter', price: 28000, image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 113, name: 'Samsung 45W Super Charger', price: 35000, image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 114, name: 'Xiaomi 33W Turbo Charger', price: 18000, image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Xiaomi', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 115, name: 'Baseus 100W GaN Charger', price: 55000, image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80', category: 'chargers', brand: 'Baseus', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
-
-    /* ===== CABLES ===== */
     { id: 120, name: 'Anker USB-C to Lightning', price: 15000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Anker', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 121, name: 'Oraimo USB-C Fast Cable', price: 6500, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Oraimo', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 122, name: 'Apple USB-C to USB-C 2m', price: 22000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 123, name: 'Baseus 100W Braided Cable', price: 12000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Baseus', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 124, name: 'Samsung USB-C Data Cable', price: 9500, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 125, name: 'UGREEN HDMI 8K Cable', price: 18000, image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&q=80', category: 'cables', brand: 'UGREEN', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
-
-    /* ===== CASES ===== */
     { id: 130, name: 'iPhone 15 Pro Max Silicone Case', price: 8500, image: 'https://images.unsplash.com/photo-1601593346740-925612772716?w=600&q=80', category: 'cases', brand: 'Apple', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 131, name: 'iPhone 15 Pro Max Leather Case', price: 18000, image: 'https://images.unsplash.com/photo-1601593346740-925612772716?w=600&q=80', category: 'cases', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 132, name: 'Samsung S25 Ultra Clear Case', price: 7500, image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80', category: 'cases', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
@@ -2979,8 +3856,6 @@ const PRODUCTS = [
     { id: 138, name: 'Oppo Reno 12 Pro Clear Case', price: 5500, image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'cases', brand: 'Oppo', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 139, name: 'Universal Shockproof Case — Clear', price: 3500, image: 'https://images.unsplash.com/photo-1601593346740-925612772716?w=600&q=80', category: 'cases', brand: 'OBILO', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 140, name: 'Universal Ring Holder Case — Black', price: 4500, image: 'https://images.unsplash.com/photo-1601593346740-925612772716?w=600&q=80', category: 'cases', brand: 'OBILO', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
-
-    /* ===== GUARDS ===== */
     { id: 150, name: 'iPhone 15 Pro Max Tempered Glass', price: 4500, image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80', category: 'guards', brand: 'Apple', sponsored: false, featured: true, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 151, name: 'iPhone 15 Pro Max Privacy Glass', price: 8500, image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80', category: 'guards', brand: 'Apple', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 152, name: 'Samsung S25 Ultra Tempered Glass', price: 4500, image: 'https://images.unsplash.com/photo-1610792516307-ea5acd9c3b00?w=600&q=80', category: 'guards', brand: 'Samsung', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
@@ -2991,13 +3866,13 @@ const PRODUCTS = [
     { id: 157, name: 'Infinix Note 40 Pro Tempered Glass', price: 2500, image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80', category: 'guards', brand: 'Infinix', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 158, name: 'Universal HD Screen Film (3-pack)', price: 1500, image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80', category: 'guards', brand: 'OBILO', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 159, name: 'Universal Matte Anti-Glare Film', price: 2000, image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80', category: 'guards', brand: 'OBILO', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' },
-
-    /* ===== ACCESSORIES ===== */
     { id: 80, name: 'Anker Power Bank 20K', price: 45000, image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=600&q=80', category: 'accessories', brand: 'Anker', sponsored: false, featured: true, badge: 'hot', inStock: true, stockType: 'in-store', condition: 'brand-new' },
     { id: 81, name: 'Logitech MX Master 3S', price: 85000, image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&q=80', category: 'accessories', brand: 'Logitech', sponsored: false, inStock: true, stockType: 'in-store', condition: 'brand-new' }
 ];
 
-/* STATE */
+/* ============================================================
+   STATE
+   ============================================================ */
 const state = {
     search: '',
     categories: [],
@@ -3010,7 +3885,304 @@ const state = {
     perPage: 12,
 };
 
-/* INIT */
+/* ============================================================
+   HELPERS
+   ============================================================ */
+function formatPrice(n) { return '₦' + n.toLocaleString('en-NG'); }
+
+function showToast(msg) {
+    const t = document.getElementById('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(window._toastTimer);
+    window._toastTimer = setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+function buildWhatsAppLink(productName, price) {
+    const priceStr = price != null ? formatPrice(price) : 'Price on request';
+    const msg = `Hello OBILO GOLD GADGETS, I'm interested in:\n\n*${productName}*\nPrice: ${priceStr}\n\nIs it available?`;
+    return `${WHATSAPP_BASE}?text=${encodeURIComponent(msg)}`;
+}
+
+/* ============================================================
+   MOBILE DRAWER
+   ============================================================ */
+let _scrollLockY = 0;
+
+function lockScroll() {
+    _scrollLockY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${_scrollLockY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+    document.body.classList.add('no-scroll');
+}
+
+function unlockScroll() {
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    document.body.classList.remove('no-scroll');
+    window.scrollTo(0, _scrollLockY);
+}
+
+function toggleMobileDrawer() {
+    const drawer = document.getElementById('mobileDrawer');
+    const backdrop = document.getElementById('mobileDrawerBackdrop');
+    const trigger = document.getElementById('mobileMenuTrigger');
+    if (!drawer || !backdrop || !trigger) return;
+
+    const isOpen = drawer.classList.contains('open');
+    if (isOpen) {
+        closeMobileDrawer();
+    } else {
+        drawer.classList.add('open');
+        backdrop.classList.add('show');
+        trigger.classList.add('active');
+        trigger.setAttribute('aria-expanded', 'true');
+        lockScroll();
+    }
+}
+
+function closeMobileDrawer() {
+    const drawer = document.getElementById('mobileDrawer');
+    const backdrop = document.getElementById('mobileDrawerBackdrop');
+    const trigger = document.getElementById('mobileMenuTrigger');
+    if (!drawer || !backdrop || !trigger) return;
+    if (!drawer.classList.contains('open')) return;
+
+    drawer.classList.remove('open');
+    backdrop.classList.remove('show');
+    trigger.classList.remove('active');
+    trigger.setAttribute('aria-expanded', 'false');
+    unlockScroll();
+}
+
+function toggleDrawerAccordion(id) {
+    const submenu = document.getElementById(id);
+    if (!submenu) return;
+
+    const isOpen = submenu.classList.contains('open');
+    const toggle = id === 'drawerCategories'
+        ? document.getElementById('drawerCategoriesToggle')
+        : document.getElementById('drawerBrandsToggle');
+
+    document.querySelectorAll('.drawer-submenu').forEach(el => {
+        if (el.id !== id) el.classList.remove('open');
+    });
+    document.querySelectorAll('.drawer-link').forEach(el => el.classList.remove('expanded'));
+
+    if (isOpen) {
+        submenu.classList.remove('open');
+    } else {
+        submenu.classList.add('open');
+        if (toggle) toggle.classList.add('expanded');
+    }
+}
+
+function openMobileSearch() {
+    closeMobileDrawer();
+    const overlay = document.getElementById('mobileSearchOverlay');
+    if (!overlay) return;
+    overlay.classList.add('open');
+    lockScroll();
+    setTimeout(() => {
+        const input = document.getElementById('mobileSearchInput');
+        if (input) input.focus();
+    }, 260);
+}
+
+function closeMobileSearch() {
+    const overlay = document.getElementById('mobileSearchOverlay');
+    if (!overlay) return;
+    overlay.classList.remove('open');
+    unlockScroll();
+    const input = document.getElementById('mobileSearchInput');
+    if (input) input.value = '';
+}
+
+function submitMobileSearch() {
+    const input = document.getElementById('mobileSearchInput');
+    const q = input ? input.value.trim() : '';
+    if (q) location.href = `shop.html?q=${encodeURIComponent(q)}`;
+}
+
+function quickMobileSearch(term) {
+    location.href = `shop.html?q=${encodeURIComponent(term)}`;
+}
+
+/* Swipe-to-close drawer */
+(function() {
+    let startX = 0, startY = 0, tracking = false;
+
+    document.addEventListener('touchstart', (e) => {
+        const drawer = document.getElementById('mobileDrawer');
+        if (!drawer || !drawer.classList.contains('open')) return;
+        const t = e.touches[0];
+        startX = t.clientX;
+        startY = t.clientY;
+        tracking = true;
+    }, { passive: true });
+
+    document.addEventListener('touchmove', (e) => {
+        if (!tracking) return;
+        const t = e.touches[0];
+        const dx = t.clientX - startX;
+        const dy = t.clientY - startY;
+        if (Math.abs(dy) > Math.abs(dx) + 20) { tracking = false; return; }
+        if (dx < -60) { tracking = false; closeMobileDrawer(); }
+    }, { passive: true });
+
+    document.addEventListener('touchend', () => { tracking = false; }, { passive: true });
+})();
+
+/* ============================================================
+   AUTH
+   ============================================================ */
+const AUTH_KEY = 'obilo_auth';
+function getAuth() { try { return JSON.parse(localStorage.getItem(AUTH_KEY) || 'null'); } catch(e) { return null; } }
+function setAuth(user) { try { localStorage.setItem(AUTH_KEY, JSON.stringify(user)); } catch(e) {} applyAuthUI(); }
+function clearAuth() { try { localStorage.removeItem(AUTH_KEY); } catch(e) {} applyAuthUI(); }
+
+function applyAuthUI() {
+    const panel = document.getElementById('loginPanel');
+    const user = getAuth();
+    if (!panel) return;
+    const signinBtn = document.querySelector('.signin-btn');
+    if (user) {
+        panel.classList.add('is-logged-in');
+        const un = document.getElementById('userName');
+        const ue = document.getElementById('userEmail');
+        const ui = document.getElementById('userInitial');
+        if (un) un.textContent = user.name || 'OBILO Customer';
+        if (ue) ue.textContent = user.email || '';
+        if (ui) ui.textContent = (user.name || 'O').charAt(0).toUpperCase();
+        if (signinBtn) signinBtn.textContent = (user.name || 'Account').split(' ')[0];
+    } else {
+        panel.classList.remove('is-logged-in');
+        if (signinBtn) signinBtn.textContent = 'Sign In / Register';
+    }
+
+    const drawerAvatar = document.getElementById('drawerAccountAvatar');
+    const drawerName = document.getElementById('drawerAccountName');
+    const drawerSub = document.getElementById('drawerAccountSub');
+    if (drawerAvatar && drawerName && drawerSub) {
+        if (user) {
+            drawerAvatar.textContent = (user.name || 'O').charAt(0).toUpperCase();
+            drawerName.textContent = user.name || 'OBILO Customer';
+            drawerSub.textContent = user.email || 'Signed in';
+        } else {
+            drawerAvatar.textContent = 'O';
+            drawerName.textContent = 'Sign In / Register';
+            drawerSub.textContent = 'Unlock favourites & personalised picks';
+        }
+    }
+}
+
+function handleLogin(e) {
+    e.preventDefault();
+    const emailEl = document.getElementById('loginEmail');
+    const passEl = document.getElementById('loginPassword');
+    if (!emailEl || !passEl) return;
+    const email = emailEl.value.trim();
+    const pass = passEl.value.trim();
+    if (!email || !pass) { showToast('Please fill in both fields'); return; }
+    const name = email.split('@')[0] || 'Customer';
+    setAuth({ name: name, email: email });
+    showToast('✓ Welcome, ' + name);
+    emailEl.value = '';
+    passEl.value = '';
+    closeLoginPanel();
+}
+
+function handleLogout() { clearAuth(); showToast('Signed out'); closeLoginPanel(); }
+
+function toggleAccount(event) {
+    if (event) event.stopPropagation();
+    const wrap = document.getElementById('accountWrap');
+    if (wrap) wrap.classList.toggle('open');
+}
+
+function closeLoginPanel() {
+    const wrap = document.getElementById('accountWrap');
+    if (wrap) wrap.classList.remove('open');
+}
+document.addEventListener('click', (e) => { if (!e.target.closest('#accountWrap')) closeLoginPanel(); });
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeLoginPanel();
+        closeMobileDrawer();
+        closeMobileSearch();
+    }
+});
+
+/* ============================================================
+   FAVOURITES
+   ============================================================ */
+function getFavourites() { try { return JSON.parse(localStorage.getItem('obilo_favs') || '[]'); } catch(e) { return []; } }
+function saveFavourites(favs) { try { localStorage.setItem('obilo_favs', JSON.stringify(favs)); } catch(e) {} updateFavBadge(); }
+
+function updateFavBadge() {
+    const favs = getFavourites();
+    const count = favs.length;
+
+    const badge = document.getElementById('favBadge');
+    if (badge) {
+        if (count > 0) { badge.textContent = count; badge.style.display = 'flex'; }
+        else { badge.style.display = 'none'; }
+    }
+
+    const badgeMobile = document.getElementById('favBadgeMobile');
+    if (badgeMobile) {
+        if (count > 0) { badgeMobile.textContent = count; badgeMobile.style.display = 'flex'; }
+        else { badgeMobile.style.display = 'none'; }
+    }
+
+    const drawerCount = document.getElementById('drawerFavCount');
+    if (drawerCount) {
+        drawerCount.textContent = count > 0 ? count : '›';
+        if (count === 0) {
+            drawerCount.style.background = 'transparent';
+            drawerCount.style.border = 'none';
+            drawerCount.style.padding = '0';
+            drawerCount.style.color = 'var(--text-muted)';
+            drawerCount.style.fontSize = '14px';
+        }
+    }
+
+    const pf = document.getElementById('panelFavCount');
+    if (pf) pf.textContent = count;
+}
+
+function handleFav(event, id) {
+    event.stopPropagation();
+    const product = PRODUCTS.find(p => p.id === id);
+    if (!product) return;
+    const favs = getFavourites();
+    const idx = favs.findIndex(f => f.id === id);
+    const isFav = idx > -1;
+    if (isFav) { favs.splice(idx, 1); showToast('Removed from favourites'); }
+    else { favs.push({ ...product, savedAt: new Date().toISOString() }); showToast('♥ Added to favourites'); }
+    saveFavourites(favs);
+    document.querySelectorAll(`[data-fav-id="${id}"]`).forEach(el => {
+        el.classList.toggle('active', !isFav);
+        if (el.classList.contains('fav-icon')) el.textContent = !isFav ? '♥' : '♡';
+        if (el.classList.contains('fav-btn-text')) {
+            const heart = el.querySelector('.heart');
+            const label = el.querySelector('.label');
+            if (heart) heart.textContent = !isFav ? '♥' : '♡';
+            if (label) label.textContent = !isFav ? 'Saved' : 'Add to Favourite';
+        }
+    });
+}
+
+/* ============================================================
+   SHOP LOGIC (unchanged from original)
+   ============================================================ */
 document.getElementById('year').textContent = new Date().getFullYear();
 readURLParams();
 buildFilters();
@@ -3021,6 +4193,7 @@ renderView();
 updateFavBadge();
 applyAuthUI();
 renderRecentlyViewed();
+syncThemeSwitch();
 
 function readURLParams() {
     const params = new URLSearchParams(location.search);
@@ -3050,28 +4223,6 @@ function pushURLState(replace) {
     else history.pushState(null, '', url);
 }
 
-/* MEGA MENU */
-function toggleMegaMenu() {
-    const dropdown = document.getElementById('megaDropdown');
-    const btn = document.getElementById('hamburgerBtn');
-    const isOpen = dropdown.classList.contains('open');
-    dropdown.classList.toggle('open');
-    btn.classList.toggle('active');
-    btn.setAttribute('aria-expanded', !isOpen);
-}
-document.addEventListener('click', (e) => {
-    const dropdown = document.getElementById('megaDropdown');
-    const btn = document.getElementById('hamburgerBtn');
-    const wrapper = document.getElementById('navWrapper');
-    if (!dropdown || !btn || !wrapper) return;
-    if (!wrapper.contains(e.target)) {
-        dropdown.classList.remove('open');
-        btn.classList.remove('active');
-        btn.setAttribute('aria-expanded', 'false');
-    }
-});
-
-/* CATEGORY PILLS */
 function buildCategoryPills() {
     const wrap = document.getElementById('categoryPills');
     if (!wrap) return;
@@ -3114,7 +4265,6 @@ function toggleCategoryPill(catId) {
     pushURLState(true);
 }
 
-/* FILTERS */
 function buildFilters() {
     const catList = document.getElementById('categoryFilters');
     catList.innerHTML = CATEGORIES.map(cat => {
@@ -3592,19 +4742,10 @@ function renderFlatGrid(gridEl, paginationEl, countEl, labelEl) {
     renderPagination(totalPages);
 }
 
-/* CONDITION HELPERS */
 function getConditionInfo(condition) {
     if (condition === 'uk-used') return { cls: 'uk-used', label: 'UK Used' };
     if (condition === 'us-used') return { cls: 'us-used', label: 'US Used' };
     return { cls: 'brand-new', label: 'Brand New' };
-}
-
-function buildConditionBadgeHTML(product) {
-    const c = getConditionInfo(product.condition);
-    if (c.cls === 'brand-new') {
-        return `<span class="condition-badge brand-new"><span class="cb-dot"></span>Brand New</span>`;
-    }
-    return `<span class="condition-badge ${c.cls}"><span class="cb-dot"></span>${c.label}</span>`;
 }
 
 function productCardHTML(p) {
@@ -3618,7 +4759,6 @@ function productCardHTML(p) {
     if (p.badge === 'hot') tags.push(`<span class="product-badge hot">Hot</span>`);
     if (p.badge === 'limited') tags.push(`<span class="product-badge limited">Limited</span>`);
     if (isSoldOut) tags.push(`<span class="product-badge sold-out">Sold Out</span>`);
-    // Add condition badge for used items
     if (p.condition === 'uk-used') tags.push(`<span class="condition-badge uk-used"><span class="cb-dot"></span>UK Used</span>`);
     if (p.condition === 'us-used') tags.push(`<span class="condition-badge us-used"><span class="cb-dot"></span>US Used</span>`);
     const tagsHTML = tags.length ? `<div class="product-tags-left">${tags.join('')}</div>` : '';
@@ -3753,25 +4893,9 @@ function removeChip(i) {
     pushURLState(true);
 }
 
-function formatPrice(n) { return '₦' + n.toLocaleString('en-NG'); }
-
 function goToProduct(id) {
     recordRecentlyViewed(id);
     location.href = `product.html?id=${id}`;
-}
-
-function buildWhatsAppLink(productName, price) {
-    const priceStr = price != null ? formatPrice(price) : 'Price on request';
-    const msg = `Hello OBILO GOLD GADGETS, I'm interested in:\n\n*${productName}*\nPrice: ${priceStr}\n\nIs it available?`;
-    return `${WHATSAPP_BASE}?text=${encodeURIComponent(msg)}`;
-}
-
-function showToast(msg) {
-    const t = document.getElementById('toast');
-    t.textContent = msg;
-    t.classList.add('show');
-    clearTimeout(window._toastTimer);
-    window._toastTimer = setTimeout(() => t.classList.remove('show'), 2500);
 }
 
 function handleNotify(event, id) {
@@ -3780,40 +4904,6 @@ function handleNotify(event, id) {
     if (!p) return;
     const msg = `Hello OBILO GOLD GADGETS, please notify me when *${p.name}* is back in stock.`;
     window.open(`${WHATSAPP_BASE}?text=${encodeURIComponent(msg)}`, '_blank');
-}
-
-function getFavourites() { return JSON.parse(localStorage.getItem('obilo_favs') || '[]'); }
-function saveFavourites(favs) { localStorage.setItem('obilo_favs', JSON.stringify(favs)); updateFavBadge(); }
-function handleFav(event, id) {
-    event.stopPropagation();
-    const product = PRODUCTS.find(p => p.id === id);
-    if (!product) return;
-    const favs = getFavourites();
-    const idx = favs.findIndex(f => f.id === id);
-    const isFav = idx > -1;
-    if (isFav) { favs.splice(idx, 1); showToast('Removed from favourites'); }
-    else { favs.push({ ...product, savedAt: new Date().toISOString() }); showToast('♥ Added to favourites'); }
-    saveFavourites(favs);
-    document.querySelectorAll(`[data-fav-id="${id}"]`).forEach(el => {
-        el.classList.toggle('active', !isFav);
-        if (el.classList.contains('fav-icon')) el.textContent = !isFav ? '♥' : '♡';
-        if (el.classList.contains('fav-btn-text')) {
-            const heart = el.querySelector('.heart');
-            const label = el.querySelector('.label');
-            if (heart) heart.textContent = !isFav ? '♥' : '♡';
-            if (label) label.textContent = !isFav ? 'Saved' : 'Add to Favourite';
-        }
-    });
-}
-function updateFavBadge() {
-    const favs = getFavourites();
-    const badge = document.getElementById('favBadge');
-    if (badge) {
-        if (favs.length > 0) { badge.textContent = favs.length; badge.style.display = 'flex'; }
-        else { badge.style.display = 'none'; }
-    }
-    const pf = document.getElementById('panelFavCount');
-    if (pf) pf.textContent = favs.length;
 }
 
 function recordRecentlyViewed(id) {
@@ -3845,50 +4935,6 @@ function renderRecentlyViewed() {
     }).join('');
 }
 
-const AUTH_KEY = 'obilo_auth';
-function getAuth() { return JSON.parse(localStorage.getItem(AUTH_KEY) || 'null'); }
-function setAuth(user) { localStorage.setItem(AUTH_KEY, JSON.stringify(user)); applyAuthUI(); }
-function clearAuth() { localStorage.removeItem(AUTH_KEY); applyAuthUI(); }
-function applyAuthUI() {
-    const panel = document.getElementById('loginPanel');
-    const user = getAuth();
-    if (!panel) return;
-    const signinBtn = document.querySelector('.signin-btn');
-    if (user) {
-        panel.classList.add('is-logged-in');
-        document.getElementById('userName').textContent = user.name || 'OBILO Customer';
-        document.getElementById('userEmail').textContent = user.email || '';
-        document.getElementById('userInitial').textContent = (user.name || 'O').charAt(0).toUpperCase();
-        if (signinBtn) signinBtn.textContent = (user.name || 'Account').split(' ')[0];
-    } else {
-        panel.classList.remove('is-logged-in');
-        if (signinBtn) signinBtn.textContent = 'Sign In / Register';
-    }
-}
-function handleLogin(e) {
-    e.preventDefault();
-    const email = document.getElementById('loginEmail').value.trim();
-    const pass = document.getElementById('loginPassword').value.trim();
-    if (!email || !pass) { showToast('Please fill in both fields'); return; }
-    const name = email.split('@')[0] || 'Customer';
-    setAuth({ name, email });
-    showToast('✓ Welcome, ' + name);
-    document.getElementById('loginEmail').value = '';
-    document.getElementById('loginPassword').value = '';
-    closeLoginPanel();
-}
-function handleLogout() { clearAuth(); showToast('Signed out'); closeLoginPanel(); }
-function toggleAccount(event) {
-    if (event) event.stopPropagation();
-    document.getElementById('accountWrap').classList.toggle('open');
-}
-function closeLoginPanel() {
-    const wrap = document.getElementById('accountWrap');
-    if (wrap) wrap.classList.remove('open');
-}
-document.addEventListener('click', (e) => { if (!e.target.closest('#accountWrap')) closeLoginPanel(); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLoginPanel(); });
-
 function handleSearch() {
     const q = document.getElementById('searchInput').value.trim();
     state.search = q;
@@ -3903,16 +4949,17 @@ document.getElementById('searchInput').addEventListener('keypress', e => {
 function openFilterDrawer() {
     document.getElementById('filterDrawerOverlay').classList.add('show');
     document.getElementById('filterDrawer').classList.add('show');
-    document.body.style.overflow = 'hidden';
+    lockScroll();
 }
 function closeFilterDrawer() {
     document.getElementById('filterDrawerOverlay').classList.remove('show');
     document.getElementById('filterDrawer').classList.remove('show');
-    document.body.style.overflow = '';
+    unlockScroll();
 }
 
 window.addEventListener('scroll', () => {
     const btn = document.getElementById('backToTop');
+    if (!btn) return;
     if (window.scrollY > 600) btn.classList.add('show');
     else btn.classList.remove('show');
 });
@@ -3932,6 +4979,43 @@ window.addEventListener('popstate', () => {
     buildCategoryPills();
     renderView();
 });
+</script>
+
+<!-- ============================================
+     GLOBAL IMAGE FALLBACK
+     ============================================ -->
+<script>
+(function() {
+    const PLACEHOLDER = 'https://placehold.co/600x600/1C1C21/C9A227?text=OBILO+GOLD&font=poppins';
+
+    function attachFallback(img) {
+        if (!img || img.dataset.fallbackAttached) return;
+        img.dataset.fallbackAttached = '1';
+        img.addEventListener('error', function handler() {
+            if (this.src === PLACEHOLDER) {
+                this.removeEventListener('error', handler);
+                return;
+            }
+            this.src = PLACEHOLDER;
+            this.style.objectFit = 'cover';
+        });
+    }
+
+    document.querySelectorAll('img').forEach(attachFallback);
+
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach(m => {
+            m.addedNodes.forEach(node => {
+                if (node.nodeType === 1) {
+                    if (node.tagName === 'IMG') attachFallback(node);
+                    if (node.querySelectorAll) node.querySelectorAll('img').forEach(attachFallback);
+                }
+            });
+        });
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+})();
 </script>
 
 </body>
